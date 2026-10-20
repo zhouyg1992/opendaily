@@ -6,7 +6,7 @@
 2. **过滤与打分**：丢掉 awesome-list、教程、面试题、长期不更新的仓库，以及近 60 天已经推荐过的项目；按 star 数、当日新增 star、HN 热度、项目年龄做初排。
 3. **补全信息**：按方向均衡挑出 24 个候选（避免清一色 Agent 框架），拉取仓库元数据和 README 摘要作为判断依据。
 4. **精选与写作**：调用 LLM（默认 DeepSeek，任意 OpenAI 兼容接口均可），从候选池里挑 10 个，按方向归类，同时写清「是什么」和「可以怎么借」；没有配置 Key 时退回启发式榜单，仍然会生成文件。
-5. **写入仓库**：每天新增一份 `daily/YYYY-MM-DD.md`，同时更新 README 的「最新一期」，由 GitHub Actions 自动提交。
+5. **写入仓库**：每天新增一份 `daily/YYYY-MM-DD.md`，同时更新 README 首页的最新一期，由 GitHub Actions 自动提交。
 
 整个流水线只依赖 Python 标准库，不需要 `pip install`。
 
