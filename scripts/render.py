@@ -126,10 +126,15 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
         f"**[{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})** — {latest.get('intro', '')}",
         "",
     ]
-    for index, entry in enumerate(items, 1):
-        insight = entry.get("insight") or entry.get("summary", "")
-        lines.append(f"**{index}.** [{entry['repo']}]({entry['url']}) — {insight}")
+    index = 0
+    for category, entries in grouped_items(latest, cfg):
+        lines.append(f"### {category}")
         lines.append("")
+        for entry in entries:
+            index += 1
+            insight = entry.get("insight") or entry.get("summary", "")
+            lines.append(f"**{index}.** [{entry['repo']}]({entry['url']}) — {insight}")
+            lines.append("")
     lines.append(f"[阅读完整日报（含项目介绍和 {len(items)} 条灵感）→]({md_path})")
     lines.append("")
     return "\n".join(lines)
