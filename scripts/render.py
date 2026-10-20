@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import math
 from datetime import date
 from pathlib import Path
 
@@ -52,18 +51,17 @@ def grouped_items(digest: dict, cfg: dict) -> list[tuple[str, list[dict]]]:
 
 
 def digest_stats(digest: dict, cfg: dict) -> dict:
-    groups = grouped_items(digest, cfg)
-    chars = len(digest.get("intro", "")) + sum(
-        len(item.get("summary", "")) for item in digest.get("items", [])
-    )
     return {
         "count": len(digest.get("items", [])),
-        "categories": len(groups),
+        "categories": len(grouped_items(digest, cfg)),
         "stars_today": sum(
             int(item.get("stars_today") or 0) for item in digest.get("items", [])
         ),
-        "minutes": max(3, math.ceil(chars / 450)),
     }
+
+
+def _one_line(value: str) -> str:
+    return " ".join(str(value or "").split())
 
 
 def _digest_body(digest: dict, cfg: dict) -> list[str]:
@@ -71,7 +69,7 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
     stats = digest_stats(digest, cfg)
     lines: list[str] = []
 
-    intro = digest.get("intro", "").strip()
+    intro = _one_line(digest.get("intro", ""))
     if intro:
         lines.append(f"> {intro}")
         lines.append("")
@@ -83,13 +81,14 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
     lines.append("")
 
     for category, entries in grouped_items(digest, cfg):
-        lines.append(f"### {category}")
+        lines.append(f"### {_one_line(category)}")
         lines.append("")
         for entry in entries:
+            summary = _one_line(entry.get("summary", ""))
             lines.append(
-                f"* **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
+                f"* **[{entry['repo']}]({entry['url']})** — {summary}"
             )
-            insight = (entry.get("insight") or "").strip()
+            insight = _one_line(entry.get("insight") or "")
             if insight:
                 lines.append("")
                 lines.append(f"  > 灵感：{insight}")
@@ -139,7 +138,7 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
                 f"[{day.day}](daily/{day.isoformat()}.md)" for day in days
             )
             lines.append(f"**{month}**：{links}")
-        lines.append("")
+            lines.append("")
     return "\n".join(lines)
 
 
