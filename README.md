@@ -1,10 +1,9 @@
 <div align="center">
   <img src="assets/logo.svg?v=2" alt="OpenDaily" width="300">
-  <br><br>
+  <br>
   <p>每天 10 个值得一看的开源项目，给正在找方向的人一点灵感。<br>
   项目来自 GitHub 热榜、新项目搜索和 Hacker News，每期写清楚可以怎么借、从哪切入。</p>
-  <br>
-  <p><a href="daily/"><strong>→ 全部日报</strong></a></p>
+  <p><a href="daily/"><strong>全部日报→</strong></a></p>
   <p><a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a></p>
 </div>
 
