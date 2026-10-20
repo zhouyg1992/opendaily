@@ -89,7 +89,7 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
         lines.append("")
         for entry in entries:
             lines.append(
-                f"**[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
+                f"• **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
             )
             meta = []
             if entry.get("language"):
