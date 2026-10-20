@@ -79,15 +79,17 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
     bits = [f"{stats['count']} 个项目", f"{stats['categories']} 个方向"]
     if stats["stars_today"]:
         bits.append(f"当日新增 {fmt_count(stats['stars_today'])} stars")
-    lines.append(" · ".join(bits))
+    lines.append("> " + " · ".join(bits))
     lines.append("")
 
     for category, entries in grouped_items(digest, cfg):
+        lines.append("<br>")
+        lines.append("")
         lines.append(f"### {category}")
         lines.append("")
         for entry in entries:
             lines.append(
-                f"**[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}<br>"
+                f"**[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
             )
             meta = []
             if entry.get("language"):
@@ -97,6 +99,7 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
             if entry.get("stars_today"):
                 meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
             if meta:
+                lines.append("")
                 lines.append(f"<sub>{' · '.join(meta)}</sub>")
             insight = (entry.get("insight") or "").strip()
             if insight:
@@ -132,19 +135,22 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
     latest = digests[0]
     d = date.fromisoformat(latest["date"])
     md_path = f"daily/{latest['date']}.md"
-    lines = [f"**[{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})**", ""]
+    lines = [f"## [{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})", ""]
     lines += _digest_body(latest, cfg)
     lines += [f"[本期 Markdown]({md_path})", "", "### 往期", ""]
 
-    months: dict[str, list[date]] = {}
+    years: dict[str, dict[str, list[date]]] = {}
     for digest in digests:
         day = date.fromisoformat(digest["date"])
-        months.setdefault(f"{day.year} 年 {day.month} 月", []).append(day)
-    for month, days in months.items():
-        links = " · ".join(
-            f"[{day.day} 日](daily/{day.isoformat()}.md)" for day in days
-        )
-        lines.append(f"**{month}**：{links}")
+        years.setdefault(f"{day.year} 年", {}).setdefault(f"{day.month} 月", []).append(day)
+    for year, months in years.items():
+        lines.append(f"#### {year}")
+        lines.append("")
+        for month, days in months.items():
+            links = " · ".join(
+                f"[{day.day}](daily/{day.isoformat()}.md)" for day in days
+            )
+            lines.append(f"**{month}**：{links}")
         lines.append("")
     return "\n".join(lines)
 
