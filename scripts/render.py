@@ -128,7 +128,7 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
     ]
     index = 0
     for category, entries in grouped_items(latest, cfg):
-        lines.append(f"### {category}")
+        lines.append(f"#### {category}")
         lines.append("")
         for entry in entries:
             index += 1
