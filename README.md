@@ -43,6 +43,10 @@
 
 [阅读完整日报（含项目介绍和 10 条灵感）→](daily/2026-10-20.md)
 
+#### 往期
+
+**2026 年 10 月**：[20 日](daily/2026-10-20.md)
+
 <!-- DIGEST:END -->
 
 MIT License · 由 GitHub Actions 每天自动更新 · [开发说明](DEVELOPMENT.md)

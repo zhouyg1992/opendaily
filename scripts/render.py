@@ -137,6 +137,18 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
             lines.append("")
     lines.append(f"[阅读完整日报（含项目介绍和 {len(items)} 条灵感）→]({md_path})")
     lines.append("")
+    lines.append("#### 往期")
+    lines.append("")
+    months: dict[str, list[date]] = {}
+    for digest in digests:
+        day = date.fromisoformat(digest["date"])
+        months.setdefault(f"{day.year} 年 {day.month} 月", []).append(day)
+    for month, days in months.items():
+        links = " · ".join(
+            f"[{day.day} 日](daily/{day.isoformat()}.md)" for day in days
+        )
+        lines.append(f"**{month}**：{links}")
+        lines.append("")
     return "\n".join(lines)
 
 
