@@ -10,7 +10,6 @@ from util import (
     CONTENT_DIR,
     DATA_DIR,
     ROOT,
-    fmt_count,
     read_json,
     weekday_cn,
     write_text,
@@ -50,35 +49,18 @@ def grouped_items(digest: dict, cfg: dict) -> list[tuple[str, list[dict]]]:
     return sorted(buckets.items(), key=lambda pair: order.get(pair[0], 99))
 
 
-def digest_stats(digest: dict, cfg: dict) -> dict:
-    return {
-        "count": len(digest.get("items", [])),
-        "categories": len(grouped_items(digest, cfg)),
-        "stars_today": sum(
-            int(item.get("stars_today") or 0) for item in digest.get("items", [])
-        ),
-    }
-
-
 def _one_line(value: str) -> str:
     return " ".join(str(value or "").split())
 
 
 def _digest_body(digest: dict, cfg: dict) -> list[str]:
     """Shared body so README and daily files render with identical typography."""
-    stats = digest_stats(digest, cfg)
     lines: list[str] = []
 
     intro = _one_line(digest.get("intro", ""))
     if intro:
         lines.append(f"> {intro}")
         lines.append("")
-
-    bits = [f"{stats['count']} 个项目", f"{stats['categories']} 个方向"]
-    if stats["stars_today"]:
-        bits.append(f"当日新增 {fmt_count(stats['stars_today'])} stars")
-    lines.append("> " + " · ".join(bits))
-    lines.append("")
 
     for category, entries in grouped_items(digest, cfg):
         lines.append(f"### {_one_line(category)}")
