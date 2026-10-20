@@ -83,8 +83,6 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
     lines.append("")
 
     for category, entries in grouped_items(digest, cfg):
-        lines.append("<br>")
-        lines.append("")
         lines.append(f"### {category}")
         lines.append("")
         for entry in entries:
@@ -100,7 +98,7 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
                 meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
             if meta:
                 lines.append("")
-                lines.append(f"  <sub>{' · '.join(meta)}</sub>")
+                lines.append(f"  {' · '.join(meta)}")
             insight = (entry.get("insight") or "").strip()
             if insight:
                 lines.append("")
