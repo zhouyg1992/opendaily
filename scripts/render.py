@@ -89,7 +89,7 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
         lines.append("")
         for entry in entries:
             lines.append(
-                f"• **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
+                f"* **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
             )
             meta = []
             if entry.get("language"):
@@ -100,11 +100,11 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
                 meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
             if meta:
                 lines.append("")
-                lines.append(f"<sub>{' · '.join(meta)}</sub>")
+                lines.append(f"  <sub>{' · '.join(meta)}</sub>")
             insight = (entry.get("insight") or "").strip()
             if insight:
                 lines.append("")
-                lines.append(f"> 灵感：{insight}")
+                lines.append(f"  > 灵感：{insight}")
             lines.append("")
     return lines
 
