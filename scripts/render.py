@@ -121,35 +121,19 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
     latest = digests[0]
     d = date.fromisoformat(latest["date"])
     md_path = f"daily/{latest['date']}.md"
+    items = latest.get("items", [])
     lines = [
         "## 最新一期",
         "",
         f"**[{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})** — {latest.get('intro', '')}",
         "",
     ]
-    for category, entries in grouped_items(latest, cfg):
-        lines.append(f"### {category}")
-        lines.append("")
-        for entry in entries:
-            lines.append(
-                f"- **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
-            )
-            if entry.get("insight"):
-                lines.append(f"  > 灵感：{entry['insight']}")
-        lines.append("")
-
-    lines.append(f"[全部日报](daily/) · [本期 Markdown]({md_path})")
-    lines.append("")
-    lines.append("### 最近更新")
-    lines.append("")
-    lines.append("| 日期 | 项目数 | 导读 |")
-    lines.append("| --- | --- | --- |")
-    for digest in digests[:7]:
-        intro = digest.get("intro", "").replace("|", "\\|")
+    for index, entry in enumerate(items, 1):
         lines.append(
-            f"| [{digest['date']}](daily/{digest['date']}.md) "
-            f"| {len(digest.get('items', []))} | {intro} |"
+            f"{index}. **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
         )
+    lines.append("")
+    lines.append(f"[阅读完整日报（含 {len(items)} 条灵感）→]({md_path})")
     lines.append("")
     return "\n".join(lines)
 
