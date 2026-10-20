@@ -89,16 +89,6 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
             lines.append(
                 f"* **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
             )
-            meta = []
-            if entry.get("language"):
-                meta.append(f"`{entry['language']}`")
-            if entry.get("stars"):
-                meta.append(f"★ {fmt_count(int(entry['stars']))}")
-            if entry.get("stars_today"):
-                meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
-            if meta:
-                lines.append("")
-                lines.append(f"  {' · '.join(meta)}")
             insight = (entry.get("insight") or "").strip()
             if insight:
                 lines.append("")
