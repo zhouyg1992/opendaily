@@ -83,4 +83,6 @@
 
 <!-- DIGEST:END -->
 
+### License
+
 MIT License · 由 GitHub Actions 每天自动更新 · [开发说明](DEVELOPMENT.md)
