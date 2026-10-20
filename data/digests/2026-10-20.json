@@ -1,36 +1,10 @@
 {
   "date": "2026-10-20",
-  "generated_at": "2026-10-20T15:37:32+08:00",
+  "generated_at": "2026-10-20T08:30:03+00:00",
   "intro": "今天的候选池里，Agent 工具正从「能跑」转向「跑得更省、更稳」：有人压缩上下文，有人把多个 Agent 拉进同一张工作台；另一边，纯 Rust 重写的桌面软件和本地推理引擎也在冒头。",
   "generated_by": "manual",
-  "model": "",
+  "model": "deepseek-flash",
   "items": [
-    {
-      "repo": "DietrichGebert/ponytail",
-      "url": "https://github.com/DietrichGebert/ponytail",
-      "summary": "给 AI 编程 Agent 立规矩：能不加的代码就不加，先想清楚再动手，像资深工程师一样主动拒绝过度设计，专治越改越复杂。",
-      "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-      "category": "AI / Agent 工具",
-      "language": "JavaScript",
-      "stars": 168399,
-      "stars_today": 1007,
-      "topics": [
-        "agent-skills",
-        "ai-agents",
-        "claude",
-        "claude-code",
-        "claude-code-plugin",
-        "cursor-rules",
-        "developer-tools",
-        "llm",
-        "prompt-engineering",
-        "yagni"
-      ],
-      "sources": [
-        "trending"
-      ],
-      "score": 48.0
-    },
     {
       "repo": "Graphify-Labs/graphify",
       "url": "https://github.com/Graphify-Labs/graphify",
@@ -38,7 +12,7 @@
       "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
       "category": "AI / Agent 工具",
       "language": "Python",
-      "stars": 129390,
+      "stars": 129410,
       "stars_today": 751,
       "topics": [
         "ai-agents",
@@ -53,7 +27,8 @@
         "gemini"
       ],
       "sources": [
-        "trending"
+        "trending",
+        "search"
       ],
       "score": 48.0
     },
@@ -64,7 +39,7 @@
       "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
       "category": "AI / Agent 工具",
       "language": "TypeScript",
-      "stars": 98722,
+      "stars": 98790,
       "stars_today": 1590,
       "topics": [
         "ade",
@@ -79,61 +54,177 @@
         "hermes-agent"
       ],
       "sources": [
-        "trending"
+        "trending",
+        "search"
       ],
       "score": 47.97
     },
     {
-      "repo": "Comfy-Org/ComfyUI",
-      "url": "https://github.com/Comfy-Org/ComfyUI",
-      "summary": "节点式扩散模型工作台，在本地把模型、采样器和后处理串成可视化流程；既能直接出图，也常被当作生成式图像产品的底层引擎。",
-      "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
+      "repo": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "summary": "给 AI 编程 Agent 立规矩：能不加的代码就不加，先想清楚再动手，像资深工程师一样主动拒绝过度设计，专治越改越复杂。",
+      "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
       "category": "AI / Agent 工具",
-      "language": "Python",
-      "stars": 140097,
-      "stars_today": 1011,
+      "language": "JavaScript",
+      "stars": 168446,
+      "stars_today": 1007,
       "topics": [
-        "ai",
-        "comfy",
-        "comfyui",
-        "python",
-        "pytorch",
-        "stable-diffusion"
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "claude-code-plugin",
+        "cursor-rules",
+        "developer-tools",
+        "llm",
+        "prompt-engineering",
+        "yagni"
       ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 48.0
+    },
+    {
+      "repo": "shiyu-coder/Kronos",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "summary": "首个面向金融 K 线序列的开源基础模型，在 45 个以上全球交易所的数据上预训练，采用 decoder-only 架构，论文已被 AAAI 2026 接收。提供微调脚本，可迁移到自己的行情预测任务。",
+      "description": "Kronos: A Foundation Model for the Language of Financial Markets",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 41929,
+      "stars_today": 363,
+      "topics": [],
       "sources": [
         "trending"
       ],
-      "score": 47.0
+      "score": 36.81
     },
     {
-      "repo": "Niko1221/Strata",
-      "url": "https://github.com/Niko1221/Strata",
-      "summary": "在消费级硬件上一键运行 Qwen3.8-Flash-Next 的本地推理引擎，启动后在 localhost 暴露 OpenAI / Anthropic 兼容接口，现有客户端可直接接入。",
-      "description": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
-      "category": "AI 基础设施 / 模型",
-      "language": "C++",
-      "stars": 28598,
+      "repo": "storytold/pdfcraft",
+      "url": "https://github.com/storytold/pdfcraft",
+      "summary": "同为纯 Rust 实现的 PDF 阅读与编辑工作台，可阅读、整理、合并、拆分和加密 PDF，覆盖 macOS、Windows、Linux、FreeBSD 及网页端。原生应用启动快，适合替换笨重的商业 PDF 套件。",
+      "description": "PdfCraft: An open-source PDF reader and editor written by scratch in pure Rust",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 16412,
       "stars_today": 0,
-      "topics": [],
+      "topics": [
+        "document-processing",
+        "documents",
+        "pdf",
+        "pdf-generation",
+        "pdf-processing",
+        "pdf-tools",
+        "pdf-viewer",
+        "rust"
+      ],
       "sources": [
         "search"
       ],
-      "score": 32.74
+      "score": 31.29
     },
     {
-      "repo": "cursor/plugins",
-      "url": "https://github.com/cursor/plugins",
-      "summary": "Cursor 官方插件规范与示例，讲清插件如何接入 Agent、注册命令、传递上下文，想给 Cursor 写扩展可以从这里起步。",
-      "description": "Cursor plugin specification and official plugins",
-      "category": "开发工具 / CLI",
+      "repo": "thesysdev/openui",
+      "url": "https://github.com/thesysdev/openui",
+      "summary": "生成式 UI 的开放标准与全栈框架，围绕一套紧凑的流式语言设计，核心与框架无关，官方提供 React、Vue、Svelte、Angular 运行时。相比让模型直接吐 JSON，官方测得 token 用量最多减少约三分之二。",
+      "description": "The Open Standard for Generative UI",
+      "category": "前端 / 设计",
       "language": "TypeScript",
-      "stars": 13127,
-      "stars_today": 407,
-      "topics": [],
+      "stars": 12330,
+      "stars_today": 401,
+      "topics": [
+        "ag-ui",
+        "agent",
+        "agents",
+        "ai",
+        "generative-ui",
+        "javascript",
+        "langchain",
+        "llm",
+        "mastra",
+        "react"
+      ],
       "sources": [
         "trending"
       ],
-      "score": 35.88
+      "score": 36.57
+    },
+    {
+      "repo": "bilawalsidhu/gods-eye-view",
+      "url": "https://github.com/bilawalsidhu/gods-eye-view",
+      "summary": "浏览器里的「间谍卫星」模拟器，在写实 3D 地球上叠加实时飞机、船舶、卫星、地震与公开摄像头数据，数据源全部公开可查。无需 API key 即可启动，是理解开源地理空间情报能力的直观入口。",
+      "description": "A spy satellite simulator in your browser, except the data is real. Live open source spatial intelligence on a photorealistic 3D globe.",
+      "category": "数据 / 基础设施",
+      "language": "JavaScript",
+      "stars": 58355,
+      "stars_today": 0,
+      "topics": [
+        "3d-globe",
+        "cesium",
+        "flight-tracking",
+        "geospatial",
+        "geospatial-intelligence",
+        "gis",
+        "osint",
+        "photogrammetry",
+        "satellite-tracking",
+        "spatial-intelligence"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 29.6
+    },
+    {
+      "repo": "martin-olivier/airgorah",
+      "url": "https://github.com/martin-olivier/airgorah",
+      "summary": "基于 Rust 与 GTK4 的 WiFi 安全审计工具，可抓取周边无线流量、发现接入点下的客户端、执行去认证攻击并捕获握手包与 PMKID，进而尝试破解口令。图形界面降低了 aircrack 系列工具的使用门槛。",
+      "description": "A WiFi security auditing software",
+      "category": "安全 / 隐私",
+      "language": "Rust",
+      "stars": 4519,
+      "stars_today": 135,
+      "topics": [
+        "gui",
+        "kali",
+        "linux-app",
+        "security",
+        "security-audit",
+        "wifi",
+        "wifi-security",
+        "wireless"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.31
+    },
+    {
+      "repo": "Automattic/harper",
+      "url": "https://github.com/Automattic/harper",
+      "summary": "离线运行的英文语法检查器，用 Rust 编写并通过 WebAssembly 接入浏览器扩展与 Node 环境。所有文本留在本地，不经过服务器，主打低延迟与隐私，是 Grammarly 的自托管替代思路。",
+      "description": "Offline, privacy-first grammar checker. Fast, open-source, Rust-powered",
+      "category": "安全 / 隐私",
+      "language": "Rust",
+      "stars": 16836,
+      "stars_today": 72,
+      "topics": [
+        "chrome-extension",
+        "developer-tools",
+        "english-language",
+        "grammar-checker",
+        "nodejs",
+        "react",
+        "rust",
+        "svelte",
+        "webassembly"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.16
     },
     {
       "repo": "storytold/photocraft",
@@ -142,7 +233,7 @@
       "description": "PhotoCraft: An open-source, photo editor written by scratch in pure Rust",
       "category": "Skill / 垂直工具",
       "language": "Rust",
-      "stars": 68877,
+      "stars": 68924,
       "stars_today": 0,
       "topics": [
         "art",
@@ -157,72 +248,6 @@
         "search"
       ],
       "score": 35.03
-    },
-    {
-      "repo": "DmNote-App/DmNote",
-      "url": "https://github.com/DmNote-App/DmNote",
-      "summary": "给 DJMAX RESPECT V 做的按键显示器，也能用于其他游戏；把实时按键投到副屏或直播画面，支持自定义皮肤，配置很简单。",
-      "description": "Make it yours. A customizable key viewer for DJMAX RESPECT V and any game.",
-      "category": "Skill / 垂直工具",
-      "language": "TypeScript",
-      "stars": 5360,
-      "stars_today": 593,
-      "topics": [
-        "djmax",
-        "dmnote",
-        "keyboard",
-        "keyoverlay",
-        "keyviewer",
-        "kps",
-        "obs",
-        "overlay",
-        "rhythm-game"
-      ],
-      "sources": [
-        "trending"
-      ],
-      "score": 37.2
-    },
-    {
-      "repo": "Kruk2/jasna",
-      "url": "https://github.com/Kruk2/jasna",
-      "summary": "本地视频与图片修复工具，用 GPU 跑修复模型，同时提供桌面界面和命令行，适合成批处理素材。",
-      "description": "Video restoration tool",
-      "category": "Skill / 垂直工具",
-      "language": "Python",
-      "stars": 3101,
-      "stars_today": 498,
-      "topics": [],
-      "sources": [
-        "trending"
-      ],
-      "score": 34.4
-    },
-    {
-      "repo": "hmjz100/LinkSwift",
-      "url": "https://github.com/hmjz100/LinkSwift",
-      "summary": "用 JavaScript 写的网盘直链解析脚本，覆盖百度、阿里、夸克等八家网盘，把分享链接转成可以交给下载器使用的直链。",
-      "description": "一个基于 JavaScript 的网盘文件下载地址获取工具。基于【网盘直链下载助手】修改 ，支持 百度网盘 / 阿里云盘 / 中国移动云盘 / 天翼云盘 / 迅雷云盘 / 夸克网盘 / UC网盘 / 123云盘 八大网盘",
-      "category": "Skill / 垂直工具",
-      "language": "JavaScript",
-      "stars": 26257,
-      "stars_today": 1250,
-      "topics": [
-        "123pan",
-        "aliyun-drive",
-        "aliyunpan",
-        "aria2",
-        "baidu",
-        "baidu-netdisk",
-        "baidunetdisk",
-        "baidupan",
-        "baiduyun",
-        "guangya-netdisk"
-      ],
-      "sources": [
-        "trending"
-      ],
-      "score": 41.52
     }
   ]
 }
