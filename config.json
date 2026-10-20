@@ -1,0 +1,77 @@
+{
+  "digest": {
+    "count": 10,
+    "cooldown_days": 60,
+    "min_stars": 200,
+    "max_per_owner": 2,
+    "max_per_category": 4
+  },
+  "sources": {
+    "trending": {
+      "enabled": true,
+      "since": "daily",
+      "languages": [
+        "python",
+        "typescript",
+        "rust",
+        "go",
+        "javascript",
+        "jupyter-notebook"
+      ]
+    },
+    "search": {
+      "enabled": true,
+      "min_stars": 100,
+      "per_page": 25,
+      "queries": [
+        "created:>={since_30d} stars:>={min_stars}",
+        "created:>={since_180d} stars:>={min_stars_5x} pushed:>={since_14d}",
+        "topic:ai-agents stars:>={min_stars} pushed:>={since_30d}"
+      ]
+    },
+    "hn": {
+      "enabled": true,
+      "lookback_days": 7,
+      "min_points": 60
+    }
+  },
+  "filters": {
+    "max_idle_days": 365,
+    "exclude_patterns": [
+      "awesome[- _]?list",
+      "\\bawesome\\b",
+      "curated list",
+      "roadmap",
+      "interview",
+      "cheat[ -]?sheet",
+      "tutorial",
+      "\\bcourses?\\b",
+      "\\bbooks?\\b",
+      "dotfiles",
+      "leetcode",
+      "system[- ]design",
+      "learning",
+      "\\bnotes\\b",
+      "\\bslides\\b",
+      "boilerplate",
+      "starter template"
+    ]
+  },
+  "llm": {
+    "base_url": "https://api.deepseek.com/v1",
+    "model": "deepseek-chat",
+    "temperature": 0.6,
+    "max_candidates": 24,
+    "readme_chars": 1200,
+    "timeout": 180
+  },
+  "categories": [
+    "AI / Agent 工具",
+    "AI 基础设施 / 模型",
+    "开发工具 / CLI",
+    "前端 / 设计",
+    "数据 / 基础设施",
+    "安全 / 隐私",
+    "Skill / 垂直工具"
+  ]
+}

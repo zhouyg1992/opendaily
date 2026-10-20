@@ -1,0 +1,82 @@
+name: Daily Digest
+
+on:
+  schedule:
+    # 23:00 UTC = 07:00 Asia/Shanghai (next day)
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "daily = 抓取并生成；rebuild = 只重建页面"
+        type: choice
+        options:
+          - daily
+          - rebuild
+        default: daily
+      date:
+        description: "指定日期 YYYY-MM-DD（留空 = 北京时间今天）"
+        type: string
+        required: false
+      force:
+        description: "覆盖已有日报"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate digest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          MODE: ${{ inputs.mode }}
+          DIGEST_DATE: ${{ inputs.date }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ "${MODE:-daily}" = "rebuild" ]; then
+            args+=(--rebuild)
+          fi
+          if [ -n "${DIGEST_DATE:-}" ]; then
+            args+=(--date "$DIGEST_DATE")
+          fi
+          if [ "${FORCE:-false}" = "true" ]; then
+            args+=(--force)
+          fi
+          python3 scripts/main.py "${args[@]}"
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: daily digest $(TZ=Asia/Shanghai date +%F)"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

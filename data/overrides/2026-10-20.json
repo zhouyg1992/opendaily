@@ -1,0 +1,46 @@
+{
+  "intro": "今天的候选池里，Agent 工具正从「能跑」转向「跑得更省、更稳」：有人压缩上下文，有人把多个 Agent 拉进同一张工作台；另一边，纯 Rust 重写的桌面软件和本地推理引擎也在冒头。",
+  "generated_by": "manual",
+  "items": {
+    "DietrichGebert/ponytail": {
+      "category": "AI / Agent 工具",
+      "summary": "给 AI 编程 Agent 立规矩：能不加的代码就不加，先想清楚再动手，像资深工程师一样主动拒绝过度设计，专治越改越复杂。"
+    },
+    "Graphify-Labs/graphify": {
+      "category": "AI / Agent 工具",
+      "summary": "把代码库、文档、SQL schema、配置和 PDF 一起解析成可查询的知识图谱，让人或 Agent 都能顺着关系检索跨文件上下文。"
+    },
+    "stablyai/orca": {
+      "category": "AI / Agent 工具",
+      "summary": "多 Agent 工作台：把 Claude Code、Grok Bot 等编码 Agent 放进同一处并行调度，复用自己已有的订阅额度，不必为每个 Agent 单独买 API。"
+    },
+    "Comfy-Org/ComfyUI": {
+      "category": "AI / Agent 工具",
+      "summary": "节点式扩散模型工作台，在本地把模型、采样器和后处理串成可视化流程；既能直接出图，也常被当作生成式图像产品的底层引擎。"
+    },
+    "storytold/photocraft": {
+      "category": "Skill / 垂直工具",
+      "summary": "用纯 Rust 从零重写的开源图片编辑器，目标对齐 Photoshop：图层、蒙版、调整层、PSD 读写都在，且不依赖 Electron，离线可用。"
+    },
+    "DmNote-App/DmNote": {
+      "category": "Skill / 垂直工具",
+      "summary": "给 DJMAX RESPECT V 做的按键显示器，也能用于其他游戏；把实时按键投到副屏或直播画面，支持自定义皮肤，配置很简单。"
+    },
+    "cursor/plugins": {
+      "category": "开发工具 / CLI",
+      "summary": "Cursor 官方插件规范与示例，讲清插件如何接入 Agent、注册命令、传递上下文，想给 Cursor 写扩展可以从这里起步。"
+    },
+    "Kruk2/jasna": {
+      "category": "Skill / 垂直工具",
+      "summary": "本地视频与图片修复工具，用 GPU 跑修复模型，同时提供桌面界面和命令行，适合成批处理素材。"
+    },
+    "Niko1221/Strata": {
+      "category": "AI 基础设施 / 模型",
+      "summary": "在消费级硬件上一键运行 Qwen3.8-Flash-Next 的本地推理引擎，启动后在 localhost 暴露 OpenAI / Anthropic 兼容接口，现有客户端可直接接入。"
+    },
+    "hmjz100/LinkSwift": {
+      "category": "Skill / 垂直工具",
+      "summary": "用 JavaScript 写的网盘直链解析脚本，覆盖百度、阿里、夸克等八家网盘，把分享链接转成可以交给下载器使用的直链。"
+    }
+  }
+}
