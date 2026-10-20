@@ -116,24 +116,21 @@ def write_content(digest: dict, cfg: dict) -> None:
 
 def build_readme_block(digests: list[dict], cfg: dict) -> str:
     if not digests:
-        return "## 最新一期\n\n还没有生成任何一期。\n"
+        return "还没有生成任何一期。\n"
 
     latest = digests[0]
     d = date.fromisoformat(latest["date"])
     md_path = f"daily/{latest['date']}.md"
     items = latest.get("items", [])
     lines = [
-        "## 最新一期",
-        "",
         f"**[{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})** — {latest.get('intro', '')}",
         "",
     ]
     for index, entry in enumerate(items, 1):
-        lines.append(
-            f"{index}. **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
-        )
-    lines.append("")
-    lines.append(f"[阅读完整日报（含 {len(items)} 条灵感）→]({md_path})")
+        insight = entry.get("insight") or entry.get("summary", "")
+        lines.append(f"{index}. **[{entry['repo']}]({entry['url']})** — {insight}")
+        lines.append("")
+    lines.append(f"[阅读完整日报（含项目介绍和 {len(items)} 条灵感）→]({md_path})")
     lines.append("")
     return "\n".join(lines)
 
