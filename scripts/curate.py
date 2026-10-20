@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Filter, score and curate the daily ten."""
 from __future__ import annotations
 

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Shared helpers: paths, dates, HTTP, formatting."""
 from __future__ import annotations
 

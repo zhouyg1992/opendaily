@@ -1,5 +1,7 @@
 # OpenDaily · 每天 10 个开源项目
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 从 GitHub Trending、新项目搜索和 Hacker News 里，每天挑 **10 个有意思的开源项目**，写成一份 Markdown 日报：`daily/YYYY-MM-DD.md`。不需要网页，项目本身就是日报仓库，GitHub 直接渲染。
 
 **[全部日报](daily/)**
@@ -119,3 +121,9 @@ daily/YYYY-MM-DD.md           每天一份日报
 data/digests/                 每期 JSON 数据
 data/seen.json                推荐历史（去重）
 ```
+
+## License
+
+本项目（代码与日报内容）采用 [MIT License](LICENSE) 开源，Copyright (c) 2026 zhouyg1992。
+
+日报中提到的第三方开源项目，其版权与许可证归各自作者所有。

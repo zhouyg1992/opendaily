@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """OpenDaily entrypoint: collect, curate, render, persist."""
 from __future__ import annotations
 

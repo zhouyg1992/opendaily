@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Render one Markdown file per day and keep the README index in sync."""
 from __future__ import annotations
 

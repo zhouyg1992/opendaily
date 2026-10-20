@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Collect candidate repositories from GitHub Trending, GitHub Search and Hacker News."""
 from __future__ import annotations
 
