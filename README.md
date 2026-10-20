@@ -1,8 +1,13 @@
-# OpenDaily
+<div align="center">
+  <img src="assets/logo.svg" alt="OpenDaily" width="340">
+  <p>每天 10 个值得一看的开源项目，给正在找方向的人一点灵感。项目来自 GitHub 热榜、新项目搜索和 Hacker News，每期写清楚可以怎么借、从哪切入。</p>
+  <p>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  </p>
+  <p><a href="daily/">全部日报</a></p>
+</div>
 
-每天 10 个值得一看的开源项目，给正在找方向的人一点灵感。项目来自 GitHub 热榜、新项目搜索和 Hacker News，每期写清楚可以怎么借、从哪切入。
-
-[全部日报](daily/)
+---
 
 <!-- DIGEST:START -->
 **[2026.10.20 · 周二](daily/2026-10-20.md)**
