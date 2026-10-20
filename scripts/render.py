@@ -97,6 +97,8 @@ def render_markdown(digest: dict, cfg: dict) -> str:
                 meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
             if meta:
                 lines.append("  " + " · ".join(meta))
+            if entry.get("insight"):
+                lines.append(f"  > 灵感：{entry['insight']}")
         lines.append("")
 
     lines.append("---")
@@ -132,6 +134,8 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
             lines.append(
                 f"- **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
             )
+            if entry.get("insight"):
+                lines.append(f"  > 灵感：{entry['insight']}")
         lines.append("")
 
     lines.append(f"[全部日报](daily/) · [本期 Markdown]({md_path})")

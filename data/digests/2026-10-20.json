@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
   "generated_at": "2026-10-20T08:30:03+00:00",
-  "intro": "今天的候选池里，Agent 工具正从「能跑」转向「跑得更省、更稳」：有人压缩上下文，有人把多个 Agent 拉进同一张工作台；另一边，纯 Rust 重写的桌面软件和本地推理引擎也在冒头。",
+  "intro": "今天的项目有个共同信号：过去只有大公司用得起的专业能力——代码理解、金融建模、PDF 编辑、无线安全审计——正被做成能本地运行、能嵌进工作流的开源工具。机会未必在再做一个模型，而在把能力包装成垂直场景里开箱即用的产品。",
   "generated_by": "manual",
   "model": "deepseek-flash",
   "items": [
@@ -30,7 +30,8 @@
         "trending",
         "search"
       ],
-      "score": 48.0
+      "score": 48.0,
+      "insight": "把「读懂遗留系统」做成迁移、审计场景的代码知识图谱服务，先切咨询和外包团队。"
     },
     {
       "repo": "stablyai/orca",
@@ -57,7 +58,8 @@
         "trending",
         "search"
       ],
-      "score": 47.97
+      "score": 47.97,
+      "insight": "Agent 工作台的机会不在再做一个 Agent，而在团队协作、成本控制和操作审计。"
     },
     {
       "repo": "DietrichGebert/ponytail",
@@ -84,7 +86,8 @@
         "trending",
         "search"
       ],
-      "score": 48.0
+      "score": 48.0,
+      "insight": "把「让 Agent 少写代码」沉淀成团队规范插件，按仓库订阅，卖的是代码质量。"
     },
     {
       "repo": "shiyu-coder/Kronos",
@@ -99,7 +102,8 @@
       "sources": [
         "trending"
       ],
-      "score": 36.81
+      "score": 36.81,
+      "insight": "金融时序基础模型可切量化投研 SaaS，或给券商做私有化微调，数据与合规是壁垒。"
     },
     {
       "repo": "storytold/pdfcraft",
@@ -123,7 +127,8 @@
       "sources": [
         "search"
       ],
-      "score": 31.29
+      "score": 31.29,
+      "insight": "本地 PDF 工作台可以切合同、病历、标书这类隐私敏感场景，做批注与 OCR 工作流。"
     },
     {
       "repo": "thesysdev/openui",
@@ -149,7 +154,8 @@
       "sources": [
         "trending"
       ],
-      "score": 36.57
+      "score": 36.57,
+      "insight": "生成式 UI 有机会成为 AI 应用的前端协议层，先切客服、报表和内部工具。"
     },
     {
       "repo": "bilawalsidhu/gods-eye-view",
@@ -175,7 +181,8 @@
       "sources": [
         "search"
       ],
-      "score": 29.6
+      "score": 29.6,
+      "insight": "把公开地理数据做成记者、风控、保险用的实时情报面板，比通用地图更垂直。"
     },
     {
       "repo": "martin-olivier/airgorah",
@@ -199,7 +206,8 @@
       "sources": [
         "trending"
       ],
-      "score": 25.31
+      "score": 25.31,
+      "insight": "把 WiFi 安全自查做成面向中小企业的订阅服务或硬件盒子，替代昂贵的渗透测试。"
     },
     {
       "repo": "Automattic/harper",
@@ -224,7 +232,8 @@
       "sources": [
         "trending"
       ],
-      "score": 27.16
+      "score": 27.16,
+      "insight": "离线语法检查适合嵌进 IDE、邮件客户端和写作工具，按 SDK/API 收费，隐私是差异点。"
     },
     {
       "repo": "storytold/photocraft",
@@ -247,7 +256,8 @@
       "sources": [
         "search"
       ],
-      "score": 35.03
+      "score": 35.03,
+      "insight": "本地专业修图仍有空位：切电商批量修图，或医疗、设计等不能上云的素材工作流。"
     }
   ]
 }

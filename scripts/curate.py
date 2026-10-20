@@ -154,11 +154,11 @@ def filter_candidates(
 
 def pick_fallback(
     ranked: list[Candidate], cfg: dict
-) -> list[tuple[Candidate, str, str]]:
+) -> list[tuple[Candidate, str, str, str]]:
     count = int(cfg["digest"].get("count", 10))
     owner_cap = int(cfg["digest"].get("max_per_owner", 2))
     cat_cap = int(cfg["digest"].get("max_per_category", 3))
-    picked: list[tuple[Candidate, str, str]] = []
+    picked: list[tuple[Candidate, str, str, str]] = []
     chosen: set[str] = set()
 
     for cap in (cat_cap, cat_cap + 1, 99):
@@ -177,7 +177,7 @@ def pick_fallback(
             cat = categorize(item)
             if cat_counts[cat] >= cap:
                 continue
-            picked.append((item, cat, truncate(item.description, 150)))
+            picked.append((item, cat, truncate(item.description, 150), ""))
             chosen.add(item.full_name.lower())
             owner_counts[item.owner.lower()] += 1
             cat_counts[cat] += 1
@@ -212,8 +212,8 @@ def _candidate_block(candidates: list[Candidate], target: date) -> str:
 
 
 SYSTEM_PROMPT = (
-    "你是一位懂工程、有品味的开源项目编辑，为中文开发者撰写每日开源日报。"
-    "你的判断标准是新鲜、有用、有巧思，而不是单纯看 star 数。你只输出 JSON。"
+    "你是一位懂工程、也懂产品的开源项目侦察员，为正在找方向的创业者和关注开源社区的人写每日日报。"
+    "你能分辨真实需求和自嗨工具，也敢指出一个项目适合怎么被产品化。你只输出 JSON。"
 )
 
 
@@ -222,19 +222,25 @@ def build_prompt(cfg: dict, candidates: list[Candidate], target: date) -> str:
     categories = "、".join(cfg.get("categories", []))
     return f"""下面是从 GitHub Trending、新项目搜索和 Hacker News 收集到的 {len(candidates)} 个候选项目。
 
-请从中挑选 {count} 个最值得今天推荐给中文开发者的项目，并写成日报。
+读者是想创业但还没找到方向的人，以及每天关注开源社区的人。他们想知道：今天有什么值得看，以及这些项目里藏着什么机会。
+
+请从中挑选 {count} 个最值得今天推荐的项目，并写成日报。
 
 要求：
 1. 恰好 {count} 个不同项目，repo 必须与候选列表中的 owner/name 完全一致，不得编造。
 2. 优先覆盖不同方向，避免同质化（例如不要选 5 个 agent 框架）；同一 owner 最多 2 个。
-3. intro：40–70 字，概括今天这批项目体现出的整体趋势，不要逐个点名。
-4. summary：每个项目 50–90 字中文，一句话讲清「它是什么、解决什么问题、亮点在哪」。
+3. intro：60–90 字，指出今天这批项目共同反映的一个变化、需求或机会信号，不要逐个点名，也不要写成空泛的行业套话。
+4. summary：50–80 字中文，讲清「它是什么、解决谁的问题、为什么现在值得看」。
    - 具体、可验证，不要空泛吹捧（如「功能强大」「值得关注」）；
    - 不要以「这是一个」开头，不要复述 star 数，不要用 Markdown、不要 emoji；
    - 不要照抄英文简介的句式。
-5. category 只能从以下选一个：{categories}。
-6. 严格输出 JSON：
-{{"intro": "...", "items": [{{"repo": "owner/name", "category": "...", "summary": "..."}}]}}
+5. insight：30–60 字，给一个具体的「可以怎么借」的角度：面向谁、切哪个场景、和现有方案差在哪。
+   - 如果它更适合作为基础设施或趋势信号，就直接说明，不要硬编创业点子；
+   - 不要写「可以做 SaaS」「前景广阔」「值得关注」这类空话，不要编造市场数据；
+   - 不要重复 summary 的内容。
+6. category 只能从以下选一个：{categories}。
+7. 严格输出 JSON：
+{{"intro": "...", "items": [{{"repo": "owner/name", "category": "...", "summary": "...", "insight": "..."}}]}}
 不要输出 JSON 以外的任何内容。
 
 候选项目：
@@ -272,7 +278,7 @@ def call_llm(cfg: dict, prompt: str) -> dict | None:
             {"role": "user", "content": prompt},
         ],
         "temperature": float(conf.get("temperature", 0.6)),
-        "max_tokens": 2400,
+        "max_tokens": int(conf.get("max_tokens", 3200)),
         "response_format": {"type": "json_object"},
     }
     timeout = int(conf.get("timeout", 180))
@@ -300,7 +306,7 @@ def call_llm(cfg: dict, prompt: str) -> dict | None:
 
 def normalize_llm(
     cfg: dict, data: dict, ranked: list[Candidate]
-) -> tuple[str, list[tuple[Candidate, str, str]], str]:
+) -> tuple[str, list[tuple[Candidate, str, str, str]], str]:
     count = int(cfg["digest"].get("count", 10))
     owner_cap = int(cfg["digest"].get("max_per_owner", 2))
     cat_cap = int(cfg["digest"].get("max_per_category", 4))
@@ -308,8 +314,8 @@ def normalize_llm(
     by_name = {c.full_name.lower(): c for c in ranked}
     owner_counts: Counter = Counter()
     cat_counts: Counter = Counter()
-    picked: list[tuple[Candidate, str, str]] = []
-    deferred: list[tuple[Candidate, str, str]] = []
+    picked: list[tuple[Candidate, str, str, str]] = []
+    deferred: list[tuple[Candidate, str, str, str]] = []
     chosen: set[str] = set()
 
     for entry in data.get("items", []):
@@ -332,10 +338,16 @@ def normalize_llm(
         if len(summary) < 12:
             summary = truncate(item.description, 150)
         summary = truncate(summary, 180)
+        insight = str(entry.get("insight", "")).strip()
+        insight = re.sub(r"^[-–—\s]+", "", insight).strip('"“”')
+        insight = re.sub(r"\s+", " ", insight)
+        insight = truncate(insight, 160)
+        if len(insight) < 10:
+            insight = ""
         if cat_counts[category] >= cat_cap:
-            deferred.append((item, category, summary))
+            deferred.append((item, category, summary, insight))
             continue
-        picked.append((item, category, summary))
+        picked.append((item, category, summary, insight))
         chosen.add(item.full_name.lower())
         owner_counts[item.owner.lower()] += 1
         cat_counts[category] += 1
@@ -344,14 +356,14 @@ def normalize_llm(
 
     # The LLM may over-index on one category; keep the best extras around
     # instead of silently dropping them when the pool is otherwise thin.
-    for item, category, summary in deferred:
+    for item, category, summary, insight in deferred:
         if len(picked) >= count:
             break
         if item.full_name.lower() in chosen:
             continue
         if owner_counts[item.owner.lower()] >= owner_cap:
             continue
-        picked.append((item, category, summary))
+        picked.append((item, category, summary, insight))
         chosen.add(item.full_name.lower())
         owner_counts[item.owner.lower()] += 1
         cat_counts[category] += 1
@@ -367,7 +379,7 @@ def normalize_llm(
             category = categorize(item)
             if cat_counts[category] >= cat_cap:
                 continue
-            picked.append((item, category, truncate(item.description, 150)))
+            picked.append((item, category, truncate(item.description, 150), ""))
             chosen.add(item.full_name.lower())
             owner_counts[item.owner.lower()] += 1
             cat_counts[category] += 1
@@ -379,7 +391,7 @@ def normalize_llm(
 
 
 def apply_overrides(cfg: dict, digest: dict, target: date) -> dict:
-    """Allow a human editor to correct categories/summaries for one day."""
+    """Allow a human editor to correct categories, summaries or insights for one day."""
     path = DATA_DIR / "overrides" / f"{target.isoformat()}.json"
     data = read_json(path, None)
     if not data:
@@ -389,10 +401,14 @@ def apply_overrides(cfg: dict, digest: dict, target: date) -> dict:
         item = by_repo.get(repo.lower())
         if not item or not isinstance(patch, dict):
             continue
-        for key in ("summary", "category"):
+        for key in ("summary", "insight", "category"):
             value = str(patch.get(key) or "").strip()
-            if value:
-                item[key] = truncate(value, 180) if key == "summary" else value
+            if not value:
+                continue
+            if key == "category":
+                item[key] = value
+            else:
+                item[key] = truncate(value, 180 if key == "summary" else 160)
     order = {name: i for i, name in enumerate(cfg.get("categories", []))}
     digest["items"].sort(key=lambda item: order.get(item.get("category"), 99))
     intro = str(data.get("intro") or "").strip()
@@ -406,7 +422,7 @@ def apply_overrides(cfg: dict, digest: dict, target: date) -> dict:
 
 def build_digest(
     cfg: dict,
-    picks: list[tuple[Candidate, str, str]],
+    picks: list[tuple[Candidate, str, str, str]],
     intro: str,
     target: date,
     generated_by: str,
@@ -415,12 +431,13 @@ def build_digest(
     order = {name: i for i, name in enumerate(cfg.get("categories", []))}
     picks = sorted(picks, key=lambda p: order.get(p[1], 99))
     items = []
-    for item, category, summary in picks:
+    for item, category, summary, insight in picks:
         items.append(
             {
                 "repo": item.full_name,
                 "url": item.url,
                 "summary": summary,
+                "insight": insight,
                 "description": item.description,
                 "category": category,
                 "language": item.language,
@@ -432,7 +449,7 @@ def build_digest(
             }
         )
     if not intro:
-        intro = "从今天 GitHub 的候选池里挑了十个有代表性的项目：有新冒头的工具，也有值得回头看的硬货。"
+        intro = "今天从候选池里挑了十个项目：有已经在解决真实需求的工具，也有值得早点关注的信号。"
     return {
         "date": target.isoformat(),
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),

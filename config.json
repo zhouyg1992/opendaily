@@ -63,7 +63,8 @@
     "temperature": 0.6,
     "max_candidates": 24,
     "readme_chars": 1200,
-    "timeout": 180
+    "timeout": 180,
+    "max_tokens": 3200
   },
   "categories": [
     "AI / Agent 工具",
