@@ -66,27 +66,28 @@ def digest_stats(digest: dict, cfg: dict) -> dict:
     }
 
 
-def render_markdown(digest: dict, cfg: dict) -> str:
-    d = date.fromisoformat(digest["date"])
+def _digest_body(digest: dict, cfg: dict) -> list[str]:
+    """Shared body so README and daily files render with identical typography."""
     stats = digest_stats(digest, cfg)
-    meta_bits = [f"{stats['count']} 个项目", f"{stats['categories']} 个方向"]
-    if stats["stars_today"]:
-        meta_bits.append(f"当日新增 {fmt_count(stats['stars_today'])} stars")
+    lines: list[str] = []
 
-    lines = [
-        f"# 开源日报 · {d.isoformat()} {weekday_cn(d)}",
-        "",
-        f"> {digest.get('intro', '')}",
-        "",
-        " · ".join(meta_bits),
-        "",
-    ]
+    intro = digest.get("intro", "").strip()
+    if intro:
+        lines.append(f"> {intro}")
+        lines.append("")
+
+    bits = [f"{stats['count']} 个项目", f"{stats['categories']} 个方向"]
+    if stats["stars_today"]:
+        bits.append(f"当日新增 {fmt_count(stats['stars_today'])} stars")
+    lines.append(" · ".join(bits))
+    lines.append("")
+
     for category, entries in grouped_items(digest, cfg):
-        lines.append(f"## {category}")
+        lines.append(f"### {category}")
         lines.append("")
         for entry in entries:
             lines.append(
-                f"- **[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
+                f"**[{entry['repo']}]({entry['url']})** — {entry.get('summary', '')}"
             )
             meta = []
             if entry.get("language"):
@@ -96,17 +97,26 @@ def render_markdown(digest: dict, cfg: dict) -> str:
             if entry.get("stars_today"):
                 meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
             if meta:
-                lines.append("  " + " · ".join(meta))
-            if entry.get("insight"):
-                lines.append(f"  > 灵感：{entry['insight']}")
-        lines.append("")
+                lines.append(f"<sub>{' · '.join(meta)}</sub>")
+            insight = (entry.get("insight") or "").strip()
+            if insight:
+                lines.append(f"**灵感：** {insight}")
+            lines.append("")
+    return lines
 
-    lines.append("---")
-    lines.append("")
-    lines.append("[← 返回首页](../README.md) · [全部日报](../daily/)")
-    lines.append("")
-    lines.append("由 GitHub Actions 自动生成。")
-    lines.append("")
+
+def render_markdown(digest: dict, cfg: dict) -> str:
+    d = date.fromisoformat(digest["date"])
+    lines = [f"# 开源日报 · {d.isoformat()} {weekday_cn(d)}", ""]
+    lines += _digest_body(digest, cfg)
+    lines += [
+        "---",
+        "",
+        "[← 返回首页](../README.md) · [全部日报](../daily/)",
+        "",
+        "由 GitHub Actions 自动生成。",
+        "",
+    ]
     return "\n".join(lines)
 
 
@@ -121,23 +131,10 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
     latest = digests[0]
     d = date.fromisoformat(latest["date"])
     md_path = f"daily/{latest['date']}.md"
-    items = latest.get("items", [])
-    lines = [
-        f"**[{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})** — {latest.get('intro', '')}",
-        "",
-    ]
-    for category, entries in grouped_items(latest, cfg):
-        lines.append(f"#### {category}")
-        lines.append("")
-        for entry in entries:
-            insight = entry.get("insight")
-            text = f"灵感：{insight}" if insight else entry.get("summary", "")
-            lines.append(f"**[{entry['repo']}]({entry['url']})** — {text}")
-            lines.append("")
-    lines.append(f"[阅读完整日报（含项目介绍和 {len(items)} 条灵感）→]({md_path})")
-    lines.append("")
-    lines.append("#### 往期")
-    lines.append("")
+    lines = [f"**[{d.strftime('%Y.%m.%d')} · {weekday_cn(d)}]({md_path})**", ""]
+    lines += _digest_body(latest, cfg)
+    lines += [f"[本期 Markdown]({md_path})", "", "### 往期", ""]
+
     months: dict[str, list[date]] = {}
     for digest in digests:
         day = date.fromisoformat(digest["date"])
