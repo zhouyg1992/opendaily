@@ -35,6 +35,10 @@ def load_config() -> dict:
         return json.load(fh)
 
 
+def locale_list(cfg: dict) -> list[str]:
+    return list(cfg.get("locales") or ["zh"])
+
+
 def load_seen() -> dict[str, str]:
     return read_json(DATA_DIR / "seen.json", {})
 
@@ -77,9 +81,11 @@ def rebuild(cfg: dict) -> None:
     for digest in digests:
         digest = apply_overrides(cfg, digest, parse_date(digest["date"]))
         save_digest(digest)
-        write_content(digest, cfg)
+        for locale in locale_list(cfg):
+            write_content(digest, cfg, locale)
     digests = load_digests()
-    update_readme(digests, cfg)
+    for locale in locale_list(cfg):
+        update_readme(digests, cfg, locale)
     log(f"rebuilt {len(digests)} digest(s), latest {digests[0]['date']}")
 
 
@@ -123,11 +129,13 @@ def run_day(cfg: dict, target: date, force: bool) -> None:
         )
 
     path = save_digest(digest)
-    write_content(digest, cfg)
+    for locale in locale_list(cfg):
+        write_content(digest, cfg, locale)
     update_seen(seen, digest, cooldown)
 
     digests = load_digests()
-    update_readme(digests, cfg)
+    for locale in locale_list(cfg):
+        update_readme(digests, cfg, locale)
 
     log(f"wrote {path.relative_to(ROOT)} with {len(digest['items'])} items")
     for index, item in enumerate(digest["items"], 1):

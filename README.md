@@ -3,14 +3,15 @@
   <br>
   <p>每天 10 个值得一看的开源项目，给正在找方向的人一点灵感。<br>
   项目来自 GitHub 热榜、新项目搜索和 Hacker News，每期写清楚可以怎么借、从哪切入。</p>
-  <p><a href="daily/"><strong>全部日报→</strong></a></p>
+  <p><a href="daily/zh/"><strong>全部日报→</strong></a></p>
   <p><a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a></p>
+  <p><a href="README.en.md">English</a></p>
 </div>
 
 ---
 
 <!-- DIGEST:START -->
-## [2026.10.20 · 周二](daily/2026-10-20.md)
+## [2026.10.20 · 周二](daily/zh/2026-10-20.md)
 
 > 今天的项目有个共同信号：过去只有大公司用得起的专业能力——代码理解、金融建模、PDF 编辑、无线安全审计——正被做成能本地运行、能嵌进工作流的开源工具。机会未必在再做一个模型，而在把能力包装成垂直场景里开箱即用的产品。
 
@@ -68,13 +69,13 @@
 
   > 灵感：本地专业修图仍有空位：切电商批量修图，或医疗、设计等不能上云的素材工作流。
 
-[本期 Markdown](daily/2026-10-20.md)
+[本期 Markdown](daily/zh/2026-10-20.md)
 
 ### 往期
 
 #### 2026 年
 
-**10 月**：[20](daily/2026-10-20.md)
+**10 月**：[20](daily/zh/2026-10-20.md)
 
 <!-- DIGEST:END -->
 

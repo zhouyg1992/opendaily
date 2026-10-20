@@ -1,0 +1,22 @@
+{
+  "digest_title": "开源日报",
+  "weekdays": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+  "insight": "灵感",
+  "insight_sep": "：",
+  "archive": "往期",
+  "this_markdown": "本期 Markdown",
+  "all_issues": "全部日报",
+  "back_home": "返回首页",
+  "generated_by": "由 GitHub Actions 自动生成。",
+  "empty": "还没有生成任何一期。",
+  "categories": {
+    "AI / Agent 工具": "AI / Agent 工具",
+    "AI 基础设施 / 模型": "AI 基础设施 / 模型",
+    "开发工具 / CLI": "开发工具 / CLI",
+    "前端 / 设计": "前端 / 设计",
+    "数据 / 基础设施": "数据 / 基础设施",
+    "安全 / 隐私": "安全 / 隐私",
+    "Skill / 垂直工具": "Skill / 垂直工具",
+    "其他": "其他"
+  }
+}

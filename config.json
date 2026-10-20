@@ -1,4 +1,9 @@
 {
+  "locales": [
+    "zh",
+    "en"
+  ],
+  "default_locale": "zh",
   "digest": {
     "count": 10,
     "cooldown_days": 60,
@@ -64,7 +69,7 @@
     "max_candidates": 24,
     "readme_chars": 1200,
     "timeout": 180,
-    "max_tokens": 3200
+    "max_tokens": 6000
   },
   "categories": [
     "AI / Agent 工具",

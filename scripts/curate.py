@@ -152,13 +152,29 @@ def filter_candidates(
     return kept
 
 
+def _locales(cfg: dict) -> list[str]:
+    return list(cfg.get("locales") or ["zh"])
+
+
+def _default_locale(cfg: dict) -> str:
+    return str(cfg.get("default_locale") or _locales(cfg)[0])
+
+
+def _fallback_content(item: Candidate, cfg: dict) -> dict:
+    summary = truncate(item.description, 150)
+    return {
+        locale: {"summary": summary, "insight": ""}
+        for locale in _locales(cfg)
+    }
+
+
 def pick_fallback(
     ranked: list[Candidate], cfg: dict
-) -> list[tuple[Candidate, str, str, str]]:
+) -> list[tuple[Candidate, str, dict]]:
     count = int(cfg["digest"].get("count", 10))
     owner_cap = int(cfg["digest"].get("max_per_owner", 2))
     cat_cap = int(cfg["digest"].get("max_per_category", 3))
-    picked: list[tuple[Candidate, str, str, str]] = []
+    picked: list[tuple[Candidate, str, dict]] = []
     chosen: set[str] = set()
 
     for cap in (cat_cap, cat_cap + 1, 99):
@@ -177,7 +193,7 @@ def pick_fallback(
             cat = categorize(item)
             if cat_counts[cat] >= cap:
                 continue
-            picked.append((item, cat, truncate(item.description, 150), ""))
+            picked.append((item, cat, _fallback_content(item, cfg)))
             chosen.add(item.full_name.lower())
             owner_counts[item.owner.lower()] += 1
             cat_counts[cat] += 1
@@ -213,7 +229,8 @@ def _candidate_block(candidates: list[Candidate], target: date) -> str:
 
 SYSTEM_PROMPT = (
     "你是一位懂工程、也懂产品的开源项目侦察员，为正在找方向的创业者和关注开源社区的人写每日日报。"
-    "你能分辨真实需求和自嗨工具，也敢指出一个项目适合怎么被产品化。你只输出 JSON。"
+    "你能分辨真实需求和自嗨工具，也敢指出一个项目适合怎么被产品化。"
+    "你需要用中文和英文分别写作，两种语言都要自然，不要逐字翻译。你只输出 JSON。"
 )
 
 
@@ -224,23 +241,24 @@ def build_prompt(cfg: dict, candidates: list[Candidate], target: date) -> str:
 
 读者是想创业但还没找到方向的人，以及每天关注开源社区的人。他们想知道：今天有什么值得看，以及这些项目里藏着什么机会。
 
-请从中挑选 {count} 个最值得今天推荐的项目，并写成日报。
+请从中挑选 {count} 个最值得今天推荐的项目，并写成中英双语日报。
 
 要求：
 1. 恰好 {count} 个不同项目，repo 必须与候选列表中的 owner/name 完全一致，不得编造。
 2. 优先覆盖不同方向，避免同质化（例如不要选 5 个 agent 框架）；同一 owner 最多 2 个。
-3. intro：60–90 字，指出今天这批项目共同反映的一个变化、需求或机会信号，不要逐个点名，也不要写成空泛的行业套话。
-4. summary：50–80 字中文，讲清「它是什么、解决谁的问题、为什么现在值得看」。
-   - 具体、可验证，不要空泛吹捧（如「功能强大」「值得关注」）；
-   - 不要以「这是一个」开头，不要复述 star 数，不要用 Markdown、不要 emoji；
-   - 不要照抄英文简介的句式。
-5. insight：30–60 字，给一个具体的「可以怎么借」的角度：面向谁、切哪个场景、和现有方案差在哪。
-   - 如果它更适合作为基础设施或趋势信号，就直接说明，不要硬编创业点子；
-   - 不要写「可以做 SaaS」「前景广阔」「值得关注」这类空话，不要编造市场数据；
-   - 不要重复 summary 的内容。
-6. category 只能从以下选一个：{categories}。
-7. 严格输出 JSON：
-{{"intro": "...", "items": [{{"repo": "owner/name", "category": "...", "summary": "...", "insight": "..."}}]}}
+3. intro 是对象，必须同时包含 zh 和 en：
+   - zh：60–90 字，指出今天这批项目共同反映的一个变化、需求或机会信号，不要逐个点名；
+   - en：30–50 words，表达同一个观察，但用英语原生写法，不要逐字翻译中文。
+4. content 是对象，每个项目必须同时包含 zh 和 en，各自有 summary 和 insight：
+   - summary：讲清「它是什么、解决谁的问题、为什么现在值得看」。中文 50–80 字，英文 25–45 words。
+   - insight：一个具体的「可以怎么借」的角度：面向谁、切哪个场景、和现有方案差在哪。中文 30–60 字，英文 15–30 words。
+   - 两种语言都要原生写作，英文不要照搬中文句式，也不要保留中文标点。
+   - 如果项目更适合作为基础设施或趋势信号，就直接说明，不要硬编创业点子。
+   - 不要写「可以做 SaaS」「前景广阔」「值得关注」这类空话，不要编造市场数据。
+   - 不要用 Markdown、不要 emoji，不要复述 star 数。
+5. category 只能从以下选一个（这是内部分类，不需要翻译）：{categories}。
+6. 严格输出 JSON：
+{{"intro": {{"zh": "...", "en": "..."}}, "items": [{{"repo": "owner/name", "category": "...", "content": {{"zh": {{"summary": "...", "insight": "..."}}, "en": {{"summary": "...", "insight": "..."}}}}}}]}}
 不要输出 JSON 以外的任何内容。
 
 候选项目：
@@ -278,7 +296,7 @@ def call_llm(cfg: dict, prompt: str) -> dict | None:
             {"role": "user", "content": prompt},
         ],
         "temperature": float(conf.get("temperature", 0.6)),
-        "max_tokens": int(conf.get("max_tokens", 3200)),
+        "max_tokens": int(conf.get("max_tokens", 6000)),
         "response_format": {"type": "json_object"},
     }
     timeout = int(conf.get("timeout", 180))
@@ -304,9 +322,57 @@ def call_llm(cfg: dict, prompt: str) -> dict | None:
         return None
 
 
+def _clean_text(value) -> str:
+    text = re.sub(r"\s+", " ", str(value or "")).strip().strip('"“”')
+    text = re.sub(r"^[-–—\s]+", "", text)
+    return text
+
+
+def _parse_content(entry: dict, cfg: dict) -> dict:
+    locales = _locales(cfg)
+    default = _default_locale(cfg)
+    raw = entry.get("content")
+    parsed: dict[str, dict] = {}
+
+    if isinstance(raw, dict):
+        for locale in locales:
+            block = raw.get(locale)
+            if not isinstance(block, dict):
+                continue
+            summary = _clean_text(block.get("summary"))
+            summary = re.sub(
+                r"^[^\s：:]{1,60}[/／][^\s：:]{1,80}\s*[：:—-]\s*", "", summary
+            )
+            if len(summary) < 12:
+                continue
+            insight = _clean_text(block.get("insight"))
+            parsed[locale] = {
+                "summary": truncate(summary, 180),
+                "insight": truncate(insight, 160) if len(insight) >= 10 else "",
+            }
+
+    if not parsed:
+        summary = _clean_text(entry.get("summary"))
+        insight = _clean_text(entry.get("insight"))
+        if len(summary) >= 12:
+            parsed[default] = {
+                "summary": truncate(summary, 180),
+                "insight": truncate(insight, 160) if len(insight) >= 10 else "",
+            }
+
+    if not parsed:
+        return {}
+    if default not in parsed:
+        parsed[default] = dict(next(iter(parsed.values())))
+    for locale in locales:
+        if locale not in parsed:
+            parsed[locale] = dict(parsed[default])
+    return parsed
+
+
 def normalize_llm(
     cfg: dict, data: dict, ranked: list[Candidate]
-) -> tuple[str, list[tuple[Candidate, str, str, str]], str]:
+) -> tuple[dict, list[tuple[Candidate, str, dict]], str]:
     count = int(cfg["digest"].get("count", 10))
     owner_cap = int(cfg["digest"].get("max_per_owner", 2))
     cat_cap = int(cfg["digest"].get("max_per_category", 4))
@@ -314,8 +380,8 @@ def normalize_llm(
     by_name = {c.full_name.lower(): c for c in ranked}
     owner_counts: Counter = Counter()
     cat_counts: Counter = Counter()
-    picked: list[tuple[Candidate, str, str, str]] = []
-    deferred: list[tuple[Candidate, str, str, str]] = []
+    picked: list[tuple[Candidate, str, dict]] = []
+    deferred: list[tuple[Candidate, str, dict]] = []
     chosen: set[str] = set()
 
     for entry in data.get("items", []):
@@ -331,39 +397,28 @@ def normalize_llm(
         category = str(entry.get("category", "")).strip()
         if category not in allowed:
             category = categorize(item)
-        summary = str(entry.get("summary", "")).strip()
-        summary = re.sub(r"^[-–—\s]+", "", summary).strip('"“”')
-        summary = re.sub(r"^[^\s：:]{1,60}[/／][^\s：:]{1,80}\s*[：:—-]\s*", "", summary)
-        summary = re.sub(r"\s+", " ", summary)
-        if len(summary) < 12:
-            summary = truncate(item.description, 150)
-        summary = truncate(summary, 180)
-        insight = str(entry.get("insight", "")).strip()
-        insight = re.sub(r"^[-–—\s]+", "", insight).strip('"“”')
-        insight = re.sub(r"\s+", " ", insight)
-        insight = truncate(insight, 160)
-        if len(insight) < 10:
-            insight = ""
-        if cat_counts[category] >= cat_cap:
-            deferred.append((item, category, summary, insight))
+        content = _parse_content(entry, cfg)
+        if not content:
             continue
-        picked.append((item, category, summary, insight))
+        if cat_counts[category] >= cat_cap:
+            deferred.append((item, category, content))
+            continue
+        picked.append((item, category, content))
         chosen.add(item.full_name.lower())
         owner_counts[item.owner.lower()] += 1
         cat_counts[category] += 1
         if len(picked) >= count:
             break
 
-    # The LLM may over-index on one category; keep the best extras around
-    # instead of silently dropping them when the pool is otherwise thin.
-    for item, category, summary, insight in deferred:
+    # Keep category overflow around; the pool may be thin in other directions.
+    for item, category, content in deferred:
         if len(picked) >= count:
             break
         if item.full_name.lower() in chosen:
             continue
         if owner_counts[item.owner.lower()] >= owner_cap:
             continue
-        picked.append((item, category, summary, insight))
+        picked.append((item, category, content))
         chosen.add(item.full_name.lower())
         owner_counts[item.owner.lower()] += 1
         cat_counts[category] += 1
@@ -379,41 +434,67 @@ def normalize_llm(
             category = categorize(item)
             if cat_counts[category] >= cat_cap:
                 continue
-            picked.append((item, category, truncate(item.description, 150), ""))
+            picked.append((item, category, _fallback_content(item, cfg)))
             chosen.add(item.full_name.lower())
             owner_counts[item.owner.lower()] += 1
             cat_counts[category] += 1
 
-    intro = re.sub(r"\s+", " ", str(data.get("intro", ""))).strip()
-    if len(intro) < 10:
-        intro = ""
+    raw_intro = data.get("intro")
+    intro: dict[str, str] = {}
+    if isinstance(raw_intro, dict):
+        for locale in _locales(cfg):
+            text = _clean_text(raw_intro.get(locale))
+            if len(text) >= 10:
+                intro[locale] = truncate(text, 300)
+    elif isinstance(raw_intro, str):
+        text = _clean_text(raw_intro)
+        if len(text) >= 10:
+            intro[_default_locale(cfg)] = truncate(text, 300)
+
     return intro, picked[:count], str(data.get("_model") or "")
 
 
 def apply_overrides(cfg: dict, digest: dict, target: date) -> dict:
-    """Allow a human editor to correct categories, summaries or insights for one day."""
+    """Allow a human editor to correct localized copy for one day."""
     path = DATA_DIR / "overrides" / f"{target.isoformat()}.json"
     data = read_json(path, None)
-    if not data:
+    if not isinstance(data, dict) or not data:
         return digest
+
+    locales = _locales(cfg)
+    default = _default_locale(cfg)
+    if any(isinstance(data.get(locale), dict) for locale in locales):
+        blocks = {loc: data[loc] for loc in locales if isinstance(data.get(loc), dict)}
+    else:
+        blocks = {default: data}
+
     by_repo = {item["repo"].lower(): item for item in digest.get("items", [])}
-    for repo, patch in (data.get("items") or {}).items():
-        item = by_repo.get(repo.lower())
-        if not item or not isinstance(patch, dict):
-            continue
-        for key in ("summary", "insight", "category"):
-            value = str(patch.get(key) or "").strip()
-            if not value:
+    for locale, block in blocks.items():
+        intro = block.get("intro")
+        if intro:
+            if not isinstance(digest.get("intro"), dict):
+                digest["intro"] = {}
+            digest["intro"][locale] = truncate(
+                re.sub(r"\s+", " ", str(intro)).strip(), 300
+            )
+        for repo, patch in (block.get("items") or {}).items():
+            item = by_repo.get(repo.lower())
+            if not item or not isinstance(patch, dict):
                 continue
-            if key == "category":
-                item[key] = value
-            else:
-                item[key] = truncate(value, 180 if key == "summary" else 160)
+            category = str(patch.get("category") or "").strip()
+            if category:
+                item["category"] = category
+            content = item.setdefault("content", {})
+            localized = content.setdefault(locale, {})
+            for key in ("summary", "insight"):
+                value = str(patch.get(key) or "").strip()
+                if value:
+                    localized[key] = truncate(value, 180 if key == "summary" else 160)
+            if not content.get(locale):
+                content.pop(locale, None)
+
     order = {name: i for i, name in enumerate(cfg.get("categories", []))}
     digest["items"].sort(key=lambda item: order.get(item.get("category"), 99))
-    intro = str(data.get("intro") or "").strip()
-    if intro:
-        digest["intro"] = intro
     if data.get("generated_by"):
         digest["generated_by"] = str(data["generated_by"])
     log(f"applied editorial overrides from {path.relative_to(DATA_DIR.parent)}")
@@ -422,8 +503,8 @@ def apply_overrides(cfg: dict, digest: dict, target: date) -> dict:
 
 def build_digest(
     cfg: dict,
-    picks: list[tuple[Candidate, str, str, str]],
-    intro: str,
+    picks: list[tuple[Candidate, str, dict]],
+    intro: dict,
     target: date,
     generated_by: str,
     model: str,
@@ -431,13 +512,12 @@ def build_digest(
     order = {name: i for i, name in enumerate(cfg.get("categories", []))}
     picks = sorted(picks, key=lambda p: order.get(p[1], 99))
     items = []
-    for item, category, summary, insight in picks:
+    for item, category, content in picks:
         items.append(
             {
                 "repo": item.full_name,
                 "url": item.url,
-                "summary": summary,
-                "insight": insight,
+                "content": content,
                 "description": item.description,
                 "category": category,
                 "language": item.language,
@@ -448,8 +528,6 @@ def build_digest(
                 "score": item.score,
             }
         )
-    if not intro:
-        intro = "今天从候选池里挑了十个项目：有已经在解决真实需求的工具，也有值得早点关注的信号。"
     return {
         "date": target.isoformat(),
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
@@ -531,7 +609,7 @@ def curate(cfg: dict, candidates: list[Candidate], target: date) -> dict:
     return build_digest(
         cfg,
         picks,
-        "",
+        {},
         target,
         "heuristic",
         "",
