@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-从 GitHub Trending、新项目搜索和 Hacker News 里，每天挑 **10 个有意思的开源项目**，写成一份 Markdown 日报：`daily/YYYY-MM-DD.md`。不需要网页，项目本身就是日报仓库，GitHub 直接渲染。
+每天 **10 个**值得一看的开源项目，来自 GitHub 热榜、新项目搜索和 Hacker News。用中文讲清楚它们是做什么的、为什么值得看。
 
 **[全部日报](daily/)**
 
