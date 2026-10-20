@@ -97,10 +97,11 @@ def _digest_body(digest: dict, cfg: dict) -> list[str]:
             if entry.get("stars_today"):
                 meta.append(f"当日 +{fmt_count(int(entry['stars_today']))}")
             if meta:
-                lines.append(f"<sub>{' · '.join(meta)}</sub><br>")
+                lines.append(f"<sub>{' · '.join(meta)}</sub>")
             insight = (entry.get("insight") or "").strip()
             if insight:
-                lines.append(f"**灵感：** {insight}")
+                lines.append("")
+                lines.append(f"> 灵感：{insight}")
             lines.append("")
     return lines
 
