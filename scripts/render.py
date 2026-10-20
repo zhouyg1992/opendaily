@@ -128,7 +128,7 @@ def build_readme_block(digests: list[dict], cfg: dict) -> str:
     ]
     for index, entry in enumerate(items, 1):
         insight = entry.get("insight") or entry.get("summary", "")
-        lines.append(f"{index}. **[{entry['repo']}]({entry['url']})** — {insight}")
+        lines.append(f"**{index}.** [{entry['repo']}]({entry['url']}) — {insight}")
         lines.append("")
     lines.append(f"[阅读完整日报（含项目介绍和 {len(items)} 条灵感）→]({md_path})")
     lines.append("")
