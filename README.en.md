@@ -10,69 +10,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 20, 2026 · Tue](daily/en/2026-10-20.md)
+## [Oct 21, 2026 · Wed](daily/en/2026-10-21.md)
 
-> Today's batch points to one shift: AI coding tools are moving from writing code to controlling its cost and quality. Prompt skills trim agent output, codebase graphs cut token spend, and orchestrators run fleets of agents in parallel.
+> Today's projects point to one shift: AI is moving out of the chat box and into concrete workflows and everyday hardware. Assistants now live inside the messaging apps you already use, large models run on old machines in pure C, and specialized crafts like design, research,
 
 ### AI / Agents
 
-* **[DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)** — A Claude Code skill that injects the persona of the laziest senior dev in the room, pushing agents to write one line instead of fifty.
+* **[openclaw/openclaw](https://github.com/openclaw/openclaw)** — An open-source assistant that runs on your own machine and plugs into twenty-plus chat channels like Slack, Telegram, and iMessage, keeping memory and credentials local.
 
-  > Angle: The angle is subtraction, not generation: sell an agent-output audit to tech leads that flags over-engineering against YAGNI rules,
-
-* **[stablyai/orca](https://github.com/stablyai/orca)** — Built for developers running several coding agents at once: each works in its own git worktree, tracked from one place, with a mobile companion for monitoring and follow-ups.
-
-  > Angle: The opening is comparison, not orchestration: whoever auto-diffs, scores and recommends which agent branch to merge owns the workflow entry point once fan-out…
+  > Angle: Target teams that cannot send data to a cloud vendor. Sell deployment, channel integration, and permission governance around the gateway rather than the model…
 
 ### AI Infrastructure / Models
 
-* **[Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)** — Turns code, docs, SQL schemas, configs and PDFs into a queryable knowledge graph, exposed as a slash command inside Claude Code, Cursor and similar tools.
+* **[NandhaKishorM/laya](https://github.com/NandhaKishorM/laya)** — A non-autoregressive decision engine that makes typed choices, scores, and yes/no calls over text in a single forward pass of about 33 ms across 100+ languages,
 
-  > Angle: Position it as the context layer for large legacy codebases: teams inheriting old systems get a structured graph instead of grep and embeddings,
+  > Angle: Replace the expensive habit of calling a large model for simple judgments like intent routing and moderation.
 
-* **[Niko1221/Strata](https://github.com/Niko1221/Strata)** — Runs a 125-billion-parameter model that normally needs a server on an ordinary gaming PC, with one-click installers for Windows and Linux and an OpenAI/Anthropic-compatible API on…
+* **[JustVugg/colibri](https://github.com/JustVugg/colibri)** — A pure-C, zero-dependency inference engine that exploits MoE sparsity: only active experts sit in RAM while the rest stream from disk,
 
-  > Angle: Package it as plug-and-play local inference for privacy-sensitive small teams and solo developers: chats and files never leave the machine,
+  > Angle: A signal at the infrastructure layer: local inference is dropping to consumer hardware. Build an offline private-model appliance for industries that cannot…
 
 ### Developer Tools / CLI
 
-* **[fyzugx/DEsk](https://github.com/fyzugx/DEsk)** — A Wayland desktop environment for Linux built around iOS 6-style skeuomorphism, where on-screen elements are drawn to look like real objects.
+* **[vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils)** — A macOS menu bar toolkit bundling per-app volume, system monitoring, window snapping, clipboard history, an uninstaller, and more behind one icon, with no account, telemetry,
 
-  > Angle: Not a startup, but a design signal: the skeuomorphic revival suggests fatigue with flat UI, so teams shipping desktop or mobile component libraries should…
+  > Angle: Proof that subscription fatigue creates willingness to pay once for utility. Replicate the bundle on Windows or cross-platform,
+
+* **[rmyndharis/OpenWA](https://github.com/rmyndharis/OpenWA)** — A self-hosted WhatsApp API gateway with a pluggable architecture: database, media storage, and cache are switched by config.
+
+  > Angle: Build customer-service and notification automation for small merchants on top of it. Sell templates, compliant messaging flows, and managed operations,
 
 ### Frontend / Design
 
-* **[thesysdev/openui](https://github.com/thesysdev/openui)** — A framework-agnostic generative UI framework built around a compact streaming-first language, with first-party runtimes for React, Vue, Svelte and Angular.
+* **[pbakaus/impeccable](https://github.com/pbakaus/impeccable)** — A design skill for AI coding tools with 24 commands, live browser iteration, and 61 deterministic rules aimed at the sameness of AI-generated frontends.
 
-  > Angle: Sell it as the layer between agents and structured UI: teams building AI support or reporting assistants get lower latency from a lean DSL instead of dumping…
+  > Angle: For small studios shipping client or internal tools: package a mandatory design-check pass after AI generation.
 
-### Data / Infrastructure
+### Security / Privacy
 
-* **[bilawalsidhu/gods-eye-view](https://github.com/bilawalsidhu/gods-eye-view)** — A spy-satellite simulator in the browser where every layer is public data: live aircraft, ships, satellites, earthquakes, traffic and public cameras on a photorealistic 3D globe,
+* **[microg/GmsCore](https://github.com/microg/GmsCore)** — A free implementation of Google Play Services that lets apps depending on it run on systems without the official stack, covering sign-in, push, and location.
 
-  > Angle: Build it into an OSINT and geospatial-intelligence demo or training product for journalists, supply-chain analysts and security teams,
+  > Angle: A trend signal rather than a startup idea: the privacy-first Android ecosystem still has infrastructure gaps.
 
 ### Vertical Tools / Skills
 
-* **[storytold/photocraft](https://github.com/storytold/photocraft)** — An open-source photo editor rebuilt from scratch in pure Rust, with layers, masks, adjustment layers, type, vectors, brushes and real PSD files, running natively offline.
+* **[storytold/filmcraft](https://github.com/storytold/filmcraft)** — An open-source non-linear video editor written from scratch in pure Rust, covering editing, color, and sound, native on macOS, Windows,
 
-  > Angle: PSD compatibility plus local-only processing is the wedge: target designers and photo studios tired of subscriptions,
+  > Angle: A browser-capable pro editor can be embedded in online collaboration or education. Target users who will not install heavyweight software but need real…
 
-* **[storytold/lightcraft](https://github.com/storytold/lightcraft)** — A non-destructive photo library and RAW developer written in pure Rust, native on macOS, Windows and Linux and also running in the browser via WebAssembly.
+* **[eternity4719/HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter)** — A Chinese-language practical life guide with 765 recommendations on health, money, law, social insurance, family, and starting a business.
 
-  > Angle: MCP support is the signal: target e-commerce and photo teams doing bulk edits with natural-language develop instructions,
+  > Angle: A template for trusted knowledge plus a skill: structured, sourced content that AI can cite. Replicate it in domains like tax, labor law,
 
-* **[Kruk2/jasna](https://github.com/Kruk2/jasna)** — A video and image restoration tool that finds mosaic regions in a frame and restores only those areas, leaving the rest untouched.
+* **[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)** — A skill collection for researchers that packages Nature-style paper polishing and scientific figure work into installable skills for Claude Code, Codex, and similar tools,
 
-  > Angle: The niche is sharp but legally sensitive: better sold as an offline batch tool for post-production and archival restoration than as a consumer online service,
+  > Angle: Academic writing is frequent and pays well. Narrow to one step, such as figure compliance checks or journal-format conversion,
 
-[This issue (Markdown)](daily/en/2026-10-20.md)
+[This issue (Markdown)](daily/en/2026-10-21.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[20](daily/en/2026-10-20.md)
+**Oct**：[21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
