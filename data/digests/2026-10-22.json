@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-22",
+  "generated_at": "2026-10-21T23:08:23+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个清晰信号：AI 正在从聊天框走进具体工作流，无论是编码代理、桌面操作还是文档处理，都在把模型能力封装成可交付的日常工具。同时，围绕代理协作的基础设施和技能生态也在快速成形，机会藏在那些能解决真实摩擦的细分环节里。",
+    "en": "Today's projects show AI moving from chat boxes into concrete workflows. Coding agents, desktop automation, and document tools are packaging model capabilities into everyday deliverables."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "tt-a1i/archify",
+      "url": "https://github.com/tt-a1i/archify",
+      "content": {
+        "zh": {
+          "summary": "Archify 是一个代理技能，能把想法、计划或代码库转成可交互的 HTML 图表。它解决的是非设计师快速可视化复杂信息的需求，现在值得看是因为它把图表生成变成了对话式的一步操作。",
+          "insight": "面向需要频繁做架构图或流程说明的开发者，可以切入代码审查或技术文档场景，和传统绘图工具比，它省掉了手动拖拽的环节。"
+        },
+        "en": {
+          "summary": "Archify is an agent skill that turns ideas, plans, or codebases into interactive HTML diagrams. It solves the need for non-designers to visualize complex information quickly,",
+          "insight": "Target developers who frequently create architecture or flow diagrams. A wedge is code review or technical documentation,"
+        }
+      },
+      "description": "Turn any idea, plan, or codebase into a beautiful interactive diagram. An agent skill for Claude Code, Codex, and more.",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 87048,
+      "stars_today": 726,
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "architecture-diagram",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "coding-agents",
+        "deepseek-harness",
+        "developer-tools",
+        "diagrams"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 47.64
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "url": "https://github.com/anomalyco/opencode",
+      "content": {
+        "zh": {
+          "summary": "OpenCode 是一个开源编码代理，提供终端和桌面应用两种形态。它解决的是开发者希望在不离开本地环境的情况下获得 AI 辅助编码的问题，现在值得看是因为它已经积累了可观的社区使用量。",
+          "insight": "适合作为团队内部编码助手的底座，切入点是私有化部署和自定义模型接入，和云端方案比，它让代码和数据完全留在本地。"
+        },
+        "en": {
+          "summary": "OpenCode is an open-source coding agent available as a terminal tool and desktop app. It addresses developers who want AI-assisted coding without leaving their local environment,",
+          "insight": "A good foundation for an internal team coding assistant. The wedge is private deployment and custom model integration,"
+        }
+      },
+      "description": "The open source coding agent.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 219650,
+      "stars_today": 1269,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 45.0
+    },
+    {
+      "repo": "trycua/cua",
+      "url": "https://github.com/trycua/cua",
+      "content": {
+        "zh": {
+          "summary": "Cua 提供开源驱动、跨系统沙箱和基准测试，让 AI 代理能够操作完整桌面。它解决的是计算机使用代理在训练和评估时缺乏标准化环境的问题，现在值得看是因为桌面自动化正在成为代理落地的重要方向。",
+          "insight": "适合做桌面自动化代理的团队，切入点是跨平台测试环境搭建，和自建虚拟机方案比，它把沙箱和评测工具打包成了开箱即用的组件。"
+        },
+        "en": {
+          "summary": "Cua provides open-source drivers, cross-OS sandboxes, and benchmarks so AI agents can operate full desktops. It solves the lack of standardized environments for training and…",
+          "insight": "For teams building desktop automation agents, the wedge is cross-platform test environment setup. Compared to DIY virtual machines,"
+        }
+      },
+      "description": "Scale computer-use 2.0 with open-source drivers, cross-OS sandboxes, and benchmarks for training, evaluation, and data generation.",
+      "category": "AI / Agent 工具",
+      "language": "Rust",
+      "stars": 30570,
+      "stars_today": 208,
+      "topics": [
+        "agent",
+        "ai-agent",
+        "apple",
+        "computer-use",
+        "computer-use-agent",
+        "containerization",
+        "cua",
+        "desktop-automation",
+        "hacktoberfest",
+        "lume"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.11
+    },
+    {
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase",
+      "content": {
+        "zh": {
+          "summary": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+          "insight": ""
+        },
+        "en": {
+          "summary": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+          "insight": ""
+        }
+      },
+      "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 112963,
+      "stars_today": 509,
+      "topics": [
+        "ai",
+        "alternative",
+        "auth",
+        "database",
+        "deno",
+        "embeddings",
+        "example",
+        "firebase",
+        "nextjs",
+        "oauth2"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 44.73
+    },
+    {
+      "repo": "tashfeenahmed/freellmapi",
+      "url": "https://github.com/tashfeenahmed/freellmapi",
+      "content": {
+        "zh": {
+          "summary": "FreeLLMAPI 把 34 家免费 LLM 提供商的额度聚合到一个 OpenAI 兼容端点，自动路由和故障转移。它解决的是开发者在原型阶段想低成本调用多种模型的问题，现在值得看是因为免费额度池的规模已经相当可观。",
+          "insight": "适合做 AI 应用原型期的内部工具，切入点是模型对比测试和成本控制，和直接对接各家 API 比，它省掉了多密钥管理和限流处理的麻烦。"
+        },
+        "en": {
+          "summary": "FreeLLMAPI aggregates free tiers from 34 LLM providers behind one OpenAI-compatible endpoint with smart routing and failover.",
+          "insight": "Useful as an internal tool during AI app prototyping. The wedge is model comparison testing and cost control,"
+        }
+      },
+      "description": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
+      "category": "AI 基础设施 / 模型",
+      "language": "TypeScript",
+      "stars": 38935,
+      "stars_today": 684,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.54
+    },
+    {
+      "repo": "github/spec-kit",
+      "url": "https://github.com/github/spec-kit",
+      "content": {
+        "zh": {
+          "summary": "Spec Kit 是 GitHub 推出的工具包，为 AI 编码代理提供结构化的规格驱动开发流程和模板。它解决的是代理生成代码缺乏可追溯规格的问题，现在值得看是因为它把工程规范带进了代理工作流。",
+          "insight": "面向使用编码代理的团队，可以切入需求评审和变更管理场景，和自由对话式代理比，它让每一步产出都有文档可查。"
+        },
+        "en": {
+          "summary": "Spec Kit is a GitHub toolkit that gives AI coding agents structured spec-driven development processes and templates.",
+          "insight": "For teams using coding agents, a wedge is requirements review and change management. Unlike free-form chat agents,"
+        }
+      },
+      "description": "💫 Toolkit to help you get started with SDD or any other process!",
+      "category": "开发工具 / CLI",
+      "language": "Python",
+      "stars": 142306,
+      "stars_today": 223,
+      "topics": [
+        "ai",
+        "copilot",
+        "development",
+        "engineering",
+        "prd",
+        "spec",
+        "spec-driven"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.58
+    },
+    {
+      "repo": "storytold/wordcraft",
+      "url": "https://github.com/storytold/wordcraft",
+      "content": {
+        "zh": {
+          "summary": "WordCraft 是用纯 Rust 从零实现的开源文字处理器，支持 .docx 读写和 WebAssembly。它解决的是用户对轻量、跨平台文档工具的需求，现在值得看是因为它展示了用现代技术栈重建经典桌面软件的可行性。",
+          "insight": "适合关注文档协作的创业者，切入点是浏览器内嵌的文档编辑或格式转换服务，和传统办公套件比，它更轻量且易于集成到 Web 应用。"
+        },
+        "en": {
+          "summary": "WordCraft is an open-source word processor built from scratch in pure Rust, supporting .docx read/write and WebAssembly.",
+          "insight": "For founders eyeing document collaboration, a wedge is in-browser document editing or format conversion."
+        }
+      },
+      "description": "An open-source, clean-room reimplementation of Microsoft Word in pure Rust",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 15328,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 31.11
+    },
+    {
+      "repo": "storytold/vectorcraft",
+      "url": "https://github.com/storytold/vectorcraft",
+      "content": {
+        "zh": {
+          "summary": "VectorCraft 是用纯 Rust 编写的开源矢量绘图工具，支持 SVG 编辑和 WebAssembly。它解决的是设计师对轻量、可嵌入的矢量工具的需求，现在值得看是因为它把专业绘图能力带进了浏览器。",
+          "insight": "面向设计工具创业者，可以切入在线 SVG 编辑或图标管理场景，和桌面软件比，它无需安装且便于团队共享。"
+        },
+        "en": {
+          "summary": "VectorCraft is an open-source vector graphics tool written in pure Rust, supporting SVG editing and WebAssembly.",
+          "insight": "For design tool founders, a wedge is online SVG editing or icon management. Unlike desktop software, it requires no installation and is easy for teams to share."
+        }
+      },
+      "description": "VectorCraft: An open-source, vector art tool written by scratch in pure Rust",
+      "category": "前端 / 设计",
+      "language": "Rust",
+      "stars": 10331,
+      "stars_today": 0,
+      "topics": [
+        "art",
+        "rust",
+        "rust-lang",
+        "svg",
+        "svg-editor",
+        "vector-graphics"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 30.08
+    },
+    {
+      "repo": "tursodatabase/turso",
+      "url": "https://github.com/tursodatabase/turso",
+      "content": {
+        "zh": {
+          "summary": "Turso 是用 Rust 编写的进程内 SQL 数据库，兼容 SQLite 并实验性支持 Postgres 前端。它解决的是嵌入式数据库在多方言场景下的适配问题，现在值得看是因为它把数据库引擎做成了可扩展的虚拟机。",
+          "insight": "适合做边缘计算或本地优先应用的团队，切入点是多方言兼容的嵌入式存储层，和单一 SQLite 比，它给应用留出了迁移到 Postgres 语法的空间。"
+        },
+        "en": {
+          "summary": "Turso is an in-process SQL database written in Rust, compatible with SQLite and experimentally supporting a Postgres frontend.",
+          "insight": "For teams building edge or local-first apps, the wedge is a multi-dialect embedded storage layer. Unlike plain SQLite,"
+        }
+      },
+      "description": "A SQL database in Rust: SQLite-compatible, now also speaking Postgres (experimental). The LLVM of databases.",
+      "category": "数据 / 基础设施",
+      "language": "Rust",
+      "stars": 24935,
+      "stars_today": 59,
+      "topics": [
+        "database",
+        "embedded-database",
+        "sql",
+        "sqlite3",
+        "webassembly"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.86
+    },
+    {
+      "repo": "ModernRelay/omnigraph",
+      "url": "https://github.com/ModernRelay/omnigraph",
+      "content": {
+        "zh": {
+          "summary": "Omnigraph 是对象存储原生的图数据库，支持分支和类型化本体，统一向量、全文和图检索。它解决的是长周期代理共享上下文的问题，现在值得看是因为它把 Git 式工作流带进了代理记忆管理。",
+          "insight": "适合做多代理协作系统的团队，切入点是代理共享世界模型的持久化层，和临时内存方案比，它让状态可版本化、可回滚。"
+        },
+        "en": {
+          "summary": "Omnigraph is an object-storage-native graph database with branching and typed ontology, unifying vector, full-text, and graph retrieval.",
+          "insight": "For teams building multi-agent systems, the wedge is a persistent layer for a shared world model. Unlike ephemeral memory,"
+        }
+      },
+      "description": "Object-storage native graph database with branching and typed ontology",
+      "category": "数据 / 基础设施",
+      "language": "Rust",
+      "stars": 1608,
+      "stars_today": 66,
+      "topics": [
+        "apache-arrow",
+        "context-graph",
+        "datafusion",
+        "graph-database",
+        "knowledge-graph",
+        "lakehouse",
+        "lance",
+        "mcp",
+        "rust",
+        "s3"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 23.89
+    }
+  ]
+}

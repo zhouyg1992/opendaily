@@ -10,69 +10,65 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 21, 2026 · Wed](daily/en/2026-10-21.md)
+## [Oct 22, 2026 · Thu](daily/en/2026-10-22.md)
 
-> Today's projects point to one shift: AI is moving out of the chat box and into concrete workflows and everyday hardware. Assistants now live inside the messaging apps you already use, large models run on old machines in pure C, and specialized crafts like design, research,
+> Today's projects show AI moving from chat boxes into concrete workflows. Coding agents, desktop automation, and document tools are packaging model capabilities into everyday deliverables.
 
 ### AI / Agents
 
-* **[openclaw/openclaw](https://github.com/openclaw/openclaw)** — An open-source assistant that runs on your own machine and plugs into twenty-plus chat channels like Slack, Telegram, and iMessage, keeping memory and credentials local.
+* **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — Archify is an agent skill that turns ideas, plans, or codebases into interactive HTML diagrams. It solves the need for non-designers to visualize complex information quickly,
 
-  > Angle: Target teams that cannot send data to a cloud vendor. Sell deployment, channel integration, and permission governance around the gateway rather than the model…
+  > Angle: Target developers who frequently create architecture or flow diagrams. A wedge is code review or technical documentation,
+
+* **[anomalyco/opencode](https://github.com/anomalyco/opencode)** — OpenCode is an open-source coding agent available as a terminal tool and desktop app. It addresses developers who want AI-assisted coding without leaving their local environment,
+
+  > Angle: A good foundation for an internal team coding assistant. The wedge is private deployment and custom model integration,
+
+* **[trycua/cua](https://github.com/trycua/cua)** — Cua provides open-source drivers, cross-OS sandboxes, and benchmarks so AI agents can operate full desktops. It solves the lack of standardized environments for training and…
+
+  > Angle: For teams building desktop automation agents, the wedge is cross-platform test environment setup. Compared to DIY virtual machines,
+
+* **[supabase/supabase](https://github.com/supabase/supabase)** — The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.
 
 ### AI Infrastructure / Models
 
-* **[NandhaKishorM/laya](https://github.com/NandhaKishorM/laya)** — A non-autoregressive decision engine that makes typed choices, scores, and yes/no calls over text in a single forward pass of about 33 ms across 100+ languages,
+* **[tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi)** — FreeLLMAPI aggregates free tiers from 34 LLM providers behind one OpenAI-compatible endpoint with smart routing and failover.
 
-  > Angle: Replace the expensive habit of calling a large model for simple judgments like intent routing and moderation.
-
-* **[JustVugg/colibri](https://github.com/JustVugg/colibri)** — A pure-C, zero-dependency inference engine that exploits MoE sparsity: only active experts sit in RAM while the rest stream from disk,
-
-  > Angle: A signal at the infrastructure layer: local inference is dropping to consumer hardware. Build an offline private-model appliance for industries that cannot…
+  > Angle: Useful as an internal tool during AI app prototyping. The wedge is model comparison testing and cost control,
 
 ### Developer Tools / CLI
 
-* **[vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils)** — A macOS menu bar toolkit bundling per-app volume, system monitoring, window snapping, clipboard history, an uninstaller, and more behind one icon, with no account, telemetry,
+* **[github/spec-kit](https://github.com/github/spec-kit)** — Spec Kit is a GitHub toolkit that gives AI coding agents structured spec-driven development processes and templates.
 
-  > Angle: Proof that subscription fatigue creates willingness to pay once for utility. Replicate the bundle on Windows or cross-platform,
+  > Angle: For teams using coding agents, a wedge is requirements review and change management. Unlike free-form chat agents,
 
-* **[rmyndharis/OpenWA](https://github.com/rmyndharis/OpenWA)** — A self-hosted WhatsApp API gateway with a pluggable architecture: database, media storage, and cache are switched by config.
+* **[storytold/wordcraft](https://github.com/storytold/wordcraft)** — WordCraft is an open-source word processor built from scratch in pure Rust, supporting .docx read/write and WebAssembly.
 
-  > Angle: Build customer-service and notification automation for small merchants on top of it. Sell templates, compliant messaging flows, and managed operations,
+  > Angle: For founders eyeing document collaboration, a wedge is in-browser document editing or format conversion.
 
 ### Frontend / Design
 
-* **[pbakaus/impeccable](https://github.com/pbakaus/impeccable)** — A design skill for AI coding tools with 24 commands, live browser iteration, and 61 deterministic rules aimed at the sameness of AI-generated frontends.
+* **[storytold/vectorcraft](https://github.com/storytold/vectorcraft)** — VectorCraft is an open-source vector graphics tool written in pure Rust, supporting SVG editing and WebAssembly.
 
-  > Angle: For small studios shipping client or internal tools: package a mandatory design-check pass after AI generation.
+  > Angle: For design tool founders, a wedge is online SVG editing or icon management. Unlike desktop software, it requires no installation and is easy for teams to share.
 
-### Security / Privacy
+### Data / Infrastructure
 
-* **[microg/GmsCore](https://github.com/microg/GmsCore)** — A free implementation of Google Play Services that lets apps depending on it run on systems without the official stack, covering sign-in, push, and location.
+* **[tursodatabase/turso](https://github.com/tursodatabase/turso)** — Turso is an in-process SQL database written in Rust, compatible with SQLite and experimentally supporting a Postgres frontend.
 
-  > Angle: A trend signal rather than a startup idea: the privacy-first Android ecosystem still has infrastructure gaps.
+  > Angle: For teams building edge or local-first apps, the wedge is a multi-dialect embedded storage layer. Unlike plain SQLite,
 
-### Vertical Tools / Skills
+* **[ModernRelay/omnigraph](https://github.com/ModernRelay/omnigraph)** — Omnigraph is an object-storage-native graph database with branching and typed ontology, unifying vector, full-text, and graph retrieval.
 
-* **[storytold/filmcraft](https://github.com/storytold/filmcraft)** — An open-source non-linear video editor written from scratch in pure Rust, covering editing, color, and sound, native on macOS, Windows,
+  > Angle: For teams building multi-agent systems, the wedge is a persistent layer for a shared world model. Unlike ephemeral memory,
 
-  > Angle: A browser-capable pro editor can be embedded in online collaboration or education. Target users who will not install heavyweight software but need real…
-
-* **[eternity4719/HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter)** — A Chinese-language practical life guide with 765 recommendations on health, money, law, social insurance, family, and starting a business.
-
-  > Angle: A template for trusted knowledge plus a skill: structured, sourced content that AI can cite. Replicate it in domains like tax, labor law,
-
-* **[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)** — A skill collection for researchers that packages Nature-style paper polishing and scientific figure work into installable skills for Claude Code, Codex, and similar tools,
-
-  > Angle: Academic writing is frequent and pays well. Narrow to one step, such as figure compliance checks or journal-format conversion,
-
-[This issue (Markdown)](daily/en/2026-10-21.md)
+[This issue (Markdown)](daily/en/2026-10-22.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
