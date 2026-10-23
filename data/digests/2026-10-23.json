@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-23",
+  "generated_at": "2026-10-23T01:21:44+00:00",
+  "intro": {
+    "zh": "今天这批项目透出一个共同的信号：Agent 的能力边界正在从「会写代码」转向「会验收结果」。无论是给编码 Agent 补审美、让它自己跑安全审计，还是把网页、视频、桌面环境变成 Agent 可调用的接口，真正的竞争点已经落在可验证的输出和可复用的技能上。",
+    "en": "A shared signal runs through today's projects: agents are moving from generating code to validating outcomes. Whether it is giving coding agents taste, letting them run their own security audits, or turning the web, video, and the desktop into callable interfaces,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "anywhere-labs/dsh-desktop",
+      "url": "https://github.com/anywhere-labs/dsh-desktop",
+      "content": {
+        "zh": {
+          "summary": "为 DeepSeek Harness 插件生态打造的 Windows 和 macOS 桌面客户端，把本地 Web UI、Host 服务和插件系统集成进原生应用，桌面本身也被设计成插件。它解决的是 Agent 工具本地化使用体验的问题，现在值得看是因为围绕单一模型生态正在长出社区客户端。",
+          "insight": "面向想围绕某个模型生态做工具分发的开发者，切「插件市场加桌面入口」这一层。差异在于万物皆插件的架构，机会在于插件发现、安装和变现的基础设施。"
+        },
+        "en": {
+          "summary": "An open-source Windows and macOS desktop client for the DeepSeek Harness plugin ecosystem, bundling its local web UI, host service,",
+          "insight": "For developers distributing tools around one model ecosystem, target the plugin-market-plus-desktop-entry layer."
+        }
+      },
+      "description": "为 DeepSeek Harness (DSH) 插件生态打造的现代化桌面端解决方案。万物皆「插件」，桌面本身也是「插件」。",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 32470,
+      "stars_today": 0,
+      "topics": [
+        "cordis",
+        "cordis-plugin",
+        "deepseek",
+        "deepseek-harness",
+        "desktop",
+        "dsh",
+        "dsh-plugin",
+        "dsh-plugin-desktop"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 30.07
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "content": {
+        "zh": {
+          "summary": "面向 AI Agent 的网页上下文 API，可大规模搜索、抓取并把网页转成干净的 Markdown 或结构化 JSON，处理代理轮换、JS 渲染和限流等脏活。它解决的是 Agent 拿不到可靠网页数据的问题，现在值得看是因为上下文质量直接决定 Agent 效果。",
+          "insight": "适合做垂直 Agent 的团队，切「实时网页数据接入」这一层，不必自建抓取管线。差异在可靠性和 LLM 友好输出，机会在于针对特定行业做数据清洗和结构化封装。"
+        },
+        "en": {
+          "summary": "A context API for AI agents that searches, scrapes, and converts the web into clean markdown or structured JSON at scale, handling proxies, JS rendering, and rate limits.",
+          "insight": "For teams building vertical agents, it offloads the live-web data layer so you skip building a scraper."
+        }
+      },
+      "description": "Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥",
+      "category": "AI 基础设施 / 模型",
+      "language": "TypeScript",
+      "stars": 194320,
+      "stars_today": 424,
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-crawler",
+        "ai-scraping",
+        "ai-search",
+        "crawler",
+        "data-extraction",
+        "html-to-markdown",
+        "llm",
+        "markdown"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 42.6
+    },
+    {
+      "repo": "mitmproxy/mitmproxy",
+      "url": "https://github.com/mitmproxy/mitmproxy",
+      "content": {
+        "zh": {
+          "summary": "支持 TLS 的交互式 HTTP 拦截代理，提供控制台、命令行和 Web 三种界面，可调试 HTTP/1、HTTP/2 和 WebSocket。它是渗透测试和协议调试的老牌工具，今天出现在 HN 热榜说明抓包调试仍是刚需。",
+          "insight": "适合做 API 调试或安全测试产品的团队，把它当底层引擎而非终端产品。差异在于成熟的 TLS 拦截与脚本扩展能力，机会在于围绕团队协作和流量回放做上层封装。"
+        },
+        "en": {
+          "summary": "An interactive TLS-capable HTTP intercepting proxy with console, CLI, and web interfaces for HTTP/1, HTTP/2, and WebSockets.",
+          "insight": "For teams building API debugging or security testing products, use it as the engine, not the product."
+        }
+      },
+      "description": "An interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers.",
+      "category": "开发工具 / CLI",
+      "language": "Python",
+      "stars": 46164,
+      "stars_today": 0,
+      "topics": [
+        "debugging",
+        "http",
+        "http2",
+        "man-in-the-middle",
+        "mitmproxy",
+        "proxy",
+        "python",
+        "security",
+        "ssl",
+        "tls"
+      ],
+      "sources": [
+        "hn"
+      ],
+      "score": 32.99
+    },
+    {
+      "repo": "boykopovar/AnyPS5",
+      "url": "https://github.com/boykopovar/AnyPS5",
+      "content": {
+        "zh": {
+          "summary": "把 PS5 可执行文件自动移植到 Linux 和 Windows 的工具，通过重链接转换格式并实现系统库的动态链接，不做模拟器也不起独立运行时进程。它解决的是主机游戏跨平台运行的门槛问题，现在值得看是因为它展示了重链接路线在主机移植上的可行性。",
+          "insight": "更适合作技术趋势信号而非直接创业点。对做游戏兼容层或逆向工具的团队有参考价值，但法律与版权风险高，商业化需谨慎评估。"
+        },
+        "en": {
+          "summary": "A tool that automatically ports PS5 executables to Linux and Windows by relinking them into native formats and dynamically linking system libraries,",
+          "insight": "Better read as a technical signal than a startup. Useful reference for game compatibility or reverse-engineering tooling, but legal and copyright risk is high,"
+        }
+      },
+      "description": "Tool for automatic PS5 executables porting to Linux and Windows",
+      "category": "开发工具 / CLI",
+      "language": "C++",
+      "stars": 46891,
+      "stars_today": 0,
+      "topics": [
+        "anyps5",
+        "dynamic-library",
+        "game-porting",
+        "ps5",
+        "ps5-tools",
+        "spir-v",
+        "vulkan"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 31.03
+    },
+    {
+      "repo": "storytold/cadcraft",
+      "url": "https://github.com/storytold/cadcraft",
+      "content": {
+        "zh": {
+          "summary": "纯 Rust 编写的开源 AutoCAD 风格二维三维 CAD 应用，保留命令行、对象捕捉、图层、标注、块和 DXF 等熟悉工作流，可原生运行于多平台并通过 WebAssembly 在浏览器中使用。它解决的是专业 CAD 软件昂贵且封闭的问题，现在值得看是因为纯 Rust 加 WASM 让桌面级 CAD 能进入浏览器。",
+          "insight": "面向被授权费困扰的小型设计工作室和工程团队，切「轻量 CAD 加浏览器协作」场景。差异在于命令式工作流兼容老用户习惯，机会在于云端审阅和文件互操作。"
+        },
+        "en": {
+          "summary": "An open-source AutoCAD-style 2D and 3D CAD app written in pure Rust, keeping the command line, object snaps, layers, dimensions, blocks, and DXF workflows professionals know,",
+          "insight": "Aim at small design studios and engineering teams burdened by license fees, via lightweight CAD with browser collaboration."
+        }
+      },
+      "description": "CADCraft: computer-aided design and drafting — an open-source, clean-room AutoCAD-style app in pure Rust",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 6470,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 28.87
+    },
+    {
+      "repo": "remotion-dev/remotion",
+      "url": "https://github.com/remotion-dev/remotion",
+      "content": {
+        "zh": {
+          "summary": "用 React 以编程方式生成视频的工具，代码即视频源，支持 Agent 生成、交互编辑、批量渲染和嵌入应用。它解决的是视频生产难以自动化、难以数据驱动的问题，现在值得看是因为它正把自己重新定位为「Agent 时代的视频工具」。",
+          "insight": "面向需要批量产出视频的营销和电商团队，切「模板化视频自动化」场景。差异在于渲染跑在自有基础设施上、可与数据打通，可做按行业定制的视频生成服务。"
+        },
+        "en": {
+          "summary": "A tool for making videos programmatically with React, where code is the source of truth and supports agent-driven creation, interactive editing, batch rendering,",
+          "insight": "Aim at marketing and e-commerce teams needing video at volume, via templated automation. Rendering on your own infrastructure and wiring in data lets you sell…"
+        }
+      },
+      "description": "🎥 Make videos programmatically with React",
+      "category": "前端 / 设计",
+      "language": "TypeScript",
+      "stars": 66387,
+      "stars_today": 348,
+      "topics": [
+        "javascript",
+        "react",
+        "video"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.63
+    },
+    {
+      "repo": "twentyhq/twenty",
+      "url": "https://github.com/twentyhq/twenty",
+      "content": {
+        "zh": {
+          "summary": "Salesforce 的开源替代品，定位是为 AI 设计的 CRM，技术团队可以像管理代码一样构建、发布和版本化自己的 CRM。它解决的是通用 CRM 难以适配复杂业务流程的问题，现在值得看是因为 AI 正在重写客户数据系统的交互方式。",
+          "insight": "面向有技术团队但业务定制需求强的公司，切「买来的 CRM 改不动」这一痛点。差异在于把 CRM 当成可版本化的代码库，可围绕行业模板或迁移工具做增值。"
+        },
+        "en": {
+          "summary": "An open-source Salesforce alternative built for AI, letting technical teams build, ship, and version a CRM like the rest of their stack.",
+          "insight": "Target companies with engineering teams and heavy customization needs who find off-the-shelf CRMs rigid."
+        }
+      },
+      "description": "The open alternative to Salesforce, designed for AI.",
+      "category": "数据 / 基础设施",
+      "language": "TypeScript",
+      "stars": 59542,
+      "stars_today": 605,
+      "topics": [
+        "crm",
+        "crm-system",
+        "customer",
+        "good-first-issue",
+        "graphql",
+        "hacktoberfest",
+        "javascript",
+        "marketing",
+        "monorepo",
+        "nestjs"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.65
+    },
+    {
+      "repo": "NanmiCoder/MediaCrawler",
+      "url": "https://github.com/NanmiCoder/MediaCrawler",
+      "content": {
+        "zh": {
+          "summary": "多平台自媒体数据采集工具，覆盖小红书、抖音、快手、B 站、微博、贴吧、知乎的公开信息与评论抓取。它解决的是国内社交平台数据分散、接口不统一的问题，现在值得看是因为品牌舆情和内容研究对这类数据需求持续增长。",
+          "insight": "面向做舆情监测或内容分析的团队，切「跨平台公开数据聚合」场景。注意合规边界，机会不在爬虫本身，而在其上的清洗、趋势分析和预警产品。"
+        },
+        "en": {
+          "summary": "A multi-platform social media scraper covering public posts and comments on Xiaohongshu, Douyin, Kuaishou, Bilibili, Weibo, Tieba, and Zhihu.",
+          "insight": "For sentiment monitoring or content analytics teams needing cross-platform public data. Mind compliance;"
+        }
+      },
+      "description": "小红书笔记 | 评论爬虫、抖音视频 | 评论爬虫、快手视频 | 评论爬虫、B 站视频 ｜ 评论爬虫、微博帖子 ｜ 评论爬虫、百度贴吧帖子 ｜ 百度贴吧评论回复爬虫 | 知乎问答文章｜评论爬虫",
+      "category": "数据 / 基础设施",
+      "language": "Python",
+      "stars": 67714,
+      "stars_today": 102,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.53
+    },
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "content": {
+        "zh": {
+          "summary": "Cloudflare 开源的编码 Agent 技能，把 Agent 变成安全审计员，分六个阶段做侦察、覆盖式排查、候选验证和机器可读的独立复核。它源自 Cloudflare 内部漏洞挖掘系统，现在值得看是因为它示范了如何把安全流程固化成可复用的 Agent 技能。",
+          "insight": "适合做安全服务的团队，切「中小团队没有专职安全审计」的场景。与扫描器不同，它让 Agent 分阶段推理并交叉验证发现，可包装成按次交付的代码安全体检。"
+        },
+        "en": {
+          "summary": "Cloudflare's open coding-agent skill turns an agent into a security auditor, running six phases from reconnaissance to coverage-led hunting, candidate validation,",
+          "insight": "Suited to teams selling security services to smaller shops without dedicated auditors. Unlike scanners, it reasons in phases and cross-checks findings,"
+        }
+      },
+      "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+      "category": "安全 / 隐私",
+      "language": "JavaScript",
+      "stars": 39615,
+      "stars_today": 2979,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.59
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "content": {
+        "zh": {
+          "summary": "一个给编码 Agent 补「审美」的 Agent Skill，提供艺术方向、真实参考图和浏览器自检，让 Agent 产出有设计感的页面而不是模板化落地页。它解决的是 AI 生成前端千篇一律的问题，现在值得看是因为技能化正在成为 Agent 能力分发的新形态。",
+          "insight": "面向独立开发者和小型工作室，切「AI 生成页面质量差」这个痛点。差异在于它不只给提示词，还强制 Agent 在真实浏览器里自查，可把这种「生成加验收」闭环复用到其他设计交付场景。"
+        },
+        "en": {
+          "summary": "An Agent Skill that gives coding agents art direction, real reference imagery, and a browser-based self-check, so they produce designed pages instead of generic landing templates.",
+          "insight": "Aim at indie developers and small studios frustrated by low-quality AI pages. The differentiator is the generate-then-verify loop in a real browser,"
+        }
+      },
+      "description": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 101138,
+      "stars_today": 630,
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "anti-slop",
+        "claude-code",
+        "codex",
+        "cursor",
+        "design-system",
+        "frontend",
+        "landing-page",
+        "ui-design"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 48.0
+    }
+  ]
+}

@@ -10,65 +10,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 22, 2026 · Thu](daily/en/2026-10-22.md)
+## [Oct 23, 2026 · Fri](daily/en/2026-10-23.md)
 
-> Today's projects show AI moving from chat boxes into concrete workflows. Coding agents, desktop automation, and document tools are packaging model capabilities into everyday deliverables.
+> A shared signal runs through today's projects: agents are moving from generating code to validating outcomes. Whether it is giving coding agents taste, letting them run their own security audits, or turning the web, video, and the desktop into callable interfaces,
 
 ### AI / Agents
 
-* **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — Archify is an agent skill that turns ideas, plans, or codebases into interactive HTML diagrams. It solves the need for non-designers to visualize complex information quickly,
+* **[anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop)** — An open-source Windows and macOS desktop client for the DeepSeek Harness plugin ecosystem, bundling its local web UI, host service,
 
-  > Angle: Target developers who frequently create architecture or flow diagrams. A wedge is code review or technical documentation,
-
-* **[anomalyco/opencode](https://github.com/anomalyco/opencode)** — OpenCode is an open-source coding agent available as a terminal tool and desktop app. It addresses developers who want AI-assisted coding without leaving their local environment,
-
-  > Angle: A good foundation for an internal team coding assistant. The wedge is private deployment and custom model integration,
-
-* **[trycua/cua](https://github.com/trycua/cua)** — Cua provides open-source drivers, cross-OS sandboxes, and benchmarks so AI agents can operate full desktops. It solves the lack of standardized environments for training and…
-
-  > Angle: For teams building desktop automation agents, the wedge is cross-platform test environment setup. Compared to DIY virtual machines,
-
-* **[supabase/supabase](https://github.com/supabase/supabase)** — The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.
+  > Angle: For developers distributing tools around one model ecosystem, target the plugin-market-plus-desktop-entry layer.
 
 ### AI Infrastructure / Models
 
-* **[tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi)** — FreeLLMAPI aggregates free tiers from 34 LLM providers behind one OpenAI-compatible endpoint with smart routing and failover.
+* **[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl)** — A context API for AI agents that searches, scrapes, and converts the web into clean markdown or structured JSON at scale, handling proxies, JS rendering, and rate limits.
 
-  > Angle: Useful as an internal tool during AI app prototyping. The wedge is model comparison testing and cost control,
+  > Angle: For teams building vertical agents, it offloads the live-web data layer so you skip building a scraper.
 
 ### Developer Tools / CLI
 
-* **[github/spec-kit](https://github.com/github/spec-kit)** — Spec Kit is a GitHub toolkit that gives AI coding agents structured spec-driven development processes and templates.
+* **[mitmproxy/mitmproxy](https://github.com/mitmproxy/mitmproxy)** — An interactive TLS-capable HTTP intercepting proxy with console, CLI, and web interfaces for HTTP/1, HTTP/2, and WebSockets.
 
-  > Angle: For teams using coding agents, a wedge is requirements review and change management. Unlike free-form chat agents,
+  > Angle: For teams building API debugging or security testing products, use it as the engine, not the product.
 
-* **[storytold/wordcraft](https://github.com/storytold/wordcraft)** — WordCraft is an open-source word processor built from scratch in pure Rust, supporting .docx read/write and WebAssembly.
+* **[boykopovar/AnyPS5](https://github.com/boykopovar/AnyPS5)** — A tool that automatically ports PS5 executables to Linux and Windows by relinking them into native formats and dynamically linking system libraries,
 
-  > Angle: For founders eyeing document collaboration, a wedge is in-browser document editing or format conversion.
+  > Angle: Better read as a technical signal than a startup. Useful reference for game compatibility or reverse-engineering tooling, but legal and copyright risk is high,
+
+* **[storytold/cadcraft](https://github.com/storytold/cadcraft)** — An open-source AutoCAD-style 2D and 3D CAD app written in pure Rust, keeping the command line, object snaps, layers, dimensions, blocks, and DXF workflows professionals know,
+
+  > Angle: Aim at small design studios and engineering teams burdened by license fees, via lightweight CAD with browser collaboration.
 
 ### Frontend / Design
 
-* **[storytold/vectorcraft](https://github.com/storytold/vectorcraft)** — VectorCraft is an open-source vector graphics tool written in pure Rust, supporting SVG editing and WebAssembly.
+* **[remotion-dev/remotion](https://github.com/remotion-dev/remotion)** — A tool for making videos programmatically with React, where code is the source of truth and supports agent-driven creation, interactive editing, batch rendering,
 
-  > Angle: For design tool founders, a wedge is online SVG editing or icon management. Unlike desktop software, it requires no installation and is easy for teams to share.
+  > Angle: Aim at marketing and e-commerce teams needing video at volume, via templated automation. Rendering on your own infrastructure and wiring in data lets you sell…
 
 ### Data / Infrastructure
 
-* **[tursodatabase/turso](https://github.com/tursodatabase/turso)** — Turso is an in-process SQL database written in Rust, compatible with SQLite and experimentally supporting a Postgres frontend.
+* **[twentyhq/twenty](https://github.com/twentyhq/twenty)** — An open-source Salesforce alternative built for AI, letting technical teams build, ship, and version a CRM like the rest of their stack.
 
-  > Angle: For teams building edge or local-first apps, the wedge is a multi-dialect embedded storage layer. Unlike plain SQLite,
+  > Angle: Target companies with engineering teams and heavy customization needs who find off-the-shelf CRMs rigid.
 
-* **[ModernRelay/omnigraph](https://github.com/ModernRelay/omnigraph)** — Omnigraph is an object-storage-native graph database with branching and typed ontology, unifying vector, full-text, and graph retrieval.
+* **[NanmiCoder/MediaCrawler](https://github.com/NanmiCoder/MediaCrawler)** — A multi-platform social media scraper covering public posts and comments on Xiaohongshu, Douyin, Kuaishou, Bilibili, Weibo, Tieba, and Zhihu.
 
-  > Angle: For teams building multi-agent systems, the wedge is a persistent layer for a shared world model. Unlike ephemeral memory,
+  > Angle: For sentiment monitoring or content analytics teams needing cross-platform public data. Mind compliance;
 
-[This issue (Markdown)](daily/en/2026-10-22.md)
+### Security / Privacy
+
+* **[cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)** — Cloudflare's open coding-agent skill turns an agent into a security auditor, running six phases from reconnaissance to coverage-led hunting, candidate validation,
+
+  > Angle: Suited to teams selling security services to smaller shops without dedicated auditors. Unlike scanners, it reasons in phases and cross-checks findings,
+
+### Vertical Tools / Skills
+
+* **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** — An Agent Skill that gives coding agents art direction, real reference imagery, and a browser-based self-check, so they produce designed pages instead of generic landing templates.
+
+  > Angle: Aim at indie developers and small studios frustrated by low-quality AI pages. The differentiator is the generate-then-verify loop in a real browser,
+
+[This issue (Markdown)](daily/en/2026-10-23.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
