@@ -11,71 +11,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.10.23 · 周五](daily/zh/2026-10-23.md)
+## [2026.10.24 · 周六](daily/zh/2026-10-24.md)
 
-> 今天这批项目透出一个共同的信号：Agent 的能力边界正在从「会写代码」转向「会验收结果」。无论是给编码 Agent 补审美、让它自己跑安全审计，还是把网页、视频、桌面环境变成 Agent 可调用的接口，真正的竞争点已经落在可验证的输出和可复用的技能上。
+> 今天的榜单透出一个清晰信号：AI 正从「能跑起来」转向「跑得安全、跑得可控」。一边是给自主 agent 划定权限边界的运行时，一边是把专业工作流打包成可复用技能与插件的做法，还有团队在认真补齐远程访问、代码规范这类落地环节。基础设施层的老项目依然稳，但增量都发生在让 AI 真正进入生产流程的那一圈。
 
 ### AI / Agent 工具
 
-* **[anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop)** — 为 DeepSeek Harness 插件生态打造的 Windows 和 macOS 桌面客户端，把本地 Web UI、Host 服务和插件系统集成进原生应用，桌面本身也被设计成插件。它解决的是 Agent 工具本地化使用体验的问题，现在值得看是因为围绕单一模型生态正在长出社区客户端。
+* **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)** — 面向知识工作者的插件集合，把技能、连接器、斜杠命令和子 agent 按岗位打包，让 Claude 按团队习惯和既有数据源完成工作，而不是每次从零提示。
 
-  > 灵感：面向想围绕某个模型生态做工具分发的开发者，切「插件市场加桌面入口」这一层。差异在于万物皆插件的架构，机会在于插件发现、安装和变现的基础设施。
+  > 灵感：插件按职能划分，意味着可以围绕某个具体岗位做深度定制，比如财务对账或法务审阅，卖的是工作流沉淀而非模型本身。
 
 ### AI 基础设施 / 模型
 
-* **[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl)** — 面向 AI Agent 的网页上下文 API，可大规模搜索、抓取并把网页转成干净的 Markdown 或结构化 JSON，处理代理轮换、JS 渲染和限流等脏活。它解决的是 Agent 拿不到可靠网页数据的问题，现在值得看是因为上下文质量直接决定 Agent 效果。
+* **[NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell)** — 给自主 AI agent 用的安全运行时，用声明式策略限定每个 agent 能读哪些文件、装什么包、调哪些 API、用哪些凭证，而不是直接给它们整台机器的权限。
 
-  > 灵感：适合做垂直 Agent 的团队，切「实时网页数据接入」这一层，不必自建抓取管线。差异在可靠性和 LLM 友好输出，机会在于针对特定行业做数据清洗和结构化封装。
+  > 灵感：企业要上 agent，卡点往往不是模型能力而是权限审计。可以从「agent 权限可视化 + 策略模板」切入，先服务需要合规留痕的金融和运维团队。
+
+* **[pollen-robotics/microduck](https://github.com/pollen-robotics/microduck)** — 约 25 厘米、800 克的雙足机器鸭，仓库里是它的「大脑」：50Hz 控制循环驱动十五个舵机，加载强化学习训练出的策略，还有防止变砖的远程更新机制。
+
+  > 灵感：适合做机器人教学和 sim2real 入门套件。真正的门槛在固件更新和策略部署流程，把这块做成托管服务比卖硬件更可持续。
+
+* **[OpenBMB/VoxCPM](https://github.com/OpenBMB/VoxCPM)** — 无分词器的语音合成系统，直接生成连续语音表示，支持三十种语言、音色设计和可控克隆，输出 48kHz 音频，绕开离散 token 化以提升自然度。
+
+  > 灵感：多语言加音色设计适合做本地化的有声内容和客服配音。差异化不在模型本身，而在把克隆授权和音色资产管理做扎实。
 
 ### 开发工具 / CLI
 
-* **[mitmproxy/mitmproxy](https://github.com/mitmproxy/mitmproxy)** — 支持 TLS 的交互式 HTTP 拦截代理，提供控制台、命令行和 Web 三种界面，可调试 HTTP/1、HTTP/2 和 WebSocket。它是渗透测试和协议调试的老牌工具，今天出现在 HN 热榜说明抓包调试仍是刚需。
+* **[liguobao/ds-harness-remote](https://github.com/liguobao/ds-harness-remote)** — 基于 DeepSeek Harness 插件机制的多端远程访问方案，通过端到端加密的 P2P 网络，让手机、浏览器随时接回工作机上仍在运行的同一条会话。
 
-  > 灵感：适合做 API 调试或安全测试产品的团队，把它当底层引擎而非终端产品。差异在于成熟的 TLS 拦截与脚本扩展能力，机会在于围绕团队协作和流量回放做上层封装。
-
-* **[boykopovar/AnyPS5](https://github.com/boykopovar/AnyPS5)** — 把 PS5 可执行文件自动移植到 Linux 和 Windows 的工具，通过重链接转换格式并实现系统库的动态链接，不做模拟器也不起独立运行时进程。它解决的是主机游戏跨平台运行的门槛问题，现在值得看是因为它展示了重链接路线在主机移植上的可行性。
-
-  > 灵感：更适合作技术趋势信号而非直接创业点。对做游戏兼容层或逆向工具的团队有参考价值，但法律与版权风险高，商业化需谨慎评估。
-
-* **[storytold/cadcraft](https://github.com/storytold/cadcraft)** — 纯 Rust 编写的开源 AutoCAD 风格二维三维 CAD 应用，保留命令行、对象捕捉、图层、标注、块和 DXF 等熟悉工作流，可原生运行于多平台并通过 WebAssembly 在浏览器中使用。它解决的是专业 CAD 软件昂贵且封闭的问题，现在值得看是因为纯 Rust 加 WASM 让桌面级 CAD 能进入浏览器。
-
-  > 灵感：面向被授权费困扰的小型设计工作室和工程团队，切「轻量 CAD 加浏览器协作」场景。差异在于命令式工作流兼容老用户习惯，机会在于云端审阅和文件互操作。
-
-### 前端 / 设计
-
-* **[remotion-dev/remotion](https://github.com/remotion-dev/remotion)** — 用 React 以编程方式生成视频的工具，代码即视频源，支持 Agent 生成、交互编辑、批量渲染和嵌入应用。它解决的是视频生产难以自动化、难以数据驱动的问题，现在值得看是因为它正把自己重新定位为「Agent 时代的视频工具」。
-
-  > 灵感：面向需要批量产出视频的营销和电商团队，切「模板化视频自动化」场景。差异在于渲染跑在自有基础设施上、可与数据打通，可做按行业定制的视频生成服务。
+  > 灵感：它点中了长任务 agent 的真实痛点：人离开工位但任务还在跑。可以把这个「随时接管」体验做成通用能力，服务跑长任务的开发者和运维。
 
 ### 数据 / 基础设施
 
-* **[twentyhq/twenty](https://github.com/twentyhq/twenty)** — Salesforce 的开源替代品，定位是为 AI 设计的 CRM，技术团队可以像管理代码一样构建、发布和版本化自己的 CRM。它解决的是通用 CRM 难以适配复杂业务流程的问题，现在值得看是因为 AI 正在重写客户数据系统的交互方式。
+* **[VikOlliver/RepRapMicron](https://github.com/VikOlliver/RepRapMicron)** — 把开源 RepRap 3D 打印项目延伸到微米尺度，沿用 GCODE、GRBL 和 NEMA17 步进电机等熟悉工具，用廉价易得材料实现可重复的微米级二维刻写。
 
-  > 灵感：面向有技术团队但业务定制需求强的公司，切「买来的 CRM 改不动」这一痛点。差异在于把 CRM 当成可版本化的代码库，可围绕行业模板或迁移工具做增值。
-
-* **[NanmiCoder/MediaCrawler](https://github.com/NanmiCoder/MediaCrawler)** — 多平台自媒体数据采集工具，覆盖小红书、抖音、快手、B 站、微博、贴吧、知乎的公开信息与评论抓取。它解决的是国内社交平台数据分散、接口不统一的问题，现在值得看是因为品牌舆情和内容研究对这类数据需求持续增长。
-
-  > 灵感：面向做舆情监测或内容分析的团队，切「跨平台公开数据聚合」场景。注意合规边界，机会不在爬虫本身，而在其上的清洗、趋势分析和预警产品。
+  > 灵感：更像趋势信号而非现成产品：桌面级微纳加工的门槛在下降。关注它在光学和生物实验耗材上的早期用户，那里可能先出现付费场景。
 
 ### 安全 / 隐私
 
-* **[cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)** — Cloudflare 开源的编码 Agent 技能，把 Agent 变成安全审计员，分六个阶段做侦察、覆盖式排查、候选验证和机器可读的独立复核。它源自 Cloudflare 内部漏洞挖掘系统，现在值得看是因为它示范了如何把安全流程固化成可复用的 Agent 技能。
+* **[chaitin/SafeLine](https://github.com/chaitin/SafeLine)** — 自托管的 Web 应用防火墙兼反向代理，过滤 SQL 注入、XSS、命令注入、暴力破解和爬虫滥用等流量，部署方式接近装一个网关。
 
-  > 灵感：适合做安全服务的团队，切「中小团队没有专职安全审计」的场景。与扫描器不同，它让 Agent 分阶段推理并交叉验证发现，可包装成按次交付的代码安全体检。
+  > 灵感：对中小团队来说，自托管 WAF 的难点在规则调优和误报处理。可以做托管运维或按业务定制的规则包，而不是再做一个同类网关。
 
 ### Skill / 垂直工具
 
-* **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** — 一个给编码 Agent 补「审美」的 Agent Skill，提供艺术方向、真实参考图和浏览器自检，让 Agent 产出有设计感的页面而不是模板化落地页。它解决的是 AI 生成前端千篇一律的问题，现在值得看是因为技能化正在成为 Agent 能力分发的新形态。
+* **[luongnv89/claude-howto](https://github.com/luongnv89/claude-howto)** — 把 Claude Code 从基础命令到 hooks、skills、MCP 编排串成一条可视化学习路径，配可直接复制的模板，解决官方文档只讲功能不讲组合的问题。
 
-  > 灵感：面向独立开发者和小型工作室，切「AI 生成页面质量差」这个痛点。差异在于它不只给提示词，还强制 Agent 在真实浏览器里自查，可把这种「生成加验收」闭环复用到其他设计交付场景。
+  > 灵感：这类内容本身难变现，但它暴露了真实需求：团队需要内部版的「怎么在我们代码库里用」。做企业内训和上手引导包比做公开教程更有付费空间。
 
-[本期 Markdown](daily/zh/2026-10-23.md)
+* **[Renhuai123/ziwei-doushu](https://github.com/Renhuai123/ziwei-doushu)** — 紫微斗数开源排盘引擎，含完整排盘算法、四化系统和格局知识库，并放出覆盖近七十年真实日期的大规模解读数据集，把传统术数变成了可计算的数据资产。
+
+  > 灵感：真正的价值在那份结构化解读数据集，而非排盘本身。可以围绕它做命盘问答或内容生成工具，面向已有用户基础的命理内容创作者。
+
+* **[samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)** — 一组面向生产级 Go 项目的 agent 技能，覆盖语言习惯、测试、安全和可观测性，按需加载以免撑爆上下文，作者强调经过人工测试和改写。
+
+  > 灵感：「人工审过的技能包」本身就是卖点。可以按语言或框架复制这个模式，做团队内部统一编码规范的技能库，减少 AI 生成代码的风格漂移。
+
+[本期 Markdown](daily/zh/2026-10-24.md)
 
 ### 往期
 
 #### 2026 年
 
-**10 月**：[23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
+**10 月**：[24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
 <!-- DIGEST:END -->
 

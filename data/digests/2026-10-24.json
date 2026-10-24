@@ -1,0 +1,304 @@
+{
+  "date": "2026-10-24",
+  "generated_at": "2026-10-24T01:26:09+00:00",
+  "intro": {
+    "zh": "今天的榜单透出一个清晰信号：AI 正从「能跑起来」转向「跑得安全、跑得可控」。一边是给自主 agent 划定权限边界的运行时，一边是把专业工作流打包成可复用技能与插件的做法，还有团队在认真补齐远程访问、代码规范这类落地环节。基础设施层的老项目依然稳，但增量都发生在让 AI 真正进入生产流程的那一圈。",
+    "en": "Today's list points to a shift from getting AI to run toward making it safe and governable. Agent sandboxes, reusable skill packs, and remote access plumbing all address the same gap: the last mile between a demo and something a team can actually rely on."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "content": {
+        "zh": {
+          "summary": "面向知识工作者的插件集合，把技能、连接器、斜杠命令和子 agent 按岗位打包，让 Claude 按团队习惯和既有数据源完成工作，而不是每次从零提示。",
+          "insight": "插件按职能划分，意味着可以围绕某个具体岗位做深度定制，比如财务对账或法务审阅，卖的是工作流沉淀而非模型本身。"
+        },
+        "en": {
+          "summary": "Plugins that bundle skills, connectors, slash commands, and sub-agents per job function, so Claude follows team conventions and pulls from the right tools instead of starting from…",
+          "insight": "Function-level packaging invites vertical depth: a finance reconciliation or legal review plugin sells accumulated workflow knowledge, not model access."
+        }
+      },
+      "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 32235,
+      "stars_today": 635,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.05
+    },
+    {
+      "repo": "NVIDIA/OpenShell",
+      "url": "https://github.com/NVIDIA/OpenShell",
+      "content": {
+        "zh": {
+          "summary": "给自主 AI agent 用的安全运行时，用声明式策略限定每个 agent 能读哪些文件、装什么包、调哪些 API、用哪些凭证，而不是直接给它们整台机器的权限。",
+          "insight": "企业要上 agent，卡点往往不是模型能力而是权限审计。可以从「agent 权限可视化 + 策略模板」切入，先服务需要合规留痕的金融和运维团队。"
+        },
+        "en": {
+          "summary": "A runtime that lets autonomous agents read files, install packages, and call APIs under a declared policy, so they get capability without unrestricted access to data, secrets,",
+          "insight": "The blocker for enterprise agents is audit, not intelligence. A policy-template library plus a visual permission map for regulated ops teams is a concrete…"
+        }
+      },
+      "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 18816,
+      "stars_today": 1119,
+      "topics": [],
+      "sources": [
+        "trending",
+        "hn"
+      ],
+      "score": 46.65
+    },
+    {
+      "repo": "pollen-robotics/microduck",
+      "url": "https://github.com/pollen-robotics/microduck",
+      "content": {
+        "zh": {
+          "summary": "约 25 厘米、800 克的雙足机器鸭，仓库里是它的「大脑」：50Hz 控制循环驱动十五个舵机，加载强化学习训练出的策略，还有防止变砖的远程更新机制。",
+          "insight": "适合做机器人教学和 sim2real 入门套件。真正的门槛在固件更新和策略部署流程，把这块做成托管服务比卖硬件更可持续。"
+        },
+        "en": {
+          "summary": "A 25 cm bipedal robot duck whose repo is its brain: a 50 Hz loop driving fifteen servos from reinforcement learning policies, plus update machinery that won't brick the device.",
+          "insight": "A natural teaching and sim2real starter kit. The hard part is firmware and policy rollout, so a managed deployment layer may outlast the hardware sale."
+        }
+      },
+      "description": "A Tiny biped duck robot 🦆",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 10502,
+      "stars_today": 421,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.65
+    },
+    {
+      "repo": "OpenBMB/VoxCPM",
+      "url": "https://github.com/OpenBMB/VoxCPM",
+      "content": {
+        "zh": {
+          "summary": "无分词器的语音合成系统，直接生成连续语音表示，支持三十种语言、音色设计和可控克隆，输出 48kHz 音频，绕开离散 token 化以提升自然度。",
+          "insight": "多语言加音色设计适合做本地化的有声内容和客服配音。差异化不在模型本身，而在把克隆授权和音色资产管理做扎实。"
+        },
+        "en": {
+          "summary": "A tokenizer-free TTS system generating continuous speech directly, covering 30 languages with voice design, controllable cloning, and 48 kHz output for more natural prosody.",
+          "insight": "Multilingual voice design fits localized audio and support dubbing. The moat is consent tracking and voice asset management, not the model."
+        }
+      },
+      "description": "VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation, Creative Voice Design, and True-to-Life Cloning",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 40270,
+      "stars_today": 150,
+      "topics": [
+        "audio",
+        "deeplearning",
+        "minicpm",
+        "multilingual",
+        "python",
+        "pytorch",
+        "speech",
+        "speech-synthesis",
+        "text-to-speech",
+        "tts"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.38
+    },
+    {
+      "repo": "liguobao/ds-harness-remote",
+      "url": "https://github.com/liguobao/ds-harness-remote",
+      "content": {
+        "zh": {
+          "summary": "基于 DeepSeek Harness 插件机制的多端远程访问方案，通过端到端加密的 P2P 网络，让手机、浏览器随时接回工作机上仍在运行的同一条会话。",
+          "insight": "它点中了长任务 agent 的真实痛点：人离开工位但任务还在跑。可以把这个「随时接管」体验做成通用能力，服务跑长任务的开发者和运维。"
+        },
+        "en": {
+          "summary": "A multi-device remote access layer for DeepSeek Harness, using encrypted peer-to-peer links so a phone or browser can rejoin the same session still running on a work machine.",
+          "insight": "It hits a real pain of long-running agents: you leave the desk, the task doesn't. Generalizing that handoff for anyone running long jobs is the opportunity."
+        }
+      },
+      "description": "一个基于 DeepSeek Harness 插件机制构建的多端远程访问方案，通过安全、低延迟、端到端加密的 P2P 优先网络，支持从 PC、Android 和 Web 随时访问并操作远程 Harness 和 CodeX。 (A multi-device remote access solution built on the DeepSeek Harness plugin system, enabling PC, Android, and Web clients to securely access and operate remote Harness and CodeX over a low-latency, end-to-end encrypted, P2P-first network.)",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 801,
+      "stars_today": 331,
+      "topics": [
+        "deepseek",
+        "dsh-plugin"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.7
+    },
+    {
+      "repo": "VikOlliver/RepRapMicron",
+      "url": "https://github.com/VikOlliver/RepRapMicron",
+      "content": {
+        "zh": {
+          "summary": "把开源 RepRap 3D 打印项目延伸到微米尺度，沿用 GCODE、GRBL 和 NEMA17 步进电机等熟悉工具，用廉价易得材料实现可重复的微米级二维刻写。",
+          "insight": "更像趋势信号而非现成产品：桌面级微纳加工的门槛在下降。关注它在光学和生物实验耗材上的早期用户，那里可能先出现付费场景。"
+        },
+        "en": {
+          "summary": "An extension of the open RepRap printer project to micron scale, reusing GCODE, GRBL, and NEMA17 steppers to place or engrave pixels with repeatable micron precision on cheap…",
+          "insight": "A trend signal more than a product: desktop micro-fabrication is getting accessible. Watch early adopters in optics and bio lab consumables,"
+        }
+      },
+      "description": "μRepRap - A 3D printer project designed to work at the micron scale",
+      "category": "数据 / 基础设施",
+      "language": "OpenSCAD",
+      "stars": 312,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "hn"
+      ],
+      "score": 19.96
+    },
+    {
+      "repo": "chaitin/SafeLine",
+      "url": "https://github.com/chaitin/SafeLine",
+      "content": {
+        "zh": {
+          "summary": "自托管的 Web 应用防火墙兼反向代理，过滤 SQL 注入、XSS、命令注入、暴力破解和爬虫滥用等流量，部署方式接近装一个网关。",
+          "insight": "对中小团队来说，自托管 WAF 的难点在规则调优和误报处理。可以做托管运维或按业务定制的规则包，而不是再做一个同类网关。"
+        },
+        "en": {
+          "summary": "A self-hosted WAF and reverse proxy filtering SQL injection, XSS, command injection, brute force, and bot abuse, deployable roughly like dropping in a gateway.",
+          "insight": "For small teams the pain is rule tuning and false positives. Managed tuning or business-specific rule packs is a better business than another gateway."
+        }
+      },
+      "description": "SafeLine is a self-hosted WAF(Web Application Firewall) / reverse proxy to protect your web apps from attacks and exploits.",
+      "category": "安全 / 隐私",
+      "language": "Go",
+      "stars": 22921,
+      "stars_today": 24,
+      "topics": [
+        "api-gateway",
+        "application-security",
+        "appsec",
+        "blueteam",
+        "bruteforce",
+        "captcha",
+        "cve",
+        "cybersecurity",
+        "firewall",
+        "hackers"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.76
+    },
+    {
+      "repo": "luongnv89/claude-howto",
+      "url": "https://github.com/luongnv89/claude-howto",
+      "content": {
+        "zh": {
+          "summary": "把 Claude Code 从基础命令到 hooks、skills、MCP 编排串成一条可视化学习路径，配可直接复制的模板，解决官方文档只讲功能不讲组合的问题。",
+          "insight": "这类内容本身难变现，但它暴露了真实需求：团队需要内部版的「怎么在我们代码库里用」。做企业内训和上手引导包比做公开教程更有付费空间。"
+        },
+        "en": {
+          "summary": "A visual, example-driven path from first prompt to orchestrating hooks, skills, and MCP servers, with copy-paste templates that fill the gap where official docs explain features…",
+          "insight": "Hard to monetize as public content, but it signals demand for internal onboarding. Selling a tailored ramp-up kit for a company's own codebase is the real…"
+        }
+      },
+      "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 44015,
+      "stars_today": 1053,
+      "topics": [
+        "claude-code",
+        "guide",
+        "tutorial"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.86
+    },
+    {
+      "repo": "Renhuai123/ziwei-doushu",
+      "url": "https://github.com/Renhuai123/ziwei-doushu",
+      "content": {
+        "zh": {
+          "summary": "紫微斗数开源排盘引擎，含完整排盘算法、四化系统和格局知识库，并放出覆盖近七十年真实日期的大规模解读数据集，把传统术数变成了可计算的数据资产。",
+          "insight": "真正的价值在那份结构化解读数据集，而非排盘本身。可以围绕它做命盘问答或内容生成工具，面向已有用户基础的命理内容创作者。"
+        },
+        "en": {
+          "summary": "An open engine for Zi Wei Dou Shu astrology with full charting algorithms and a large structured interpretation dataset spanning decades of real dates,",
+          "insight": "The dataset matters more than the charting. Build Q&A or content generation on top of it for astrology creators who already have an audience."
+        }
+      },
+      "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
+      "category": "Skill / 垂直工具",
+      "language": "TypeScript",
+      "stars": 6872,
+      "stars_today": 546,
+      "topics": [
+        "bazi",
+        "chinese-astrology",
+        "divination",
+        "fortune-telling",
+        "nextjs",
+        "open-source",
+        "purple-star-astrology",
+        "typescript",
+        "zi-wei-dou-shu",
+        "ziwei-doushu"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.67
+    },
+    {
+      "repo": "samber/cc-skills-golang",
+      "url": "https://github.com/samber/cc-skills-golang",
+      "content": {
+        "zh": {
+          "summary": "一组面向生产级 Go 项目的 agent 技能，覆盖语言习惯、测试、安全和可观测性，按需加载以免撑爆上下文，作者强调经过人工测试和改写。",
+          "insight": "「人工审过的技能包」本身就是卖点。可以按语言或框架复制这个模式，做团队内部统一编码规范的技能库，减少 AI 生成代码的风格漂移。"
+        },
+        "en": {
+          "summary": "Agent skills for production Go projects covering idioms, testing, security, and observability, loaded on demand to spare context,",
+          "insight": "Human-reviewed skill packs are the selling point. Replicate per language or framework to give teams a shared coding standard and cut style drift in AI-written…"
+        }
+      },
+      "description": "🧑‍🎨 A collection of Golang agentic skills that works",
+      "category": "Skill / 垂直工具",
+      "language": "Go",
+      "stars": 3600,
+      "stars_today": 31,
+      "topics": [
+        "agent",
+        "agent-skills",
+        "ai",
+        "antigravity",
+        "claude",
+        "claude-code",
+        "code",
+        "codex",
+        "coding",
+        "copilot"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.11
+    }
+  ]
+}

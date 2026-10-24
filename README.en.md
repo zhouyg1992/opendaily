@@ -10,71 +10,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 23, 2026 · Fri](daily/en/2026-10-23.md)
+## [Oct 24, 2026 · Sat](daily/en/2026-10-24.md)
 
-> A shared signal runs through today's projects: agents are moving from generating code to validating outcomes. Whether it is giving coding agents taste, letting them run their own security audits, or turning the web, video, and the desktop into callable interfaces,
+> Today's list points to a shift from getting AI to run toward making it safe and governable. Agent sandboxes, reusable skill packs, and remote access plumbing all address the same gap: the last mile between a demo and something a team can actually rely on.
 
 ### AI / Agents
 
-* **[anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop)** — An open-source Windows and macOS desktop client for the DeepSeek Harness plugin ecosystem, bundling its local web UI, host service,
+* **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)** — Plugins that bundle skills, connectors, slash commands, and sub-agents per job function, so Claude follows team conventions and pulls from the right tools instead of starting from…
 
-  > Angle: For developers distributing tools around one model ecosystem, target the plugin-market-plus-desktop-entry layer.
+  > Angle: Function-level packaging invites vertical depth: a finance reconciliation or legal review plugin sells accumulated workflow knowledge, not model access.
 
 ### AI Infrastructure / Models
 
-* **[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl)** — A context API for AI agents that searches, scrapes, and converts the web into clean markdown or structured JSON at scale, handling proxies, JS rendering, and rate limits.
+* **[NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell)** — A runtime that lets autonomous agents read files, install packages, and call APIs under a declared policy, so they get capability without unrestricted access to data, secrets,
 
-  > Angle: For teams building vertical agents, it offloads the live-web data layer so you skip building a scraper.
+  > Angle: The blocker for enterprise agents is audit, not intelligence. A policy-template library plus a visual permission map for regulated ops teams is a concrete…
+
+* **[pollen-robotics/microduck](https://github.com/pollen-robotics/microduck)** — A 25 cm bipedal robot duck whose repo is its brain: a 50 Hz loop driving fifteen servos from reinforcement learning policies, plus update machinery that won't brick the device.
+
+  > Angle: A natural teaching and sim2real starter kit. The hard part is firmware and policy rollout, so a managed deployment layer may outlast the hardware sale.
+
+* **[OpenBMB/VoxCPM](https://github.com/OpenBMB/VoxCPM)** — A tokenizer-free TTS system generating continuous speech directly, covering 30 languages with voice design, controllable cloning, and 48 kHz output for more natural prosody.
+
+  > Angle: Multilingual voice design fits localized audio and support dubbing. The moat is consent tracking and voice asset management, not the model.
 
 ### Developer Tools / CLI
 
-* **[mitmproxy/mitmproxy](https://github.com/mitmproxy/mitmproxy)** — An interactive TLS-capable HTTP intercepting proxy with console, CLI, and web interfaces for HTTP/1, HTTP/2, and WebSockets.
+* **[liguobao/ds-harness-remote](https://github.com/liguobao/ds-harness-remote)** — A multi-device remote access layer for DeepSeek Harness, using encrypted peer-to-peer links so a phone or browser can rejoin the same session still running on a work machine.
 
-  > Angle: For teams building API debugging or security testing products, use it as the engine, not the product.
-
-* **[boykopovar/AnyPS5](https://github.com/boykopovar/AnyPS5)** — A tool that automatically ports PS5 executables to Linux and Windows by relinking them into native formats and dynamically linking system libraries,
-
-  > Angle: Better read as a technical signal than a startup. Useful reference for game compatibility or reverse-engineering tooling, but legal and copyright risk is high,
-
-* **[storytold/cadcraft](https://github.com/storytold/cadcraft)** — An open-source AutoCAD-style 2D and 3D CAD app written in pure Rust, keeping the command line, object snaps, layers, dimensions, blocks, and DXF workflows professionals know,
-
-  > Angle: Aim at small design studios and engineering teams burdened by license fees, via lightweight CAD with browser collaboration.
-
-### Frontend / Design
-
-* **[remotion-dev/remotion](https://github.com/remotion-dev/remotion)** — A tool for making videos programmatically with React, where code is the source of truth and supports agent-driven creation, interactive editing, batch rendering,
-
-  > Angle: Aim at marketing and e-commerce teams needing video at volume, via templated automation. Rendering on your own infrastructure and wiring in data lets you sell…
+  > Angle: It hits a real pain of long-running agents: you leave the desk, the task doesn't. Generalizing that handoff for anyone running long jobs is the opportunity.
 
 ### Data / Infrastructure
 
-* **[twentyhq/twenty](https://github.com/twentyhq/twenty)** — An open-source Salesforce alternative built for AI, letting technical teams build, ship, and version a CRM like the rest of their stack.
+* **[VikOlliver/RepRapMicron](https://github.com/VikOlliver/RepRapMicron)** — An extension of the open RepRap printer project to micron scale, reusing GCODE, GRBL, and NEMA17 steppers to place or engrave pixels with repeatable micron precision on cheap…
 
-  > Angle: Target companies with engineering teams and heavy customization needs who find off-the-shelf CRMs rigid.
-
-* **[NanmiCoder/MediaCrawler](https://github.com/NanmiCoder/MediaCrawler)** — A multi-platform social media scraper covering public posts and comments on Xiaohongshu, Douyin, Kuaishou, Bilibili, Weibo, Tieba, and Zhihu.
-
-  > Angle: For sentiment monitoring or content analytics teams needing cross-platform public data. Mind compliance;
+  > Angle: A trend signal more than a product: desktop micro-fabrication is getting accessible. Watch early adopters in optics and bio lab consumables,
 
 ### Security / Privacy
 
-* **[cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)** — Cloudflare's open coding-agent skill turns an agent into a security auditor, running six phases from reconnaissance to coverage-led hunting, candidate validation,
+* **[chaitin/SafeLine](https://github.com/chaitin/SafeLine)** — A self-hosted WAF and reverse proxy filtering SQL injection, XSS, command injection, brute force, and bot abuse, deployable roughly like dropping in a gateway.
 
-  > Angle: Suited to teams selling security services to smaller shops without dedicated auditors. Unlike scanners, it reasons in phases and cross-checks findings,
+  > Angle: For small teams the pain is rule tuning and false positives. Managed tuning or business-specific rule packs is a better business than another gateway.
 
 ### Vertical Tools / Skills
 
-* **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** — An Agent Skill that gives coding agents art direction, real reference imagery, and a browser-based self-check, so they produce designed pages instead of generic landing templates.
+* **[luongnv89/claude-howto](https://github.com/luongnv89/claude-howto)** — A visual, example-driven path from first prompt to orchestrating hooks, skills, and MCP servers, with copy-paste templates that fill the gap where official docs explain features…
 
-  > Angle: Aim at indie developers and small studios frustrated by low-quality AI pages. The differentiator is the generate-then-verify loop in a real browser,
+  > Angle: Hard to monetize as public content, but it signals demand for internal onboarding. Selling a tailored ramp-up kit for a company's own codebase is the real…
 
-[This issue (Markdown)](daily/en/2026-10-23.md)
+* **[Renhuai123/ziwei-doushu](https://github.com/Renhuai123/ziwei-doushu)** — An open engine for Zi Wei Dou Shu astrology with full charting algorithms and a large structured interpretation dataset spanning decades of real dates,
+
+  > Angle: The dataset matters more than the charting. Build Q&A or content generation on top of it for astrology creators who already have an audience.
+
+* **[samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)** — Agent skills for production Go projects covering idioms, testing, security, and observability, loaded on demand to spare context,
+
+  > Angle: Human-reviewed skill packs are the selling point. Replicate per language or framework to give teams a shared coding standard and cut style drift in AI-written…
+
+[This issue (Markdown)](daily/en/2026-10-24.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
