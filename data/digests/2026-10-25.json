@@ -1,0 +1,314 @@
+{
+  "date": "2026-10-25",
+  "generated_at": "2026-10-25T00:56:20+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个清晰转向：围绕 agent 的周边工程正在从「让它更聪明」转向「让它可控、可审计、可落地」。沙箱隔离、跨会话记忆、给 agent 用的技能包与视频渲染管线，都是在补 agent 进入真实工作流后暴露的短板；同时本地优先的小模型应用重新活跃，说明用户开始用隐私和离线体验来筛选工具。",
+    "en": "Today's batch shows the agent conversation maturing: the energy has moved from making agents smarter to making them controllable, auditable and actually usable. Sandboxing, cross-session memory,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "thedotmack/claude-mem",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "content": {
+        "zh": {
+          "summary": "给编码 agent 做跨会话持久记忆：记录会话过程，用模型压缩成摘要，下次开工时把相关上下文注入回去。支持 Claude Code、Codex、Gemini 等多个客户端，解决的是 agent 每次从零开始、重复解释背景的老问题。",
+          "insight": "可以切「团队共享记忆」这一层：把个人记忆升级成项目级知识库，让新成员接手的 agent 直接继承前人的决策与踩坑记录，这是单人工具做不到的。"
+        },
+        "en": {
+          "summary": "Persistent memory for coding agents: it captures each session, compresses it with a model, and injects relevant context into future runs.",
+          "insight": "Build the team tier: promote personal memory into a project-level knowledge base so an agent inherited by a new hire carries prior decisions and dead ends."
+        }
+      },
+      "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 102831,
+      "stars_today": 278,
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-memory",
+        "anthropic",
+        "artificial-intelligence",
+        "chromadb",
+        "claude",
+        "claude-agent-sdk",
+        "claude-agents",
+        "claude-code"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 38.95
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "content": {
+        "zh": {
+          "summary": "把 HTML、CSS、媒体和可定位动画渲染成确定性 MP4 的开源框架，可用 CLI 本地跑，也可作为 agent 技能调用。它解决的是让编码 agent 产出可复现视频的问题，避免每次渲染结果漂移，适合批量做营销短片或演示。",
+          "insight": "确定性是关键卖点：可以做面向电商的「商品页转视频」流水线，同一模板换数据批量出片，比通用视频生成更可控，成本也低得多。"
+        },
+        "en": {
+          "summary": "An open framework that renders HTML, CSS, media and seekable animations into deterministic MP4s, runnable via CLI or as an agent skill.",
+          "insight": "Determinism is the wedge: build a product-page-to-video pipeline for e-commerce where one template plus fresh data yields consistent clips."
+        }
+      },
+      "description": "Write HTML. Render video. Built for agents.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 71494,
+      "stars_today": 743,
+      "topics": [
+        "ai",
+        "ai-agents",
+        "animation",
+        "claude-code",
+        "ffmpeg",
+        "framework",
+        "gsap",
+        "html",
+        "html-to-video",
+        "mcp"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 47.13
+    },
+    {
+      "repo": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "content": {
+        "zh": {
+          "summary": "多 agent 的 LLM 金融交易研究框架，把分析师、研究员、交易员等角色拆成不同 agent 协作，支持按模型层级分配不同供应商，并把历史决策逐笔结算。适合做策略研究和回测实验，而非直接实盘。",
+          "insight": "真正的机会在评估层：给这类多 agent 交易系统做可复现的基准和归因工具，回答「收益来自哪个 agent 的判断」，这比再写一个框架更有壁垒。"
+        },
+        "en": {
+          "summary": "A multi-agent LLM framework for financial trading research, splitting analysts, researchers and traders into collaborating agents, assigning different model providers per tier,",
+          "insight": "The real gap is evaluation: build reproducible benchmarks and attribution for multi-agent trading systems, answering which agent's judgment drove returns."
+        }
+      },
+      "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 113686,
+      "stars_today": 309,
+      "topics": [
+        "agent",
+        "finance",
+        "llm",
+        "multiagent",
+        "trading"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.73
+    },
+    {
+      "repo": "antirez/ds4",
+      "url": "https://github.com/antirez/ds4",
+      "content": {
+        "zh": {
+          "summary": "antirez 写的原生推理引擎，专为在消费级硬件上跑 DeepSeek V4 Flash/PRO、GLM 5.x、Qwen3.8 Flash 等少数几个模型优化，覆盖 Metal、CUDA 和 ROCm。它刻意不做通用 GGUF 运行器，只吃自己产出的权重。",
+          "insight": "这更像趋势信号：窄而深的专用推理栈正在挑战通用运行时。创业者可借鉴「为特定模型做极致优化」的思路，比如给某个垂直模型配一键部署的本地推理镜像。"
+        },
+        "en": {
+          "summary": "antirez's native inference engine tuned to run a handful of strong models, including DeepSeek V4 Flash and PRO, GLM 5.x and Qwen3.8 Flash, on consumer hardware across Metal,",
+          "insight": "Read it as a signal: narrow, deeply optimized inference stacks are challenging general runtimes. The lesson is to ship an end-to-end local image tuned for one…"
+        }
+      },
+      "description": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
+      "category": "AI 基础设施 / 模型",
+      "language": "C",
+      "stars": 24059,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 27.29
+    },
+    {
+      "repo": "oosexgang/hackios-xnu-kernel",
+      "url": "https://github.com/oosexgang/hackios-xnu-kernel",
+      "content": {
+        "zh": {
+          "summary": "把苹果开源的 XNU 内核（iOS 16.5）跑在安卓手机硬件上，并在其上运行未修改的 iOS 用户态，从 launchd 到 SpringBoard 再到应用。项目自写 EFI 加载器和闭源驱动替代品，也能在 QEMU 里跑。三天内就冲到 HN 前排。",
+          "insight": "短期不适合产品化，但它是移动安全研究和逆向工程的稀缺实验台。可关注围绕它的课程、复现环境打包和 CI 化测试服务，服务安全团队而非消费者。"
+        },
+        "en": {
+          "summary": "Boots Apple's open-source XNU kernel from iOS 16.5 on Android phone hardware and runs the unmodified iOS user space on top, from launchd to SpringBoard to apps.",
+          "insight": "Not productizable soon, but it is a rare lab for mobile security research and reverse engineering."
+        }
+      },
+      "description": "Run full iOS 16.5 firmware on Android Devices",
+      "category": "开发工具 / CLI",
+      "language": "C",
+      "stars": 1288,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "hn"
+      ],
+      "score": 31.66
+    },
+    {
+      "repo": "Nutlope/hallmark",
+      "url": "https://github.com/Nutlope/hallmark",
+      "content": {
+        "zh": {
+          "summary": "一个反「AI 味」的设计技能包，面向 Claude Code、Cursor、Codex 等编码 agent。它从 48 套主题里选材，按访客目标组织页面，再用真实浏览器检查那些一眼看出机器生成的痕迹，比如标题上方的小标签、每页都有的订阅框。",
+          "insight": "可借的角度是把「审美约束」产品化：为特定行业（律所、诊所、独立电商）预置合规又不像模板的版式规则，卖的不是生成能力而是品味标准。"
+        },
+        "en": {
+          "summary": "An anti-AI-slop design skill for coding agents like Claude Code, Cursor and Codex. It picks from 48 themes, structures pages around visitor intent,",
+          "insight": "Productize taste as constraint: ship opinionated layout rules for a vertical, like law firms or clinics, that look bespoke and stay compliant."
+        }
+      },
+      "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+      "category": "前端 / 设计",
+      "language": "CSS",
+      "stars": 32151,
+      "stars_today": 455,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.42
+    },
+    {
+      "repo": "umami-software/umami",
+      "url": "https://github.com/umami-software/umami",
+      "content": {
+        "zh": {
+          "summary": "隐私优先的网站与产品分析平台，把流量、渠道、行为、转化和收入放在一处，不用 cookie，可自托管也可用云版。它解决的是 Google Analytics 在合规和易用性上的双重不满，适合中小团队和内容站点。",
+          "insight": "别再做通用分析，切合规交付：为受 GDPR 约束的欧洲中小电商提供自托管部署加数据驻留证明和审计报告，把运维与合规打包成服务卖。"
+        },
+        "en": {
+          "summary": "A privacy-first web and product analytics platform covering traffic, campaigns, behavior, conversions and revenue in one place,",
+          "insight": "Skip generic analytics and sell compliance delivery: for GDPR-bound European SMBs, offer managed self-hosting with data-residency proof and audit reports,"
+        }
+      },
+      "description": "Umami is a privacy-first web and product analytics platform. Traffic, campaigns, behavior, conversions, and revenue in one place. No cookies, no surveillance, self-hosted or in the cloud.",
+      "category": "数据 / 基础设施",
+      "language": "TypeScript",
+      "stars": 39650,
+      "stars_today": 45,
+      "topics": [
+        "analytics",
+        "audience-segmentation",
+        "charts",
+        "cohort-analysis",
+        "google-analytics",
+        "product-analytics",
+        "statistics",
+        "user-journey",
+        "web-analytics"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.71
+    },
+    {
+      "repo": "anthropics/sandbox-runtime",
+      "url": "https://github.com/anthropics/sandbox-runtime",
+      "content": {
+        "zh": {
+          "summary": "Anthropic 开源的轻量沙箱，用操作系统原生能力（macOS sandbox-exec、Linux bubblewrap）加代理网络过滤，把任意进程限制在指定文件系统和网络范围内，不需要容器。适合要给本地 agent、MCP server 和 shell 命令加护栏的团队。",
+          "insight": "机会不在再做一个沙箱，而在它上面的策略层：给企业提供「agent 能碰哪些目录、能连哪些域名」的可视化授权与审计日志，直接嵌进现有 CI 或终端工具。"
+        },
+        "en": {
+          "summary": "Anthropic's lightweight sandbox enforces filesystem and network limits on arbitrary processes using native OS primitives plus proxy filtering, with no container required.",
+          "insight": "The opening is the policy layer above it: a visual permission and audit console showing which directories and domains an agent may touch,"
+        }
+      },
+      "description": "A lightweight sandboxing tool for enforcing filesystem and network restrictions on arbitrary processes at the OS level, without requiring a container.",
+      "category": "安全 / 隐私",
+      "language": "TypeScript",
+      "stars": 6481,
+      "stars_today": 650,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.87
+    },
+    {
+      "repo": "ARahim3/DigUp",
+      "url": "https://github.com/ARahim3/DigUp",
+      "content": {
+        "zh": {
+          "summary": "基于 Google DeepMind EmbeddingGemma 2 的本地文件搜索工具，用自然语言描述就能找到照片、PDF、录音、视频和代码，全部在设备上运行，覆盖 Mac、Windows 和 Linux。解决的是文件名和目录结构失效后的检索问题。",
+          "insight": "个人搜索很难收费，但同一套多模态嵌入可以切专业场景：律师的案卷、剪辑师的素材库、医生的影像报告，卖点是本地不上云和按语义而非文件名找。"
+        },
+        "en": {
+          "summary": "Local file search built on EmbeddingGemma 2: describe what you want in plain language to find photos, PDFs, recordings, videos and code.",
+          "insight": "Consumer search is hard to monetize, but the same multimodal embeddings fit professional archives: legal case files, editor footage, clinical reports."
+        }
+      },
+      "description": "Search your computer by what's in your files: photos, PDFs, documents, recordings, videos and code. On-device on Mac, Windows and Linux, built on Google DeepMind's EmbeddingGemma 2.",
+      "category": "Skill / 垂直工具",
+      "language": "Swift",
+      "stars": 5716,
+      "stars_today": 0,
+      "topics": [
+        "embeddinggemma",
+        "embeddings",
+        "file-search",
+        "linux",
+        "llama-cpp",
+        "local-first",
+        "macos",
+        "menubar-app",
+        "multimodal",
+        "on-device"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 28.54
+    },
+    {
+      "repo": "OpenWhispr/openwhispr",
+      "url": "https://github.com/OpenWhispr/openwhispr",
+      "content": {
+        "zh": {
+          "summary": "跨平台语音转文字桌面应用，可按热键说话、文字直接出现在光标处，支持本地模型（Whisper、NVIDIA Parakeet）或自带密钥的云端模型，还带会议转录和笔记。定位是 WisprFlow、Granola 的开源替代。",
+          "insight": "差异点在「本地 + 可自托管」：面向对录音合规敏感的法务、医疗、金融内勤，做成企业内网部署的听写与会议纪要方案，而不是再抢个人订阅。"
+        },
+        "en": {
+          "summary": "A cross-platform dictation app: hit a hotkey, speak, and text lands at your cursor. It runs local models like Whisper and Parakeet or cloud models with your own key,",
+          "insight": "Differentiate on local and self-hosted: pitch compliant dictation and meeting notes to legal, medical and finance back offices that cannot send audio to a…"
+        }
+      },
+      "description": "Voice-to-text dictation app with local (Nvidia Parakeet/Whisper) and cloud models (BYOK). Privacy-first and available cross-platform.",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 9898,
+      "stars_today": 62,
+      "topics": [
+        "ai",
+        "anthropic",
+        "cross-platform",
+        "gemini",
+        "groq",
+        "linux",
+        "macos",
+        "nvidia",
+        "open-source",
+        "openai"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.52
+    }
+  ]
+}

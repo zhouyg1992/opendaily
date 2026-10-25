@@ -11,69 +11,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.10.24 · 周六](daily/zh/2026-10-24.md)
+## [2026.10.25 · 周日](daily/zh/2026-10-25.md)
 
-> 今天的榜单透出一个清晰信号：AI 正从「能跑起来」转向「跑得安全、跑得可控」。一边是给自主 agent 划定权限边界的运行时，一边是把专业工作流打包成可复用技能与插件的做法，还有团队在认真补齐远程访问、代码规范这类落地环节。基础设施层的老项目依然稳，但增量都发生在让 AI 真正进入生产流程的那一圈。
+> 今天这批项目透露出一个清晰转向：围绕 agent 的周边工程正在从「让它更聪明」转向「让它可控、可审计、可落地」。沙箱隔离、跨会话记忆、给 agent 用的技能包与视频渲染管线，都是在补 agent 进入真实工作流后暴露的短板；同时本地优先的小模型应用重新活跃，说明用户开始用隐私和离线体验来筛选工具。
 
 ### AI / Agent 工具
 
-* **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)** — 面向知识工作者的插件集合，把技能、连接器、斜杠命令和子 agent 按岗位打包，让 Claude 按团队习惯和既有数据源完成工作，而不是每次从零提示。
+* **[thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)** — 给编码 agent 做跨会话持久记忆：记录会话过程，用模型压缩成摘要，下次开工时把相关上下文注入回去。支持 Claude Code、Codex、Gemini 等多个客户端，解决的是 agent 每次从零开始、重复解释背景的老问题。
 
-  > 灵感：插件按职能划分，意味着可以围绕某个具体岗位做深度定制，比如财务对账或法务审阅，卖的是工作流沉淀而非模型本身。
+  > 灵感：可以切「团队共享记忆」这一层：把个人记忆升级成项目级知识库，让新成员接手的 agent 直接继承前人的决策与踩坑记录，这是单人工具做不到的。
+
+* **[heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)** — 把 HTML、CSS、媒体和可定位动画渲染成确定性 MP4 的开源框架，可用 CLI 本地跑，也可作为 agent 技能调用。它解决的是让编码 agent 产出可复现视频的问题，避免每次渲染结果漂移，适合批量做营销短片或演示。
+
+  > 灵感：确定性是关键卖点：可以做面向电商的「商品页转视频」流水线，同一模板换数据批量出片，比通用视频生成更可控，成本也低得多。
+
+* **[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)** — 多 agent 的 LLM 金融交易研究框架，把分析师、研究员、交易员等角色拆成不同 agent 协作，支持按模型层级分配不同供应商，并把历史决策逐笔结算。适合做策略研究和回测实验，而非直接实盘。
+
+  > 灵感：真正的机会在评估层：给这类多 agent 交易系统做可复现的基准和归因工具，回答「收益来自哪个 agent 的判断」，这比再写一个框架更有壁垒。
 
 ### AI 基础设施 / 模型
 
-* **[NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell)** — 给自主 AI agent 用的安全运行时，用声明式策略限定每个 agent 能读哪些文件、装什么包、调哪些 API、用哪些凭证，而不是直接给它们整台机器的权限。
+* **[antirez/ds4](https://github.com/antirez/ds4)** — antirez 写的原生推理引擎，专为在消费级硬件上跑 DeepSeek V4 Flash/PRO、GLM 5.x、Qwen3.8 Flash 等少数几个模型优化，覆盖 Metal、CUDA 和 ROCm。它刻意不做通用 GGUF 运行器，只吃自己产出的权重。
 
-  > 灵感：企业要上 agent，卡点往往不是模型能力而是权限审计。可以从「agent 权限可视化 + 策略模板」切入，先服务需要合规留痕的金融和运维团队。
-
-* **[pollen-robotics/microduck](https://github.com/pollen-robotics/microduck)** — 约 25 厘米、800 克的雙足机器鸭，仓库里是它的「大脑」：50Hz 控制循环驱动十五个舵机，加载强化学习训练出的策略，还有防止变砖的远程更新机制。
-
-  > 灵感：适合做机器人教学和 sim2real 入门套件。真正的门槛在固件更新和策略部署流程，把这块做成托管服务比卖硬件更可持续。
-
-* **[OpenBMB/VoxCPM](https://github.com/OpenBMB/VoxCPM)** — 无分词器的语音合成系统，直接生成连续语音表示，支持三十种语言、音色设计和可控克隆，输出 48kHz 音频，绕开离散 token 化以提升自然度。
-
-  > 灵感：多语言加音色设计适合做本地化的有声内容和客服配音。差异化不在模型本身，而在把克隆授权和音色资产管理做扎实。
+  > 灵感：这更像趋势信号：窄而深的专用推理栈正在挑战通用运行时。创业者可借鉴「为特定模型做极致优化」的思路，比如给某个垂直模型配一键部署的本地推理镜像。
 
 ### 开发工具 / CLI
 
-* **[liguobao/ds-harness-remote](https://github.com/liguobao/ds-harness-remote)** — 基于 DeepSeek Harness 插件机制的多端远程访问方案，通过端到端加密的 P2P 网络，让手机、浏览器随时接回工作机上仍在运行的同一条会话。
+* **[oosexgang/hackios-xnu-kernel](https://github.com/oosexgang/hackios-xnu-kernel)** — 把苹果开源的 XNU 内核（iOS 16.5）跑在安卓手机硬件上，并在其上运行未修改的 iOS 用户态，从 launchd 到 SpringBoard 再到应用。项目自写 EFI 加载器和闭源驱动替代品，也能在 QEMU 里跑。三天内就冲到 HN 前排。
 
-  > 灵感：它点中了长任务 agent 的真实痛点：人离开工位但任务还在跑。可以把这个「随时接管」体验做成通用能力，服务跑长任务的开发者和运维。
+  > 灵感：短期不适合产品化，但它是移动安全研究和逆向工程的稀缺实验台。可关注围绕它的课程、复现环境打包和 CI 化测试服务，服务安全团队而非消费者。
+
+### 前端 / 设计
+
+* **[Nutlope/hallmark](https://github.com/Nutlope/hallmark)** — 一个反「AI 味」的设计技能包，面向 Claude Code、Cursor、Codex 等编码 agent。它从 48 套主题里选材，按访客目标组织页面，再用真实浏览器检查那些一眼看出机器生成的痕迹，比如标题上方的小标签、每页都有的订阅框。
+
+  > 灵感：可借的角度是把「审美约束」产品化：为特定行业（律所、诊所、独立电商）预置合规又不像模板的版式规则，卖的不是生成能力而是品味标准。
 
 ### 数据 / 基础设施
 
-* **[VikOlliver/RepRapMicron](https://github.com/VikOlliver/RepRapMicron)** — 把开源 RepRap 3D 打印项目延伸到微米尺度，沿用 GCODE、GRBL 和 NEMA17 步进电机等熟悉工具，用廉价易得材料实现可重复的微米级二维刻写。
+* **[umami-software/umami](https://github.com/umami-software/umami)** — 隐私优先的网站与产品分析平台，把流量、渠道、行为、转化和收入放在一处，不用 cookie，可自托管也可用云版。它解决的是 Google Analytics 在合规和易用性上的双重不满，适合中小团队和内容站点。
 
-  > 灵感：更像趋势信号而非现成产品：桌面级微纳加工的门槛在下降。关注它在光学和生物实验耗材上的早期用户，那里可能先出现付费场景。
+  > 灵感：别再做通用分析，切合规交付：为受 GDPR 约束的欧洲中小电商提供自托管部署加数据驻留证明和审计报告，把运维与合规打包成服务卖。
 
 ### 安全 / 隐私
 
-* **[chaitin/SafeLine](https://github.com/chaitin/SafeLine)** — 自托管的 Web 应用防火墙兼反向代理，过滤 SQL 注入、XSS、命令注入、暴力破解和爬虫滥用等流量，部署方式接近装一个网关。
+* **[anthropics/sandbox-runtime](https://github.com/anthropics/sandbox-runtime)** — Anthropic 开源的轻量沙箱，用操作系统原生能力（macOS sandbox-exec、Linux bubblewrap）加代理网络过滤，把任意进程限制在指定文件系统和网络范围内，不需要容器。适合要给本地 agent、MCP server 和 shell 命令加护栏的团队。
 
-  > 灵感：对中小团队来说，自托管 WAF 的难点在规则调优和误报处理。可以做托管运维或按业务定制的规则包，而不是再做一个同类网关。
+  > 灵感：机会不在再做一个沙箱，而在它上面的策略层：给企业提供「agent 能碰哪些目录、能连哪些域名」的可视化授权与审计日志，直接嵌进现有 CI 或终端工具。
 
 ### Skill / 垂直工具
 
-* **[luongnv89/claude-howto](https://github.com/luongnv89/claude-howto)** — 把 Claude Code 从基础命令到 hooks、skills、MCP 编排串成一条可视化学习路径，配可直接复制的模板，解决官方文档只讲功能不讲组合的问题。
+* **[ARahim3/DigUp](https://github.com/ARahim3/DigUp)** — 基于 Google DeepMind EmbeddingGemma 2 的本地文件搜索工具，用自然语言描述就能找到照片、PDF、录音、视频和代码，全部在设备上运行，覆盖 Mac、Windows 和 Linux。解决的是文件名和目录结构失效后的检索问题。
 
-  > 灵感：这类内容本身难变现，但它暴露了真实需求：团队需要内部版的「怎么在我们代码库里用」。做企业内训和上手引导包比做公开教程更有付费空间。
+  > 灵感：个人搜索很难收费，但同一套多模态嵌入可以切专业场景：律师的案卷、剪辑师的素材库、医生的影像报告，卖点是本地不上云和按语义而非文件名找。
 
-* **[Renhuai123/ziwei-doushu](https://github.com/Renhuai123/ziwei-doushu)** — 紫微斗数开源排盘引擎，含完整排盘算法、四化系统和格局知识库，并放出覆盖近七十年真实日期的大规模解读数据集，把传统术数变成了可计算的数据资产。
+* **[OpenWhispr/openwhispr](https://github.com/OpenWhispr/openwhispr)** — 跨平台语音转文字桌面应用，可按热键说话、文字直接出现在光标处，支持本地模型（Whisper、NVIDIA Parakeet）或自带密钥的云端模型，还带会议转录和笔记。定位是 WisprFlow、Granola 的开源替代。
 
-  > 灵感：真正的价值在那份结构化解读数据集，而非排盘本身。可以围绕它做命盘问答或内容生成工具，面向已有用户基础的命理内容创作者。
+  > 灵感：差异点在「本地 + 可自托管」：面向对录音合规敏感的法务、医疗、金融内勤，做成企业内网部署的听写与会议纪要方案，而不是再抢个人订阅。
 
-* **[samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)** — 一组面向生产级 Go 项目的 agent 技能，覆盖语言习惯、测试、安全和可观测性，按需加载以免撑爆上下文，作者强调经过人工测试和改写。
-
-  > 灵感：「人工审过的技能包」本身就是卖点。可以按语言或框架复制这个模式，做团队内部统一编码规范的技能库，减少 AI 生成代码的风格漂移。
-
-[本期 Markdown](daily/zh/2026-10-24.md)
+[本期 Markdown](daily/zh/2026-10-25.md)
 
 ### 往期
 
 #### 2026 年
 
-**10 月**：[24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
+**10 月**：[25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
 <!-- DIGEST:END -->
 

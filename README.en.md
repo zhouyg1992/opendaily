@@ -10,69 +10,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 24, 2026 · Sat](daily/en/2026-10-24.md)
+## [Oct 25, 2026 · Sun](daily/en/2026-10-25.md)
 
-> Today's list points to a shift from getting AI to run toward making it safe and governable. Agent sandboxes, reusable skill packs, and remote access plumbing all address the same gap: the last mile between a demo and something a team can actually rely on.
+> Today's batch shows the agent conversation maturing: the energy has moved from making agents smarter to making them controllable, auditable and actually usable. Sandboxing, cross-session memory,
 
 ### AI / Agents
 
-* **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)** — Plugins that bundle skills, connectors, slash commands, and sub-agents per job function, so Claude follows team conventions and pulls from the right tools instead of starting from…
+* **[thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)** — Persistent memory for coding agents: it captures each session, compresses it with a model, and injects relevant context into future runs.
 
-  > Angle: Function-level packaging invites vertical depth: a finance reconciliation or legal review plugin sells accumulated workflow knowledge, not model access.
+  > Angle: Build the team tier: promote personal memory into a project-level knowledge base so an agent inherited by a new hire carries prior decisions and dead ends.
+
+* **[heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)** — An open framework that renders HTML, CSS, media and seekable animations into deterministic MP4s, runnable via CLI or as an agent skill.
+
+  > Angle: Determinism is the wedge: build a product-page-to-video pipeline for e-commerce where one template plus fresh data yields consistent clips.
+
+* **[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)** — A multi-agent LLM framework for financial trading research, splitting analysts, researchers and traders into collaborating agents, assigning different model providers per tier,
+
+  > Angle: The real gap is evaluation: build reproducible benchmarks and attribution for multi-agent trading systems, answering which agent's judgment drove returns.
 
 ### AI Infrastructure / Models
 
-* **[NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell)** — A runtime that lets autonomous agents read files, install packages, and call APIs under a declared policy, so they get capability without unrestricted access to data, secrets,
+* **[antirez/ds4](https://github.com/antirez/ds4)** — antirez's native inference engine tuned to run a handful of strong models, including DeepSeek V4 Flash and PRO, GLM 5.x and Qwen3.8 Flash, on consumer hardware across Metal,
 
-  > Angle: The blocker for enterprise agents is audit, not intelligence. A policy-template library plus a visual permission map for regulated ops teams is a concrete…
-
-* **[pollen-robotics/microduck](https://github.com/pollen-robotics/microduck)** — A 25 cm bipedal robot duck whose repo is its brain: a 50 Hz loop driving fifteen servos from reinforcement learning policies, plus update machinery that won't brick the device.
-
-  > Angle: A natural teaching and sim2real starter kit. The hard part is firmware and policy rollout, so a managed deployment layer may outlast the hardware sale.
-
-* **[OpenBMB/VoxCPM](https://github.com/OpenBMB/VoxCPM)** — A tokenizer-free TTS system generating continuous speech directly, covering 30 languages with voice design, controllable cloning, and 48 kHz output for more natural prosody.
-
-  > Angle: Multilingual voice design fits localized audio and support dubbing. The moat is consent tracking and voice asset management, not the model.
+  > Angle: Read it as a signal: narrow, deeply optimized inference stacks are challenging general runtimes. The lesson is to ship an end-to-end local image tuned for one…
 
 ### Developer Tools / CLI
 
-* **[liguobao/ds-harness-remote](https://github.com/liguobao/ds-harness-remote)** — A multi-device remote access layer for DeepSeek Harness, using encrypted peer-to-peer links so a phone or browser can rejoin the same session still running on a work machine.
+* **[oosexgang/hackios-xnu-kernel](https://github.com/oosexgang/hackios-xnu-kernel)** — Boots Apple's open-source XNU kernel from iOS 16.5 on Android phone hardware and runs the unmodified iOS user space on top, from launchd to SpringBoard to apps.
 
-  > Angle: It hits a real pain of long-running agents: you leave the desk, the task doesn't. Generalizing that handoff for anyone running long jobs is the opportunity.
+  > Angle: Not productizable soon, but it is a rare lab for mobile security research and reverse engineering.
+
+### Frontend / Design
+
+* **[Nutlope/hallmark](https://github.com/Nutlope/hallmark)** — An anti-AI-slop design skill for coding agents like Claude Code, Cursor and Codex. It picks from 48 themes, structures pages around visitor intent,
+
+  > Angle: Productize taste as constraint: ship opinionated layout rules for a vertical, like law firms or clinics, that look bespoke and stay compliant.
 
 ### Data / Infrastructure
 
-* **[VikOlliver/RepRapMicron](https://github.com/VikOlliver/RepRapMicron)** — An extension of the open RepRap printer project to micron scale, reusing GCODE, GRBL, and NEMA17 steppers to place or engrave pixels with repeatable micron precision on cheap…
+* **[umami-software/umami](https://github.com/umami-software/umami)** — A privacy-first web and product analytics platform covering traffic, campaigns, behavior, conversions and revenue in one place,
 
-  > Angle: A trend signal more than a product: desktop micro-fabrication is getting accessible. Watch early adopters in optics and bio lab consumables,
+  > Angle: Skip generic analytics and sell compliance delivery: for GDPR-bound European SMBs, offer managed self-hosting with data-residency proof and audit reports,
 
 ### Security / Privacy
 
-* **[chaitin/SafeLine](https://github.com/chaitin/SafeLine)** — A self-hosted WAF and reverse proxy filtering SQL injection, XSS, command injection, brute force, and bot abuse, deployable roughly like dropping in a gateway.
+* **[anthropics/sandbox-runtime](https://github.com/anthropics/sandbox-runtime)** — Anthropic's lightweight sandbox enforces filesystem and network limits on arbitrary processes using native OS primitives plus proxy filtering, with no container required.
 
-  > Angle: For small teams the pain is rule tuning and false positives. Managed tuning or business-specific rule packs is a better business than another gateway.
+  > Angle: The opening is the policy layer above it: a visual permission and audit console showing which directories and domains an agent may touch,
 
 ### Vertical Tools / Skills
 
-* **[luongnv89/claude-howto](https://github.com/luongnv89/claude-howto)** — A visual, example-driven path from first prompt to orchestrating hooks, skills, and MCP servers, with copy-paste templates that fill the gap where official docs explain features…
+* **[ARahim3/DigUp](https://github.com/ARahim3/DigUp)** — Local file search built on EmbeddingGemma 2: describe what you want in plain language to find photos, PDFs, recordings, videos and code.
 
-  > Angle: Hard to monetize as public content, but it signals demand for internal onboarding. Selling a tailored ramp-up kit for a company's own codebase is the real…
+  > Angle: Consumer search is hard to monetize, but the same multimodal embeddings fit professional archives: legal case files, editor footage, clinical reports.
 
-* **[Renhuai123/ziwei-doushu](https://github.com/Renhuai123/ziwei-doushu)** — An open engine for Zi Wei Dou Shu astrology with full charting algorithms and a large structured interpretation dataset spanning decades of real dates,
+* **[OpenWhispr/openwhispr](https://github.com/OpenWhispr/openwhispr)** — A cross-platform dictation app: hit a hotkey, speak, and text lands at your cursor. It runs local models like Whisper and Parakeet or cloud models with your own key,
 
-  > Angle: The dataset matters more than the charting. Build Q&A or content generation on top of it for astrology creators who already have an audience.
+  > Angle: Differentiate on local and self-hosted: pitch compliant dictation and meeting notes to legal, medical and finance back offices that cannot send audio to a…
 
-* **[samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)** — Agent skills for production Go projects covering idioms, testing, security, and observability, loaded on demand to spare context,
-
-  > Angle: Human-reviewed skill packs are the selling point. Replicate per language or framework to give teams a shared coding standard and cut style drift in AI-written…
-
-[This issue (Markdown)](daily/en/2026-10-24.md)
+[This issue (Markdown)](daily/en/2026-10-25.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
