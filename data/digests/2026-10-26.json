@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-26",
+  "generated_at": "2026-10-26T01:04:31+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个共同信号：开源正在从「造模型」转向「管住模型的运行成本与使用边界」。无论是推理框架、模型路由网关，还是把语音、代理、部署收进本地自托管，重点都落在可控、可审计、不按调用量付费。对创业者来说，机会不在再做一个更强的模型，而在帮别人把已有的模型和工具用得省、用得稳、用得合规。",
+    "en": "Today's projects share one signal: open source is shifting from building models to governing how they run and what they cost. Inference frameworks, model routers, and local-first voice or agent tooling all push toward control, auditability, and escaping per-call pricing."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "makecindy/cindy",
+      "url": "https://github.com/makecindy/cindy",
+      "content": {
+        "zh": {
+          "summary": "开箱即用的桌面 AI 代理，把 Claude Code、Codex 等多个执行框架和模型混在一起，在本地真实文件和已登录应用上干活，任务中途可切换模型而记忆和技能保持连续。解决的是代理工具配置门槛高、只能绑定单一框架的问题。",
+          "insight": "机会在「代理编排」而非再做一个代理：面向非工程岗位做预设工作流，比如把同一任务分给不同模型并行执行再交叉复核，卖的是可靠性和结果，不是工具本身。"
+        },
+        "en": {
+          "summary": "An out-of-the-box desktop agent that mixes Claude Code, Codex, and other harnesses and models, working on real local files and logged-in apps,",
+          "insight": "The opening is orchestration, not another agent: package preset workflows for non-engineering roles,"
+        }
+      },
+      "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 4880,
+      "stars_today": 675,
+      "topics": [
+        "agent",
+        "ai-agent",
+        "ai-assistant",
+        "android",
+        "claude-code",
+        "codex",
+        "electron",
+        "ios",
+        "llm",
+        "macos"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.13
+    },
+    {
+      "repo": "deepseek-ai/DeepInfer",
+      "url": "https://github.com/deepseek-ai/DeepInfer",
+      "content": {
+        "zh": {
+          "summary": "DeepSeek 把支撑自身大规模生产服务的推理框架开源，包含优化内核、MoE 专家并行、异步调度和确定性采样。它解决的是自建推理时吞吐和成本压不下来的问题，也是观察头部团队如何把模型跑便宜的实物样本。",
+          "insight": "适合做私有化推理服务或 GPU 托管的人：把它当作性能基线，切入对确定性和批处理一致性有硬要求的场景，比如批量评测和合规审计，而不是通用聊天。"
+        },
+        "en": {
+          "summary": "DeepSeek open-sourced the inference framework behind its own production serving, with optimized kernels, MoE expert parallelism, async scheduling, and deterministic sampling.",
+          "insight": "For private inference hosting or GPU resellers: treat it as a performance baseline and target workloads that need determinism and batch invariance,"
+        }
+      },
+      "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 22395,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search",
+        "hn"
+      ],
+      "score": 37.1
+    },
+    {
+      "repo": "experientiallabs/experiential",
+      "url": "https://github.com/experientiallabs/experiential",
+      "content": {
+        "zh": {
+          "summary": "一个零加价的模型网关，把托管、自带密钥和本地模型统一到一个 OpenAI 兼容接口下，并按用户和代理控制可用模型与预算，还能用生产流量训练自己的路由。解决的是多模型混用时成本失控和权限混乱。",
+          "insight": "切企业内部 AI 平台的入口：先做「谁能用哪个模型、花多少钱」的配额与审计层，再靠积累的调用数据做路由优化，这比直接卖模型调用更有粘性。"
+        },
+        "en": {
+          "summary": "A zero-markup model gateway that puts hosted, bring-your-own-key, and local models behind one OpenAI-compatible API, with per-user and per-agent model and budget controls,",
+          "insight": "Enter as the internal AI platform layer: start with quota and audit for who uses which model and at what spend,"
+        }
+      },
+      "description": "Experiential is the open source, zero markup gateway for BYOK, self-hosted and 1000+ marketplace models. It learns from your traffic to cut costs, recommend better models, and train a specialized model you own.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 12857,
+      "stars_today": 1117,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.65
+    },
+    {
+      "repo": "unslothai/unsloth",
+      "url": "https://github.com/unslothai/unsloth",
+      "content": {
+        "zh": {
+          "summary": "把模型运行和微调做成桌面应用，支持 GGUF、MLX 以及多个主流开源模型系列，覆盖 Windows、macOS 和 Linux。它把原本要写脚本的微调流程变成本地图形操作，降低了个人和小团队训练定制模型的门槛。",
+          "insight": "面向垂直行业做「数据到可用小模型」的交付服务：客户提供领域语料，你用这类桌面工具在本地完成微调并交付可运行模型，避开云训练成本和数据外流顾虑。"
+        },
+        "en": {
+          "summary": "Turns running and fine-tuning models into a desktop app supporting GGUF, MLX, and several major open model families across Windows, macOS, and Linux.",
+          "insight": "Offer vertical delivery from data to a usable small model: clients supply domain corpora, you fine-tune locally with such desktop tooling and hand over a…"
+        }
+      },
+      "description": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4.1, MiniMax-H3, Gemma 4, FLUX and more.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 78561,
+      "stars_today": 47,
+      "topics": [
+        "agent",
+        "ai",
+        "chatgpt",
+        "deepseek",
+        "fine-tuning",
+        "gemma",
+        "image-generation",
+        "llama",
+        "llm",
+        "llms"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.55
+    },
+    {
+      "repo": "kunchenguid/no-mistakes",
+      "url": "https://github.com/kunchenguid/no-mistakes",
+      "content": {
+        "zh": {
+          "summary": "在真实远端前放一个本地 git 代理，推送到它而不是 origin，它会开临时工作区跑 AI 校验流水线，全部通过才转发分支并自动开 PR。解决的是 AI 生成代码大量涌入后评审质量下滑的问题。",
+          "insight": "适合团队内部的代码质量门禁：把校验规则做成可配置的策略包，按语言和仓库类型分发，切入对合规和审计有要求的工程组织，而不是个人开发者。"
+        },
+        "en": {
+          "summary": "A local git proxy sits in front of your real remote: push to it instead of origin, and it spins up a disposable worktree, runs an AI validation pipeline,",
+          "insight": "Fits internal code-quality gates: turn validation rules into configurable policy packs distributed by language and repo type,"
+        }
+      },
+      "description": "git push no-mistakes",
+      "category": "开发工具 / CLI",
+      "language": "Go",
+      "stars": 8958,
+      "stars_today": 21,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.24
+    },
+    {
+      "repo": "tokio-rs/topcoat",
+      "url": "https://github.com/tokio-rs/topcoat",
+      "content": {
+        "zh": {
+          "summary": "tokio 团队推出的 Rust 全栈 Web 框架，主打开箱即用，试图补齐 Rust 做 Web 应用时缺的默认约定。它值得看是因为 Rust 后端生态长期缺少类似 Rails 的一体化选择。",
+          "insight": "更适合作为趋势信号：Rust 正在向应用层下沉。若做开发者工具，可围绕它的模板、认证和部署缺环做配套，而不是自己再造一个框架。"
+        },
+        "en": {
+          "summary": "A full-stack Rust web framework from the tokio team, pitched as batteries-included, trying to fill Rust's missing defaults for building web apps.",
+          "insight": "Better read as a trend signal: Rust is moving down into application layers. If you build dev tools, target the gaps around its templating, auth,"
+        }
+      },
+      "description": "A batteries-included framework for building web apps",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 6218,
+      "stars_today": 18,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 24.21
+    },
+    {
+      "repo": "mantrakp04/ardia",
+      "url": "https://github.com/mantrakp04/ardia",
+      "content": {
+        "zh": {
+          "summary": "面向 Mac 的免费开源 Chromium 浏览器，把 Arc 的侧边栏和 Dia 的精致感结合起来，支持地址栏入侧栏、分屏和视频浮窗，默认拦截广告和追踪。它回应的是用户对主流浏览器改版和隐私策略的不满。",
+          "insight": "浏览器本身难变现，但可借它的交互范式做垂直场景：比如把侧栏分屏做成面向研究或客服的多页面工作台，或为特定 SaaS 做内置侧边面板。"
+        },
+        "en": {
+          "summary": "A free, open-source Chromium browser for Mac blending Arc's sidebar with Dia's polish: address bar in the sidebar, split panes, floating video,",
+          "insight": "The browser itself is hard to monetize, but borrow its interaction model for vertical use: turn the sidebar and split panes into a multi-page workbench for…"
+        }
+      },
+      "description": "A free Chromium browser for the Mac: Arc's sidebar, Dia's polish. Chat on Discord: discord.gg/TdhuXrbcA6",
+      "category": "前端 / 设计",
+      "language": "TypeScript",
+      "stars": 824,
+      "stars_today": 97,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 20.92
+    },
+    {
+      "repo": "coollabsio/coolify",
+      "url": "https://github.com/coollabsio/coolify",
+      "content": {
+        "zh": {
+          "summary": "可自托管的 PaaS，用一条 SSH 连接就能在自己的服务器上部署静态站、数据库和数百个一键服务，配置留在自己机器上。它回应的是云平台账单上涨和数据主权诉求。",
+          "insight": "不要重做部署面板，而是围绕它做托管运维服务或迁移工具：帮中小团队从 Vercel、Heroku 搬回自有服务器，按服务器数量收费，卖的是省心和迁移确定性。"
+        },
+        "en": {
+          "summary": "A self-hostable PaaS that deploys static sites, databases, and hundreds of one-click services on your own servers over a single SSH connection, keeping config on your hardware.",
+          "insight": "Don't rebuild the deploy panel; build managed ops or migration tooling around it. Help small teams move off Vercel and Heroku onto their own servers,"
+        }
+      },
+      "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 360+ one-click services on your own servers.",
+      "category": "数据 / 基础设施",
+      "language": "PHP",
+      "stars": 64391,
+      "stars_today": 152,
+      "topics": [
+        "coolify",
+        "databases",
+        "deployment",
+        "docker",
+        "docker-compose",
+        "inertiajs",
+        "laravel",
+        "mariadb",
+        "mysql",
+        "nextjs"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.65
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "url": "https://github.com/debpalash/VoiceStudio",
+      "content": {
+        "zh": {
+          "summary": "完全本地的 ElevenLabs 替代品，覆盖声音克隆、配音、听写、转录和有声书制作，支持数百种语言，可跑在自己的硬件上。它回应的是内容创作者和机构对语音数据不出本地的需求。",
+          "insight": "面向有声书、课程本地化和短视频配音团队做交付，而不是做通用语音 API。差异点在于素材和成品都留在客户机器上，适合对版权和隐私敏感的出版与教育客户。"
+        },
+        "en": {
+          "summary": "A fully local ElevenLabs alternative covering voice cloning, dubbing, dictation, transcription, and audiobook production across hundreds of languages,",
+          "insight": "Sell delivery to audiobook, course localization, and short-video dubbing teams rather than a generic voice API."
+        }
+      },
+      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 86843,
+      "stars_today": 1592,
+      "topics": [
+        "ai",
+        "audiobook",
+        "cuda",
+        "dubbing",
+        "elevenlabs-alternative",
+        "huggingface",
+        "local-first",
+        "mlx",
+        "omnivoice-studio",
+        "speech-to-text"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 47.63
+    },
+    {
+      "repo": "ulsklyc/yuvomi",
+      "url": "https://github.com/ulsklyc/yuvomi",
+      "content": {
+        "zh": {
+          "summary": "自托管的家庭规划器，把任务、日历、预算、餐食、购物和健康等二十多个模块装进一个 PWA，跑在自家服务器或 NAS 上，单个 SQLite 文件、无追踪。它针对的是一家人被十几个订阅制应用割裂的日常。",
+          "insight": "适合做面向家庭的自托管套件或区域化部署服务：切入德语区等对数据隐私敏感的市场，卖安装、备份和升级托管，而不是卖软件许可。"
+        },
+        "en": {
+          "summary": "A self-hosted family planner bundling tasks, calendar, budget, meals, shopping, and health across 20-plus modules in one PWA on your own server or NAS,",
+          "insight": "Good for a self-hosted family suite or regional deployment service: target privacy-sensitive markets like German-speaking Europe and sell install, backup,"
+        }
+      },
+      "description": "One home instead of many subscriptions. Yuvomi is a self-hosted family planner: tasks, calendar, budget, meals, shopping, health and more in one PWA on your own server or NAS. Docker, Podman, TrueNAS, Umbrel, Unraid. No tracking, MIT.",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 2005,
+      "stars_today": 116,
+      "topics": [
+        "calendar",
+        "docker",
+        "family",
+        "family-planner",
+        "household",
+        "meal-planning",
+        "nodejs",
+        "open-source",
+        "planner-app",
+        "privacy-first"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 23.71
+    }
+  ]
+}

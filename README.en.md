@@ -10,71 +10,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 25, 2026 · Sun](daily/en/2026-10-25.md)
+## [Oct 26, 2026 · Mon](daily/en/2026-10-26.md)
 
-> Today's batch shows the agent conversation maturing: the energy has moved from making agents smarter to making them controllable, auditable and actually usable. Sandboxing, cross-session memory,
+> Today's projects share one signal: open source is shifting from building models to governing how they run and what they cost. Inference frameworks, model routers, and local-first voice or agent tooling all push toward control, auditability, and escaping per-call pricing.
 
 ### AI / Agents
 
-* **[thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)** — Persistent memory for coding agents: it captures each session, compresses it with a model, and injects relevant context into future runs.
+* **[makecindy/cindy](https://github.com/makecindy/cindy)** — An out-of-the-box desktop agent that mixes Claude Code, Codex, and other harnesses and models, working on real local files and logged-in apps,
 
-  > Angle: Build the team tier: promote personal memory into a project-level knowledge base so an agent inherited by a new hire carries prior decisions and dead ends.
-
-* **[heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)** — An open framework that renders HTML, CSS, media and seekable animations into deterministic MP4s, runnable via CLI or as an agent skill.
-
-  > Angle: Determinism is the wedge: build a product-page-to-video pipeline for e-commerce where one template plus fresh data yields consistent clips.
-
-* **[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)** — A multi-agent LLM framework for financial trading research, splitting analysts, researchers and traders into collaborating agents, assigning different model providers per tier,
-
-  > Angle: The real gap is evaluation: build reproducible benchmarks and attribution for multi-agent trading systems, answering which agent's judgment drove returns.
+  > Angle: The opening is orchestration, not another agent: package preset workflows for non-engineering roles,
 
 ### AI Infrastructure / Models
 
-* **[antirez/ds4](https://github.com/antirez/ds4)** — antirez's native inference engine tuned to run a handful of strong models, including DeepSeek V4 Flash and PRO, GLM 5.x and Qwen3.8 Flash, on consumer hardware across Metal,
+* **[deepseek-ai/DeepInfer](https://github.com/deepseek-ai/DeepInfer)** — DeepSeek open-sourced the inference framework behind its own production serving, with optimized kernels, MoE expert parallelism, async scheduling, and deterministic sampling.
 
-  > Angle: Read it as a signal: narrow, deeply optimized inference stacks are challenging general runtimes. The lesson is to ship an end-to-end local image tuned for one…
+  > Angle: For private inference hosting or GPU resellers: treat it as a performance baseline and target workloads that need determinism and batch invariance,
+
+* **[experientiallabs/experiential](https://github.com/experientiallabs/experiential)** — A zero-markup model gateway that puts hosted, bring-your-own-key, and local models behind one OpenAI-compatible API, with per-user and per-agent model and budget controls,
+
+  > Angle: Enter as the internal AI platform layer: start with quota and audit for who uses which model and at what spend,
+
+* **[unslothai/unsloth](https://github.com/unslothai/unsloth)** — Turns running and fine-tuning models into a desktop app supporting GGUF, MLX, and several major open model families across Windows, macOS, and Linux.
+
+  > Angle: Offer vertical delivery from data to a usable small model: clients supply domain corpora, you fine-tune locally with such desktop tooling and hand over a…
 
 ### Developer Tools / CLI
 
-* **[oosexgang/hackios-xnu-kernel](https://github.com/oosexgang/hackios-xnu-kernel)** — Boots Apple's open-source XNU kernel from iOS 16.5 on Android phone hardware and runs the unmodified iOS user space on top, from launchd to SpringBoard to apps.
+* **[kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes)** — A local git proxy sits in front of your real remote: push to it instead of origin, and it spins up a disposable worktree, runs an AI validation pipeline,
 
-  > Angle: Not productizable soon, but it is a rare lab for mobile security research and reverse engineering.
+  > Angle: Fits internal code-quality gates: turn validation rules into configurable policy packs distributed by language and repo type,
+
+* **[tokio-rs/topcoat](https://github.com/tokio-rs/topcoat)** — A full-stack Rust web framework from the tokio team, pitched as batteries-included, trying to fill Rust's missing defaults for building web apps.
+
+  > Angle: Better read as a trend signal: Rust is moving down into application layers. If you build dev tools, target the gaps around its templating, auth,
 
 ### Frontend / Design
 
-* **[Nutlope/hallmark](https://github.com/Nutlope/hallmark)** — An anti-AI-slop design skill for coding agents like Claude Code, Cursor and Codex. It picks from 48 themes, structures pages around visitor intent,
+* **[mantrakp04/ardia](https://github.com/mantrakp04/ardia)** — A free, open-source Chromium browser for Mac blending Arc's sidebar with Dia's polish: address bar in the sidebar, split panes, floating video,
 
-  > Angle: Productize taste as constraint: ship opinionated layout rules for a vertical, like law firms or clinics, that look bespoke and stay compliant.
+  > Angle: The browser itself is hard to monetize, but borrow its interaction model for vertical use: turn the sidebar and split panes into a multi-page workbench for…
 
 ### Data / Infrastructure
 
-* **[umami-software/umami](https://github.com/umami-software/umami)** — A privacy-first web and product analytics platform covering traffic, campaigns, behavior, conversions and revenue in one place,
+* **[coollabsio/coolify](https://github.com/coollabsio/coolify)** — A self-hostable PaaS that deploys static sites, databases, and hundreds of one-click services on your own servers over a single SSH connection, keeping config on your hardware.
 
-  > Angle: Skip generic analytics and sell compliance delivery: for GDPR-bound European SMBs, offer managed self-hosting with data-residency proof and audit reports,
-
-### Security / Privacy
-
-* **[anthropics/sandbox-runtime](https://github.com/anthropics/sandbox-runtime)** — Anthropic's lightweight sandbox enforces filesystem and network limits on arbitrary processes using native OS primitives plus proxy filtering, with no container required.
-
-  > Angle: The opening is the policy layer above it: a visual permission and audit console showing which directories and domains an agent may touch,
+  > Angle: Don't rebuild the deploy panel; build managed ops or migration tooling around it. Help small teams move off Vercel and Heroku onto their own servers,
 
 ### Vertical Tools / Skills
 
-* **[ARahim3/DigUp](https://github.com/ARahim3/DigUp)** — Local file search built on EmbeddingGemma 2: describe what you want in plain language to find photos, PDFs, recordings, videos and code.
+* **[debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio)** — A fully local ElevenLabs alternative covering voice cloning, dubbing, dictation, transcription, and audiobook production across hundreds of languages,
 
-  > Angle: Consumer search is hard to monetize, but the same multimodal embeddings fit professional archives: legal case files, editor footage, clinical reports.
+  > Angle: Sell delivery to audiobook, course localization, and short-video dubbing teams rather than a generic voice API.
 
-* **[OpenWhispr/openwhispr](https://github.com/OpenWhispr/openwhispr)** — A cross-platform dictation app: hit a hotkey, speak, and text lands at your cursor. It runs local models like Whisper and Parakeet or cloud models with your own key,
+* **[ulsklyc/yuvomi](https://github.com/ulsklyc/yuvomi)** — A self-hosted family planner bundling tasks, calendar, budget, meals, shopping, and health across 20-plus modules in one PWA on your own server or NAS,
 
-  > Angle: Differentiate on local and self-hosted: pitch compliant dictation and meeting notes to legal, medical and finance back offices that cannot send audio to a…
+  > Angle: Good for a self-hosted family suite or regional deployment service: target privacy-sensitive markets like German-speaking Europe and sell install, backup,
 
-[This issue (Markdown)](daily/en/2026-10-25.md)
+[This issue (Markdown)](daily/en/2026-10-26.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
