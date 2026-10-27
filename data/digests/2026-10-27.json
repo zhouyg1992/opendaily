@@ -1,0 +1,323 @@
+{
+  "date": "2026-10-27",
+  "generated_at": "2026-10-27T01:55:00+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个共同信号：围绕 AI 编码代理的「配套层」正在快速成型——不是再造一个模型或框架，而是补上代理缺的记忆、上下文、外部数据访问和垂直技能。同时也有几个硬核底层项目提醒我们，性能红利和自托管需求仍在持续释放。",
+    "en": "Today's batch points to a maturing layer around coding agents: not new models or frameworks, but the missing pieces agents need to be useful, such as memory, context management, external data access, and domain skills."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "content": {
+        "zh": {
+          "summary": "给 Claude Code、Codex、Cursor 等编码代理做性能优化的「外挂系统」，整合技能、记忆、安全策略和以研究为先的开发流程。它解决的是代理在真实项目里缺乏持久上下文和纪律性的问题，现在这类工具正从零散 prompt 走向系统化。",
+          "insight": "切入点不是再做一个代理，而是做代理的「运行时配置层」：帮团队统一管理技能库、记忆和权限策略。和单文件 CLAUDE.md 相比，差异在于可版本化、可审计、可跨代理复用。"
+        },
+        "en": {
+          "summary": "A performance layer for coding agents like Claude Code, Codex, and Cursor, bundling skills, memory, security policy, and research-first workflows.",
+          "insight": "The opening is not another agent but the runtime configuration layer: a versioned, auditable place to manage skills, memory, and permissions across agents,"
+        }
+      },
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 289888,
+      "stars_today": 896,
+      "topics": [
+        "ai-agents",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "productivity"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 48.0
+    },
+    {
+      "repo": "Panniantong/Agent-Reach",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "content": {
+        "zh": {
+          "summary": "让 AI 代理读取登录墙后的平台和视频内容，覆盖 Twitter、Reddit、YouTube、B 站、小红书等，一条 CLI 拿到结构化数据且不付 API 费用。它补的是代理「够不着互联网」的短板，中文平台支持是明显差异点。",
+          "insight": "适合做面向研究、舆情、内容运营的代理数据管道。和官方 API 相比，优势是覆盖中文平台和免密钥；风险在合规与稳定性，产品化时要把数据来源授权讲清楚。"
+        },
+        "en": {
+          "summary": "A CLI that lets AI agents read behind login walls and inside video content across Twitter, Reddit, YouTube, Bilibili, and Xiaohongshu, returning structured data without API fees.",
+          "insight": "A natural data pipeline for research, sentiment, and content ops agents. Versus official APIs it wins on Chinese coverage and no keys,"
+        }
+      },
+      "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 103683,
+      "stars_today": 746,
+      "topics": [
+        "agent-infrastructure",
+        "ai-agent",
+        "ai-search",
+        "automation",
+        "bilibili",
+        "claude-code",
+        "cli",
+        "cursor",
+        "free-api",
+        "llm-tools"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 48.0
+    },
+    {
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "content": {
+        "zh": {
+          "summary": "一个 CLAUDE.md 文件，把 Karpathy 关于 LLM 编码常见错误的观察固化成代理行为准则，比如不要替用户做错误假设就直接开跑。它解决的是代理「自信地跑偏」问题，门槛极低所以传播快。",
+          "insight": "这类单文件规则本身难变现，但说明「代理行为规范」是刚需。可以借它做团队级的编码规范库，把规则、评审清单和 CI 检查串起来，而不是只停留在 prompt。"
+        },
+        "en": {
+          "summary": "A single CLAUDE.md file that turns Karpathy's observations on common LLM coding mistakes into agent guidelines, such as not running with wrong assumptions.",
+          "insight": "A single file is hard to monetize, but it proves demand for agent behavior standards. The play is a team-level coding convention library that ties rules to…"
+        }
+      },
+      "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+      "category": "AI / Agent 工具",
+      "language": "",
+      "stars": 224692,
+      "stars_today": 638,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 46.0
+    },
+    {
+      "repo": "Zagitta/gpu-unlock",
+      "url": "https://github.com/Zagitta/gpu-unlock",
+      "content": {
+        "zh": {
+          "summary": "一个 Linux 内核模块，在 NVIDIA 驱动加载前解锁消费级 30 系显卡的 FP/BF16 指令发射率，使其接近专业卡水平。它绕开了每次驱动更新都要重新打补丁的麻烦，直接指向消费卡被软件限制的性能。",
+          "insight": "这更像趋势信号而非创业标的：说明本地推理的算力瓶颈有一部分是人为的。对做本地模型部署的团队，值得评估其稳定性和保修风险，别急着上生产。"
+        },
+        "en": {
+          "summary": "A Linux kernel module that unlocks FP/BF16 issue rates on consumer Nvidia 30-series cards to near professional levels before the driver binds.",
+          "insight": "More a trend signal than a startup: part of the local-inference compute ceiling is artificial. Teams deploying local models should weigh stability and warranty…"
+        }
+      },
+      "description": "Unlock FP/BF16 instruction issue rate on Nvidia 3000's cards to their professional equivalents",
+      "category": "AI 基础设施 / 模型",
+      "language": "C",
+      "stars": 9812,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search",
+        "hn"
+      ],
+      "score": 34.95
+    },
+    {
+      "repo": "ranxianglei/billion-context",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "content": {
+        "zh": {
+          "summary": "一个上下文压缩插件，让单会话可以持续数月、处理数十亿 token，同时把窗口需求压到 100K 并节省约五倍 token。它解决的是长会话里上下文膨胀和缓存失效的痛点，并给出缓存命中率的可观测指标。",
+          "insight": "面向做长期陪伴型代理或长任务自动化的团队，切「会话成本」这个具体账。和简单截断相比，差异是保住前缀缓存命中率，产品化可以按节省的 token 计费。"
+        },
+        "en": {
+          "summary": "A context-compression plugin that keeps a single session alive for months and billions of tokens, shrinking the window need to 100K and cutting token use roughly fivefold.",
+          "insight": "Aimed at teams building long-running companion agents or long-horizon automation, framed around session cost."
+        }
+      },
+      "description": "A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .上下文压缩插件，月级长会话会话， 兼顾小窗口(100k上下文足矣)省token(省5倍token) . billion-context is all you need",
+      "category": "AI 基础设施 / 模型",
+      "language": "TypeScript",
+      "stars": 2971,
+      "stars_today": 176,
+      "topics": [
+        "dsh-plugin"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.24
+    },
+    {
+      "repo": "JetBrains/thinkrail",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "content": {
+        "zh": {
+          "summary": "JetBrains 出的轻量代理式 IDE，围绕 pi 编码代理构建，用独立 worktree 隔离改动，并通过「活规格」给代理持久项目知识。它回应的是 vibe coding 缺少工程约束的问题，厂商背书让它在同类里更可信。",
+          "insight": "机会不在再造 IDE，而在「活规格」这一层：把需求、变更和代理行为绑定成可追溯的文档。可以做成面向团队的规格管理服务，接进现有编辑器而非替换它们。"
+        },
+        "en": {
+          "summary": "A lightweight agentic IDE from JetBrains built around the pi coding agent, isolating changes in separate worktrees and giving the agent durable project knowledge through living…",
+          "insight": "The opening is not another IDE but the living-spec layer: binding requirements, changes, and agent behavior into traceable docs."
+        }
+      },
+      "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 2964,
+      "stars_today": 1173,
+      "topics": [
+        "agent",
+        "agent-skills",
+        "agentic-ai",
+        "agentic-workflow",
+        "ai-coding",
+        "ai-tools",
+        "pi-agent",
+        "pi-agent-extension",
+        "spec-driven",
+        "spec-driven-coding"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.83
+    },
+    {
+      "repo": "AprilNEA/OpenLogi",
+      "url": "https://github.com/AprilNEA/OpenLogi",
+      "content": {
+        "zh": {
+          "summary": "用 Rust 写的本地优先罗技外设管理工具，替代 Options+，可重映射按键、调 DPI 和 SmartShift，走 HID++ 协议，不要账号、无遥测，并把 Linux 当一等平台。它切的是厂商软件臃肿和隐私顾虑。",
+          "insight": "适合做「硬件配套软件的去厂商化」这一细分：先服务 Linux 和外设发烧友，再扩到企业批量配置。和官方工具比，差异是本地、跨平台、可脚本化。"
+        },
+        "en": {
+          "summary": "A local-first Rust replacement for Logitech Options+ that remaps buttons and tunes DPI and SmartShift over HID++, with no account or telemetry and Linux as a first-class platform.",
+          "insight": "A niche around de-vendoring hardware companion software: start with Linux and peripheral enthusiasts, then expand to fleet configuration for IT."
+        }
+      },
+      "description": "⚡️A native, local-first alternative to Logitech Options+, written in Rust 🦀 — remap buttons, DPI, and SmartShift over HID++. No account, no telemetry.",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 24191,
+      "stars_today": 0,
+      "topics": [
+        "dpi",
+        "gpui",
+        "hid",
+        "hidpp",
+        "local-first",
+        "logitech",
+        "logitech-mouse",
+        "logitech-options",
+        "mouse-remapping",
+        "mx-master"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 27.3
+    },
+    {
+      "repo": "ruvnet/RuView",
+      "url": "https://github.com/ruvnet/RuView",
+      "content": {
+        "zh": {
+          "summary": "用普通 WiFi 信号做空间感知，检测存在、呼吸和心率，穿墙、黑暗环境都可用，无需摄像头或穿戴设备，并原生接入 Home Assistant、Apple Home 等生态。它把无线信号变成传感器，隐私友好是核心卖点。",
+          "insight": "适合养老看护、独居安全、酒店节能这类「不能装摄像头」的场景。和摄像头方案比，优势是隐私和穿墙；产品化难点在标定和误报率，需要按房间做调优。"
+        },
+        "en": {
+          "summary": "Turns commodity WiFi into spatial sensing for presence, breathing, and heart rate, working through walls and in the dark with no cameras or wearables,",
+          "insight": "A fit for elder care, solo-living safety, and hotel energy saving where cameras are unacceptable. Versus cameras it wins on privacy and wall penetration;"
+        }
+      },
+      "description": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
+      "category": "数据 / 基础设施",
+      "language": "Rust",
+      "stars": 99766,
+      "stars_today": 211,
+      "topics": [
+        "awesome",
+        "claude",
+        "densepose",
+        "esp32",
+        "firmware",
+        "home-assistant",
+        "home-automation",
+        "iot",
+        "monitoring",
+        "networking"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.27
+    },
+    {
+      "repo": "malisper/pgrust",
+      "url": "https://github.com/malisper/pgrust",
+      "content": {
+        "zh": {
+          "summary": "用 Rust 重写 Postgres，保持线协议和 SQL 方言兼容，作者称已比 Postgres 和 Clickhouse 更快。它借 Rust 重新设计 Postgres 的核心部件，是「AI 辅助重写老系统」这一波里少见的完整案例。",
+          "insight": "短期别当生产数据库用，但它是观察「重写基础设施」可行性的样本。对做数据库工具、迁移或兼容层的人来说，值得研究它如何在兼容前提下改架构。"
+        },
+        "en": {
+          "summary": "A Rust rewrite of Postgres that stays wire- and SQL-compatible while the author claims it now beats both Postgres and Clickhouse.",
+          "insight": "Not for production yet, but a useful sample of whether rewriting infrastructure works. Builders of database tooling, migration,"
+        }
+      },
+      "description": "Postgres rewritten in Rust, now faster than Postgres and Clickhouse",
+      "category": "数据 / 基础设施",
+      "language": "Rust",
+      "stars": 5552,
+      "stars_today": 81,
+      "topics": [
+        "ai-assisted-development",
+        "database",
+        "postgres",
+        "postgresql",
+        "rust"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.49
+    },
+    {
+      "repo": "AgriciDaniel/claude-seo",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "content": {
+        "zh": {
+          "summary": "Claude Code 里的 SEO 技能包，26 个子技能加 19 个子代理，覆盖技术 SEO、E-E-A-T、结构化数据、GEO/AEO 和报告导出。它把原本要请顾问的审计流程压缩到十几分钟，垂直技能打包成插件是当前明显趋势。",
+          "insight": "面向中小企业和独立站，切「AI 搜索可见性」这个新场景：不只排名，还要被 AI 引用。和传统 SEO 工具相比，差异是把诊断和改代码连在一起，落地更直接。"
+        },
+        "en": {
+          "summary": "An SEO skill pack for Claude Code with 26 sub-skills and 19 sub-agents covering technical SEO, E-E-A-T, structured data, GEO/AEO, and reporting.",
+          "insight": "Target SMBs and indie sites on the new AI-visibility angle: not just ranking, but being cited by AI answers."
+        }
+      },
+      "description": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 22176,
+      "stars_today": 1457,
+      "topics": [
+        "ai",
+        "ai-seo",
+        "claude-code",
+        "claude-code-skill",
+        "marketing-automation",
+        "open-source",
+        "seo"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 44.08
+    }
+  ]
+}

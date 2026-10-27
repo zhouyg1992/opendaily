@@ -10,69 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 26, 2026 · Mon](daily/en/2026-10-26.md)
+## [Oct 27, 2026 · Tue](daily/en/2026-10-27.md)
 
-> Today's projects share one signal: open source is shifting from building models to governing how they run and what they cost. Inference frameworks, model routers, and local-first voice or agent tooling all push toward control, auditability, and escaping per-call pricing.
+> Today's batch points to a maturing layer around coding agents: not new models or frameworks, but the missing pieces agents need to be useful, such as memory, context management, external data access, and domain skills.
 
 ### AI / Agents
 
-* **[makecindy/cindy](https://github.com/makecindy/cindy)** — An out-of-the-box desktop agent that mixes Claude Code, Codex, and other harnesses and models, working on real local files and logged-in apps,
+* **[affaan-m/ECC](https://github.com/affaan-m/ECC)** — A performance layer for coding agents like Claude Code, Codex, and Cursor, bundling skills, memory, security policy, and research-first workflows.
 
-  > Angle: The opening is orchestration, not another agent: package preset workflows for non-engineering roles,
+  > Angle: The opening is not another agent but the runtime configuration layer: a versioned, auditable place to manage skills, memory, and permissions across agents,
+
+* **[Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach)** — A CLI that lets AI agents read behind login walls and inside video content across Twitter, Reddit, YouTube, Bilibili, and Xiaohongshu, returning structured data without API fees.
+
+  > Angle: A natural data pipeline for research, sentiment, and content ops agents. Versus official APIs it wins on Chinese coverage and no keys,
+
+* **[multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)** — A single CLAUDE.md file that turns Karpathy's observations on common LLM coding mistakes into agent guidelines, such as not running with wrong assumptions.
+
+  > Angle: A single file is hard to monetize, but it proves demand for agent behavior standards. The play is a team-level coding convention library that ties rules to…
 
 ### AI Infrastructure / Models
 
-* **[deepseek-ai/DeepInfer](https://github.com/deepseek-ai/DeepInfer)** — DeepSeek open-sourced the inference framework behind its own production serving, with optimized kernels, MoE expert parallelism, async scheduling, and deterministic sampling.
+* **[Zagitta/gpu-unlock](https://github.com/Zagitta/gpu-unlock)** — A Linux kernel module that unlocks FP/BF16 issue rates on consumer Nvidia 30-series cards to near professional levels before the driver binds.
 
-  > Angle: For private inference hosting or GPU resellers: treat it as a performance baseline and target workloads that need determinism and batch invariance,
+  > Angle: More a trend signal than a startup: part of the local-inference compute ceiling is artificial. Teams deploying local models should weigh stability and warranty…
 
-* **[experientiallabs/experiential](https://github.com/experientiallabs/experiential)** — A zero-markup model gateway that puts hosted, bring-your-own-key, and local models behind one OpenAI-compatible API, with per-user and per-agent model and budget controls,
+* **[ranxianglei/billion-context](https://github.com/ranxianglei/billion-context)** — A context-compression plugin that keeps a single session alive for months and billions of tokens, shrinking the window need to 100K and cutting token use roughly fivefold.
 
-  > Angle: Enter as the internal AI platform layer: start with quota and audit for who uses which model and at what spend,
-
-* **[unslothai/unsloth](https://github.com/unslothai/unsloth)** — Turns running and fine-tuning models into a desktop app supporting GGUF, MLX, and several major open model families across Windows, macOS, and Linux.
-
-  > Angle: Offer vertical delivery from data to a usable small model: clients supply domain corpora, you fine-tune locally with such desktop tooling and hand over a…
+  > Angle: Aimed at teams building long-running companion agents or long-horizon automation, framed around session cost.
 
 ### Developer Tools / CLI
 
-* **[kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes)** — A local git proxy sits in front of your real remote: push to it instead of origin, and it spins up a disposable worktree, runs an AI validation pipeline,
+* **[JetBrains/thinkrail](https://github.com/JetBrains/thinkrail)** — A lightweight agentic IDE from JetBrains built around the pi coding agent, isolating changes in separate worktrees and giving the agent durable project knowledge through living…
 
-  > Angle: Fits internal code-quality gates: turn validation rules into configurable policy packs distributed by language and repo type,
+  > Angle: The opening is not another IDE but the living-spec layer: binding requirements, changes, and agent behavior into traceable docs.
 
-* **[tokio-rs/topcoat](https://github.com/tokio-rs/topcoat)** — A full-stack Rust web framework from the tokio team, pitched as batteries-included, trying to fill Rust's missing defaults for building web apps.
+* **[AprilNEA/OpenLogi](https://github.com/AprilNEA/OpenLogi)** — A local-first Rust replacement for Logitech Options+ that remaps buttons and tunes DPI and SmartShift over HID++, with no account or telemetry and Linux as a first-class platform.
 
-  > Angle: Better read as a trend signal: Rust is moving down into application layers. If you build dev tools, target the gaps around its templating, auth,
-
-### Frontend / Design
-
-* **[mantrakp04/ardia](https://github.com/mantrakp04/ardia)** — A free, open-source Chromium browser for Mac blending Arc's sidebar with Dia's polish: address bar in the sidebar, split panes, floating video,
-
-  > Angle: The browser itself is hard to monetize, but borrow its interaction model for vertical use: turn the sidebar and split panes into a multi-page workbench for…
+  > Angle: A niche around de-vendoring hardware companion software: start with Linux and peripheral enthusiasts, then expand to fleet configuration for IT.
 
 ### Data / Infrastructure
 
-* **[coollabsio/coolify](https://github.com/coollabsio/coolify)** — A self-hostable PaaS that deploys static sites, databases, and hundreds of one-click services on your own servers over a single SSH connection, keeping config on your hardware.
+* **[ruvnet/RuView](https://github.com/ruvnet/RuView)** — Turns commodity WiFi into spatial sensing for presence, breathing, and heart rate, working through walls and in the dark with no cameras or wearables,
 
-  > Angle: Don't rebuild the deploy panel; build managed ops or migration tooling around it. Help small teams move off Vercel and Heroku onto their own servers,
+  > Angle: A fit for elder care, solo-living safety, and hotel energy saving where cameras are unacceptable. Versus cameras it wins on privacy and wall penetration;
+
+* **[malisper/pgrust](https://github.com/malisper/pgrust)** — A Rust rewrite of Postgres that stays wire- and SQL-compatible while the author claims it now beats both Postgres and Clickhouse.
+
+  > Angle: Not for production yet, but a useful sample of whether rewriting infrastructure works. Builders of database tooling, migration,
 
 ### Vertical Tools / Skills
 
-* **[debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio)** — A fully local ElevenLabs alternative covering voice cloning, dubbing, dictation, transcription, and audiobook production across hundreds of languages,
+* **[AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)** — An SEO skill pack for Claude Code with 26 sub-skills and 19 sub-agents covering technical SEO, E-E-A-T, structured data, GEO/AEO, and reporting.
 
-  > Angle: Sell delivery to audiobook, course localization, and short-video dubbing teams rather than a generic voice API.
+  > Angle: Target SMBs and indie sites on the new AI-visibility angle: not just ranking, but being cited by AI answers.
 
-* **[ulsklyc/yuvomi](https://github.com/ulsklyc/yuvomi)** — A self-hosted family planner bundling tasks, calendar, budget, meals, shopping, and health across 20-plus modules in one PWA on your own server or NAS,
-
-  > Angle: Good for a self-hosted family suite or regional deployment service: target privacy-sensitive markets like German-speaking Europe and sell install, backup,
-
-[This issue (Markdown)](daily/en/2026-10-26.md)
+[This issue (Markdown)](daily/en/2026-10-27.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
