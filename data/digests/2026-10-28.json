@@ -1,0 +1,344 @@
+{
+  "date": "2026-10-28",
+  "generated_at": "2026-10-28T02:05:12+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个明确信号：围绕AI代理的生态正在从「能跑」走向「能管、能审、能省」。技能框架、安全扫描、成本压缩和垂直教学工具同时出现，说明开发者不再只关心代理能不能完成任务，而是开始追问它是否可信、是否划算、是否可维护。这对想创业的人来说，意味着基础设施和治理层的机会正在打开。",
+    "en": "Today's projects point to a clear shift: the AI agent ecosystem is moving from 'can it run' to 'can it be governed, audited, and made affordable.' Skill frameworks, security scanners, token-saving proxies,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "content": {
+        "zh": {
+          "summary": "一套面向编码代理的完整软件开发方法论，由可组合的技能和初始指令构成，确保代理在开发全流程中按既定规范执行。它解决的是代理行为不可控、输出质量不稳定的问题，适合已经用上编码代理但苦于结果随机的团队。",
+          "insight": "可以围绕「技能包」做垂直行业版本：把某个领域的工程规范、评审清单和发布流程封装成可安装的技能集，卖给需要合规交付的团队，而不是再做一个通用代理框架。"
+        },
+        "en": {
+          "summary": "A complete software development methodology for coding agents, built from composable skills and initial instructions that keep agents on a defined workflow.",
+          "insight": "Package vertical, industry-specific skill sets: encode a domain's engineering standards, review checklists, and release process into installable skills,"
+        }
+      },
+      "description": "An agentic skills framework & software development methodology that works.",
+      "category": "AI / Agent 工具",
+      "language": "Shell",
+      "stars": 306480,
+      "stars_today": 617,
+      "topics": [
+        "ai",
+        "brainstorming",
+        "coding",
+        "obra",
+        "sdlc",
+        "skills",
+        "subagent-driven-development",
+        "superpowers"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 47.0
+    },
+    {
+      "repo": "nightly-labs/openbot",
+      "url": "https://github.com/nightly-labs/openbot",
+      "content": {
+        "zh": {
+          "summary": "一个本地优先的桌面工作区，让多个编码代理各自拥有独立空间、任务队列、文件共享和浏览器控制，并支持代理间通信。它解决的是多代理协作时上下文混乱、权限不清的问题，适合同时使用多个代理的重度开发者。",
+          "insight": "可以从「代理权限与审计」切入：在本地工作区之上加一层操作日志和权限策略，卖给需要让代理访问敏感代码库但又必须留痕的工程团队，而不是再做一个代理启动器。"
+        },
+        "en": {
+          "summary": "A local-first desktop workspace giving multiple coding agents separate spaces, task queues, file sharing, browser control, and agent-to-agent messaging.",
+          "insight": "Enter through agent permissions and audit: layer operation logs and access policies on top of local workspaces,"
+        }
+      },
+      "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 2502,
+      "stars_today": 777,
+      "topics": [
+        "ai-agents",
+        "bun",
+        "codex",
+        "electron",
+        "local-first",
+        "macos",
+        "solidjs",
+        "typescript"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.39
+    },
+    {
+      "repo": "JuliusBrussee/caveman",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "content": {
+        "zh": {
+          "summary": "一个通过让编码代理「像穴居人一样说话」来压缩token消耗的技能与代理，声称可减少约六成token且不牺牲代码正确性。它解决的是代理会话成本高、上下文膨胀的问题，适合高频使用编码代理的个人和团队。",
+          "insight": "成本优化可以做成代理网关的默认能力：在请求层自动改写提示词和输出格式，按节省的token量计费，卖给每月代理账单可观但不愿换模型的中小团队。"
+        },
+        "en": {
+          "summary": "A skill and proxy that cuts token usage by making coding agents talk like cavemen, claiming roughly 60% fewer tokens without hurting code correctness.",
+          "insight": "Make cost optimization a default gateway feature: rewrite prompts and output formats at the request layer and charge a share of tokens saved,"
+        }
+      },
+      "description": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Go",
+      "stars": 115554,
+      "stars_today": 275,
+      "topics": [
+        "ai",
+        "anthropic",
+        "caveman",
+        "claude",
+        "claude-code",
+        "llm",
+        "meme",
+        "prompt-engineering",
+        "skill",
+        "tokens"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.88
+    },
+    {
+      "repo": "gitroomhq/postiz-app",
+      "url": "https://github.com/gitroomhq/postiz-app",
+      "content": {
+        "zh": {
+          "summary": "一个开源的社交媒体排程与自动化平台，支持多平台发布、分析和代理集成，可自托管。它解决的是内容团队在多平台运营时工具割裂、数据不互通的问题，适合代运营机构和中大型内容团队。",
+          "insight": "机会不在再做一个排程器，而在「代理原生」的内容运营层：把发布、评论回复和效果分析交给代理自动执行，按管理的账号数收费，切那些已经用AI生成内容但发布仍靠人工的团队。"
+        },
+        "en": {
+          "summary": "An open-source social media scheduling and automation platform with multi-platform publishing, analytics, and agent integrations, self-hostable.",
+          "insight": "The opening isn't another scheduler but an agent-native operations layer: let agents handle publishing, comment replies,"
+        }
+      },
+      "description": "📨 The ultimate agentic social media scheduling tool 🤖",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 39431,
+      "stars_today": 951,
+      "topics": [
+        "nextjs",
+        "open-source",
+        "open-source-social-media-scheduling-tool",
+        "oss",
+        "postiz-cloud",
+        "postiz-hosted",
+        "redis",
+        "scheduling-tool",
+        "social-media-scheduling-tool",
+        "typescript"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 42.58
+    },
+    {
+      "repo": "alibaba/open-code-review",
+      "url": "https://github.com/alibaba/open-code-review",
+      "content": {
+        "zh": {
+          "summary": "阿里巴巴开源的AI代码审查CLI，采用确定性流水线加LLM代理的混合架构，支持行级评论和多语言规则集，已在内部大规模验证。它解决的是通用AI审查工具误报多、规则不可控的问题，适合有严格代码质量要求的团队。",
+          "insight": "可以基于它做「规则市场」：把不同语言和框架的安全规则、团队规范打包成可订阅的规则集，按仓库或席位收费，切那些用通用AI审查但被误报淹没的工程组织。"
+        },
+        "en": {
+          "summary": "Alibaba's open-source AI code review CLI with a hybrid architecture of deterministic pipelines plus LLM agents, line-level comments, and multilingual rule sets,",
+          "insight": "Build a rule marketplace on top: package security rules and team conventions for different languages and frameworks into subscribable sets,"
+        }
+      },
+      "description": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+      "category": "开发工具 / CLI",
+      "language": "Go",
+      "stars": 48645,
+      "stars_today": 169,
+      "topics": [
+        "agent",
+        "agent-skills",
+        "code-review",
+        "code-review-assistant",
+        "harness",
+        "repository-level-context"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 35.35
+    },
+    {
+      "repo": "pablostanley/yoinks",
+      "url": "https://github.com/pablostanley/yoinks",
+      "content": {
+        "zh": {
+          "summary": "一个终端视频下载工具，支持YouTube、X、TikTok等1800多个站点，自动处理依赖并避免广告和钓鱼跳转。它解决的是网页下载站体验差、风险高的问题，适合需要批量获取视频素材的开发者和内容创作者。",
+          "insight": "单点工具难做大，但可以往「素材整理」延伸：下载后自动转写、打标签、按项目归档，做成面向内容团队的命令行素材库，切那些每天要处理大量参考视频但不想碰网页工具的人。"
+        },
+        "en": {
+          "summary": "A terminal video downloader supporting 1,800+ sites including YouTube, X, and TikTok, handling dependencies automatically and avoiding ads and phishing redirects.",
+          "insight": "A single-purpose tool is hard to scale, but asset organization is not: auto-transcribe, tag, and archive downloads by project into a CLI media library for…"
+        }
+      },
+      "description": "yoink any video from your terminal. no shady ads.",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 6368,
+      "stars_today": 75,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.7
+    },
+    {
+      "repo": "rorkai/App-Store-Connect-CLI",
+      "url": "https://github.com/rorkai/App-Store-Connect-CLI",
+      "content": {
+        "zh": {
+          "summary": "一个面向App Store Connect API的可脚本化CLI，自动化TestFlight、构建、提审、签名、分析和截图等流程，并附带代理技能。它解决的是iOS发布流程繁琐、CI集成困难的问题，适合独立开发者和移动端团队。",
+          "insight": "可以在它之上做「发布流水线托管」：把提审、截图本地化和元数据同步编排成一条命令，按应用数量订阅收费，切那些没有专职发布工程师、每次发版都手忙脚乱的小团队。"
+        },
+        "en": {
+          "summary": "A scriptable CLI for the App Store Connect API that automates TestFlight, builds, submissions, signing, analytics, and screenshots, with bundled agent skills.",
+          "insight": "Build managed release pipelines on top: orchestrate submission, screenshot localization, and metadata sync into one command, charging per app,"
+        }
+      },
+      "description": "Fast, scriptable CLI for the App Store Connect API. Automate TestFlight, builds, submissions, signing, analytics, screenshots, subscriptions, and more",
+      "category": "开发工具 / CLI",
+      "language": "Go",
+      "stars": 8066,
+      "stars_today": 14,
+      "topics": [
+        "app-store-connect",
+        "apple",
+        "automation",
+        "cicd",
+        "cli",
+        "command-line-tool",
+        "developer-tools",
+        "devops",
+        "go",
+        "golang"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 24.79
+    },
+    {
+      "repo": "NVIDIA/SkillSpector",
+      "url": "https://github.com/NVIDIA/SkillSpector",
+      "content": {
+        "zh": {
+          "summary": "针对AI代理技能的供应链安全扫描器，能在安装前检测漏洞、恶意模式、提示注入和数据外泄风险。它解决的是技能生态缺乏审查、用户盲目信任第三方技能的问题，背后有NVIDIA的验证流水线支撑。",
+          "insight": "技能市场的「安全评分」本身可以产品化：为企业和技能市场提供安装前的自动化审计报告与签名服务，切入点是那些准备把代理技能引入生产环境、但过不了安全评审的团队。"
+        },
+        "en": {
+          "summary": "A supply-chain security scanner for AI agent skills that detects vulnerabilities, malicious patterns, prompt injection, and data exfiltration before installation.",
+          "insight": "Turn skill security scoring into a product: offer pre-install automated audit reports and signing for enterprises and skill marketplaces,"
+        }
+      },
+      "description": "Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills before you install them.",
+      "category": "安全 / 隐私",
+      "language": "Python",
+      "stars": 22749,
+      "stars_today": 953,
+      "topics": [
+        "agent-security",
+        "agent-skills",
+        "agentic-ai",
+        "ai-security",
+        "claude-code",
+        "mcp",
+        "prompt-injection",
+        "security-scanner",
+        "security-tools",
+        "security-workflow"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 44.14
+    },
+    {
+      "repo": "HKUDS/DeepTutor",
+      "url": "https://github.com/HKUDS/DeepTutor",
+      "content": {
+        "zh": {
+          "summary": "一个终身个性化辅导系统，结合多代理、检索增强和交互式学习路径，支持CLI和多种模型。它解决的是通用聊天机器人无法跟踪学习进度、无法长期陪伴的问题，适合教育科技产品和自学用户。",
+          "insight": "不要做通用家教，切「考证/技能认证」这种有明确考纲和通过率的场景：把学习路径、错题记忆和评估报告打包成订阅服务，差异在于可验证的通过率而非聊天体验。"
+        },
+        "en": {
+          "summary": "A lifelong personalized tutoring system combining multi-agent orchestration, retrieval, and interactive learning paths, with CLI support and multiple models.",
+          "insight": "Skip general tutoring and target certification prep with clear syllabi and pass rates: bundle learning paths, mistake memory,"
+        }
+      },
+      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 46031,
+      "stars_today": 1598,
+      "topics": [
+        "ai-agents",
+        "ai-tutor",
+        "clawbot",
+        "cli-tool",
+        "deepresearch",
+        "interactive-learning",
+        "learning",
+        "multi-agent-systems",
+        "rag"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 45.98
+    },
+    {
+      "repo": "rohitg00/ai-engineering-from-scratch",
+      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "content": {
+        "zh": {
+          "summary": "一套从零实现模型内部、检索管线和代理运行时的开源课程，包含542节课和20个阶段，覆盖多种语言。它解决的是AI工程学习材料碎片化、缺乏动手验证的问题，适合想系统转型的工程师和培训机构。",
+          "insight": "课程本身难变现，但「带评测的学习路径」可以：把每节课的代码和评估结果做成可追踪的能力档案，卖给需要证明员工具备AI工程能力的公司做内训，差异在于可验证的产出而非视频时长。"
+        },
+        "en": {
+          "summary": "An open-source curriculum that implements model internals, retrieval pipelines, and agent runtimes from scratch, with 542 lessons across 20 phases and multiple languages.",
+          "insight": "The course itself is hard to monetize, but evaluable learning paths are not: turn each lesson's code and assessment into a trackable competency profile and…"
+        }
+      },
+      "description": "Learn AI Engineering! Learn it. Build it. Ship it for others.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 74720,
+      "stars_today": 424,
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "ai-engineering",
+        "computer-vision",
+        "course",
+        "deep-learning",
+        "dsh",
+        "from-scratch",
+        "generative-ai"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 42.84
+    }
+  ]
+}
