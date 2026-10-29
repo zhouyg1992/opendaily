@@ -10,67 +10,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 28, 2026 · Wed](daily/en/2026-10-28.md)
+## [Oct 29, 2026 · Thu](daily/en/2026-10-29.md)
 
-> Today's projects point to a clear shift: the AI agent ecosystem is moving from 'can it run' to 'can it be governed, audited, and made affordable.' Skill frameworks, security scanners, token-saving proxies,
+> Today's list points to a maturing middle layer around large models: prompt packs, skill libraries, security testing, document parsing, and evaluation artifacts rather than another frontier model.
 
 ### AI / Agents
 
-* **[obra/superpowers](https://github.com/obra/superpowers)** — A complete software development methodology for coding agents, built from composable skills and initial instructions that keep agents on a defined workflow.
+* **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — A curated set of engineering skills for AI coding agents, encoding the workflows, quality gates, and practices senior engineers rely on,
 
-  > Angle: Package vertical, industry-specific skill sets: encode a domain's engineering standards, review checklists, and release process into installable skills,
+  > Angle: Treat it as a template for internal skill distribution: package your own coding standards, review checklists,
 
-* **[nightly-labs/openbot](https://github.com/nightly-labs/openbot)** — A local-first desktop workspace giving multiple coding agents separate spaces, task queues, file sharing, browser control, and agent-to-agent messaging.
+* **[deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)** — DeepSeek's open agent harness, built on an everything-is-a-plugin architecture and the Cordis composition model, with a local web UI.
 
-  > Angle: Enter through agent permissions and audit: layer operation logs and access policies on top of local workspaces,
+  > Angle: Use it as infrastructure reference rather than a product base: its plugin boundaries and composition model are worth studying for multi-agent orchestration or…
 
 ### AI Infrastructure / Models
 
-* **[JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)** — A skill and proxy that cuts token usage by making coding agents talk like cavemen, claiming roughly 60% fewer tokens without hurting code correctness.
+* **[baidu/Unlimited-OCR](https://github.com/baidu/Unlimited-OCR)** — Baidu's open OCR model focused on one-shot parsing of very long documents, released alongside the MarathonDocBench benchmark.
 
-  > Angle: Make cost optimization a default gateway feature: rewrite prompts and output formats at the request layer and charge a share of tokens saved,
+  > Angle: The opportunity is vertical document workflows: wire long-horizon parsing into reconciliation, contract extraction, or archive digitization,
+
+* **[openai/math](https://github.com/openai/math)** — A repository of mathematical manuscripts and Lean proof artifacts produced by an unnamed internal OpenAI model on open problems,
+
+  > Angle: Treat this as a signal, not a startup idea: formal verification is becoming the trust layer for model output, so tooling around Lean proof checking,
+
+* **[p-e-w/heretic](https://github.com/p-e-w/heretic)** — Heretic automates censorship removal from language models using directional ablation plus Optuna-driven parameter search,
+
+  > Angle: Read it as a case study in the capability-versus-compliance tension. The viable adjacent product is behavior controllability for open-model users: alignment…
 
 ### Developer Tools / CLI
 
-* **[gitroomhq/postiz-app](https://github.com/gitroomhq/postiz-app)** — An open-source social media scheduling and automation platform with multi-platform publishing, analytics, and agent integrations, self-hostable.
+* **[zed-industries/zed](https://github.com/zed-industries/zed)** — Zed is a high-performance multiplayer code editor from the creators of Atom and Tree-sitter, built in Rust on the in-house GPUI rendering framework for low-latency editing and…
 
-  > Angle: The opening isn't another scheduler but an agent-native operations layer: let agents handle publishing, comment replies,
+  > Angle: For developer-tool builders, GPUI and Zed's collaboration model deserve separate study: a real-time collaborative vertical editor for configs, data pipelines,
 
-* **[alibaba/open-code-review](https://github.com/alibaba/open-code-review)** — Alibaba's open-source AI code review CLI with a hybrid architecture of deterministic pipelines plus LLM agents, line-level comments, and multilingual rule sets,
+### Frontend / Design
 
-  > Angle: Build a rule marketplace on top: package security rules and team conventions for different languages and frameworks into subscribable sets,
+* **[shitagaki-lab/see-through](https://github.com/shitagaki-lab/see-through)** — See-through is the open implementation of a SIGGRAPH 2026 paper that decomposes a single anime character image into editable layers.
 
-* **[pablostanley/yoinks](https://github.com/pablostanley/yoinks)** — A terminal video downloader supporting 1,800+ sites including YouTube, X, and TikTok, handling dependencies automatically and avoiding ads and phishing redirects.
-
-  > Angle: A single-purpose tool is hard to scale, but asset organization is not: auto-transcribe, tag, and archive downloads by project into a CLI media library for…
-
-* **[rorkai/App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI)** — A scriptable CLI for the App Store Connect API that automates TestFlight, builds, submissions, signing, analytics, and screenshots, with bundled agent skills.
-
-  > Angle: Build managed release pipelines on top: orchestrate submission, screenshot localization, and metadata sync into one command, charging per app,
+  > Angle: Target the derivative-work toolchain: put single-image layer decomposition in front of Live2D rigging, expression variants,
 
 ### Security / Privacy
 
-* **[NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector)** — A supply-chain security scanner for AI agent skills that detects vulnerabilities, malicious patterns, prompt injection, and data exfiltration before installation.
+* **[KeygraphHQ/shannon](https://github.com/KeygraphHQ/shannon)** — Shannon is an autonomous AI pentester that reads your source, maps attack paths, and actually executes exploits to prove a vulnerability is real.
 
-  > Angle: Turn skill security scoring into a product: offer pre-install automated audit reports and signing for enterprises and skill marketplaces,
+  > Angle: The opening is DevSecOps for small teams: make exploit-backed verification a fixed gate in CI, and differentiate from scanners that only emit warnings by…
 
 ### Vertical Tools / Skills
 
-* **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** — A lifelong personalized tutoring system combining multi-agent orchestration, retrieval, and interactive learning paths, with CLI support and multiple models.
+* **[coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)** — A marketing skill collection for Claude Code, Codex, Cursor and similar agents, covering CRO, copywriting, SEO, analytics, and growth engineering.
 
-  > Angle: Skip general tutoring and target certification prep with clear syllabi and pass rates: bundle learning paths, mistake memory,
+  > Angle: Target growth-as-code: chain landing page A/B tests, SEO audits, and ad copy generation into agent-callable skills for early teams without a marketing…
 
-* **[rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)** — An open-source curriculum that implements model internals, retrieval pipelines, and agent runtimes from scratch, with 542 lessons across 20 phases and multiple languages.
+* **[every-app/open-seo](https://github.com/every-app/open-seo)** — OpenSEO is an open alternative to Semrush and Ahrefs, offering keyword research, backlink analysis, and site audits on a pay-as-you-go basis,
 
-  > Angle: The course itself is hard to monetize, but evaluable learning paths are not: turn each lesson's code and assessment into a trackable competency profile and…
+  > Angle: Build an SEO-data-plus-agent product: expose keyword and audit data over MCP, charge per query, and sell to agencies and independent store operators who need…
 
-[This issue (Markdown)](daily/en/2026-10-28.md)
+[This issue (Markdown)](daily/en/2026-10-29.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 

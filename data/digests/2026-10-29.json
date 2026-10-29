@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-29",
+  "generated_at": "2026-10-29T02:15:22+00:00",
+  "intro": {
+    "zh": "今天的候选项目里，一个清晰的信号是：围绕大模型的「配套层」正在快速成型——不是再做一个更强的模型，而是做提示词、技能包、评测、安全测试、文档解析这些把模型变成可用产品的中间件。同时，越狱和去审查类项目热度居高不下，说明模型能力与使用边界之间的张力，本身就是真实需求。",
+    "en": "Today's list points to a maturing middle layer around large models: prompt packs, skill libraries, security testing, document parsing, and evaluation artifacts rather than another frontier model."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "content": {
+        "zh": {
+          "summary": "这是 Addy Osmani 整理的一套面向 AI 编码代理的工程技能包，把资深工程师的工作流、质量门禁和最佳实践写成代理能稳定遵循的规范，并配了对应开发阶段的斜杠命令。它解决的是代理「会用工具但不懂工程纪律」的问题。",
+          "insight": "适合做团队级技能分发：把公司内部的代码规范、评审清单、发布流程固化成私有技能包，随代理一起下发，让 AI 产出的代码符合组织标准，而不是每个开发者各自调教。"
+        },
+        "en": {
+          "summary": "A curated set of engineering skills for AI coding agents, encoding the workflows, quality gates, and practices senior engineers rely on,",
+          "insight": "Treat it as a template for internal skill distribution: package your own coding standards, review checklists,"
+        }
+      },
+      "description": "Production-grade engineering skills for AI coding agents.",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 111486,
+      "stars_today": 347,
+      "topics": [
+        "agent-skills",
+        "antigravity",
+        "claude-code",
+        "codex",
+        "cursor",
+        "skills"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.67
+    },
+    {
+      "repo": "deepseek-ai/deepseek-harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "content": {
+        "zh": {
+          "summary": "DeepSeek 开源的代理运行框架，基于「一切皆插件」的架构和 Cordis 组合模型，提供本地 Web UI 运行代理。它目前是开发者预览版且会频繁破坏兼容，价值更多在于展示一种可组合的代理运行时设计。",
+          "insight": "更适合作为基础设施参考而非直接产品化：如果你要做多代理编排或插件市场，它的插件边界与组合模型值得借鉴；但预览期的兼容性风险意味着现在不宜在其上构建面向客户的稳定产品。"
+        },
+        "en": {
+          "summary": "DeepSeek's open agent harness, built on an everything-is-a-plugin architecture and the Cordis composition model, with a local web UI.",
+          "insight": "Use it as infrastructure reference rather than a product base: its plugin boundaries and composition model are worth studying for multi-agent orchestration or…"
+        }
+      },
+      "description": "DeepSeek Harness: Everything is a Plugin.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 264906,
+      "stars_today": 0,
+      "topics": [
+        "ai-agents",
+        "cordis",
+        "dsh",
+        "dsh-plugin"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 35.0
+    },
+    {
+      "repo": "baidu/Unlimited-OCR",
+      "url": "https://github.com/baidu/Unlimited-OCR",
+      "content": {
+        "zh": {
+          "summary": "百度开源的 OCR 模型，主打超长文档的一次性解析，并配套发布了 MarathonDocBench 评测集，把 OCR 从按页处理推进到长程连续解析。对需要处理合同、财报、扫描档案的场景，这是直接可用的能力升级。",
+          "insight": "机会在垂直文档工作流：把长文档解析接到财务对账、合同要素抽取、档案数字化这类流程里，卖的是「解析加结构化」的端到端结果，而不是模型本身；评测集也可以作为选型依据。"
+        },
+        "en": {
+          "summary": "Baidu's open OCR model focused on one-shot parsing of very long documents, released alongside the MarathonDocBench benchmark.",
+          "insight": "The opportunity is vertical document workflows: wire long-horizon parsing into reconciliation, contract extraction, or archive digitization,"
+        }
+      },
+      "description": "Unlimited OCR Works: Welcome the Era of One-shot Long-horizon Parsing.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 29536,
+      "stars_today": 429,
+      "topics": [],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 38.55
+    },
+    {
+      "repo": "openai/math",
+      "url": "https://github.com/openai/math",
+      "content": {
+        "zh": {
+          "summary": "OpenAI 公开的数学手稿与 Lean 形式化证明仓库，来自内部未命名模型在开放研究问题上的产出，并明确标注了哪些结果尚未形式化验证。它更像一份关于「模型能否做原创数学」的公开实验记录，而不是可用工具。",
+          "insight": "这更适合当作趋势信号而非创业素材：它说明形式化验证正在成为模型输出可信度的基础设施，围绕 Lean 证明检查、形式化辅助与结果追踪的工具链会先受益。"
+        },
+        "en": {
+          "summary": "A repository of mathematical manuscripts and Lean proof artifacts produced by an unnamed internal OpenAI model on open problems,",
+          "insight": "Treat this as a signal, not a startup idea: formal verification is becoming the trust layer for model output, so tooling around Lean proof checking,"
+        }
+      },
+      "description": "The Exponential Time Hypothesis Is False [pdf]",
+      "category": "AI 基础设施 / 模型",
+      "language": "Lean",
+      "stars": 16706,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search",
+        "hn"
+      ],
+      "score": 36.34
+    },
+    {
+      "repo": "p-e-w/heretic",
+      "url": "https://github.com/p-e-w/heretic",
+      "content": {
+        "zh": {
+          "summary": "Heretic 用方向消融加 Optuna 参数搜索，自动移除语言模型的审查对齐，在减少拒答的同时尽量压低与原始模型的 KL 散度，无需昂贵的后训练。它把过去手工调参的去审查流程做成了全自动工具。",
+          "insight": "这类项目更适合作为能力与合规张力的观察样本：真正可做的是给开源模型使用者提供「行为可控性」工具，比如对齐强度评估、拒答率与能力损失的权衡报告，而不是直接卖去审查。"
+        },
+        "en": {
+          "summary": "Heretic automates censorship removal from language models using directional ablation plus Optuna-driven parameter search,",
+          "insight": "Read it as a case study in the capability-versus-compliance tension. The viable adjacent product is behavior controllability for open-model users: alignment…"
+        }
+      },
+      "description": "Fully automatic censorship removal for language models",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 37006,
+      "stars_today": 307,
+      "topics": [
+        "abliteration",
+        "llm",
+        "transformer"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.08
+    },
+    {
+      "repo": "zed-industries/zed",
+      "url": "https://github.com/zed-industries/zed",
+      "content": {
+        "zh": {
+          "summary": "Zed 是 Atom 与 Tree-sitter 作者打造的高性能多人协作代码编辑器，用 Rust 和自研 GPUI 渲染框架实现低延迟编辑与实时协同。它代表的是「编辑器重新变成可编程平台」这条路线，而非又一个 VS Code 插件壳。",
+          "insight": "对做开发者工具的人来说，GPUI 和 Zed 的协作模型值得单独研究：如果要做实时协同的垂直编辑器（如配置、数据管道、设计稿），可以直接借鉴其 CRDT 协同与渲染分离的架构，而不是从 VS Code 分叉。"
+        },
+        "en": {
+          "summary": "Zed is a high-performance multiplayer code editor from the creators of Atom and Tree-sitter, built in Rust on the in-house GPUI rendering framework for low-latency editing and…",
+          "insight": "For developer-tool builders, GPUI and Zed's collaboration model deserve separate study: a real-time collaborative vertical editor for configs, data pipelines,"
+        }
+      },
+      "description": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 92349,
+      "stars_today": 65,
+      "topics": [
+        "gpui",
+        "rust-lang",
+        "text-editor",
+        "zed"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.42
+    },
+    {
+      "repo": "shitagaki-lab/see-through",
+      "url": "https://github.com/shitagaki-lab/see-through",
+      "content": {
+        "zh": {
+          "summary": "See-through 是 SIGGRAPH 2026 论文的开源实现，能从单张动漫角色图分解出分层结构，把角色拆成可独立编辑的部件。它解决的是二次创作与动画制作中「拿到一张图却改不动」的问题。",
+          "insight": "切入口是二次创作工具链：把单图分层接到 Live2D 绑定、表情差分生成、周边排版这类流程前面，卖给同人创作者和小型动画工作室，差异在于省掉手工抠图分层这一最耗时的步骤。"
+        },
+        "en": {
+          "summary": "See-through is the open implementation of a SIGGRAPH 2026 paper that decomposes a single anime character image into editable layers.",
+          "insight": "Target the derivative-work toolchain: put single-image layer decomposition in front of Live2D rigging, expression variants,"
+        }
+      },
+      "description": "\"Single-image Layer Decomposition for Anime Characters\" (SIGGRAPH 2026 Conference Paper)",
+      "category": "前端 / 设计",
+      "language": "Python",
+      "stars": 5103,
+      "stars_today": 74,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.1
+    },
+    {
+      "repo": "KeygraphHQ/shannon",
+      "url": "https://github.com/KeygraphHQ/shannon",
+      "content": {
+        "zh": {
+          "summary": "Shannon 是一个自主运行的 AI 渗透测试代理，读取你的源码、梳理攻击路径，并真的执行漏洞利用来证明风险存在，口号是「没有利用就没有报告」。它把过去依赖人工排期的渗透测试变成可以随代码提交反复跑的动作。",
+          "insight": "切入口是中小团队的 DevSecOps 流水线：把「每次发版前自动跑一遍真实利用验证」做成 CI 里的固定关卡，与只做静态扫描告警的工具拉开差距，卖的是可复现的攻击证据而非风险清单。"
+        },
+        "en": {
+          "summary": "Shannon is an autonomous AI pentester that reads your source, maps attack paths, and actually executes exploits to prove a vulnerability is real.",
+          "insight": "The opening is DevSecOps for small teams: make exploit-backed verification a fixed gate in CI, and differentiate from scanners that only emit warnings by…"
+        }
+      },
+      "description": "Shannon is an AI pentester for web applications and APIs. It analyzes your source code, identifies attack vectors, and executes real exploits to prove vulnerabilities before they reach production.",
+      "category": "安全 / 隐私",
+      "language": "TypeScript",
+      "stars": 50166,
+      "stars_today": 476,
+      "topics": [
+        "ai-penetration-testing",
+        "ai-security",
+        "api-security",
+        "appsec",
+        "ci-cd",
+        "cybersecurity",
+        "devsecops",
+        "ethical-hacking",
+        "offensive-security",
+        "owasp"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.1
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "content": {
+        "zh": {
+          "summary": "面向 Claude Code、Codex、Cursor 等代理的营销技能集合，覆盖转化率优化、文案、SEO、分析和增长工程，目标是让技术型营销人和创始人直接用编码代理做营销工作。它把营销方法论从人的经验转成代理可执行的指令。",
+          "insight": "可以切「增长即代码」的细分场景：把落地页 A/B 测试、SEO 审计、投放文案生成串成代理可调用的技能链，卖给没有专职营销工程师的早期团队，差异在于交付的是可执行流程而非模板库。"
+        },
+        "en": {
+          "summary": "A marketing skill collection for Claude Code, Codex, Cursor and similar agents, covering CRO, copywriting, SEO, analytics, and growth engineering.",
+          "insight": "Target growth-as-code: chain landing page A/B tests, SEO audits, and ad copy generation into agent-callable skills for early teams without a marketing…"
+        }
+      },
+      "description": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 57135,
+      "stars_today": 222,
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "ai-seo",
+        "claude",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "codex",
+        "content-marketing",
+        "conversion-rate-optimization"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.09
+    },
+    {
+      "repo": "every-app/open-seo",
+      "url": "https://github.com/every-app/open-seo",
+      "content": {
+        "zh": {
+          "summary": "OpenSEO 是 Semrush、Ahrefs 的开源替代，提供关键词研究、外链分析、站点审计等能力，按量付费，并内置 MCP 与技能接口，方便 Claude Code 等代理直接调用。它瞄准的是被高价订阅工具挡在门外的中小团队。",
+          "insight": "适合做「SEO 数据加代理」的组合产品：把关键词库和站点审计数据通过 MCP 暴露给代理，按查询计费，卖给需要定期出报告的代运营和独立站卖家，差异在于数据可被代理编排而非只给人看。"
+        },
+        "en": {
+          "summary": "OpenSEO is an open alternative to Semrush and Ahrefs, offering keyword research, backlink analysis, and site audits on a pay-as-you-go basis,",
+          "insight": "Build an SEO-data-plus-agent product: expose keyword and audit data over MCP, charge per query, and sell to agencies and independent store operators who need…"
+        }
+      },
+      "description": "Open source alternative to Semrush and Ahrefs",
+      "category": "Skill / 垂直工具",
+      "language": "TypeScript",
+      "stars": 25526,
+      "stars_today": 200,
+      "topics": [
+        "backlink-analysis",
+        "google-search-console-mcp",
+        "keyword-research",
+        "mcp",
+        "seo",
+        "seo-agent",
+        "seo-audit",
+        "seo-automation",
+        "seo-skills",
+        "seo-tools"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.44
+    }
+  ]
+}
