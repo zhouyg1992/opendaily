@@ -11,69 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.10.29 · 周四](daily/zh/2026-10-29.md)
+## [2026.10.30 · 周五](daily/zh/2026-10-30.md)
 
-> 今天的候选项目里，一个清晰的信号是：围绕大模型的「配套层」正在快速成型——不是再做一个更强的模型，而是做提示词、技能包、评测、安全测试、文档解析这些把模型变成可用产品的中间件。同时，越狱和去审查类项目热度居高不下，说明模型能力与使用边界之间的张力，本身就是真实需求。
+> 今天这批项目最明显的信号是：AI 工具正在从「能跑」转向「能管」。记忆系统、本地推理引擎、把 IDE 变成工作室的编排层，都在补同一块短板——让模型在真实硬件和真实工作流里稳定产出，而不是演示一次就结束。同时，围绕模型访问权限的灰色玩法也在快速聚集流量，说明供给端仍有大量未被正常渠道满足的需求。
 
 ### AI / Agent 工具
 
-* **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — 这是 Addy Osmani 整理的一套面向 AI 编码代理的工程技能包，把资深工程师的工作流、质量门禁和最佳实践写成代理能稳定遵循的规范，并配了对应开发阶段的斜杠命令。它解决的是代理「会用工具但不懂工程纪律」的问题。
+* **[vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)** — 面向 agent 的长期记忆系统，主打让 agent 随使用而学习，而不只是回放对话历史。它明确把自己和 RAG、知识图谱路线区分开，在长期记忆任务上给出基准对比，适合正在做多轮、跨会话 agent 的团队评估。
 
-  > 灵感：适合做团队级技能分发：把公司内部的代码规范、评审清单、发布流程固化成私有技能包，随代理一起下发，让 AI 产出的代码符合组织标准，而不是每个开发者各自调教。
+  > 灵感：别再做通用记忆层，去做垂直场景的记忆评测集：比如客服或编码 agent 的「三个月后还记得什么」。谁能量化记忆质量，谁就拿到采购话语权。
 
-* **[deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)** — DeepSeek 开源的代理运行框架，基于「一切皆插件」的架构和 Cordis 组合模型，提供本地 Web UI 运行代理。它目前是开发者预览版且会频繁破坏兼容，价值更多在于展示一种可组合的代理运行时设计。
+* **[milind-soni/OpenMausBot](https://github.com/milind-soni/OpenMausBot)** — 本地优先的聊天式 agent 客户端，每个会话背后是一个真实运行的 Claude 或 Codex，各自带人格、模型、云端虚拟机和已连接应用。定位是 Grok Bot 一类产品的开源替代，自带模型和密钥。
 
-  > 灵感：更适合作为基础设施参考而非直接产品化：如果你要做多代理编排或插件市场，它的插件边界与组合模型值得借鉴；但预览期的兼容性风险意味着现在不宜在其上构建面向客户的稳定产品。
+  > 灵感：真正的差异点在「每个 bot 一台虚拟机」：把这层隔离做成可审计的权限沙箱，卖给需要让 agent 碰生产系统但又不敢放开的团队。
 
 ### AI 基础设施 / 模型
 
-* **[baidu/Unlimited-OCR](https://github.com/baidu/Unlimited-OCR)** — 百度开源的 OCR 模型，主打超长文档的一次性解析，并配套发布了 MarathonDocBench 评测集，把 OCR 从按页处理推进到长程连续解析。对需要处理合同、财报、扫描档案的场景，这是直接可用的能力升级。
+* **[magnitudedev/magnitude](https://github.com/magnitudedev/magnitude)** — 开源推理引擎，会针对你的硬件自动调优 kernel，为每个模型找最快跑法，宣称比 Ollama 快一倍以上，覆盖 Apple Silicon、NVIDIA、AMD、Intel 和纯 CPU。桌面端和 CLI 都能一键接到现有 agent 上。
 
-  > 灵感：机会在垂直文档工作流：把长文档解析接到财务对账、合同要素抽取、档案数字化这类流程里，卖的是「解析加结构化」的端到端结果，而不是模型本身；评测集也可以作为选型依据。
+  > 灵感：机会不在引擎本身，而在「本地模型性能诊断」：给企业出一份报告，说明哪台机器该跑哪个模型、瓶颈在哪，比卖推理框架更容易收费。
 
-* **[openai/math](https://github.com/openai/math)** — OpenAI 公开的数学手稿与 Lean 形式化证明仓库，来自内部未命名模型在开放研究问题上的产出，并明确标注了哪些结果尚未形式化验证。它更像一份关于「模型能否做原创数学」的公开实验记录，而不是可用工具。
+* **[NVIDIA/cuda-rust](https://github.com/NVIDIA/cuda-rust)** — NVIDIA 官方把 CUDA 平台带进 Rust：主机端运行时 crate，加上 Tile 和 SIMT 两种 kernel 编程模型，让 GPU 编程用上 Rust 的类型和工具链。这是生态信号，不是能直接包装的产品。
 
-  > 灵感：这更适合当作趋势信号而非创业素材：它说明形式化验证正在成为模型输出可信度的基础设施，围绕 Lean 证明检查、形式化辅助与结果追踪的工具链会先受益。
-
-* **[p-e-w/heretic](https://github.com/p-e-w/heretic)** — Heretic 用方向消融加 Optuna 参数搜索，自动移除语言模型的审查对齐，在减少拒答的同时尽量压低与原始模型的 KL 散度，无需昂贵的后训练。它把过去手工调参的去审查流程做成了全自动工具。
-
-  > 灵感：这类项目更适合作为能力与合规张力的观察样本：真正可做的是给开源模型使用者提供「行为可控性」工具，比如对齐强度评估、拒答率与能力损失的权衡报告，而不是直接卖去审查。
+  > 灵感：适合作为技术选型信号：如果你的团队在 Rust 里做推理或科学计算，现在可以评估把热点 kernel 从 C++ 迁过来，减少一层 FFI 维护成本。
 
 ### 开发工具 / CLI
 
-* **[zed-industries/zed](https://github.com/zed-industries/zed)** — Zed 是 Atom 与 Tree-sitter 作者打造的高性能多人协作代码编辑器，用 Rust 和自研 GPUI 渲染框架实现低延迟编辑与实时协同。它代表的是「编辑器重新变成可编程平台」这条路线，而非又一个 VS Code 插件壳。
+* **[nyakang/nyaterm](https://github.com/nyakang/nyaterm)** — 用 GPUI 写的原生远程终端工作台，把 SSH、Telnet、串口、RDP、VNC、SFTP、隧道、OTP 和 AI 助手塞进一个桌面客户端，还支持加密同步。面向的是同时管很多机器、受够多窗口切换的运维和嵌入式开发者。
 
-  > 灵感：对做开发者工具的人来说，GPUI 和 Zed 的协作模型值得单独研究：如果要做实时协同的垂直编辑器（如配置、数据管道、设计稿），可以直接借鉴其 CRDT 协同与渲染分离的架构，而不是从 VS Code 分叉。
+  > 灵感：别和终端比功能，做「会话资产化」：把连接配置、密钥、操作记录统一成可导出、可交接的资产，卖给需要合规留痕的小型运维团队。
 
-### 前端 / 设计
+* **[ly05010419/MacNativeGames](https://github.com/ly05010419/MacNativeGames)** — 技术探索项目，把 Switch 游戏的 ARM64 代码直接跑在 Apple 芯片上，用 Metal 重建 NVN 图形层，不是模拟器。需要用户自备游戏和从自己主机导出的密钥，法律边界写得很清楚。
 
-* **[shitagaki-lab/see-through](https://github.com/shitagaki-lab/see-through)** — See-through 是 SIGGRAPH 2026 论文的开源实现，能从单张动漫角色图分解出分层结构，把角色拆成可独立编辑的部件。它解决的是二次创作与动画制作中「拿到一张图却改不动」的问题。
+  > 灵感：别碰发行，碰工具链：这类项目验证了「跨平台图形层重写」的可行性，做移植辅助工具或性能分析器，服务独立游戏工作室更安全。
 
-  > 灵感：切入口是二次创作工具链：把单图分层接到 Live2D 绑定、表情差分生成、周边排版这类流程前面，卖给同人创作者和小型动画工作室，差异在于省掉手工抠图分层这一最耗时的步骤。
+* **[usebruno/bruno](https://github.com/usebruno/bruno)** — 开源 API 客户端，把请求集合以纯文本格式存在本地文件夹里，可以直接用 Git 协作，明确承诺永不做云同步。对受够 Postman 账号体系和云端锁定的团队来说，这是最直接的替代。
 
-### 安全 / 隐私
+  > 灵感：围绕它的纯文本格式做周边更容易起步：比如 API 集合的评审、变更 diff、CI 里跑接口回归，切的是「API 资产要进代码仓库」这个诉求。
 
-* **[KeygraphHQ/shannon](https://github.com/KeygraphHQ/shannon)** — Shannon 是一个自主运行的 AI 渗透测试代理，读取你的源码、梳理攻击路径，并真的执行漏洞利用来证明风险存在，口号是「没有利用就没有报告」。它把过去依赖人工排期的渗透测试变成可以随代码提交反复跑的动作。
+### 数据 / 基础设施
 
-  > 灵感：切入口是中小团队的 DevSecOps 流水线：把「每次发版前自动跑一遍真实利用验证」做成 CI 里的固定关卡，与只做静态扫描告警的工具拉开差距，卖的是可复现的攻击证据而非风险清单。
+* **[VictoriaMetrics/VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** — 高性能、低成本的时间序列数据库和监控方案，单机和集群版都是 Apache 2.0，有 Grammarly、Roblox 等公开案例。在可观测性成本被云厂商账单推高的当下，它是替代托管方案的现实选项。
+
+  > 灵感：不做数据库，做迁移与成本对比服务：帮中型公司把 Prometheus 或托管监控迁过来并给出账单前后对比，这是能按项目收费的明确交付。
 
 ### Skill / 垂直工具
 
-* **[coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)** — 面向 Claude Code、Codex、Cursor 等代理的营销技能集合，覆盖转化率优化、文案、SEO、分析和增长工程，目标是让技术型营销人和创始人直接用编码代理做营销工作。它把营销方法论从人的经验转成代理可执行的指令。
+* **[Donchitos/Claude-Code-Game-Studios](https://github.com/Donchitos/Claude-Code-Game-Studios)** — 把 Claude Code 改造成一个有分工的游戏工作室：几十个 agent 加几十个技能，模拟设计评审、QA、美术等角色，解决单人用 AI 做游戏时缺少流程约束的问题。它卖的是结构，不是模型能力。
 
-  > 灵感：可以切「增长即代码」的细分场景：把落地页 A/B 测试、SEO 审计、投放文案生成串成代理可调用的技能链，卖给没有专职营销工程师的早期团队，差异在于交付的是可执行流程而非模板库。
+  > 灵感：这套思路可以直接搬到别的行业：把「工作室角色」换成律所、诊所或工厂的岗位，做一套带评审关卡的 agent 编排模板，按行业售卖。
 
-* **[every-app/open-seo](https://github.com/every-app/open-seo)** — OpenSEO 是 Semrush、Ahrefs 的开源替代，提供关键词研究、外链分析、站点审计等能力，按量付费，并内置 MCP 与技能接口，方便 Claude Code 等代理直接调用。它瞄准的是被高价订阅工具挡在门外的中小团队。
+* **[Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv)** — 通过 Wi-Fi 给 Android TV 或 Google TV 去预装、去广告，并把主屏改成 Apple TV 风格。它把 ADB 操作包装成让编码助手十几分钟跑完的流程，解决的是电视买回来就被厂商塞满推广的问题。
 
-  > 灵感：适合做「SEO 数据加代理」的组合产品：把关键词库和站点审计数据通过 MCP 暴露给代理，按查询计费，卖给需要定期出报告的代运营和独立站卖家，差异在于数据可被代理编排而非只给人看。
+  > 灵感：这是典型的「一次性痛点、极高传播率」项目。可以做成面向非技术用户的远程服务或本地小工具，按台收费，靠教程视频获客。
 
-[本期 Markdown](daily/zh/2026-10-29.md)
+[本期 Markdown](daily/zh/2026-10-30.md)
 
 ### 往期
 
 #### 2026 年
 
-**10 月**：[29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
+**10 月**：[30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
 <!-- DIGEST:END -->
 

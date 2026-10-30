@@ -1,0 +1,344 @@
+{
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T02:28:47+00:00",
+  "intro": {
+    "zh": "今天这批项目最明显的信号是：AI 工具正在从「能跑」转向「能管」。记忆系统、本地推理引擎、把 IDE 变成工作室的编排层，都在补同一块短板——让模型在真实硬件和真实工作流里稳定产出，而不是演示一次就结束。同时，围绕模型访问权限的灰色玩法也在快速聚集流量，说明供给端仍有大量未被正常渠道满足的需求。",
+    "en": "The clearest signal today is a shift from demos to operations. Memory layers, hardware-tuned inference engines, and orchestration shells around coding agents all attack the same gap: making models produce reliably inside real workflows and real hardware."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "vectorize-io/hindsight",
+      "url": "https://github.com/vectorize-io/hindsight",
+      "content": {
+        "zh": {
+          "summary": "面向 agent 的长期记忆系统，主打让 agent 随使用而学习，而不只是回放对话历史。它明确把自己和 RAG、知识图谱路线区分开，在长期记忆任务上给出基准对比，适合正在做多轮、跨会话 agent 的团队评估。",
+          "insight": "别再做通用记忆层，去做垂直场景的记忆评测集：比如客服或编码 agent 的「三个月后还记得什么」。谁能量化记忆质量，谁就拿到采购话语权。"
+        },
+        "en": {
+          "summary": "A long-term memory system for agents that aims at learning over time rather than replaying chat history. It positions itself against RAG and knowledge-graph approaches and…",
+          "insight": "Skip the generic memory layer and build vertical memory benchmarks instead, such as what a support or coding agent still remembers after three months."
+        }
+      },
+      "description": "Hindsight: Agent Memory That Learns",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 56225,
+      "stars_today": 1454,
+      "topics": [
+        "agentic-ai",
+        "agents",
+        "ai-memory",
+        "memory"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 46.5
+    },
+    {
+      "repo": "milind-soni/OpenMausBot",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "content": {
+        "zh": {
+          "summary": "本地优先的聊天式 agent 客户端，每个会话背后是一个真实运行的 Claude 或 Codex，各自带人格、模型、云端虚拟机和已连接应用。定位是 Grok Bot 一类产品的开源替代，自带模型和密钥。",
+          "insight": "真正的差异点在「每个 bot 一台虚拟机」：把这层隔离做成可审计的权限沙箱，卖给需要让 agent 碰生产系统但又不敢放开的团队。"
+        },
+        "en": {
+          "summary": "A local-first chat client where every sidebar bot is a real Claude or Codex agent with its own persona, model, cloud VM, and connected apps.",
+          "insight": "The differentiator is one VM per bot. Turn that isolation into an auditable permission sandbox and sell it to teams that want agents touching production…"
+        }
+      },
+      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 7546,
+      "stars_today": 1199,
+      "topics": [
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "computer-use",
+        "docker",
+        "electron",
+        "expo",
+        "grok",
+        "grok-bot",
+        "grok-bot-alternative"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.27
+    },
+    {
+      "repo": "magnitudedev/magnitude",
+      "url": "https://github.com/magnitudedev/magnitude",
+      "content": {
+        "zh": {
+          "summary": "开源推理引擎，会针对你的硬件自动调优 kernel，为每个模型找最快跑法，宣称比 Ollama 快一倍以上，覆盖 Apple Silicon、NVIDIA、AMD、Intel 和纯 CPU。桌面端和 CLI 都能一键接到现有 agent 上。",
+          "insight": "机会不在引擎本身，而在「本地模型性能诊断」：给企业出一份报告，说明哪台机器该跑哪个模型、瓶颈在哪，比卖推理框架更容易收费。"
+        },
+        "en": {
+          "summary": "An open-source inference engine that tunes kernels to your specific hardware to find the fastest way to run each model, claiming over twice Ollama's speed across Apple Silicon,",
+          "insight": "The opening is not the engine but local model performance diagnostics: sell enterprises a report on which model fits which machine and where the bottleneck…"
+        }
+      },
+      "description": "Open source inference engine that tunes its kernels on your hardware to find the fastest way to run each model. 2x faster than Ollama. Works on Apple Silicon, NVIDIA, AMD, Intel, or just a CPU.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 7568,
+      "stars_today": 141,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.8
+    },
+    {
+      "repo": "NVIDIA/cuda-rust",
+      "url": "https://github.com/NVIDIA/cuda-rust",
+      "content": {
+        "zh": {
+          "summary": "NVIDIA 官方把 CUDA 平台带进 Rust：主机端运行时 crate，加上 Tile 和 SIMT 两种 kernel 编程模型，让 GPU 编程用上 Rust 的类型和工具链。这是生态信号，不是能直接包装的产品。",
+          "insight": "适合作为技术选型信号：如果你的团队在 Rust 里做推理或科学计算，现在可以评估把热点 kernel 从 C++ 迁过来，减少一层 FFI 维护成本。"
+        },
+        "en": {
+          "summary": "NVIDIA is bringing CUDA to Rust with host runtime crates plus Tile and SIMT kernel programming models, letting GPU code use Rust's types and tooling.",
+          "insight": "Treat it as a stack-selection signal: if your team does inference or scientific computing in Rust,"
+        }
+      },
+      "description": "NVIDIA's CUDA platform for Rust. Host runtime crates plus Tile (cutile-rs) and SIMT (cuda-oxide) kernel programming models in idiomatic Rust.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 3896,
+      "stars_today": 38,
+      "topics": [
+        "async",
+        "compiler-backend",
+        "cuda",
+        "gpu",
+        "heterogeneous-computing",
+        "high-performance-computing",
+        "nvidia",
+        "programming-languages",
+        "rust"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 23.49
+    },
+    {
+      "repo": "nyakang/nyaterm",
+      "url": "https://github.com/nyakang/nyaterm",
+      "content": {
+        "zh": {
+          "summary": "用 GPUI 写的原生远程终端工作台，把 SSH、Telnet、串口、RDP、VNC、SFTP、隧道、OTP 和 AI 助手塞进一个桌面客户端，还支持加密同步。面向的是同时管很多机器、受够多窗口切换的运维和嵌入式开发者。",
+          "insight": "别和终端比功能，做「会话资产化」：把连接配置、密钥、操作记录统一成可导出、可交接的资产，卖给需要合规留痕的小型运维团队。"
+        },
+        "en": {
+          "summary": "A native remote terminal workspace built on GPUI that bundles SSH, Telnet, serial, RDP, VNC, SFTP, tunnels, OTP, and an AI assistant into one desktop client with encrypted sync.",
+          "insight": "Do not compete on terminal features. Make sessions into assets: exportable connection configs, keys, and action logs that can be handed over,"
+        }
+      },
+      "description": "A modern remote terminal workspace",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 2121,
+      "stars_today": 169,
+      "topics": [
+        "gpui",
+        "otp",
+        "serialport",
+        "sftp",
+        "sftp-client",
+        "ssh",
+        "ssh-client",
+        "telnet",
+        "telnet-client",
+        "terminal"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.18
+    },
+    {
+      "repo": "ly05010419/MacNativeGames",
+      "url": "https://github.com/ly05010419/MacNativeGames",
+      "content": {
+        "zh": {
+          "summary": "技术探索项目，把 Switch 游戏的 ARM64 代码直接跑在 Apple 芯片上，用 Metal 重建 NVN 图形层，不是模拟器。需要用户自备游戏和从自己主机导出的密钥，法律边界写得很清楚。",
+          "insight": "别碰发行，碰工具链：这类项目验证了「跨平台图形层重写」的可行性，做移植辅助工具或性能分析器，服务独立游戏工作室更安全。"
+        },
+        "en": {
+          "summary": "A technical exploration that runs Switch games' ARM64 code natively on Apple silicon, rebuilding the NVN graphics layer on Metal rather than emulating.",
+          "insight": "Avoid distribution and target the toolchain: this proves graphics-layer rewriting is viable. Build porting assistants or profilers for indie studios,"
+        }
+      },
+      "description": "Play your own Tears of the Kingdom and Breath of the Wild natively on Apple silicon Mac, iPhone and iPad. Not an emulator: the game's ARM64 code runs directly, NVN rebuilt on Metal. Bring your own game.",
+      "category": "开发工具 / CLI",
+      "language": "C",
+      "stars": 6451,
+      "stars_today": 0,
+      "topics": [
+        "apple-silicon",
+        "arm64",
+        "breath-of-the-wild",
+        "game-port",
+        "ios",
+        "ipados",
+        "macos",
+        "metal",
+        "native-port",
+        "tears-of-the-kingdom"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 28.86
+    },
+    {
+      "repo": "usebruno/bruno",
+      "url": "https://github.com/usebruno/bruno",
+      "content": {
+        "zh": {
+          "summary": "开源 API 客户端，把请求集合以纯文本格式存在本地文件夹里，可以直接用 Git 协作，明确承诺永不做云同步。对受够 Postman 账号体系和云端锁定的团队来说，这是最直接的替代。",
+          "insight": "围绕它的纯文本格式做周边更容易起步：比如 API 集合的评审、变更 diff、CI 里跑接口回归，切的是「API 资产要进代码仓库」这个诉求。"
+        },
+        "en": {
+          "summary": "An open-source API client that stores collections as plain text in a local folder, so Git handles collaboration, with an explicit promise of no cloud sync ever.",
+          "insight": "Build around its plain-text format: review workflows for API collections, change diffs, and API regression runs in CI."
+        }
+      },
+      "description": "Opensource IDE For Exploring and Testing API's (lightweight alternative to Postman/Insomnia)",
+      "category": "开发工具 / CLI",
+      "language": "JavaScript",
+      "stars": 47930,
+      "stars_today": 27,
+      "topics": [
+        "api-client",
+        "api-testing",
+        "automation",
+        "developer-tools",
+        "git",
+        "graphql-client",
+        "http-client",
+        "javascript",
+        "openapi",
+        "openapi3"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.76
+    },
+    {
+      "repo": "VictoriaMetrics/VictoriaMetrics",
+      "url": "https://github.com/VictoriaMetrics/VictoriaMetrics",
+      "content": {
+        "zh": {
+          "summary": "高性能、低成本的时间序列数据库和监控方案，单机和集群版都是 Apache 2.0，有 Grammarly、Roblox 等公开案例。在可观测性成本被云厂商账单推高的当下，它是替代托管方案的现实选项。",
+          "insight": "不做数据库，做迁移与成本对比服务：帮中型公司把 Prometheus 或托管监控迁过来并给出账单前后对比，这是能按项目收费的明确交付。"
+        },
+        "en": {
+          "summary": "A fast, cost-efficient time series database and monitoring stack, Apache 2.0 in both single-node and cluster forms, with public case studies from large consumer companies.",
+          "insight": "Do not build a database; build migration and cost-comparison services. Help mid-size companies move off Prometheus or managed monitoring and show…"
+        }
+      },
+      "description": "VictoriaMetrics: fast, cost-effective monitoring solution and time series database",
+      "category": "数据 / 基础设施",
+      "language": "Go",
+      "stars": 17954,
+      "stars_today": 10,
+      "topics": [
+        "database",
+        "grafana",
+        "graphite",
+        "influxdb",
+        "kubernetes",
+        "metrics",
+        "monitoring",
+        "observability",
+        "opentelemetry",
+        "opentsdb"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.77
+    },
+    {
+      "repo": "Donchitos/Claude-Code-Game-Studios",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "content": {
+        "zh": {
+          "summary": "把 Claude Code 改造成一个有分工的游戏工作室：几十个 agent 加几十个技能，模拟设计评审、QA、美术等角色，解决单人用 AI 做游戏时缺少流程约束的问题。它卖的是结构，不是模型能力。",
+          "insight": "这套思路可以直接搬到别的行业：把「工作室角色」换成律所、诊所或工厂的岗位，做一套带评审关卡的 agent 编排模板，按行业售卖。"
+        },
+        "en": {
+          "summary": "Turns a single Claude Code session into a structured game studio with dozens of agents and skills covering design review, QA, and art roles.",
+          "insight": "Port the pattern to other industries: swap studio roles for law firm, clinic, or factory positions and ship an agent orchestration template with review gates,"
+        }
+      },
+      "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
+      "category": "Skill / 垂直工具",
+      "language": "Shell",
+      "stars": 29301,
+      "stars_today": 353,
+      "topics": [
+        "ai-agents",
+        "ai-assisted-development",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "game-design",
+        "game-development",
+        "gamedev",
+        "godot",
+        "indie-game-dev"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.63
+    },
+    {
+      "repo": "Gathin23/cleanyourtv",
+      "url": "https://github.com/Gathin23/cleanyourtv",
+      "content": {
+        "zh": {
+          "summary": "通过 Wi-Fi 给 Android TV 或 Google TV 去预装、去广告，并把主屏改成 Apple TV 风格。它把 ADB 操作包装成让编码助手十几分钟跑完的流程，解决的是电视买回来就被厂商塞满推广的问题。",
+          "insight": "这是典型的「一次性痛点、极高传播率」项目。可以做成面向非技术用户的远程服务或本地小工具，按台收费，靠教程视频获客。"
+        },
+        "en": {
+          "summary": "Debloats Android and Google TV over Wi-Fi, strips ads, and reshapes the home screen into an Apple TV style layout.",
+          "insight": "A classic one-time pain with high shareability. Turn it into a remote service or a dead-simple local app for non-technical users,"
+        }
+      },
+      "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 45574,
+      "stars_today": 0,
+      "topics": [
+        "adb",
+        "adblock",
+        "android-tv",
+        "android-tv-launcher",
+        "apple-tv",
+        "bloatware-removal",
+        "claude-code",
+        "debloat",
+        "fire-tv",
+        "google-tv"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 33.95
+    }
+  ]
+}

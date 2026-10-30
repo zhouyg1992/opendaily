@@ -10,69 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 29, 2026 · Thu](daily/en/2026-10-29.md)
+## [Oct 30, 2026 · Fri](daily/en/2026-10-30.md)
 
-> Today's list points to a maturing middle layer around large models: prompt packs, skill libraries, security testing, document parsing, and evaluation artifacts rather than another frontier model.
+> The clearest signal today is a shift from demos to operations. Memory layers, hardware-tuned inference engines, and orchestration shells around coding agents all attack the same gap: making models produce reliably inside real workflows and real hardware.
 
 ### AI / Agents
 
-* **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — A curated set of engineering skills for AI coding agents, encoding the workflows, quality gates, and practices senior engineers rely on,
+* **[vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)** — A long-term memory system for agents that aims at learning over time rather than replaying chat history. It positions itself against RAG and knowledge-graph approaches and…
 
-  > Angle: Treat it as a template for internal skill distribution: package your own coding standards, review checklists,
+  > Angle: Skip the generic memory layer and build vertical memory benchmarks instead, such as what a support or coding agent still remembers after three months.
 
-* **[deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)** — DeepSeek's open agent harness, built on an everything-is-a-plugin architecture and the Cordis composition model, with a local web UI.
+* **[milind-soni/OpenMausBot](https://github.com/milind-soni/OpenMausBot)** — A local-first chat client where every sidebar bot is a real Claude or Codex agent with its own persona, model, cloud VM, and connected apps.
 
-  > Angle: Use it as infrastructure reference rather than a product base: its plugin boundaries and composition model are worth studying for multi-agent orchestration or…
+  > Angle: The differentiator is one VM per bot. Turn that isolation into an auditable permission sandbox and sell it to teams that want agents touching production…
 
 ### AI Infrastructure / Models
 
-* **[baidu/Unlimited-OCR](https://github.com/baidu/Unlimited-OCR)** — Baidu's open OCR model focused on one-shot parsing of very long documents, released alongside the MarathonDocBench benchmark.
+* **[magnitudedev/magnitude](https://github.com/magnitudedev/magnitude)** — An open-source inference engine that tunes kernels to your specific hardware to find the fastest way to run each model, claiming over twice Ollama's speed across Apple Silicon,
 
-  > Angle: The opportunity is vertical document workflows: wire long-horizon parsing into reconciliation, contract extraction, or archive digitization,
+  > Angle: The opening is not the engine but local model performance diagnostics: sell enterprises a report on which model fits which machine and where the bottleneck…
 
-* **[openai/math](https://github.com/openai/math)** — A repository of mathematical manuscripts and Lean proof artifacts produced by an unnamed internal OpenAI model on open problems,
+* **[NVIDIA/cuda-rust](https://github.com/NVIDIA/cuda-rust)** — NVIDIA is bringing CUDA to Rust with host runtime crates plus Tile and SIMT kernel programming models, letting GPU code use Rust's types and tooling.
 
-  > Angle: Treat this as a signal, not a startup idea: formal verification is becoming the trust layer for model output, so tooling around Lean proof checking,
-
-* **[p-e-w/heretic](https://github.com/p-e-w/heretic)** — Heretic automates censorship removal from language models using directional ablation plus Optuna-driven parameter search,
-
-  > Angle: Read it as a case study in the capability-versus-compliance tension. The viable adjacent product is behavior controllability for open-model users: alignment…
+  > Angle: Treat it as a stack-selection signal: if your team does inference or scientific computing in Rust,
 
 ### Developer Tools / CLI
 
-* **[zed-industries/zed](https://github.com/zed-industries/zed)** — Zed is a high-performance multiplayer code editor from the creators of Atom and Tree-sitter, built in Rust on the in-house GPUI rendering framework for low-latency editing and…
+* **[nyakang/nyaterm](https://github.com/nyakang/nyaterm)** — A native remote terminal workspace built on GPUI that bundles SSH, Telnet, serial, RDP, VNC, SFTP, tunnels, OTP, and an AI assistant into one desktop client with encrypted sync.
 
-  > Angle: For developer-tool builders, GPUI and Zed's collaboration model deserve separate study: a real-time collaborative vertical editor for configs, data pipelines,
+  > Angle: Do not compete on terminal features. Make sessions into assets: exportable connection configs, keys, and action logs that can be handed over,
 
-### Frontend / Design
+* **[ly05010419/MacNativeGames](https://github.com/ly05010419/MacNativeGames)** — A technical exploration that runs Switch games' ARM64 code natively on Apple silicon, rebuilding the NVN graphics layer on Metal rather than emulating.
 
-* **[shitagaki-lab/see-through](https://github.com/shitagaki-lab/see-through)** — See-through is the open implementation of a SIGGRAPH 2026 paper that decomposes a single anime character image into editable layers.
+  > Angle: Avoid distribution and target the toolchain: this proves graphics-layer rewriting is viable. Build porting assistants or profilers for indie studios,
 
-  > Angle: Target the derivative-work toolchain: put single-image layer decomposition in front of Live2D rigging, expression variants,
+* **[usebruno/bruno](https://github.com/usebruno/bruno)** — An open-source API client that stores collections as plain text in a local folder, so Git handles collaboration, with an explicit promise of no cloud sync ever.
 
-### Security / Privacy
+  > Angle: Build around its plain-text format: review workflows for API collections, change diffs, and API regression runs in CI.
 
-* **[KeygraphHQ/shannon](https://github.com/KeygraphHQ/shannon)** — Shannon is an autonomous AI pentester that reads your source, maps attack paths, and actually executes exploits to prove a vulnerability is real.
+### Data / Infrastructure
 
-  > Angle: The opening is DevSecOps for small teams: make exploit-backed verification a fixed gate in CI, and differentiate from scanners that only emit warnings by…
+* **[VictoriaMetrics/VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** — A fast, cost-efficient time series database and monitoring stack, Apache 2.0 in both single-node and cluster forms, with public case studies from large consumer companies.
+
+  > Angle: Do not build a database; build migration and cost-comparison services. Help mid-size companies move off Prometheus or managed monitoring and show…
 
 ### Vertical Tools / Skills
 
-* **[coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)** — A marketing skill collection for Claude Code, Codex, Cursor and similar agents, covering CRO, copywriting, SEO, analytics, and growth engineering.
+* **[Donchitos/Claude-Code-Game-Studios](https://github.com/Donchitos/Claude-Code-Game-Studios)** — Turns a single Claude Code session into a structured game studio with dozens of agents and skills covering design review, QA, and art roles.
 
-  > Angle: Target growth-as-code: chain landing page A/B tests, SEO audits, and ad copy generation into agent-callable skills for early teams without a marketing…
+  > Angle: Port the pattern to other industries: swap studio roles for law firm, clinic, or factory positions and ship an agent orchestration template with review gates,
 
-* **[every-app/open-seo](https://github.com/every-app/open-seo)** — OpenSEO is an open alternative to Semrush and Ahrefs, offering keyword research, backlink analysis, and site audits on a pay-as-you-go basis,
+* **[Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv)** — Debloats Android and Google TV over Wi-Fi, strips ads, and reshapes the home screen into an Apple TV style layout.
 
-  > Angle: Build an SEO-data-plus-agent product: expose keyword and audit data over MCP, charge per query, and sell to agencies and independent store operators who need…
+  > Angle: A classic one-time pain with high shareability. Turn it into a remote service or a dead-simple local app for non-technical users,
 
-[This issue (Markdown)](daily/en/2026-10-29.md)
+[This issue (Markdown)](daily/en/2026-10-30.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
