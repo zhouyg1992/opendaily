@@ -11,67 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.10.30 · 周五](daily/zh/2026-10-30.md)
+## [2026.10.31 · 周六](daily/zh/2026-10-31.md)
 
-> 今天这批项目最明显的信号是：AI 工具正在从「能跑」转向「能管」。记忆系统、本地推理引擎、把 IDE 变成工作室的编排层，都在补同一块短板——让模型在真实硬件和真实工作流里稳定产出，而不是演示一次就结束。同时，围绕模型访问权限的灰色玩法也在快速聚集流量，说明供给端仍有大量未被正常渠道满足的需求。
+> 今天这批项目共同指向一件事：AI 正在从「会聊天」转向「能干活」，而围绕它的配套正在快速分层——有人做更轻的浏览器底座，有人做可审计的桌面同事，有人把工程经验固化成可复用的技能包。创业机会不在再做一个模型，而在这些层之间的缝隙里。
 
 ### AI / Agent 工具
 
-* **[vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)** — 面向 agent 的长期记忆系统，主打让 agent 随使用而学习，而不只是回放对话历史。它明确把自己和 RAG、知识图谱路线区分开，在长期记忆任务上给出基准对比，适合正在做多轮、跨会话 agent 的团队评估。
+* **[CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot)** — 开源的 AI 同事框架，每个代理分到独立浏览器、文件和授权工具，动作执行前先决策、执行后留记录。可接入任意 AG-UI 代理，跑在自己的基础设施上，形态对标 ChatGPT 但完全可改。
 
-  > 灵感：别再做通用记忆层，去做垂直场景的记忆评测集：比如客服或编码 agent 的「三个月后还记得什么」。谁能量化记忆质量，谁就拿到采购话语权。
+  > 灵感：企业最怕代理乱点按钮。它的「先决策后记录」正好切合规敏感行业，比如财务对账、客服工单处理，卖点不是能力而是可审计。
 
-* **[milind-soni/OpenMausBot](https://github.com/milind-soni/OpenMausBot)** — 本地优先的聊天式 agent 客户端，每个会话背后是一个真实运行的 Claude 或 Codex，各自带人格、模型、云端虚拟机和已连接应用。定位是 Grok Bot 一类产品的开源替代，自带模型和密钥。
+* **[Orkas-AI/Orkas](https://github.com/Orkas-AI/Orkas)** — 本地优先的多代理桌面应用，由一个指挥官把目标拆成待办，调度十六个内置专家代理，并接入 Claude Code、Codex 等已有编码代理。项目保存目标、规则、记忆和文件，跨会话延续上下文。
 
-  > 灵感：真正的差异点在「每个 bot 一台虚拟机」：把这层隔离做成可审计的权限沙箱，卖给需要让 agent 碰生产系统但又不敢放开的团队。
+  > 灵感：它把「项目」而非「对话」作为单位，适合做长周期交付场景，比如独立开发者接单或小团队外包。可以围绕某个垂直行业预置代理团队和流程模板。
+
+* **[lfnovo/open-notebook](https://github.com/lfnovo/open-notebook)** — Notebook LM 的开源替代，强调隐私、多模型和完全本地运行。用户可以把自己的资料变成可对话的知识库，不必上传到 Google，功能上还做了扩展。
+
+  > 灵感：适合切教育、律所、医疗等不能外传资料的场景。与其做通用笔记，不如做「某类文档的本地问答」，比如合同、病历或课程材料。
 
 ### AI 基础设施 / 模型
 
-* **[magnitudedev/magnitude](https://github.com/magnitudedev/magnitude)** — 开源推理引擎，会针对你的硬件自动调优 kernel，为每个模型找最快跑法，宣称比 Ollama 快一倍以上，覆盖 Apple Silicon、NVIDIA、AMD、Intel 和纯 CPU。桌面端和 CLI 都能一键接到现有 agent 上。
+* **[lightpanda-io/browser](https://github.com/lightpanda-io/browser)** — 用 Zig 从零写的无头浏览器，专为 AI 代理和自动化设计，不是 Chromium 分支。内存占用约为 Chrome 的十六分之一，执行速度快约九倍，支持 CDP 协议，可直接接 Playwright 和 Puppeteer。
 
-  > 灵感：机会不在引擎本身，而在「本地模型性能诊断」：给企业出一份报告，说明哪台机器该跑哪个模型、瓶颈在哪，比卖推理框架更容易收费。
+  > 灵感：代理爬取和自动化测试的成本大头是浏览器实例。可以围绕它做按需渲染的抓取服务，或给现有 RPA 产品做降本替换，接口兼容意味着迁移成本低。
 
-* **[NVIDIA/cuda-rust](https://github.com/NVIDIA/cuda-rust)** — NVIDIA 官方把 CUDA 平台带进 Rust：主机端运行时 crate，加上 Tile 和 SIMT 两种 kernel 编程模型，让 GPU 编程用上 Rust 的类型和工具链。这是生态信号，不是能直接包装的产品。
+* **[NVIDIA-NeMo/Nemotron](https://github.com/NVIDIA-NeMo/Nemotron)** — 英伟达 Nemotron 系列的开发者资源中心，汇集训练配方、使用手册、数据集和端到端示例。新模型面向多模态代理推理和长时运行代理的执行层，权重和配方一并开放。
 
-  > 灵感：适合作为技术选型信号：如果你的团队在 Rust 里做推理或科学计算，现在可以评估把热点 kernel 从 C++ 迁过来，减少一层 FFI 维护成本。
+  > 灵感：开放训练配方意味着可以基于它做行业微调服务，而不是从零训练。适合切有私有数据但缺算力调优能力的垂直行业，交付的是配方适配而非模型。
 
 ### 开发工具 / CLI
 
-* **[nyakang/nyaterm](https://github.com/nyakang/nyaterm)** — 用 GPUI 写的原生远程终端工作台，把 SSH、Telnet、串口、RDP、VNC、SFTP、隧道、OTP 和 AI 助手塞进一个桌面客户端，还支持加密同步。面向的是同时管很多机器、受够多窗口切换的运维和嵌入式开发者。
+* **[open-gsd/gsd-core](https://github.com/open-gsd/gsd-core)** — 轻量的元提示与上下文工程框架，用分阶段循环驱动 Claude Code、Codex、Cursor 等多种编码代理，强调规范驱动开发。与重型流程框架相比，它更接近一层薄协议。
 
-  > 灵感：别和终端比功能，做「会话资产化」：把连接配置、密钥、操作记录统一成可导出、可交接的资产，卖给需要合规留痕的小型运维团队。
+  > 灵感：多代理工具并存是现实，跨工具的流程层有需求。可以做团队级的规范与上下文管理，解决换模型或换编辑器后流程重搭的问题。
 
-* **[ly05010419/MacNativeGames](https://github.com/ly05010419/MacNativeGames)** — 技术探索项目，把 Switch 游戏的 ARM64 代码直接跑在 Apple 芯片上，用 Metal 重建 NVN 图形层，不是模拟器。需要用户自备游戏和从自己主机导出的密钥，法律边界写得很清楚。
+### 前端 / 设计
 
-  > 灵感：别碰发行，碰工具链：这类项目验证了「跨平台图形层重写」的可行性，做移植辅助工具或性能分析器，服务独立游戏工作室更安全。
+* **[storytold/designcraft](https://github.com/storytold/designcraft)** — 纯 Rust 从零写的页面与版式设计编辑器，定位现代桌面出版，原生跑在三大平台，也能通过 WebAssembly 在浏览器里用。自带段落排版引擎，能处理多栏正文和绕排引文。
 
-* **[usebruno/bruno](https://github.com/usebruno/bruno)** — 开源 API 客户端，把请求集合以纯文本格式存在本地文件夹里，可以直接用 Git 协作，明确承诺永不做云同步。对受够 Postman 账号体系和云端锁定的团队来说，这是最直接的替代。
-
-  > 灵感：围绕它的纯文本格式做周边更容易起步：比如 API 集合的评审、变更 diff、CI 里跑接口回归，切的是「API 资产要进代码仓库」这个诉求。
-
-### 数据 / 基础设施
-
-* **[VictoriaMetrics/VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** — 高性能、低成本的时间序列数据库和监控方案，单机和集群版都是 Apache 2.0，有 Grammarly、Roblox 等公开案例。在可观测性成本被云厂商账单推高的当下，它是替代托管方案的现实选项。
-
-  > 灵感：不做数据库，做迁移与成本对比服务：帮中型公司把 Prometheus 或托管监控迁过来并给出账单前后对比，这是能按项目收费的明确交付。
+  > 灵感：桌面出版长期被 Adobe 和 Affinity 把持，开源几乎空白。可以先切细分印刷场景，比如期刊、简历或学术海报，用模板加排版质量做差异。
 
 ### Skill / 垂直工具
 
-* **[Donchitos/Claude-Code-Game-Studios](https://github.com/Donchitos/Claude-Code-Game-Studios)** — 把 Claude Code 改造成一个有分工的游戏工作室：几十个 agent 加几十个技能，模拟设计评审、QA、美术等角色，解决单人用 AI 做游戏时缺少流程约束的问题。它卖的是结构，不是模型能力。
+* **[mattpocock/skills](https://github.com/mattpocock/skills)** — 一位资深工程师公开的日常代理技能目录，强调小而可组合、适配任意模型，反对接管流程的重型框架。它代表了一种态度：技能应该是工程师自己改的东西，而不是被规范绑架。
 
-  > 灵感：这套思路可以直接搬到别的行业：把「工作室角色」换成律所、诊所或工厂的岗位，做一套带评审关卡的 agent 编排模板，按行业售卖。
+  > 灵感：技能包本身难变现，但「技能市场加版本管理」有空间。可以切团队协作场景，解决多人共用代理时提示词散落、无法评审和回滚的问题。
 
-* **[Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv)** — 通过 Wi-Fi 给 Android TV 或 Google TV 去预装、去广告，并把主屏改成 Apple TV 风格。它把 ADB 操作包装成让编码助手十几分钟跑完的流程，解决的是电视买回来就被厂商塞满推广的问题。
+* **[anthropics/skills](https://github.com/anthropics/skills)** — Anthropic 官方的代理技能实现，技能是包含指令、脚本和资源的文件夹，由模型按需动态加载，用于把品牌规范、数据流程等重复任务标准化。也是技能标准的事实参考实现。
 
-  > 灵感：这是典型的「一次性痛点、极高传播率」项目。可以做成面向非技术用户的远程服务或本地小工具，按台收费，靠教程视频获客。
+  > 灵感：这是基础设施和趋势信号。真正的机会在标准之上的工具链：技能打包、权限声明、依赖检查，以及企业内部技能仓库的治理。
 
-[本期 Markdown](daily/zh/2026-10-30.md)
+* **[jhaizhou-ops/d2r-mobile](https://github.com/jhaizhou-ops/d2r-mobile)** — 开源的兼容层，让玩家把自己合法购买的 Switch 版暗黑破坏神 II 重生跑在 iPhone、iPad、Mac、安卓和鸿蒙上，重做了触屏操作，保持六十帧，并支持原生 macOS。
+
+  > 灵感：这是趋势信号：兼容层加自带游戏文件正在成为一类灰色但活跃的工程方向。可借鉴的是触屏重映射与性能适配层，而非游戏本身。
+
+[本期 Markdown](daily/zh/2026-10-31.md)
 
 ### 往期
 
 #### 2026 年
 
-**10 月**：[30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
+**10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
 <!-- DIGEST:END -->
 

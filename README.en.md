@@ -10,67 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 30, 2026 · Fri](daily/en/2026-10-30.md)
+## [Oct 31, 2026 · Sat](daily/en/2026-10-31.md)
 
-> The clearest signal today is a shift from demos to operations. Memory layers, hardware-tuned inference engines, and orchestration shells around coding agents all attack the same gap: making models produce reliably inside real workflows and real hardware.
+> Today's projects share one signal: AI is shifting from chat to actual work, and the stack around it is splitting into layers. Lightweight browser infrastructure, auditable desktop coworkers, and reusable skill packs are all emerging at once.
 
 ### AI / Agents
 
-* **[vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)** — A long-term memory system for agents that aims at learning over time rather than replaying chat history. It positions itself against RAG and knowledge-graph approaches and…
+* **[CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot)** — An open-source framework for AI coworkers where each agent gets its own browser, files, and granted tools. Every action is decided before it runs and logged after.
 
-  > Angle: Skip the generic memory layer and build vertical memory benchmarks instead, such as what a support or coding agent still remembers after three months.
+  > Angle: Enterprises fear agents clicking the wrong thing. The decide-then-log model fits compliance-heavy work like reconciliation or ticket handling,
 
-* **[milind-soni/OpenMausBot](https://github.com/milind-soni/OpenMausBot)** — A local-first chat client where every sidebar bot is a real Claude or Codex agent with its own persona, model, cloud VM, and connected apps.
+* **[Orkas-AI/Orkas](https://github.com/Orkas-AI/Orkas)** — A local-first multi-agent desktop app. A commander breaks goals into todos and coordinates 16 built-in specialist agents plus existing coding agents like Claude Code and Codex.
 
-  > Angle: The differentiator is one VM per bot. Turn that isolation into an auditable permission sandbox and sell it to teams that want agents touching production…
+  > Angle: Treating the project rather than the chat as the unit suits long-running delivery work. A vertical package with preconfigured agent teams and workflow…
+
+* **[lfnovo/open-notebook](https://github.com/lfnovo/open-notebook)** — An open-source, privacy-focused alternative to Google's Notebook LM. It runs fully local, supports multiple models,
+
+  > Angle: It fits education, law, and healthcare, where documents cannot leave the building. A local Q&A tool for one document type,
 
 ### AI Infrastructure / Models
 
-* **[magnitudedev/magnitude](https://github.com/magnitudedev/magnitude)** — An open-source inference engine that tunes kernels to your specific hardware to find the fastest way to run each model, claiming over twice Ollama's speed across Apple Silicon,
+* **[lightpanda-io/browser](https://github.com/lightpanda-io/browser)** — A headless browser written from scratch in Zig for AI agents and automation, not a Chromium fork. It uses roughly 16x less memory and runs about 9x faster than Chrome,
 
-  > Angle: The opening is not the engine but local model performance diagnostics: sell enterprises a report on which model fits which machine and where the bottleneck…
+  > Angle: Browser instances dominate the cost of agent scraping and test automation. A metered rendering service or a drop-in cost cut for existing RPA products is…
 
-* **[NVIDIA/cuda-rust](https://github.com/NVIDIA/cuda-rust)** — NVIDIA is bringing CUDA to Rust with host runtime crates plus Tile and SIMT kernel programming models, letting GPU code use Rust's types and tooling.
+* **[NVIDIA-NeMo/Nemotron](https://github.com/NVIDIA-NeMo/Nemotron)** — NVIDIA's developer hub for the Nemotron family, bundling training recipes, cookbooks, datasets, and end-to-end examples.
 
-  > Angle: Treat it as a stack-selection signal: if your team does inference or scientific computing in Rust,
+  > Angle: Open recipes make domain fine-tuning services viable without training from scratch. Target verticals with private data but no tuning capacity,
 
 ### Developer Tools / CLI
 
-* **[nyakang/nyaterm](https://github.com/nyakang/nyaterm)** — A native remote terminal workspace built on GPUI that bundles SSH, Telnet, serial, RDP, VNC, SFTP, tunnels, OTP, and an AI assistant into one desktop client with encrypted sync.
+* **[open-gsd/gsd-core](https://github.com/open-gsd/gsd-core)** — A lightweight meta-prompting and context-engineering framework that drives coding agents like Claude Code, Codex, and Cursor through a disciplined phase loop.
 
-  > Angle: Do not compete on terminal features. Make sessions into assets: exportable connection configs, keys, and action logs that can be handed over,
+  > Angle: Teams already run several agent tools at once, so a cross-tool process layer has demand. Team-level spec and context management solves the rebuild-everything…
 
-* **[ly05010419/MacNativeGames](https://github.com/ly05010419/MacNativeGames)** — A technical exploration that runs Switch games' ARM64 code natively on Apple silicon, rebuilding the NVN graphics layer on Metal rather than emulating.
+### Frontend / Design
 
-  > Angle: Avoid distribution and target the toolchain: this proves graphics-layer rewriting is viable. Build porting assistants or profilers for indie studios,
+* **[storytold/designcraft](https://github.com/storytold/designcraft)** — A page and layout design editor written from scratch in pure Rust, positioned as modern desktop publishing. It runs natively on three platforms and in the browser via WebAssembly,
 
-* **[usebruno/bruno](https://github.com/usebruno/bruno)** — An open-source API client that stores collections as plain text in a local folder, so Git handles collaboration, with an explicit promise of no cloud sync ever.
-
-  > Angle: Build around its plain-text format: review workflows for API collections, change diffs, and API regression runs in CI.
-
-### Data / Infrastructure
-
-* **[VictoriaMetrics/VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** — A fast, cost-efficient time series database and monitoring stack, Apache 2.0 in both single-node and cluster forms, with public case studies from large consumer companies.
-
-  > Angle: Do not build a database; build migration and cost-comparison services. Help mid-size companies move off Prometheus or managed monitoring and show…
+  > Angle: Desktop publishing has long been locked up by Adobe and Affinity with little open source. A narrow print niche such as journals, resumes, or academic posters,
 
 ### Vertical Tools / Skills
 
-* **[Donchitos/Claude-Code-Game-Studios](https://github.com/Donchitos/Claude-Code-Game-Studios)** — Turns a single Claude Code session into a structured game studio with dozens of agents and skills covering design review, QA, and art roles.
+* **[mattpocock/skills](https://github.com/mattpocock/skills)** — A senior engineer's public directory of everyday agent skills, deliberately small, composable, and model-agnostic.
 
-  > Angle: Port the pattern to other industries: swap studio roles for law firm, clinic, or factory positions and ship an agent orchestration template with review gates,
+  > Angle: The skills themselves are hard to monetize, but a marketplace with version control has room. Target team collaboration,
 
-* **[Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv)** — Debloats Android and Google TV over Wi-Fi, strips ads, and reshapes the home screen into an Apple TV style layout.
+* **[anthropics/skills](https://github.com/anthropics/skills)** — Anthropic's official implementation of agent skills: folders of instructions, scripts, and resources loaded on demand to make recurring tasks repeatable,
 
-  > Angle: A classic one-time pain with high shareability. Turn it into a remote service or a dead-simple local app for non-technical users,
+  > Angle: This is infrastructure and a trend signal. The opportunity sits above the standard: packaging, permission declarations, dependency checks,
 
-[This issue (Markdown)](daily/en/2026-10-30.md)
+* **[jhaizhou-ops/d2r-mobile](https://github.com/jhaizhou-ops/d2r-mobile)** — An open-source compatibility layer that runs your own legally purchased Switch copy of Diablo II Resurrected on iPhone, iPad, Mac, Android, and HarmonyOS,
+
+  > Angle: A trend signal: compatibility layers with bring-your-own-files are becoming a lively if gray engineering niche.
+
+[This issue (Markdown)](daily/en/2026-10-31.md)
 
 ### Archive
 
 #### 2026
 
-**Oct**：[30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
+**Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
 <!-- DIGEST:END -->
 
