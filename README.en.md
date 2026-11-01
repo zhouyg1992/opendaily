@@ -10,65 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Oct 31, 2026 · Sat](daily/en/2026-10-31.md)
+## [Nov 1, 2026 · Sun](daily/en/2026-11-01.md)
 
-> Today's projects share one signal: AI is shifting from chat to actual work, and the stack around it is splitting into layers. Lightweight browser infrastructure, auditable desktop coworkers, and reusable skill packs are all emerging at once.
+> A clear pattern runs through today's picks: the scaffolding around coding agents is maturing faster than the agents themselves. Terminal runtimes, orchestration dashboards, config switchers, even plugins that hand agents free models.
 
 ### AI / Agents
 
-* **[CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot)** — An open-source framework for AI coworkers where each agent gets its own browser, files, and granted tools. Every action is decided before it runs and logged after.
+* **[paperclipai/paperclip](https://github.com/paperclipai/paperclip)** — An open-source app that treats a fleet of AI agents like a team: assign goals per agent, pick models and harnesses, and track tasks, spend,
 
-  > Angle: Enterprises fear agents clicking the wrong thing. The decide-then-log model fits compliance-heavy work like reconciliation or ticket handling,
-
-* **[Orkas-AI/Orkas](https://github.com/Orkas-AI/Orkas)** — A local-first multi-agent desktop app. A commander breaks goals into todos and coordinates 16 built-in specialist agents plus existing coding agents like Claude Code and Codex.
-
-  > Angle: Treating the project rather than the chat as the unit suits long-running delivery work. A vertical package with preconfigured agent teams and workflow…
-
-* **[lfnovo/open-notebook](https://github.com/lfnovo/open-notebook)** — An open-source, privacy-focused alternative to Google's Notebook LM. It runs fully local, supports multiple models,
-
-  > Angle: It fits education, law, and healthcare, where documents cannot leave the building. A local Q&A tool for one document type,
+  > Angle: The angle is cost and permission governance for multi-agent setups. Small teams cannot currently answer who ran what, what it cost, or what it touched;
 
 ### AI Infrastructure / Models
 
-* **[lightpanda-io/browser](https://github.com/lightpanda-io/browser)** — A headless browser written from scratch in Zig for AI agents and automation, not a Chromium fork. It uses roughly 16x less memory and runs about 9x faster than Chrome,
+* **[Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)** — A dsh plugin that exposes frontier models like DeepSeek and Kimi with no signup or API key, free and uncapped, plus an OpenAI-compatible local proxy port.
 
-  > Angle: Browser instances dominate the cost of agent scraping and test automation. A metered rendering service or a drop-in cost cut for existing RPA products is…
-
-* **[NVIDIA-NeMo/Nemotron](https://github.com/NVIDIA-NeMo/Nemotron)** — NVIDIA's developer hub for the Nemotron family, bundling training recipes, cookbooks, datasets, and end-to-end examples.
-
-  > Angle: Open recipes make domain fine-tuning services viable without training from scratch. Target verticals with private data but no tuning capacity,
+  > Angle: Read it as a signal, not a business: free lanes ride on upstream gateways that can vanish. The durable play is model routing and quota management for…
 
 ### Developer Tools / CLI
 
-* **[open-gsd/gsd-core](https://github.com/open-gsd/gsd-core)** — A lightweight meta-prompting and context-engineering framework that drives coding agents like Claude Code, Codex, and Cursor through a disciplined phase loop.
+* **[herdrdev/herdr](https://github.com/herdrdev/herdr)** — A terminal runtime for coding agents that keeps sessions alive in a background server when you close the client or drop SSH, restores layouts after restarts,
 
-  > Angle: Teams already run several agent tools at once, so a cross-tool process layer has demand. Team-level spec and context management solves the rebuild-everything…
+  > Angle: Target long-running agent tasks where a dropped terminal kills the work. A hosted layer for session persistence and remote resume,
+
+* **[farion1231/cc-switch](https://github.com/farion1231/cc-switch)** — A cross-platform desktop app that manages API providers, MCP servers, skills and prompts across Claude Code, Codex, Gemini CLI and others, replacing hand-edited JSON,
+
+  > Angle: Config tooling is hard to monetize alone, but the team version is real: centrally push provider policies, rotate keys, aggregate usage.
+
+* **[tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft)** — An open-source parametric 3D CAD written in pure Rust, running on desktop, in the browser via WASM, with a built-in MCP server so AI agents can model directly.
+
+  > Angle: The opening is vertical packaging around agent-driven modeling: for 3D-printing hobbyists or small hardware teams,
+
+* **[horizon-rust/horizon](https://github.com/horizon-rust/horizon)** — A from-scratch Rust rewrite of Minecraft Java Edition, validated against the original with 300-plus differential harnesses, shipping no Mojang code or assets.
+
+  > Angle: For founders it is a method signal: differential-test-driven rewrites transfer to other closed systems with observable behavior.
 
 ### Frontend / Design
 
-* **[storytold/designcraft](https://github.com/storytold/designcraft)** — A page and layout design editor written from scratch in pure Rust, positioned as modern desktop publishing. It runs natively on three platforms and in the browser via WebAssembly,
+* **[pengchujin/aerial-tv](https://github.com/pengchujin/aerial-tv)** — An open-source Android TV launcher modeled on tvOS: no ads, no recommendation feed, auto-starts on boot, and works on Xiaomi, TCL, Skyworth and similar China-market TVs,
 
-  > Angle: Desktop publishing has long been locked up by Adobe and Affinity with little open source. A narrow print niche such as journals, resumes, or academic posters,
+  > Angle: TV launcher ads are a genuine pain, but pure open source will not pay. The product is a customized launcher for hotels, rentals and showrooms: fixed app sets,
 
 ### Vertical Tools / Skills
 
-* **[mattpocock/skills](https://github.com/mattpocock/skills)** — A senior engineer's public directory of everyday agent skills, deliberately small, composable, and model-agnostic.
+* **[calesthio/OpenMontage](https://github.com/calesthio/OpenMontage)** — Turns a coding assistant into a video studio: describe what you want, and the agent handles research, scripting, asset generation,
 
-  > Angle: The skills themselves are hard to monetize, but a marketplace with version control has room. Target team collaboration,
+  > Angle: Skip generic video tools and own a vertical: e-commerce clips, course intros, localized voiceover.
 
-* **[anthropics/skills](https://github.com/anthropics/skills)** — Anthropic's official implementation of agent skills: folders of instructions, scripts, and resources loaded on demand to make recurring tasks repeatable,
+* **[cjpais/Handy](https://github.com/cjpais/Handy)** — A fully offline, open-source speech-to-text desktop app: hit a shortcut, speak, and words land in any text field without touching the cloud.
 
-  > Angle: This is infrastructure and a trend signal. The opportunity sits above the standard: packaging, permission declarations, dependency checks,
+  > Angle: Aim at privacy-bound sectors: clinics, law firms, defense R&D. The differentiator is not accuracy but self-hosting, auditability and swappable models;
 
-* **[jhaizhou-ops/d2r-mobile](https://github.com/jhaizhou-ops/d2r-mobile)** — An open-source compatibility layer that runs your own legally purchased Switch copy of Diablo II Resurrected on iPhone, iPad, Mac, Android, and HarmonyOS,
+* **[DuarteSantos8/openGym](https://github.com/DuarteSantos8/openGym)** — A self-hosted gym and bodyweight tracker with iPhone, Apple Watch and Android builds: plan routines, log sets, see muscle coverage, and import from Strong, Hevy or FitNotes.
 
-  > Angle: A trend signal: compatibility layers with bring-your-own-files are becoming a lively if gray engineering niche.
+  > Angle: Data migration is the wedge: many users feel locked into subscriptions. Offer a move-your-data plus hosting service,
 
-[This issue (Markdown)](daily/en/2026-10-31.md)
+[This issue (Markdown)](daily/en/2026-11-01.md)
 
 ### Archive
 
 #### 2026
+
+**Nov**：[1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
