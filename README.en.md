@@ -10,67 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 1, 2026 · Sun](daily/en/2026-11-01.md)
+## [Nov 2, 2026 · Mon](daily/en/2026-11-02.md)
 
-> A clear pattern runs through today's picks: the scaffolding around coding agents is maturing faster than the agents themselves. Terminal runtimes, orchestration dashboards, config switchers, even plugins that hand agents free models.
-
-### AI / Agents
-
-* **[paperclipai/paperclip](https://github.com/paperclipai/paperclip)** — An open-source app that treats a fleet of AI agents like a team: assign goals per agent, pick models and harnesses, and track tasks, spend,
-
-  > Angle: The angle is cost and permission governance for multi-agent setups. Small teams cannot currently answer who ran what, what it cost, or what it touched;
+> The clearest signal in today's batch is a shift from capability to accountability. Alongside the usual agent tooling, we see auditors, jailbreak collections, and security operations centers, while inference, dictation, and video editing move onto personal hardware.
 
 ### AI Infrastructure / Models
 
-* **[Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)** — A dsh plugin that exposes frontier models like DeepSeek and Kimi with no signup or API key, free and uncapped, plus an OpenAI-compatible local proxy port.
+* **[FlashML-org/FreeToken](https://github.com/FlashML-org/FreeToken)** — An edge-native MoE serving engine that treats GPUs, CPUs, host memory, and interconnects as one elastic pool, letting gaming PCs run 290B-class open-weight models.
 
-  > Angle: Read it as a signal, not a business: free lanes ride on upstream gateways that can vanish. The durable play is model routing and quota management for…
+  > Angle: Read this as infrastructure signal, not a startup recipe. The reusable idea is treating heterogeneous consumer hardware as an inference cluster;
+
+* **[togg53192-cmd/jailbreaks](https://github.com/togg53192-cmd/jailbreaks)** — A collection of 32 paste-ready system prompts, persona locks, and agent operating specs covering 26+ models. It is not a product,
+
+  > Angle: Treat it as a signal that prompts and agent specs need versioning, evaluation, and access control.
 
 ### Developer Tools / CLI
 
-* **[herdrdev/herdr](https://github.com/herdrdev/herdr)** — A terminal runtime for coding agents that keeps sessions alive in a background server when you close the client or drop SSH, restores layouts after restarts,
+* **[D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling)** — A Python scraping framework bundling HTTP fetching, stealth browsers, parsing, concurrent crawling, and proxy rotation in one library, callable by AI agents through an MCP server.
 
-  > Angle: Target long-running agent tasks where a dropped terminal kills the work. A hosted layer for session persistence and remote resume,
+  > Angle: The opening is vertical data pipelines: wrap one industry's sources (jobs, real estate, prices) behind its MCP interface so agents can query them directly.
 
-* **[farion1231/cc-switch](https://github.com/farion1231/cc-switch)** — A cross-platform desktop app that manages API providers, MCP servers, skills and prompts across Claude Code, Codex, Gemini CLI and others, replacing hand-edited JSON,
+* **[anomalyco/hex](https://github.com/anomalyco/hex)** — Local voice dictation for Mac, Windows, and Linux: hold a key, speak, release, and the text is pasted. Transcription stays on-device after the first model download,
 
-  > Angle: Config tooling is hard to monetize alone, but the team version is real: centrally push provider policies, rotate keys, aggregate usage.
+  > Angle: Avoid generic dictation and build a vertical voice input layer instead: terminology-tuned versions for clinicians or lawyers,
 
-* **[tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft)** — An open-source parametric 3D CAD written in pure Rust, running on desktop, in the browser via WASM, with a built-in MCP server so AI agents can model directly.
+### Data / Infrastructure
 
-  > Angle: The opening is vertical packaging around agent-driven modeling: for 3D-printing hobbyists or small hardware teams,
+* **[0xJacky/nginx-ui](https://github.com/0xJacky/nginx-ui)** — A web UI for Nginx covering config editing, Let's Encrypt certificates, cron jobs, and an MCP server, letting operators who avoid the command line manage sites.
 
-* **[horizon-rust/horizon](https://github.com/horizon-rust/horizon)** — A from-scratch Rust rewrite of Minecraft Java Edition, validated against the original with 300-plus differential harnesses, shipping no Mojang code or assets.
+  > Angle: Use it as the entry point for managed ops: package nginx-ui for small businesses and indie developers as one-click site launch, certificate renewal,
 
-  > Angle: For founders it is a method signal: differential-test-driven rewrites transfer to other closed systems with observable behavior.
+### Security / Privacy
 
-### Frontend / Design
+* **[ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi)** — An independent auditor for AI agents that checks whether they act within their intended goals, permissions, and business boundaries.
 
-* **[pengchujin/aerial-tv](https://github.com/pengchujin/aerial-tv)** — An open-source Android TV launcher modeled on tvOS: no ads, no recommendation feed, auto-starts on boot, and works on Xiaomi, TCL, Skyworth and similar China-market TVs,
-
-  > Angle: TV launcher ads are a genuine pain, but pure open source will not pay. The product is a customized launcher for hotels, rentals and showrooms: fixed app sets,
+  > Angle: Target regulated SMBs by turning audit output into a compliance-ready artifact rather than another dev debug panel.
 
 ### Vertical Tools / Skills
 
-* **[calesthio/OpenMontage](https://github.com/calesthio/OpenMontage)** — Turns a coding assistant into a video studio: describe what you want, and the agent handles research, scripting, asset generation,
+* **[jub0t/Concat](https://github.com/jub0t/Concat)** — A local-first, cross-platform video editor in Rust positioned as an open-source CapCut alternative, scriptable via JSON-RPC and MCP.
 
-  > Angle: Skip generic video tools and own a vertical: e-commerce clips, course intros, localized voiceover.
+  > Angle: Use its MCP surface to build batch short-video production for e-commerce and independent creators: templates, captions, and music as agent-callable steps.
 
-* **[cjpais/Handy](https://github.com/cjpais/Handy)** — A fully offline, open-source speech-to-text desktop app: hit a shortcut, speak, and words land in any text field without touching the cloud.
+* **[T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops)** — A DSH plugin that adds ops-style tools and hides some official ones to cut token usage and task time, covering Bash, batch file operations, and progressive tool loading.
 
-  > Angle: Aim at privacy-bound sectors: clinics, law firms, defense R&D. The differentiator is not accuracy but self-hosting, auditability and swappable models;
+  > Angle: A niche tool that signals cost optimization inside agent runtimes becoming its own category. Borrow the idea for a cross-harness token budget layer that shows…
 
-* **[DuarteSantos8/openGym](https://github.com/DuarteSantos8/openGym)** — A self-hosted gym and bodyweight tracker with iPhone, Apple Watch and Android builds: plan routines, log sets, see muscle coverage, and import from Strong, Hevy or FitNotes.
+* **[guohuiyuan/go-music-dl](https://github.com/guohuiyuan/go-music-dl)** — A Go-based multi-platform music search and download tool covering ten-plus sources including NetEase, QQ, Kugou, and Bilibili, with CLI, web, TUI,
 
-  > Angle: Data migration is the wedge: many users feel locked into subscriptions. Offer a move-your-data plus hosting service,
+  > Angle: The standalone tool is hard to monetize, but the multi-source aggregation and unified metadata layer could be sold to local media library or in-car music…
 
-[This issue (Markdown)](daily/en/2026-11-01.md)
+### 学习资源 / 其他
+
+* **[public-apis/public-apis](https://github.com/public-apis/public-apis)** — A collective list of free APIs
+
+[This issue (Markdown)](daily/en/2026-11-02.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[1](daily/en/2026-11-01.md)
+**Nov**：[2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 

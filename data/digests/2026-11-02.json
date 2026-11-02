@@ -1,0 +1,332 @@
+{
+  "date": "2026-11-02",
+  "generated_at": "2026-11-02T02:13:28+00:00",
+  "intro": {
+    "zh": "今天这批项目里，最清晰的信号是：AI 正在从「能做什么」转向「怎么被信任、怎么被管住」。一边是审计、越狱、安全运营中心这类治理工具冒头，另一边是本地推理、本地听写、本地视频编辑把能力往个人设备上搬。对创业者来说，机会不在再做一个 agent，而在 agent 跑起来之后那些没人愿意干的脏活。",
+    "en": "The clearest signal in today's batch is a shift from capability to accountability. Alongside the usual agent tooling, we see auditors, jailbreak collections, and security operations centers, while inference, dictation, and video editing move onto personal hardware."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "FlashML-org/FreeToken",
+      "url": "https://github.com/FlashML-org/FreeToken",
+      "content": {
+        "zh": {
+          "summary": "面向消费级硬件的 MoE 推理引擎，把 GPU、CPU、主机内存和互联当成统一资源池，让游戏 PC 也能跑 290B 级别的开源 MoE 模型。它回应的是「前沿模型权重开放了，但普通人跑不动」的落差。",
+          "insight": "更适合作为基础设施信号而非直接创业点：真正可借的是「把异构消费硬件当推理集群」这个思路，可以往家庭或小工作室的多机推理调度上做，而不是再包一层聊天界面。"
+        },
+        "en": {
+          "summary": "An edge-native MoE serving engine that treats GPUs, CPUs, host memory, and interconnects as one elastic pool, letting gaming PCs run 290B-class open-weight models.",
+          "insight": "Read this as infrastructure signal, not a startup recipe. The reusable idea is treating heterogeneous consumer hardware as an inference cluster;"
+        }
+      },
+      "description": "FreeToken brings datacenter-scale model serving to your desktop. Run massive models locally, fast and efficiently.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 15450,
+      "stars_today": 242,
+      "topics": [
+        "deepseek-v4",
+        "edge",
+        "glm",
+        "inference",
+        "minimax",
+        "moe",
+        "qwen",
+        "transformer"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.18
+    },
+    {
+      "repo": "togg53192-cmd/jailbreaks",
+      "url": "https://github.com/togg53192-cmd/jailbreaks",
+      "content": {
+        "zh": {
+          "summary": "一个收集了 32 套系统提示、人格锁定和 agent 操作规范的仓库，覆盖 26 个以上模型，全部可直接粘贴使用。它本身不是产品，但暴露了提示词工程正在沉淀为可复用的配置资产。",
+          "insight": "把它当趋势信号：提示词和 agent 规范需要版本管理、评测和权限控制。机会在于给团队做「提示词配置的 CI」，而不是再收集更多 jailbreak。"
+        },
+        "en": {
+          "summary": "A collection of 32 paste-ready system prompts, persona locks, and agent operating specs covering 26+ models. It is not a product,",
+          "insight": "Treat it as a signal that prompts and agent specs need versioning, evaluation, and access control."
+        }
+      },
+      "description": "LIST OF ALL MY JAILBREAKS",
+      "category": "AI 基础设施 / 模型",
+      "language": "",
+      "stars": 13007,
+      "stars_today": 726,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.69
+    },
+    {
+      "repo": "D4Vinci/Scrapling",
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "content": {
+        "zh": {
+          "summary": "一个 Python 爬虫框架，把 HTTP 请求、隐身浏览器、解析、并发爬取和代理轮换收进同一个库，还能通过 MCP server 让 AI agent 直接调用。它解决的是「静态页和 JS 渲染页要写两套代码」的老问题。",
+          "insight": "机会在垂直数据管道：用它的 MCP 接口把某个行业的数据源（招聘、房产、电商价格）封装成 agent 可直接查询的服务，卖的是稳定性和反封策略，不是爬虫库本身。"
+        },
+        "en": {
+          "summary": "A Python scraping framework bundling HTTP fetching, stealth browsers, parsing, concurrent crawling, and proxy rotation in one library, callable by AI agents through an MCP server.",
+          "insight": "The opening is vertical data pipelines: wrap one industry's sources (jobs, real estate, prices) behind its MCP interface so agents can query them directly."
+        }
+      },
+      "description": "🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev",
+      "category": "开发工具 / CLI",
+      "language": "Python",
+      "stars": 91798,
+      "stars_today": 892,
+      "topics": [
+        "ai",
+        "ai-scraping",
+        "automation",
+        "crawler",
+        "crawling",
+        "crawling-python",
+        "data",
+        "data-extraction",
+        "mcp",
+        "mcp-server"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 46.78
+    },
+    {
+      "repo": "anomalyco/hex",
+      "url": "https://github.com/anomalyco/hex",
+      "content": {
+        "zh": {
+          "summary": "Mac、Windows、Linux 上的本地语音听写工具，按住快捷键说话，松手即粘贴，转录全部在设备上完成，首次下载模型后不再联网。它解决的是云端听写工具的隐私顾虑和延迟问题。",
+          "insight": "不要做通用听写，做垂直场景的「语音输入层」：比如面向医生、律师的术语增强版，或把听写结果直接结构化成工单字段，差异在领域词表和下游集成。"
+        },
+        "en": {
+          "summary": "Local voice dictation for Mac, Windows, and Linux: hold a key, speak, release, and the text is pasted. Transcription stays on-device after the first model download,",
+          "insight": "Avoid generic dictation and build a vertical voice input layer instead: terminology-tuned versions for clinicians or lawyers,"
+        }
+      },
+      "description": "Local voice dictation for mac, windows and linux",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 3355,
+      "stars_today": 1179,
+      "topics": [
+        "dictation",
+        "linux",
+        "local-first",
+        "macos",
+        "rust",
+        "speech-recognition",
+        "speech-to-text",
+        "voice-control"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.15
+    },
+    {
+      "repo": "0xJacky/nginx-ui",
+      "url": "https://github.com/0xJacky/nginx-ui",
+      "content": {
+        "zh": {
+          "summary": "给 Nginx 做的 Web 管理界面，支持配置编辑、Let's Encrypt 证书、定时任务和 MCP server，让不熟悉命令行的运维也能管理站点。它填补的是 Nginx 强大但配置门槛高之间的空隙。",
+          "insight": "适合做托管运维的入口：面向小企业和独立开发者，把 nginx-ui 包成「站点上线 + 证书续期 + 备份」的一键服务，卖的是省心而不是面板功能。"
+        },
+        "en": {
+          "summary": "A web UI for Nginx covering config editing, Let's Encrypt certificates, cron jobs, and an MCP server, letting operators who avoid the command line manage sites.",
+          "insight": "Use it as the entry point for managed ops: package nginx-ui for small businesses and indie developers as one-click site launch, certificate renewal,"
+        }
+      },
+      "description": "Yet another WebUI for Nginx",
+      "category": "数据 / 基础设施",
+      "language": "Go",
+      "stars": 11728,
+      "stars_today": 32,
+      "topics": [
+        "code-completion",
+        "copilot",
+        "cron",
+        "docker",
+        "go",
+        "letsencrypt",
+        "linux",
+        "macos",
+        "mcp",
+        "mcp-server"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.22
+    },
+    {
+      "repo": "ifixai-ai/iFixAi",
+      "url": "https://github.com/ifixai-ai/iFixAi",
+      "content": {
+        "zh": {
+          "summary": "一个独立的 AI agent 审计工具，检查 agent 是否按预期目标、权限和业务边界行事，支持人工或 agent 自检，几分钟内给出诊断结果。随着 agent 进入生产环境，企业需要能向合规和老板解释「它没乱来」的证据。",
+          "insight": "适合切受监管行业的中小团队：把审计报告做成可交付的合规附件，而不是又一个开发者调试面板。和通用 eval 框架的差别在于它盯的是权限越界和组织意图，不是模型分数。"
+        },
+        "en": {
+          "summary": "An independent auditor for AI agents that checks whether they act within their intended goals, permissions, and business boundaries.",
+          "insight": "Target regulated SMBs by turning audit output into a compliance-ready artifact rather than another dev debug panel."
+        }
+      },
+      "description": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.",
+      "category": "安全 / 隐私",
+      "language": "Python",
+      "stars": 42529,
+      "stars_today": 1584,
+      "topics": [
+        "agent-evaluation",
+        "ai",
+        "ai-alignment",
+        "ai-evaluation",
+        "ai-governance",
+        "ai-safety",
+        "cli",
+        "diagnostic-tool",
+        "eu-ai-act",
+        "hallucination-detection"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 45.77
+    },
+    {
+      "repo": "jub0t/Concat",
+      "url": "https://github.com/jub0t/Concat",
+      "content": {
+        "zh": {
+          "summary": "用 Rust 写的本地优先、跨平台视频编辑器，定位是 CapCut 的开源替代，支持 JSON-RPC API 和 MCP，可脚本化操作。它瞄准的是不想把素材上传云端、又嫌专业剪辑软件太重的创作者。",
+          "insight": "借它的 MCP 接口做「批量短视频生产」：面向电商和自媒体，把模板、字幕、配乐做成可被 agent 调用的流水线，卖的是产能而不是编辑器功能。"
+        },
+        "en": {
+          "summary": "A local-first, cross-platform video editor in Rust positioned as an open-source CapCut alternative, scriptable via JSON-RPC and MCP.",
+          "insight": "Use its MCP surface to build batch short-video production for e-commerce and independent creators: templates, captions, and music as agent-callable steps."
+        }
+      },
+      "description": "The truly free, open-source, local-first, cross-platform CapCut replacement. Scriptable through a JSON-RPC API & MCP.",
+      "category": "Skill / 垂直工具",
+      "language": "Rust",
+      "stars": 13583,
+      "stars_today": 416,
+      "topics": [
+        "ffmpeg",
+        "free-video-editor",
+        "model-context-protocol",
+        "non-linear-editor",
+        "offline-first",
+        "open-source-video-editor",
+        "self-hosted",
+        "video-editing",
+        "video-editing-automation",
+        "video-editing-software"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.2
+    },
+    {
+      "repo": "T-Auto/dsh-ops",
+      "url": "https://github.com/T-Auto/dsh-ops",
+      "content": {
+        "zh": {
+          "summary": "一个 DSH 插件，通过新增 ops 系列工具并隐藏部分官方工具来降低 token 消耗和任务耗时，覆盖 Bash、文件批处理和渐进式工具加载。它反映的是 agent 用户开始为「每次调用的成本」而不是「能力上限」买单。",
+          "insight": "这是典型的生态位工具，说明 agent 运行时的成本优化正在变成独立品类。可以借它的思路做跨 harness 的 token 预算层，帮团队看清哪个环节在烧钱。"
+        },
+        "en": {
+          "summary": "A DSH plugin that adds ops-style tools and hides some official ones to cut token usage and task time, covering Bash, batch file operations, and progressive tool loading.",
+          "insight": "A niche tool that signals cost optimization inside agent runtimes becoming its own category. Borrow the idea for a cross-harness token budget layer that shows…"
+        }
+      },
+      "description": "A toolkit for low-level operations in DSH, designed to reduce token usage and task execution time / DSH 底层操作工具插件，旨在减少 Token 消耗与任务耗时",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 5007,
+      "stars_today": 0,
+      "topics": [
+        "dsh",
+        "dsh-plugin",
+        "dsh-plugins"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 28.2
+    },
+    {
+      "repo": "guohuiyuan/go-music-dl",
+      "url": "https://github.com/guohuiyuan/go-music-dl",
+      "content": {
+        "zh": {
+          "summary": "Go 写的多平台音乐搜索与下载工具，覆盖网易云、QQ、酷狗、Bilibili 等十个以上来源，支持 CLI、Web、TUI 和桌面端，还能并发搜索和无损解析。它满足的是跨平台找歌、批量整理本地曲库的需求。",
+          "insight": "单机工具很难直接变现，但「多源聚合 + 统一元数据」这层能力可以卖给做本地媒体库或车载音乐的产品，省掉他们逐个平台对接的维护成本。"
+        },
+        "en": {
+          "summary": "A Go-based multi-platform music search and download tool covering ten-plus sources including NetEase, QQ, Kugou, and Bilibili, with CLI, web, TUI,",
+          "insight": "The standalone tool is hard to monetize, but the multi-source aggregation and unified metadata layer could be sold to local media library or in-car music…"
+        }
+      },
+      "description": "一个基于 Go 语言的全网音乐搜索与下载工具。支持 CLI 命令行与 Web 服务双模式，内置网易云、QQ、酷狗、Bilibili、汽水音乐等 10+ 个主流平台，支持多源并发搜索与无损音质解析。music-dl交流群：755087923",
+      "category": "Skill / 垂直工具",
+      "language": "Go",
+      "stars": 5789,
+      "stars_today": 32,
+      "topics": [
+        "go",
+        "music"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 24.38
+    },
+    {
+      "repo": "public-apis/public-apis",
+      "url": "https://github.com/public-apis/public-apis",
+      "content": {
+        "zh": {
+          "summary": "A collective list of free APIs",
+          "insight": ""
+        },
+        "en": {
+          "summary": "A collective list of free APIs",
+          "insight": ""
+        }
+      },
+      "description": "A collective list of free APIs",
+      "category": "学习资源 / 其他",
+      "language": "Python",
+      "stars": 494685,
+      "stars_today": 324,
+      "topics": [
+        "api",
+        "apis",
+        "dataset",
+        "development",
+        "free",
+        "list",
+        "lists",
+        "open-source",
+        "public",
+        "public-api"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.1
+    }
+  ]
+}

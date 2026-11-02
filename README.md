@@ -11,67 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.01 · 周日](daily/zh/2026-11-01.md)
+## [2026.11.02 · 周一](daily/zh/2026-11-02.md)
 
-> 今天这批项目透露出一个共同信号：围绕编程 agent 的周边配套正在快速成型。有人做终端运行时，有人做多 agent 编排面板，有人做配置切换器，还有人直接给 agent 塞免费模型。模型能力本身不再是稀缺品，稀缺的是让 agent 稳定干活的那层壳，以及围绕它形成的真实使用场景。
-
-### AI / Agent 工具
-
-* **[paperclipai/paperclip](https://github.com/paperclipai/paperclip)** — 把多个 AI agent 当成一个团队来管的开源应用：给每个 agent 分配目标、选模型和 harness，在一个面板里看任务、成本、权限和历史。定位是 agent 的「公司管理层」，不是单个 agent 的壳。
-
-  > 灵感：适合做多 agent 协作的成本与权限治理。切中小团队：谁在跑什么、花了多少、能碰哪些系统，这些现在基本靠人肉盯，做成一键合规报表就有价值。
+> 今天这批项目里，最清晰的信号是：AI 正在从「能做什么」转向「怎么被信任、怎么被管住」。一边是审计、越狱、安全运营中心这类治理工具冒头，另一边是本地推理、本地听写、本地视频编辑把能力往个人设备上搬。对创业者来说，机会不在再做一个 agent，而在 agent 跑起来之后那些没人愿意干的脏活。
 
 ### AI 基础设施 / 模型
 
-* **[Ebony-Vinyl/dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)** — 一个 dsh 插件，装上后无需注册或 API Key 就能调用 DeepSeek、Kimi 等前沿模型，免费不限量，并附带 OpenAI 兼容的本地转发端口。它揭示了免费模型车道正在成为 agent 生态的入口。
+* **[FlashML-org/FreeToken](https://github.com/FlashML-org/FreeToken)** — 面向消费级硬件的 MoE 推理引擎，把 GPU、CPU、主机内存和互联当成统一资源池，让游戏 PC 也能跑 290B 级别的开源 MoE 模型。它回应的是「前沿模型权重开放了，但普通人跑不动」的落差。
 
-  > 灵感：这更像趋势信号而非生意：免费通道依赖上游网关，随时可能变。真正可做的是给企业提供「免费车道 + 付费兜底」的模型路由与配额管理，把不确定性挡在外面。
+  > 灵感：更适合作为基础设施信号而非直接创业点：真正可借的是「把异构消费硬件当推理集群」这个思路，可以往家庭或小工作室的多机推理调度上做，而不是再包一层聊天界面。
+
+* **[togg53192-cmd/jailbreaks](https://github.com/togg53192-cmd/jailbreaks)** — 一个收集了 32 套系统提示、人格锁定和 agent 操作规范的仓库，覆盖 26 个以上模型，全部可直接粘贴使用。它本身不是产品，但暴露了提示词工程正在沉淀为可复用的配置资产。
+
+  > 灵感：把它当趋势信号：提示词和 agent 规范需要版本管理、评测和权限控制。机会在于给团队做「提示词配置的 CI」，而不是再收集更多 jailbreak。
 
 ### 开发工具 / CLI
 
-* **[herdrdev/herdr](https://github.com/herdrdev/herdr)** — 给编程 agent 用的终端运行时：关掉客户端或断掉 SSH，后台服务里的会话继续跑，重启后还能恢复布局并续上支持的 agent 会话。多台机器的本地和远程工作也能收进一个窗口统一管理。
+* **[D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling)** — 一个 Python 爬虫框架，把 HTTP 请求、隐身浏览器、解析、并发爬取和代理轮换收进同一个库，还能通过 MCP server 让 AI agent 直接调用。它解决的是「静态页和 JS 渲染页要写两套代码」的老问题。
 
-  > 灵感：切「agent 长时间跑任务」这个场景：现在的痛点是终端一断任务就死。可以围绕会话持久化和远程恢复做托管服务，或给团队做 agent 运行审计。
+  > 灵感：机会在垂直数据管道：用它的 MCP 接口把某个行业的数据源（招聘、房产、电商价格）封装成 agent 可直接查询的服务，卖的是稳定性和反封策略，不是爬虫库本身。
 
-* **[farion1231/cc-switch](https://github.com/farion1231/cc-switch)** — 跨平台桌面工具，统一管理 Claude Code、Codex、Gemini CLI 等多个编程 agent 的 API 供应商、MCP、技能和提示词，省去手改 JSON/TOML/YAML 配置。解决的是多 agent 并存后配置碎片化的问题。
+* **[anomalyco/hex](https://github.com/anomalyco/hex)** — Mac、Windows、Linux 上的本地语音听写工具，按住快捷键说话，松手即粘贴，转录全部在设备上完成，首次下载模型后不再联网。它解决的是云端听写工具的隐私顾虑和延迟问题。
 
-  > 灵感：配置管理本身难变现，但可以往团队方向走：集中下发供应商策略、密钥轮换、用量归集。切那些同时用三四个 agent 又要求合规的中型研发团队。
+  > 灵感：不要做通用听写，做垂直场景的「语音输入层」：比如面向医生、律师的术语增强版，或把听写结果直接结构化成工单字段，差异在领域词表和下游集成。
 
-* **[tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft)** — 纯 Rust 写的开源参数化 3D CAD，桌面、浏览器、WASM 都能跑，内置 MCP 服务器让 AI agent 直接建模。把传统上笨重昂贵的 CAD 变成可脚本化、可被 agent 调用的工具。
+### 数据 / 基础设施
 
-  > 灵感：机会在「agent 建模」的垂直封装：面向 3D 打印爱好者或小批量硬件团队，把常用零件参数化，用户说需求、agent 改尺寸出 STEP，比通用 CAD 更省事。
+* **[0xJacky/nginx-ui](https://github.com/0xJacky/nginx-ui)** — 给 Nginx 做的 Web 管理界面，支持配置编辑、Let's Encrypt 证书、定时任务和 MCP server，让不熟悉命令行的运维也能管理站点。它填补的是 Nginx 强大但配置门槛高之间的空隙。
 
-* **[horizon-rust/horizon](https://github.com/horizon-rust/horizon)** — 用 Rust 从零重写 Minecraft Java 版，靠三百多个差分测试对照原版校验世界生成和规则，不含任何原版代码或素材，需要用户自备正版。它证明了大型游戏逻辑可以被干净地重新实现。
+  > 灵感：适合做托管运维的入口：面向小企业和独立开发者，把 nginx-ui 包成「站点上线 + 证书续期 + 备份」的一键服务，卖的是省心而不是面板功能。
 
-  > 灵感：对创业者是技术信号：差分测试驱动的重写方法可迁移到其他闭源但有行为规范的系统。对社区是性能机会，围绕低配设备和服务器端优化做托管更有戏。
+### 安全 / 隐私
 
-### 前端 / 设计
+* **[ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi)** — 一个独立的 AI agent 审计工具，检查 agent 是否按预期目标、权限和业务边界行事，支持人工或 agent 自检，几分钟内给出诊断结果。随着 agent 进入生产环境，企业需要能向合规和老板解释「它没乱来」的证据。
 
-* **[pengchujin/aerial-tv](https://github.com/pengchujin/aerial-tv)** — 参照 tvOS 设计的开源 Android TV 桌面，无广告无推荐流，开机自动接管，适配小米、TCL、创维等国产电视。还支持手机扫码整理图标、航拍屏保和自定义壁纸。
-
-  > 灵感：国产电视桌面广告是真实痛点，但纯开源难收钱。可做的是面向酒店、民宿、展厅的定制桌面：统一应用集、远程配置、品牌壁纸，按设备收部署费。
+  > 灵感：适合切受监管行业的中小团队：把审计报告做成可交付的合规附件，而不是又一个开发者调试面板。和通用 eval 框架的差别在于它盯的是权限越界和组织意图，不是模型分数。
 
 ### Skill / 垂直工具
 
-* **[calesthio/OpenMontage](https://github.com/calesthio/OpenMontage)** — 把 AI 编程助手改造成视频制作室：用自然语言描述需求，agent 负责调研、写脚本、生成素材、剪辑和合成，内置多条制作管线和大量技能文件。本质是把视频生产流程拆成 agent 可执行的步骤。
+* **[jub0t/Concat](https://github.com/jub0t/Concat)** — 用 Rust 写的本地优先、跨平台视频编辑器，定位是 CapCut 的开源替代，支持 JSON-RPC API 和 MCP，可脚本化操作。它瞄准的是不想把素材上传云端、又嫌专业剪辑软件太重的创作者。
 
-  > 灵感：别再做通用视频工具，切垂直品类：电商短视频、课程片头、本地化配音。差异在于把行业模板和素材规范固化进管线，让非专业用户一次出片。
+  > 灵感：借它的 MCP 接口做「批量短视频生产」：面向电商和自媒体，把模板、字幕、配乐做成可被 agent 调用的流水线，卖的是产能而不是编辑器功能。
 
-* **[cjpais/Handy](https://github.com/cjpais/Handy)** — 完全离线的开源语音转文字桌面应用：按快捷键说话，文字直接落到任意输入框，全程不联网。它填补的是真正可扩展、免费、隐私优先的听写工具空缺。
+* **[T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops)** — 一个 DSH 插件，通过新增 ops 系列工具并隐藏部分官方工具来降低 token 消耗和任务耗时，覆盖 Bash、文件批处理和渐进式工具加载。它反映的是 agent 用户开始为「每次调用的成本」而不是「能力上限」买单。
 
-  > 灵感：切隐私敏感行业：医疗、法律、律所记录，或涉密研发。差异不是识别率，而是可自托管、可审计、可换模型，卖的是部署和合规而不是软件本身。
+  > 灵感：这是典型的生态位工具，说明 agent 运行时的成本优化正在变成独立品类。可以借它的思路做跨 harness 的 token 预算层，帮团队看清哪个环节在烧钱。
 
-* **[DuarteSantos8/openGym](https://github.com/DuarteSantos8/openGym)** — 开源自托管的健身与自重训练记录应用，有 iPhone、Apple Watch 和 Android 版本，能规划训练、记录动作、看肌肉覆盖，并支持从 Strong、Hevy 等导入数据。一个 docker compose 就能跑，数据在自己手里。
+* **[guohuiyuan/go-music-dl](https://github.com/guohuiyuan/go-music-dl)** — Go 写的多平台音乐搜索与下载工具，覆盖网易云、QQ、酷狗、Bilibili 等十个以上来源，支持 CLI、Web、TUI 和桌面端，还能并发搜索和无损解析。它满足的是跨平台找歌、批量整理本地曲库的需求。
 
-  > 灵感：健身数据迁移是现成入口：很多人被订阅制锁住。可以做「数据搬家 + 自托管托管」服务，或面向私教的多人训练管理，按教练而非按用户收费。
+  > 灵感：单机工具很难直接变现，但「多源聚合 + 统一元数据」这层能力可以卖给做本地媒体库或车载音乐的产品，省掉他们逐个平台对接的维护成本。
 
-[本期 Markdown](daily/zh/2026-11-01.md)
+### 学习资源 / 其他
+
+* **[public-apis/public-apis](https://github.com/public-apis/public-apis)** — A collective list of free APIs
+
+[本期 Markdown](daily/zh/2026-11-02.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[1](daily/zh/2026-11-01.md)
+**11 月**：[2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
