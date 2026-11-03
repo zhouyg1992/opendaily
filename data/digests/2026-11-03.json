@@ -1,0 +1,297 @@
+{
+  "date": "2026-11-03",
+  "generated_at": "2026-11-03T03:53:00+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个共同信号：围绕 AI 的竞争正从「谁的模型更强」转向「谁把模型接进真实工作流」。网关、桌面操作、技能分发、安全审计都在补同一块短板——让 agent 可靠地跑在既有工具和数据上，而不是停在演示里。",
+    "en": "Today's projects share one signal: the fight around AI has moved from model quality to wiring models into real workflows. Gateways, desktop control, skill distribution and audit trails all address the same gap, making agents dependable inside existing tools and data instead of demo-only."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "vercel-labs/agent-desktop",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "content": {
+        "zh": {
+          "summary": "用操作系统无障碍树让 AI agent 读写桌面应用，返回带 ref 的 JSON 快照，agent 按 ref 操作再重新快照校验，不依赖像素匹配，跨 macOS、Windows、Linux。",
+          "insight": "适合切企业内部的遗留桌面软件自动化：那些没有 API 的 ERP、财务客户端，可以用它做一层 agent 适配，比 RPA 的坐标点击稳得多。"
+        },
+        "en": {
+          "summary": "Lets AI agents read and drive desktop apps through the OS accessibility tree, returning JSON snapshots with refs;",
+          "insight": "A strong fit for automating legacy desktop software inside enterprises, such as ERP or finance clients with no API,"
+        }
+      },
+      "description": "Computer use CLI for AI agents",
+      "category": "AI / Agent 工具",
+      "language": "Rust",
+      "stars": 10296,
+      "stars_today": 2275,
+      "topics": [
+        "accessibility",
+        "accessibility-api",
+        "ai-agents",
+        "automation",
+        "cli",
+        "computer-use",
+        "computer-use-agent",
+        "computer-use-agents",
+        "desktop-automation",
+        "macos"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 42.08
+    },
+    {
+      "repo": "vercel-labs/skills",
+      "url": "https://github.com/vercel-labs/skills",
+      "content": {
+        "zh": {
+          "summary": "面向 agent 技能生态的 CLI，用 npx 把可复用的指令包安装到 Claude Code、Codex、Cursor 等 75 种以上编码 agent 中，支持项目级和全局安装。",
+          "insight": "技能正在变成可分发的软件包，缺的是版本管理、私有源和团队策略。可以做一个企业内部技能仓库，控制谁能装什么、何时更新。"
+        },
+        "en": {
+          "summary": "A CLI for the agent skills ecosystem that installs reusable instruction packs into Claude Code, Codex, Cursor and 75+ coding agents via npx, at project or global scope.",
+          "insight": "Skills are becoming distributable packages, and what is missing is versioning, private registries and team policy."
+        }
+      },
+      "description": "The open agent skills tool - npx skills",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 37827,
+      "stars_today": 244,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.57
+    },
+    {
+      "repo": "deepseek-ai/dsh-superagent-prototype",
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "content": {
+        "zh": {
+          "summary": "DeepSeek 放出的自主 agent 系统研究原型，明确标注非官方产品、仅供研究参考，代码大量由编码 agent 完成，工程规范并不统一。",
+          "insight": "更适合当作趋势信号而非基础设施：它说明头部实验室正把 agent 自我开发当作日常，值得读的是任务分解与自我校验的设计取舍。"
+        },
+        "en": {
+          "summary": "A research prototype of an autonomous agent system from DeepSeek, explicitly not an official product and not production-ready,",
+          "insight": "Treat it as a trend signal rather than infrastructure: top labs now use agents to build agents. The value is in reading its task decomposition and…"
+        }
+      },
+      "description": "Towards a More Autonomous Agent System",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 13958,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 32.87
+    },
+    {
+      "repo": "cheaper-inference/OmniRoute",
+      "url": "https://github.com/cheaper-inference/OmniRoute",
+      "content": {
+        "zh": {
+          "summary": "一个 MIT 协议的 AI 网关，把 375 家提供商、1400 多个模型收敛到单一端点，支持配额感知的自动降级和 token 压缩，可直接接入 Claude Code、Cursor 等编码工具。",
+          "insight": "机会不在再做一个网关，而在「成本与配额可视化」这一层：帮团队看清每个 agent 实际烧了哪家额度、何时该切换，做成面向工程负责人的账单与路由面板。"
+        },
+        "en": {
+          "summary": "An MIT-licensed AI gateway that collapses 375 providers and 1,400+ models behind one endpoint, with quota-aware fallback and token compression,",
+          "insight": "The opening is not another gateway but spend visibility: show teams which provider each agent actually burns and when to switch,"
+        }
+      },
+      "description": "Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ contributors",
+      "category": "AI 基础设施 / 模型",
+      "language": "TypeScript",
+      "stars": 84016,
+      "stars_today": 402,
+      "topics": [
+        "a2a",
+        "ai-agents",
+        "ai-gateway",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "cline",
+        "codex",
+        "copilot",
+        "cursor"
+      ],
+      "sources": [
+        "trending",
+        "search"
+      ],
+      "score": 42.6
+    },
+    {
+      "repo": "karpathy/nanochat",
+      "url": "https://github.com/karpathy/nanochat",
+      "content": {
+        "zh": {
+          "summary": "一个极简的 LLM 训练实验框架，单 GPU 节点跑通分词、预训练、微调、评测和推理全流程，几十美元就能训出 GPT-2 水平的模型并用 CLI 对话。",
+          "insight": "适合做教学与内部培训产品：把「从零训一个模型」压缩成一天工作坊，卖给想建立模型直觉的工程团队，而不是又一个大模型平台。"
+        },
+        "en": {
+          "summary": "A minimal LLM training harness that runs tokenization, pretraining, finetuning, evaluation and inference on a single GPU node,",
+          "insight": "Best as a teaching product: package end-to-end model training into a one-day workshop for engineering teams that want intuition about LLMs,"
+        }
+      },
+      "description": "The best ChatGPT that $100 can buy.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 59972,
+      "stars_today": 321,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 36.69
+    },
+    {
+      "repo": "herdrdev/herdr-app",
+      "url": "https://github.com/herdrdev/herdr-app",
+      "content": {
+        "zh": {
+          "summary": "面向终端和编码 agent 的桌面应用，用空间组织工作，能一眼看出哪个 agent 在等你，关掉窗口后终端继续运行，支持 Linux 和 Apple Silicon macOS。",
+          "insight": "切的是「同时跑多个 agent 后失去掌控感」这个痛点。可以沿着团队协作方向做：共享会话、交接未完成任务，而不只是个人终端管理器。"
+        },
+        "en": {
+          "summary": "A desktop app for terminals and coding agents that organizes work into spaces, shows which agent needs you, and keeps terminals running after the window closes,",
+          "insight": "It targets the loss of control when running many agents at once. The next step is team collaboration: shared sessions and handoff of unfinished tasks,"
+        }
+      },
+      "description": "herdr desktop app",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 1670,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "hn"
+      ],
+      "score": 30.34
+    },
+    {
+      "repo": "storytold/gridcraft",
+      "url": "https://github.com/storytold/gridcraft",
+      "content": {
+        "zh": {
+          "summary": "纯 Rust 编写的开源电子表格，干净室实现，原生跑在 macOS、Windows、Linux 和 BSD，也能通过 WebAssembly 在浏览器里运行，支持图表和条件格式。",
+          "insight": "可以借它的嵌入式能力：把表格内核塞进财务、供应链类内部工具，替代 Excel 导出再导入的流程，做可编程的表格组件。"
+        },
+        "en": {
+          "summary": "An open-source clean-room spreadsheet written in pure Rust, running natively on macOS, Windows, Linux and BSD as well as in the browser via WebAssembly,",
+          "insight": "Borrow its embeddability: drop the spreadsheet engine into finance or supply-chain internal tools to replace export-and-reimport Excel flows,"
+        }
+      },
+      "description": "GridCraft: an open-source, clean-room spreadsheet (Microsoft Excel-style) in pure Rust. By ArtCraft.",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 7048,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 29.09
+    },
+    {
+      "repo": "ivankovic/omnidiff",
+      "url": "https://github.com/ivankovic/omnidiff",
+      "content": {
+        "zh": {
+          "summary": "内容感知的 diff 工具，针对代码、图片、字体、PDF、归档等不同类型选用专门的比较算法，宣称能处理绝大多数代码改动且速度在百毫秒内。",
+          "insight": "适合切代码评审场景：把结构化 diff 接到 PR 界面或设计稿版本对比里，让审阅者看到语义变化，而不是整段红绿。"
+        },
+        "en": {
+          "summary": "A content-aware diff tool that picks specialized algorithms per content type, from code to images, fonts, PDFs and archives,",
+          "insight": "A good fit for code review: wire structured diffs into PR views or design version comparison so reviewers see semantic changes instead of whole blocks of red…"
+        }
+      },
+      "description": "Fast, robust, accurate diffing",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 879,
+      "stars_today": 0,
+      "topics": [
+        "ast-diff",
+        "ast-diff-tool",
+        "ast-differencing",
+        "code-quality",
+        "code-review",
+        "codereview",
+        "codereview-tools",
+        "diff",
+        "difftool",
+        "git"
+      ],
+      "sources": [
+        "hn"
+      ],
+      "score": 22.66
+    },
+    {
+      "repo": "beenuar/AiSOC",
+      "url": "https://github.com/beenuar/AiSOC",
+      "content": {
+        "zh": {
+          "summary": "可自托管的开源 AI 安全运营中心，把安全告警归一化、关联成事件，再由 agent 调查并记录每一步推理，供人工审批处置，附带 MCP server。",
+          "insight": "真正的卖点是那份可回放的决策账本。中小安全团队缺的不是检测规则，而是能向审计交代的 AI 处置链路，可以围绕合规留痕做产品。"
+        },
+        "en": {
+          "summary": "A self-hostable open-source security operations center that normalizes alerts into incidents, has agents investigate them with every step recorded,",
+          "insight": "The replayable decision ledger is the real asset. Small security teams lack auditable AI triage more than detection rules,"
+        }
+      },
+      "description": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, and a replayable decision ledger for every agent step. Self-hostable, runs with no API keys, MIT licensed. Ships an MCP server for Claude, Cursor and Continue.",
+      "category": "安全 / 隐私",
+      "language": "Python",
+      "stars": 6733,
+      "stars_today": 659,
+      "topics": [
+        "agentic-ai",
+        "ai-security",
+        "alert-triage",
+        "blue-team",
+        "cybersecurity",
+        "detection-engineering",
+        "incident-response",
+        "langgraph",
+        "llm-agents",
+        "mcp"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.97
+    },
+    {
+      "repo": "seedds/nxnative",
+      "url": "https://github.com/seedds/nxnative",
+      "content": {
+        "zh": {
+          "summary": "把 Switch 游戏的 NSP 文件转成可侧载的 IPA，让游戏代码直接跑在 Apple 芯片上、图形重写到 Metal，不是模拟器，但法律与账号风险明显。",
+          "insight": "不建议作为创业基础，但它展示了「跨平台重编译 + 图形后端替换」的工程路径，可借鉴到合法的老软件、老游戏移植工具链上。"
+        },
+        "en": {
+          "summary": "Turns Switch NSP files into sideloadable IPAs so game code runs directly on Apple silicon with graphics rebuilt on Metal; not an emulator, but with clear legal and account risks.",
+          "insight": "Not a startup foundation, but it demonstrates a cross-platform recompile plus graphics backend swap path that could inform legitimate ports of old software and…"
+        }
+      },
+      "description": "Switch games running natively on iPhone, iPad and Mac: an NSP folder becomes an unsigned IPA (NSO rewriter, Horizon HLE host, NVN→Metal)",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 11531,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 30.37
+    }
+  ]
+}

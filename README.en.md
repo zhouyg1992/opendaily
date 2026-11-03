@@ -10,67 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 2, 2026 · Mon](daily/en/2026-11-02.md)
+## [Nov 3, 2026 · Tue](daily/en/2026-11-03.md)
 
-> The clearest signal in today's batch is a shift from capability to accountability. Alongside the usual agent tooling, we see auditors, jailbreak collections, and security operations centers, while inference, dictation, and video editing move onto personal hardware.
+> Today's projects share one signal: the fight around AI has moved from model quality to wiring models into real workflows. Gateways, desktop control, skill distribution and audit trails all address the same gap, making agents dependable inside existing tools and data instead of demo-only.
+
+### AI / Agents
+
+* **[vercel-labs/agent-desktop](https://github.com/vercel-labs/agent-desktop)** — Lets AI agents read and drive desktop apps through the OS accessibility tree, returning JSON snapshots with refs;
+
+  > Angle: A strong fit for automating legacy desktop software inside enterprises, such as ERP or finance clients with no API,
+
+* **[vercel-labs/skills](https://github.com/vercel-labs/skills)** — A CLI for the agent skills ecosystem that installs reusable instruction packs into Claude Code, Codex, Cursor and 75+ coding agents via npx, at project or global scope.
+
+  > Angle: Skills are becoming distributable packages, and what is missing is versioning, private registries and team policy.
+
+* **[deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype)** — A research prototype of an autonomous agent system from DeepSeek, explicitly not an official product and not production-ready,
+
+  > Angle: Treat it as a trend signal rather than infrastructure: top labs now use agents to build agents. The value is in reading its task decomposition and…
 
 ### AI Infrastructure / Models
 
-* **[FlashML-org/FreeToken](https://github.com/FlashML-org/FreeToken)** — An edge-native MoE serving engine that treats GPUs, CPUs, host memory, and interconnects as one elastic pool, letting gaming PCs run 290B-class open-weight models.
+* **[cheaper-inference/OmniRoute](https://github.com/cheaper-inference/OmniRoute)** — An MIT-licensed AI gateway that collapses 375 providers and 1,400+ models behind one endpoint, with quota-aware fallback and token compression,
 
-  > Angle: Read this as infrastructure signal, not a startup recipe. The reusable idea is treating heterogeneous consumer hardware as an inference cluster;
+  > Angle: The opening is not another gateway but spend visibility: show teams which provider each agent actually burns and when to switch,
 
-* **[togg53192-cmd/jailbreaks](https://github.com/togg53192-cmd/jailbreaks)** — A collection of 32 paste-ready system prompts, persona locks, and agent operating specs covering 26+ models. It is not a product,
+* **[karpathy/nanochat](https://github.com/karpathy/nanochat)** — A minimal LLM training harness that runs tokenization, pretraining, finetuning, evaluation and inference on a single GPU node,
 
-  > Angle: Treat it as a signal that prompts and agent specs need versioning, evaluation, and access control.
+  > Angle: Best as a teaching product: package end-to-end model training into a one-day workshop for engineering teams that want intuition about LLMs,
 
 ### Developer Tools / CLI
 
-* **[D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling)** — A Python scraping framework bundling HTTP fetching, stealth browsers, parsing, concurrent crawling, and proxy rotation in one library, callable by AI agents through an MCP server.
+* **[herdrdev/herdr-app](https://github.com/herdrdev/herdr-app)** — A desktop app for terminals and coding agents that organizes work into spaces, shows which agent needs you, and keeps terminals running after the window closes,
 
-  > Angle: The opening is vertical data pipelines: wrap one industry's sources (jobs, real estate, prices) behind its MCP interface so agents can query them directly.
+  > Angle: It targets the loss of control when running many agents at once. The next step is team collaboration: shared sessions and handoff of unfinished tasks,
 
-* **[anomalyco/hex](https://github.com/anomalyco/hex)** — Local voice dictation for Mac, Windows, and Linux: hold a key, speak, release, and the text is pasted. Transcription stays on-device after the first model download,
+* **[storytold/gridcraft](https://github.com/storytold/gridcraft)** — An open-source clean-room spreadsheet written in pure Rust, running natively on macOS, Windows, Linux and BSD as well as in the browser via WebAssembly,
 
-  > Angle: Avoid generic dictation and build a vertical voice input layer instead: terminology-tuned versions for clinicians or lawyers,
+  > Angle: Borrow its embeddability: drop the spreadsheet engine into finance or supply-chain internal tools to replace export-and-reimport Excel flows,
 
-### Data / Infrastructure
+* **[ivankovic/omnidiff](https://github.com/ivankovic/omnidiff)** — A content-aware diff tool that picks specialized algorithms per content type, from code to images, fonts, PDFs and archives,
 
-* **[0xJacky/nginx-ui](https://github.com/0xJacky/nginx-ui)** — A web UI for Nginx covering config editing, Let's Encrypt certificates, cron jobs, and an MCP server, letting operators who avoid the command line manage sites.
-
-  > Angle: Use it as the entry point for managed ops: package nginx-ui for small businesses and indie developers as one-click site launch, certificate renewal,
+  > Angle: A good fit for code review: wire structured diffs into PR views or design version comparison so reviewers see semantic changes instead of whole blocks of red…
 
 ### Security / Privacy
 
-* **[ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi)** — An independent auditor for AI agents that checks whether they act within their intended goals, permissions, and business boundaries.
+* **[beenuar/AiSOC](https://github.com/beenuar/AiSOC)** — A self-hostable open-source security operations center that normalizes alerts into incidents, has agents investigate them with every step recorded,
 
-  > Angle: Target regulated SMBs by turning audit output into a compliance-ready artifact rather than another dev debug panel.
+  > Angle: The replayable decision ledger is the real asset. Small security teams lack auditable AI triage more than detection rules,
 
 ### Vertical Tools / Skills
 
-* **[jub0t/Concat](https://github.com/jub0t/Concat)** — A local-first, cross-platform video editor in Rust positioned as an open-source CapCut alternative, scriptable via JSON-RPC and MCP.
+* **[seedds/nxnative](https://github.com/seedds/nxnative)** — Turns Switch NSP files into sideloadable IPAs so game code runs directly on Apple silicon with graphics rebuilt on Metal; not an emulator, but with clear legal and account risks.
 
-  > Angle: Use its MCP surface to build batch short-video production for e-commerce and independent creators: templates, captions, and music as agent-callable steps.
+  > Angle: Not a startup foundation, but it demonstrates a cross-platform recompile plus graphics backend swap path that could inform legitimate ports of old software and…
 
-* **[T-Auto/dsh-ops](https://github.com/T-Auto/dsh-ops)** — A DSH plugin that adds ops-style tools and hides some official ones to cut token usage and task time, covering Bash, batch file operations, and progressive tool loading.
-
-  > Angle: A niche tool that signals cost optimization inside agent runtimes becoming its own category. Borrow the idea for a cross-harness token budget layer that shows…
-
-* **[guohuiyuan/go-music-dl](https://github.com/guohuiyuan/go-music-dl)** — A Go-based multi-platform music search and download tool covering ten-plus sources including NetEase, QQ, Kugou, and Bilibili, with CLI, web, TUI,
-
-  > Angle: The standalone tool is hard to monetize, but the multi-source aggregation and unified metadata layer could be sold to local media library or in-car music…
-
-### 学习资源 / 其他
-
-* **[public-apis/public-apis](https://github.com/public-apis/public-apis)** — A collective list of free APIs
-
-[This issue (Markdown)](daily/en/2026-11-02.md)
+[This issue (Markdown)](daily/en/2026-11-03.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
