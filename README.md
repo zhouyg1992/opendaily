@@ -11,67 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.03 · 周二](daily/zh/2026-11-03.md)
+## [2026.11.04 · 周三](daily/zh/2026-11-04.md)
 
-> 今天这批项目透露出一个共同信号：围绕 AI 的竞争正从「谁的模型更强」转向「谁把模型接进真实工作流」。网关、桌面操作、技能分发、安全审计都在补同一块短板——让 agent 可靠地跑在既有工具和数据上，而不是停在演示里。
+> 今天这批项目里，最明显的信号是「本地化」和「可控性」正在从边缘需求变成主流诉求：无论是跑在自己机器上的模型、本地模拟的云服务，还是给 AI 输出「去味」的工具，都在回应同一个焦虑——把关键环节握在自己手里。另一个变化是，围绕 agent 的周边工具开始细分化，从记忆、技能到工作流编排，不再只是又一个聊天框。
 
 ### AI / Agent 工具
 
-* **[vercel-labs/agent-desktop](https://github.com/vercel-labs/agent-desktop)** — 用操作系统无障碍树让 AI agent 读写桌面应用，返回带 ref 的 JSON 快照，agent 按 ref 操作再重新快照校验，不依赖像素匹配，跨 macOS、Windows、Linux。
+* **[Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec)** — 一个面向 AI 编程助手的规格驱动开发框架，让 AI 先写纯 Markdown 的需求和场景，人审完计划再写代码。它试图解决 AI 写代码时「跑偏」和难以审查的问题，已被不少团队用于真实项目。
 
-  > 灵感：适合切企业内部的遗留桌面软件自动化：那些没有 API 的 ERP、财务客户端，可以用它做一层 agent 适配，比 RPA 的坐标点击稳得多。
+  > 灵感：适合把 AI 引入研发流程但苦于质量不稳的团队，切入点是把「计划评审」变成强制步骤。和直接让 agent 写代码相比，它卖的是可审计性，可以往团队协作和合规方向做增值。
 
-* **[vercel-labs/skills](https://github.com/vercel-labs/skills)** — 面向 agent 技能生态的 CLI，用 npx 把可复用的指令包安装到 Claude Code、Codex、Cursor 等 75 种以上编码 agent 中，支持项目级和全局安装。
+* **[wangzan101/Mika](https://github.com/wangzan101/Mika)** — 一个运行在 Android 手机上的端侧 AI agent，通过无障碍服务在后台隐藏屏幕操作 app 和网页，用户说一句话就能完成查聊天记录、比价加购物车等任务，同时不影响自己继续用手机。
 
-  > 灵感：技能正在变成可分发的软件包，缺的是版本管理、私有源和团队策略。可以做一个企业内部技能仓库，控制谁能装什么、何时更新。
+  > 灵感：面向想做手机自动化但不愿依赖云端的用户，切入点是「后台执行不抢占屏幕」这个体验细节。和云端 agent 方案相比，本地运行在隐私和延迟上有优势，适合做垂直场景的自动化助手。
 
-* **[deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype)** — DeepSeek 放出的自主 agent 系统研究原型，明确标注非官方产品、仅供研究参考，代码大量由编码 agent 完成，工程规范并不统一。
+* **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** — Nous Research 推出的自我改进型 agent，内置学习循环，能从经验中创建技能、在使用中改进、主动搜索过往对话，并跨会话建立对用户的模型。可跑在廉价 VPS 或 serverless 上，支持多种模型切换。
 
-  > 灵感：更适合当作趋势信号而非基础设施：它说明头部实验室正把 agent 自我开发当作日常，值得读的是任务分解与自我校验的设计取舍。
+  > 灵感：面向想要「越用越懂自己」的个人用户或小团队，切入点是长期记忆和技能沉淀，而不是单次任务执行。和一次性对话 agent 相比，它的价值随时间累积，适合做个人助理或垂直领域长期陪伴型产品。
 
 ### AI 基础设施 / 模型
 
-* **[cheaper-inference/OmniRoute](https://github.com/cheaper-inference/OmniRoute)** — 一个 MIT 协议的 AI 网关，把 375 家提供商、1400 多个模型收敛到单一端点，支持配额感知的自动降级和 token 压缩，可直接接入 Claude Code、Cursor 等编码工具。
+* **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** — 一个用一份 YAML 配置微调 LLM 的工具，通过层流式加载把冻结的基座模型逐层送进 GPU，从而在 4GB 显存的笔记本 GPU 上微调 8B 模型，结果与常驻显存运行逐位一致。
 
-  > 灵感：机会不在再做一个网关，而在「成本与配额可视化」这一层：帮团队看清每个 agent 实际烧了哪家额度、何时该切换，做成面向工程负责人的账单与路由面板。
-
-* **[karpathy/nanochat](https://github.com/karpathy/nanochat)** — 一个极简的 LLM 训练实验框架，单 GPU 节点跑通分词、预训练、微调、评测和推理全流程，几十美元就能训出 GPT-2 水平的模型并用 CLI 对话。
-
-  > 灵感：适合做教学与内部培训产品：把「从零训一个模型」压缩成一天工作坊，卖给想建立模型直觉的工程团队，而不是又一个大模型平台。
+  > 灵感：面向只有消费级显卡、又想自己微调模型的个人开发者和小团队，切入点是「把微调门槛降到笔记本级别」。和租云 GPU 相比，它在成本和数据隐私上有优势，适合做垂直领域的小模型定制。
 
 ### 开发工具 / CLI
 
-* **[herdrdev/herdr-app](https://github.com/herdrdev/herdr-app)** — 面向终端和编码 agent 的桌面应用，用空间组织工作，能一眼看出哪个 agent 在等你，关掉窗口后终端继续运行，支持 Linux 和 Apple Silicon macOS。
+* **[max-sixty/worktrunk](https://github.com/max-sixty/worktrunk)** — 一个用 Rust 写的 git worktree 管理 CLI，专为并行运行多个 AI agent 设计，把 worktree 操作简化到和分支一样简单，并提供 hooks 和写时复制构建缓存来管理多个并行改动。
 
-  > 灵感：切的是「同时跑多个 agent 后失去掌控感」这个痛点。可以沿着团队协作方向做：共享会话、交接未完成任务，而不只是个人终端管理器。
+  > 灵感：面向同时跑多个 coding agent 的重度用户或小团队，切入点是「多 agent 并行时的目录和构建隔离」这个具体痛点。它更像基础设施型工具，适合作为 agent 工作流里的底层组件，而不是独立产品。
 
-* **[storytold/gridcraft](https://github.com/storytold/gridcraft)** — 纯 Rust 编写的开源电子表格，干净室实现，原生跑在 macOS、Windows、Linux 和 BSD，也能通过 WebAssembly 在浏览器里运行，支持图表和条件格式。
+* **[storytold/craft-anything](https://github.com/storytold/craft-anything)** — 一个纯 Rust 的净室引擎，指向任意网站、应用或游戏，用检查工具研究其运作方式，再让 coding agent 构建一个新版本，并对照原版反复检查修正。它把「看懂并复刻」变成了一条可执行的流水线。
 
-  > 灵感：可以借它的嵌入式能力：把表格内核塞进财务、供应链类内部工具，替代 Excel 导出再导入的流程，做可编程的表格组件。
+  > 灵感：适合做竞品分析、教学演示或遗留系统重建的团队，切入点是「先理解再动手」的自动化。和直接让 AI 写代码相比，它多了对照原版的验证环节，可以往代码迁移和现代化改造场景靠。
 
-* **[ivankovic/omnidiff](https://github.com/ivankovic/omnidiff)** — 内容感知的 diff 工具，针对代码、图片、字体、PDF、归档等不同类型选用专门的比较算法，宣称能处理绝大多数代码改动且速度在百毫秒内。
+### 数据 / 基础设施
 
-  > 灵感：适合切代码评审场景：把结构化 diff 接到 PR 界面或设计稿版本对比里，让审阅者看到语义变化，而不是整段红绿。
+* **[floci-io/floci](https://github.com/floci-io/floci)** — 一个免费开源的本地 AWS 模拟器，无需云账号、token 或付费功能门槛，用 docker compose 就能在本地跑起 S3、SQS、EC2 等服务，兼容现有 SDK 和 Terraform 工作流，并声称可直接替换 LocalStack。
 
-### 安全 / 隐私
+  > 灵感：适合做 CI 成本敏感或对数据出境有顾虑的团队，把集成测试从云端搬到本地。和 LocalStack 的差别在于没有功能门禁，可以切入「LocalStack 免费版不够用」的中小团队迁移场景。
 
-* **[beenuar/AiSOC](https://github.com/beenuar/AiSOC)** — 可自托管的开源 AI 安全运营中心，把安全告警归一化、关联成事件，再由 agent 调查并记录每一步推理，供人工审批处置，附带 MCP server。
+* **[immich-app/immich](https://github.com/immich-app/immich)** — 一个高性能的自托管照片和视频管理方案，常被视为 Google Photos 的开源替代，支持移动端备份、人脸识别和相册管理，社区活跃、多语言完善，适合在意照片隐私和长期存储成本的用户。
 
-  > 灵感：真正的卖点是那份可回放的决策账本。中小安全团队缺的不是检测规则，而是能向审计交代的 AI 处置链路，可以围绕合规留痕做产品。
+  > 灵感：对家庭用户和小型工作室来说，切入点是「把照片从订阅制云服务里拿回来」。它本身已是成熟基础设施，创业机会更多在托管部署、迁移服务和家庭 NAS 配套上，而不是重做一个相册。
 
 ### Skill / 垂直工具
 
-* **[seedds/nxnative](https://github.com/seedds/nxnative)** — 把 Switch 游戏的 NSP 文件转成可侧载的 IPA，让游戏代码直接跑在 Apple 芯片上、图形重写到 Metal，不是模拟器，但法律与账号风险明显。
+* **[blader/humanizer](https://github.com/blader/humanizer)** — 一个 agent skill，基于维基百科编辑识别 AI 写作的指南，把 AI 生成的文本改写成更像人写的，同时不改变原意。支持 Claude Code、Codex 等主流 agent。它解决的是内容创作者和团队对「一眼假」文案的尴尬。
 
-  > 灵感：不建议作为创业基础，但它展示了「跨平台重编译 + 图形后端替换」的工程路径，可借鉴到合法的老软件、老游戏移植工具链上。
+  > 灵感：面向做内容营销、公关稿或教育批改的团队，可以把它做成写作流程里的「发布前检查」环节，而不是事后返工。和通用改写工具不同，它的规则来自人类审稿经验，更贴近真实读者的判断。
 
-[本期 Markdown](daily/zh/2026-11-03.md)
+* **[wheresryan22/anatomy](https://github.com/wheresryan22/anatomy)** — 一个 agent skill，能把技术概念画成可交互的等距插画：它会让 AI 发明一个物理对象，让这个对象的运作方式正好解释该概念，输出精细的 SVG，可选 WebGL 着色器和 3D 效果。
+
+  > 灵感：适合做技术教育、文档或科普内容的团队，切入点是「用可交互图解替代大段文字解释」。和普通文生图不同，它输出的是结构化的 SVG，可以嵌入网页并交互，适合做知识付费或教材配套。
+
+[本期 Markdown](daily/zh/2026-11-04.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
