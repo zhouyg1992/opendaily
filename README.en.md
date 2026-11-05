@@ -10,67 +10,65 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 4, 2026 · Wed](daily/en/2026-11-04.md)
+## [Nov 5, 2026 · Thu](daily/en/2026-11-05.md)
 
-> Today's projects share a clear signal: local-first and controllability are moving from niche concerns to mainstream demands, whether it's models running on your own machine, cloud services emulated locally, or tools that strip the AI flavor from generated text.
+> Today's projects share a clear signal: the value is moving from raw model capability to last-mile packaging. Whether it is squeezing a trillion-parameter model onto one machine, turning patent drafting into a runnable skill,
 
 ### AI / Agents
 
-* **[Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec)** — A spec-driven development framework for AI coding assistants. The AI writes plain-Markdown requirements and scenarios first; humans review the plan before any code is written.
+* **[garrytan/gstack](https://github.com/garrytan/gstack)** — YC president Garry Tan's public Claude Code setup: 23 Markdown slash commands acting as CEO, designer, eng manager, QA, security officer, and release engineer.
 
-  > Angle: For teams adopting AI in engineering but struggling with quality, the hook is making plan review a mandatory step.
+  > Angle: Solo developers and small teams can fork it to organize AI workflows in a one-person company. Unlike scattered prompts,
 
-* **[wangzan101/Mika](https://github.com/wangzan101/Mika)** — An on-device AI agent for Android that uses accessibility services to operate apps and the web on a hidden background screen, so users can keep using their phone.
+* **[elie222/rakazo](https://github.com/elie222/rakazo)** — An open-source, self-hosted persistent AI assistant with bring-your-own model and sandbox, running on web, Electron desktop, iOS and Android, with separate conversations, memory,
 
-  > Angle: Aimed at users who want phone automation without cloud dependency, the differentiator is background execution that doesn't hijack the screen.
+  > Angle: Build a hosted or industry-customized version for privacy-sensitive users such as law firms or clinics.
 
-* **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** — A self-improving agent from Nous Research with a built-in learning loop: it creates skills from experience, refines them in use, searches past conversations,
+* **[ConardLi/garden-skills](https://github.com/ConardLi/garden-skills)** — A collection of production-ready Agent Skills for Claude Code, Cursor, and Codex, covering web design, code-rendered short video, presentations, image generation,
 
-  > Angle: For individuals or small teams wanting an assistant that knows them better over time, the hook is long-term memory and skill accumulation rather than one-off…
+  > Angle: A fit for a skill marketplace or vertical packs, such as e-commerce detail pages or WeChat article layout.
 
 ### AI Infrastructure / Models
 
-* **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** — A tool that fine-tunes LLMs from a single YAML config. Layer streaming feeds the frozen base model to the GPU one decoder layer at a time,
+* **[FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c)** — A portable C99 engine that runs a 2.78-trillion-parameter Kimi K3 on a single CPU with 8GB of RAM, no BLAS, no framework, no GPU, streaming weights from disk.
 
-  > Angle: For individual developers and small teams with only consumer GPUs who want to fine-tune, the hook is lowering the barrier to laptop level.
+  > Angle: A good base for offline or edge inference: compliant intranets, classroom demos, embedded AI boxes.
+
+* **[NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology)** — An NVIDIA open-source Python framework that builds a semantic graph layer from enterprise metadata, reconciles metric definitions across systems,
+
+  > Angle: Aim at mid-to-large companies with many data sources and inconsistent metrics, in the agent-analytics trust space.
 
 ### Developer Tools / CLI
 
-* **[max-sixty/worktrunk](https://github.com/max-sixty/worktrunk)** — A Rust CLI for managing git worktrees, built for running multiple AI agents in parallel. It makes worktrees as easy as branches,
+* **[JiaFeiMiao-K-Cat/DiscImageStudio](https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio)** — Converts images into data that respects the physical-layer constraints of CDs, DVDs, and single-layer Blu-ray, so burning produces a visible image on the disc surface,
 
-  > Angle: Targets heavy users or small teams running several coding agents at once, solving the concrete pain of directory and build isolation during parallel runs.
+  > Angle: A fit for a physical product business: wedding keepsake discs, band albums, branded merch. Versus ordinary burning software,
 
-* **[storytold/craft-anything](https://github.com/storytold/craft-anything)** — A clean-room engine in pure Rust that points at any website, app, or game, studies how it works with inspection tools,
+* **[vercel-labs/scriptc](https://github.com/vercel-labs/scriptc)** — A Vercel Labs experimental compiler that uses TypeScript's type checking to compile TS/JS into native executables and WebAssembly that run without Node.js,
 
-  > Angle: For teams doing competitive analysis, teaching demos, or legacy rebuilds, the angle is automating understand-then-build.
-
-### Data / Infrastructure
-
-* **[floci-io/floci](https://github.com/floci-io/floci)** — A free, open-source local AWS emulator that runs S3, SQS, EC2 and more via docker compose, with no account, token, or paid feature gates.
-
-  > Angle: A good fit for teams with CI cost pressure or data-residency concerns who want integration tests off the cloud.
-
-* **[immich-app/immich](https://github.com/immich-app/immich)** — A high-performance self-hosted photo and video manager, widely seen as the open-source Google Photos alternative.
-
-  > Angle: For families and small studios, the pitch is taking photos back from subscription clouds. The project itself is mature infrastructure,
+  > Angle: More a trend signal than a ready product: watch its impact on CLI distribution and edge runtimes. To borrow it,
 
 ### Vertical Tools / Skills
 
-* **[blader/humanizer](https://github.com/blader/humanizer)** — An agent skill that rewrites AI-generated text to sound human, built on Wikipedia's guide for spotting machine writing, without changing meaning.
+* **[harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)** — Give it a topic or keyword and it writes the script, matches footage, adds subtitles and music, and renders an HD short video, with WebUI and API.
 
-  > Angle: For content, PR, or education teams, this fits as a pre-publish check inside the writing workflow rather than a post-hoc fix.
+  > Angle: The opening is not another generator but vertical packaging: local-business探店 clips or cross-border product shorts in multiple languages.
 
-* **[wheresryan22/anatomy](https://github.com/wheresryan22/anatomy)** — An agent skill that turns technical ideas into interactive isometric illustrations. The AI invents a physical object whose workings explain the concept,
+* **[Usagi-org/ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor)** — A Playwright and AI powered monitor for Xianyu with natural-language task creation, multimodal listing analysis, region and price filters, multi-channel alerts, a web admin UI,
 
-  > Angle: For technical education, docs, or science content teams, the angle is replacing walls of text with interactive diagrams.
+  > Angle: Build a deal-hunting service for specific categories like cameras, GPUs, or instruments, charging for filter rules and alert speed.
 
-[This issue (Markdown)](daily/en/2026-11-04.md)
+* **[handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)** — A Chinese patent skill pack covering idea mining, drafting disclosure documents for invention, utility model, and design patents, prior-art search, plain-language reading,
+
+  > Angle: Target small R&D teams and independent inventors at the step from technical idea to submittable disclosure.
+
+[This issue (Markdown)](daily/en/2026-11-05.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 

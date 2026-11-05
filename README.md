@@ -11,67 +11,65 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.04 · 周三](daily/zh/2026-11-04.md)
+## [2026.11.05 · 周四](daily/zh/2026-11-05.md)
 
-> 今天这批项目里，最明显的信号是「本地化」和「可控性」正在从边缘需求变成主流诉求：无论是跑在自己机器上的模型、本地模拟的云服务，还是给 AI 输出「去味」的工具，都在回应同一个焦虑——把关键环节握在自己手里。另一个变化是，围绕 agent 的周边工具开始细分化，从记忆、技能到工作流编排，不再只是又一个聊天框。
+> 今天的项目里，一个明显的信号是「把大能力塞进小场景」：无论是把万亿参数模型压进单机内存、把专利交底书变成可执行技能，还是把闲鱼监控、光盘刻盘这种极窄需求做成完整工具，都在证明通用大模型之上的价值正转向最后一公里的封装。另一个变化是 AI 编码工具开始从「补全代码」走向「组织流程」，用 Markdown 和斜杠命令模拟一支工程团队。
 
 ### AI / Agent 工具
 
-* **[Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec)** — 一个面向 AI 编程助手的规格驱动开发框架，让 AI 先写纯 Markdown 的需求和场景，人审完计划再写代码。它试图解决 AI 写代码时「跑偏」和难以审查的问题，已被不少团队用于真实项目。
+* **[garrytan/gstack](https://github.com/garrytan/gstack)** — YC 总裁 Garry Tan 公开的 Claude Code 配置：23 个 Markdown 斜杠命令，分别扮演 CEO、设计、工程经理、QA、安全官和发布工程师。它把编码 agent 从「写代码」升级成「跑一支虚拟工程团队」。
 
-  > 灵感：适合把 AI 引入研发流程但苦于质量不稳的团队，切入点是把「计划评审」变成强制步骤。和直接让 agent 写代码相比，它卖的是可审计性，可以往团队协作和合规方向做增值。
+  > 灵感：适合独立开发者和小团队直接 fork 改造，切「一人公司如何组织 AI 流程」的场景。和零散 prompt 相比，它的价值在于把角色分工和交付节奏固化成可复用命令。
 
-* **[wangzan101/Mika](https://github.com/wangzan101/Mika)** — 一个运行在 Android 手机上的端侧 AI agent，通过无障碍服务在后台隐藏屏幕操作 app 和网页，用户说一句话就能完成查聊天记录、比价加购物车等任务，同时不影响自己继续用手机。
+* **[elie222/rakazo](https://github.com/elie222/rakazo)** — 开源自托管的常驻 AI 助手，可自带模型和沙箱，支持 Web、Electron 桌面和 iOS/Android，具备独立会话、记忆、例程和语音模式。它瞄准的是想摆脱闭源 Bot、自己掌控数据的人。
 
-  > 灵感：面向想做手机自动化但不愿依赖云端的用户，切入点是「后台执行不抢占屏幕」这个体验细节。和云端 agent 方案相比，本地运行在隐私和延迟上有优势，适合做垂直场景的自动化助手。
+  > 灵感：适合做面向隐私敏感用户的托管版或行业定制版，比如律所、诊所的内部助手。和 Grok Bot 类产品相比，差异是模型和算力都能自选、可完全本地跑。
 
-* **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** — Nous Research 推出的自我改进型 agent，内置学习循环，能从经验中创建技能、在使用中改进、主动搜索过往对话，并跨会话建立对用户的模型。可跑在廉价 VPS 或 serverless 上，支持多种模型切换。
+* **[ConardLi/garden-skills](https://github.com/ConardLi/garden-skills)** — 一套面向 Claude Code、Cursor、Codex 的生产级 Agent Skills 合集，涵盖网页设计、代码渲染短视频、演示文稿、图像生成和本地知识检索。它把「怎么让编码 agent 干好非编码活」沉淀成可安装的技能包。
 
-  > 灵感：面向想要「越用越懂自己」的个人用户或小团队，切入点是长期记忆和技能沉淀，而不是单次任务执行。和一次性对话 agent 相比，它的价值随时间累积，适合做个人助理或垂直领域长期陪伴型产品。
+  > 灵感：适合做技能市场或垂直技能包，比如面向电商详情页、公众号排版的技能组合。和零散 prompt 库相比，它的差异是带安装机制和跨 agent 兼容。
 
 ### AI 基础设施 / 模型
 
-* **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** — 一个用一份 YAML 配置微调 LLM 的工具，通过层流式加载把冻结的基座模型逐层送进 GPU，从而在 4GB 显存的笔记本 GPU 上微调 8B 模型，结果与常驻显存运行逐位一致。
+* **[FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c)** — 用可移植 C99 在单 CPU、8GB 内存下跑 2.78 万亿参数的 Kimi K3，不依赖 BLAS、框架或 GPU，模型从磁盘流式加载。它解决的是「没有 GPU 也想本地跑大模型」的问题，也把推理引擎的复杂度压到 176KB。
 
-  > 灵感：面向只有消费级显卡、又想自己微调模型的个人开发者和小团队，切入点是「把微调门槛降到笔记本级别」。和租云 GPU 相比，它在成本和数据隐私上有优势，适合做垂直领域的小模型定制。
+  > 灵感：适合做边缘设备或离线场景的推理底座，比如内网合规环境、教学演示、嵌入式 AI 盒子。和 llama.cpp 的差异在于它演示了超大规模模型靠磁盘流式加载也能跑，思路可复用到冷数据推理。
+
+* **[NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology)** — NVIDIA 开源的 Python 框架，从企业元数据构建语义图谱层，统一跨系统指标定义，并通过 MCP、CLI、API 暴露给任意 agent。它解决的是 agent 查数据「查得快但算错」的可靠性问题。
+
+  > 灵感：面向有多个数据源、指标口径混乱的中大型企业，切「agent 数据分析可信度」场景。和直接让 LLM 写 SQL 相比，它先把「数据在哪、什么意思、能不能用」固化成可查询的层。
 
 ### 开发工具 / CLI
 
-* **[max-sixty/worktrunk](https://github.com/max-sixty/worktrunk)** — 一个用 Rust 写的 git worktree 管理 CLI，专为并行运行多个 AI agent 设计，把 worktree 操作简化到和分支一样简单，并提供 hooks 和写时复制构建缓存来管理多个并行改动。
+* **[JiaFeiMiao-K-Cat/DiscImageStudio](https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio)** — 把图片转换成符合 CD、DVD、单层蓝光物理层约束的数据，刻录后盘面呈现肉眼可见图案，支持 Windows 图形界面和跨平台 CLI。它服务的是光盘收藏、定制刻录和实体媒介创作的小众需求。
 
-  > 灵感：面向同时跑多个 coding agent 的重度用户或小团队，切入点是「多 agent 并行时的目录和构建隔离」这个具体痛点。它更像基础设施型工具，适合作为 agent 工作流里的底层组件，而不是独立产品。
+  > 灵感：适合做定制光盘的实体产品生意，比如婚礼纪念盘、乐队专辑、品牌周边。和普通刻录软件相比，它的差异是把盘面当画布，卖的是实体仪式感。
 
-* **[storytold/craft-anything](https://github.com/storytold/craft-anything)** — 一个纯 Rust 的净室引擎，指向任意网站、应用或游戏，用检查工具研究其运作方式，再让 coding agent 构建一个新版本，并对照原版反复检查修正。它把「看懂并复刻」变成了一条可执行的流水线。
+* **[vercel-labs/scriptc](https://github.com/vercel-labs/scriptc)** — Vercel Labs 的实验性编译器，利用 TypeScript 类型检查结果把 TS/JS 编译成原生可执行文件和 WebAssembly，产物无需 Node.js 即可运行，无法编译的代码在构建期报错并给改写建议。它探索的是「TypeScript 全栈统一」的下一步。
 
-  > 灵感：适合做竞品分析、教学演示或遗留系统重建的团队，切入点是「先理解再动手」的自动化。和直接让 AI 写代码相比，它多了对照原版的验证环节，可以往代码迁移和现代化改造场景靠。
-
-### 数据 / 基础设施
-
-* **[floci-io/floci](https://github.com/floci-io/floci)** — 一个免费开源的本地 AWS 模拟器，无需云账号、token 或付费功能门槛，用 docker compose 就能在本地跑起 S3、SQS、EC2 等服务，兼容现有 SDK 和 Terraform 工作流，并声称可直接替换 LocalStack。
-
-  > 灵感：适合做 CI 成本敏感或对数据出境有顾虑的团队，把集成测试从云端搬到本地。和 LocalStack 的差别在于没有功能门禁，可以切入「LocalStack 免费版不够用」的中小团队迁移场景。
-
-* **[immich-app/immich](https://github.com/immich-app/immich)** — 一个高性能的自托管照片和视频管理方案，常被视为 Google Photos 的开源替代，支持移动端备份、人脸识别和相册管理，社区活跃、多语言完善，适合在意照片隐私和长期存储成本的用户。
-
-  > 灵感：对家庭用户和小型工作室来说，切入点是「把照片从订阅制云服务里拿回来」。它本身已是成熟基础设施，创业机会更多在托管部署、迁移服务和家庭 NAS 配套上，而不是重做一个相册。
+  > 灵感：更像趋势信号而非现成产品：值得关注它对 CLI 工具分发和边缘运行时的冲击。想借力的话，可以先在内部小工具上试编译覆盖率，评估替代 Node 打包的可行性。
 
 ### Skill / 垂直工具
 
-* **[blader/humanizer](https://github.com/blader/humanizer)** — 一个 agent skill，基于维基百科编辑识别 AI 写作的指南，把 AI 生成的文本改写成更像人写的，同时不改变原意。支持 Claude Code、Codex 等主流 agent。它解决的是内容创作者和团队对「一眼假」文案的尴尬。
+* **[harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)** — 输入主题或关键词，自动生成脚本、匹配素材、加字幕配乐并合成高清短视频，带 WebUI 和 API。它服务的是批量做短视频的内容团队，把原本需要剪辑师的多步流程压成一次调用。
 
-  > 灵感：面向做内容营销、公关稿或教育批改的团队，可以把它做成写作流程里的「发布前检查」环节，而不是事后返工。和通用改写工具不同，它的规则来自人类审稿经验，更贴近真实读者的判断。
+  > 灵感：机会不在再造一个生成器，而在垂直行业封装：本地生活商家的探店视频、跨境电商的多语言商品短片。差异点是接入具体素材库和平台发布链路。
 
-* **[wheresryan22/anatomy](https://github.com/wheresryan22/anatomy)** — 一个 agent skill，能把技术概念画成可交互的等距插画：它会让 AI 发明一个物理对象，让这个对象的运作方式正好解释该概念，输出精细的 SVG，可选 WebGL 着色器和 3D 效果。
+* **[Usagi-org/ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor)** — 基于 Playwright 和 AI 的闲鱼多任务监控系统，支持自然语言建任务、多模态分析商品、区域价格筛选和多渠道通知，带完整 Web 管理后台和 Docker 部署。它解决二手交易里「好货秒没」的信息差。
 
-  > 灵感：适合做技术教育、文档或科普内容的团队，切入点是「用可交互图解替代大段文字解释」。和普通文生图不同，它输出的是结构化的 SVG，可以嵌入网页并交互，适合做知识付费或教材配套。
+  > 灵感：适合做垂直品类的二手捡漏服务，比如相机、显卡、乐器，靠筛选规则和通知速度收费。和通用爬虫相比，它的差异是 AI 理解商品描述和成色。
 
-[本期 Markdown](daily/zh/2026-11-04.md)
+* **[handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)** — 一个中国专利技能包，覆盖专利点挖掘、发明/实用/外观交底书编写、查新检索、通俗解读和审查答复辅助，还能把解读沉淀进 Obsidian 知识库。它服务的是有技术但写不出交底书的研发人员。
+
+  > 灵感：面向中小研发团队和独立发明人，切「技术方案到可提交交底书」这一段。和通用写作助手相比，它内置了中国专利的格式、框图要求和审查语境。
+
+[本期 Markdown](daily/zh/2026-11-05.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 

@@ -1,0 +1,309 @@
+{
+  "date": "2026-11-05",
+  "generated_at": "2026-11-05T03:20:59+00:00",
+  "intro": {
+    "zh": "今天的项目里，一个明显的信号是「把大能力塞进小场景」：无论是把万亿参数模型压进单机内存、把专利交底书变成可执行技能，还是把闲鱼监控、光盘刻盘这种极窄需求做成完整工具，都在证明通用大模型之上的价值正转向最后一公里的封装。另一个变化是 AI 编码工具开始从「补全代码」走向「组织流程」，用 Markdown 和斜杠命令模拟一支工程团队。",
+    "en": "Today's projects share a clear signal: the value is moving from raw model capability to last-mile packaging. Whether it is squeezing a trillion-parameter model onto one machine, turning patent drafting into a runnable skill,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "garrytan/gstack",
+      "url": "https://github.com/garrytan/gstack",
+      "content": {
+        "zh": {
+          "summary": "YC 总裁 Garry Tan 公开的 Claude Code 配置：23 个 Markdown 斜杠命令，分别扮演 CEO、设计、工程经理、QA、安全官和发布工程师。它把编码 agent 从「写代码」升级成「跑一支虚拟工程团队」。",
+          "insight": "适合独立开发者和小团队直接 fork 改造，切「一人公司如何组织 AI 流程」的场景。和零散 prompt 相比，它的价值在于把角色分工和交付节奏固化成可复用命令。"
+        },
+        "en": {
+          "summary": "YC president Garry Tan's public Claude Code setup: 23 Markdown slash commands acting as CEO, designer, eng manager, QA, security officer, and release engineer.",
+          "insight": "Solo developers and small teams can fork it to organize AI workflows in a one-person company. Unlike scattered prompts,"
+        }
+      },
+      "description": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 139408,
+      "stars_today": 290,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.25
+    },
+    {
+      "repo": "elie222/rakazo",
+      "url": "https://github.com/elie222/rakazo",
+      "content": {
+        "zh": {
+          "summary": "开源自托管的常驻 AI 助手，可自带模型和沙箱，支持 Web、Electron 桌面和 iOS/Android，具备独立会话、记忆、例程和语音模式。它瞄准的是想摆脱闭源 Bot、自己掌控数据的人。",
+          "insight": "适合做面向隐私敏感用户的托管版或行业定制版，比如律所、诊所的内部助手。和 Grok Bot 类产品相比，差异是模型和算力都能自选、可完全本地跑。"
+        },
+        "en": {
+          "summary": "An open-source, self-hosted persistent AI assistant with bring-your-own model and sandbox, running on web, Electron desktop, iOS and Android, with separate conversations, memory,",
+          "insight": "Build a hosted or industry-customized version for privacy-sensitive users such as law firms or clinics."
+        }
+      },
+      "description": "Open-source Grok Bot alternative. Choose your own model and sandbox.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 7034,
+      "stars_today": 158,
+      "topics": [
+        "ai-agents",
+        "chatgpt",
+        "docker",
+        "electron",
+        "expo",
+        "grok",
+        "llm",
+        "self-hosted",
+        "typescript"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.03
+    },
+    {
+      "repo": "ConardLi/garden-skills",
+      "url": "https://github.com/ConardLi/garden-skills",
+      "content": {
+        "zh": {
+          "summary": "一套面向 Claude Code、Cursor、Codex 的生产级 Agent Skills 合集，涵盖网页设计、代码渲染短视频、演示文稿、图像生成和本地知识检索。它把「怎么让编码 agent 干好非编码活」沉淀成可安装的技能包。",
+          "insight": "适合做技能市场或垂直技能包，比如面向电商详情页、公众号排版的技能组合。和零散 prompt 库相比，它的差异是带安装机制和跨 agent 兼容。"
+        },
+        "en": {
+          "summary": "A collection of production-ready Agent Skills for Claude Code, Cursor, and Codex, covering web design, code-rendered short video, presentations, image generation,",
+          "insight": "A fit for a skill marketplace or vertical packs, such as e-commerce detail pages or WeChat article layout."
+        }
+      },
+      "description": "ConardLi's open-source Skills collection, featuring web design, knowledge retrieval, image generation, and more.",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 13860,
+      "stars_today": 181,
+      "topics": [
+        "agent",
+        "claude",
+        "gpt-image-2",
+        "rag",
+        "skills",
+        "web-design"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.38
+    },
+    {
+      "repo": "FareedKhan-dev/kimi-k3-in-c",
+      "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+      "content": {
+        "zh": {
+          "summary": "用可移植 C99 在单 CPU、8GB 内存下跑 2.78 万亿参数的 Kimi K3，不依赖 BLAS、框架或 GPU，模型从磁盘流式加载。它解决的是「没有 GPU 也想本地跑大模型」的问题，也把推理引擎的复杂度压到 176KB。",
+          "insight": "适合做边缘设备或离线场景的推理底座，比如内网合规环境、教学演示、嵌入式 AI 盒子。和 llama.cpp 的差异在于它演示了超大规模模型靠磁盘流式加载也能跑，思路可复用到冷数据推理。"
+        },
+        "en": {
+          "summary": "A portable C99 engine that runs a 2.78-trillion-parameter Kimi K3 on a single CPU with 8GB of RAM, no BLAS, no framework, no GPU, streaming weights from disk.",
+          "insight": "A good base for offline or edge inference: compliant intranets, classroom demos, embedded AI boxes."
+        }
+      },
+      "description": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
+      "category": "AI 基础设施 / 模型",
+      "language": "C",
+      "stars": 10385,
+      "stars_today": 351,
+      "topics": [
+        "avx2",
+        "c99",
+        "cpu-inference",
+        "deep-learning",
+        "from-scratch",
+        "inference-engine",
+        "kimi-k3",
+        "linear-attention",
+        "llm",
+        "llm-inference"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 35.87
+    },
+    {
+      "repo": "NVIDIA/auto-ontology",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "content": {
+        "zh": {
+          "summary": "NVIDIA 开源的 Python 框架，从企业元数据构建语义图谱层，统一跨系统指标定义，并通过 MCP、CLI、API 暴露给任意 agent。它解决的是 agent 查数据「查得快但算错」的可靠性问题。",
+          "insight": "面向有多个数据源、指标口径混乱的中大型企业，切「agent 数据分析可信度」场景。和直接让 LLM 写 SQL 相比，它先把「数据在哪、什么意思、能不能用」固化成可查询的层。"
+        },
+        "en": {
+          "summary": "An NVIDIA open-source Python framework that builds a semantic graph layer from enterprise metadata, reconciles metric definitions across systems,",
+          "insight": "Aim at mid-to-large companies with many data sources and inconsistent metrics, in the agent-analytics trust space."
+        }
+      },
+      "description": "Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 5351,
+      "stars_today": 2050,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.37
+    },
+    {
+      "repo": "JiaFeiMiao-K-Cat/DiscImageStudio",
+      "url": "https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio",
+      "content": {
+        "zh": {
+          "summary": "把图片转换成符合 CD、DVD、单层蓝光物理层约束的数据，刻录后盘面呈现肉眼可见图案，支持 Windows 图形界面和跨平台 CLI。它服务的是光盘收藏、定制刻录和实体媒介创作的小众需求。",
+          "insight": "适合做定制光盘的实体产品生意，比如婚礼纪念盘、乐队专辑、品牌周边。和普通刻录软件相比，它的差异是把盘面当画布，卖的是实体仪式感。"
+        },
+        "en": {
+          "summary": "Converts images into data that respects the physical-layer constraints of CDs, DVDs, and single-layer Blu-ray, so burning produces a visible image on the disc surface,",
+          "insight": "A fit for a physical product business: wedding keepsake discs, band albums, branded merch. Versus ordinary burning software,"
+        }
+      },
+      "description": "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
+      "category": "开发工具 / CLI",
+      "language": "C#",
+      "stars": 6703,
+      "stars_today": 1778,
+      "topics": [],
+      "sources": [
+        "trending",
+        "hn"
+      ],
+      "score": 45.96
+    },
+    {
+      "repo": "vercel-labs/scriptc",
+      "url": "https://github.com/vercel-labs/scriptc",
+      "content": {
+        "zh": {
+          "summary": "Vercel Labs 的实验性编译器，利用 TypeScript 类型检查结果把 TS/JS 编译成原生可执行文件和 WebAssembly，产物无需 Node.js 即可运行，无法编译的代码在构建期报错并给改写建议。它探索的是「TypeScript 全栈统一」的下一步。",
+          "insight": "更像趋势信号而非现成产品：值得关注它对 CLI 工具分发和边缘运行时的冲击。想借力的话，可以先在内部小工具上试编译覆盖率，评估替代 Node 打包的可行性。"
+        },
+        "en": {
+          "summary": "A Vercel Labs experimental compiler that uses TypeScript's type checking to compile TS/JS into native executables and WebAssembly that run without Node.js,",
+          "insight": "More a trend signal than a ready product: watch its impact on CLI distribution and edge runtimes. To borrow it,"
+        }
+      },
+      "description": "TypeScript-to-Native Compiler",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 6501,
+      "stars_today": 9,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 24.1
+    },
+    {
+      "repo": "harry0703/MoneyPrinterTurbo",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "content": {
+        "zh": {
+          "summary": "输入主题或关键词，自动生成脚本、匹配素材、加字幕配乐并合成高清短视频，带 WebUI 和 API。它服务的是批量做短视频的内容团队，把原本需要剪辑师的多步流程压成一次调用。",
+          "insight": "机会不在再造一个生成器，而在垂直行业封装：本地生活商家的探店视频、跨境电商的多语言商品短片。差异点是接入具体素材库和平台发布链路。"
+        },
+        "en": {
+          "summary": "Give it a topic or keyword and it writes the script, matches footage, adds subtitles and music, and renders an HD short video, with WebUI and API.",
+          "insight": "The opening is not another generator but vertical packaging: local-business探店 clips or cross-border product shorts in multiple languages."
+        }
+      },
+      "description": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 139123,
+      "stars_today": 617,
+      "topics": [
+        "ai-video-generator",
+        "content-creation",
+        "ffmpeg",
+        "instagram-reels",
+        "llm",
+        "python",
+        "short-video",
+        "subtitles",
+        "text-to-speech",
+        "tiktok"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 47.0
+    },
+    {
+      "repo": "Usagi-org/ai-goofish-monitor",
+      "url": "https://github.com/Usagi-org/ai-goofish-monitor",
+      "content": {
+        "zh": {
+          "summary": "基于 Playwright 和 AI 的闲鱼多任务监控系统，支持自然语言建任务、多模态分析商品、区域价格筛选和多渠道通知，带完整 Web 管理后台和 Docker 部署。它解决二手交易里「好货秒没」的信息差。",
+          "insight": "适合做垂直品类的二手捡漏服务，比如相机、显卡、乐器，靠筛选规则和通知速度收费。和通用爬虫相比，它的差异是 AI 理解商品描述和成色。"
+        },
+        "en": {
+          "summary": "A Playwright and AI powered monitor for Xianyu with natural-language task creation, multimodal listing analysis, region and price filters, multi-channel alerts, a web admin UI,",
+          "insight": "Build a deal-hunting service for specific categories like cameras, GPUs, or instruments, charging for filter rules and alert speed."
+        }
+      },
+      "description": "基于 Playwright 和AI实现的闲鱼多任务实时/定时监控与智能分析系统，配备了功能完善的后台管理UI。帮助用户从闲鱼海量商品中，找到心仪产品。",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 17181,
+      "stars_today": 984,
+      "topics": [
+        "ai",
+        "ai-assistant",
+        "ai-tools",
+        "automation",
+        "gemini",
+        "goofish",
+        "open-source",
+        "openai",
+        "playwright",
+        "tool"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 42.41
+    },
+    {
+      "repo": "handsomestWei/patent-disclosure-skill",
+      "url": "https://github.com/handsomestWei/patent-disclosure-skill",
+      "content": {
+        "zh": {
+          "summary": "一个中国专利技能包，覆盖专利点挖掘、发明/实用/外观交底书编写、查新检索、通俗解读和审查答复辅助，还能把解读沉淀进 Obsidian 知识库。它服务的是有技术但写不出交底书的研发人员。",
+          "insight": "面向中小研发团队和独立发明人，切「技术方案到可提交交底书」这一段。和通用写作助手相比，它内置了中国专利的格式、框图要求和审查语境。"
+        },
+        "en": {
+          "summary": "A Chinese patent skill pack covering idea mining, drafting disclosure documents for invention, utility model, and design patents, prior-art search, plain-language reading,",
+          "insight": "Target small R&D teams and independent inventors at the step from technical idea to submittable disclosure."
+        }
+      },
+      "description": "中国专利.skill：专利点挖掘与交底书（发明/实用/外观）编写，通俗解读专利，嗅探政策动向，辅助审查答复。",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 12908,
+      "stars_today": 71,
+      "topics": [
+        "chinese",
+        "disclosure",
+        "obsidian",
+        "patent",
+        "skill"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.44
+    }
+  ]
+}
