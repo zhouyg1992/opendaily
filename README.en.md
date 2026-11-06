@@ -10,65 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 5, 2026 · Thu](daily/en/2026-11-05.md)
+## [Nov 6, 2026 · Fri](daily/en/2026-11-06.md)
 
-> Today's projects share a clear signal: the value is moving from raw model capability to last-mile packaging. Whether it is squeezing a trillion-parameter model onto one machine, turning patent drafting into a runnable skill,
-
-### AI / Agents
-
-* **[garrytan/gstack](https://github.com/garrytan/gstack)** — YC president Garry Tan's public Claude Code setup: 23 Markdown slash commands acting as CEO, designer, eng manager, QA, security officer, and release engineer.
-
-  > Angle: Solo developers and small teams can fork it to organize AI workflows in a one-person company. Unlike scattered prompts,
-
-* **[elie222/rakazo](https://github.com/elie222/rakazo)** — An open-source, self-hosted persistent AI assistant with bring-your-own model and sandbox, running on web, Electron desktop, iOS and Android, with separate conversations, memory,
-
-  > Angle: Build a hosted or industry-customized version for privacy-sensitive users such as law firms or clinics.
-
-* **[ConardLi/garden-skills](https://github.com/ConardLi/garden-skills)** — A collection of production-ready Agent Skills for Claude Code, Cursor, and Codex, covering web design, code-rendered short video, presentations, image generation,
-
-  > Angle: A fit for a skill marketplace or vertical packs, such as e-commerce detail pages or WeChat article layout.
+> Today's projects show AI moving out of the chat window and into concrete workflows: testing, content production, memory, news curation. Each is being repackaged as a reusable skill or plugin rather than another general-purpose assistant.
 
 ### AI Infrastructure / Models
 
-* **[FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c)** — A portable C99 engine that runs a 2.78-trillion-parameter Kimi K3 on a single CPU with 8GB of RAM, no BLAS, no framework, no GPU, streaming weights from disk.
+* **[microsoft/VibeVoice](https://github.com/microsoft/VibeVoice)** — Microsoft's open voice AI family now includes a streaming ASR model that transcribes who said what as speech arrives, with hotwords and 10 languages.
 
-  > Angle: A good base for offline or edge inference: compliant intranets, classroom demos, embedded AI boxes.
+  > Angle: Meeting notes and call-center QA are the obvious fits: streaming speaker separation removes post-hoc stitching.
 
-* **[NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology)** — An NVIDIA open-source Python framework that builds a semantic graph layer from enterprise metadata, reconciles metric definitions across systems,
+* **[google-research/timesfm](https://github.com/google-research/timesfm)** — Google Research's pretrained time-series foundation model. Version 3.0 supports zero-shot multivariate forecasting and is already in BigQuery ML and Sheets.
 
-  > Angle: Aim at mid-to-large companies with many data sources and inconsistent metrics, in the agent-analytics trust space.
+  > Angle: Retail replenishment, energy forecasting, and financial metrics can try zero-shot directly. The startup angle isn't the model but fine-tuning and evaluation on…
 
 ### Developer Tools / CLI
 
-* **[JiaFeiMiao-K-Cat/DiscImageStudio](https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio)** — Converts images into data that respects the physical-layer constraints of CDs, DVDs, and single-layer Blu-ray, so burning produces a visible image on the disc surface,
+* **[tester-army/e2e](https://github.com/tester-army/e2e)** — An end-to-end testing framework for web and mobile apps. You describe a goal in natural language, an agent drives the app, and locators plus assertions verify the result.
 
-  > Angle: A fit for a physical product business: wedding keepsake discs, band albums, branded merch. Versus ordinary burning software,
+  > Angle: Sell it to small teams without dedicated QA automation: turn test scripting into writing acceptance goals.
 
-* **[vercel-labs/scriptc](https://github.com/vercel-labs/scriptc)** — A Vercel Labs experimental compiler that uses TypeScript's type checking to compile TS/JS into native executables and WebAssembly that run without Node.js,
+* **[The-PR-Agent/pr-agent](https://github.com/The-PR-Agent/pr-agent)** — An open-source AI code review agent for GitHub, GitLab, and Bitbucket, with support for OpenAI, Anthropic, or local Ollama.
 
-  > Angle: More a trend signal than a ready product: watch its impact on CLI distribution and edge runtimes. To borrow it,
+  > Angle: Target code-review compliance: banks and government clients won't ship code to SaaS, so build a private review service on it.
+
+* **[csyangwen/dsh-memory-evolve](https://github.com/csyangwen/dsh-memory-evolve)** — A pure plugin for DeepSeek Harness that adds cross-session long-term memory, todo management, skill self-evolution, and multi-session coordination.
+
+  > Angle: It shows agent competition shifting from models to memory and state. If you build agents, offer cross-session memory as a standalone layer for long-term…
+
+### Frontend / Design
+
+* **[longbridge/gpui-kit](https://github.com/longbridge/gpui-kit)** — A Rust desktop framework built on GPUI, shipping 75+ documented components and primitives, WebAssembly support, accessibility, UI integration testing,
+
+  > Angle: Aim at teams building high-performance desktop tools like trading terminals, editors, or dashboards.
+
+* **[kevinraymond/florilegium](https://github.com/kevinraymond/florilegium)** — A LuaLaTeX package that computes Delft-blue floral page margins while the page is written, with each page's plants grown from a seed and no external images.
+
+  > Angle: This is a typesetting tool, not a startup, but it points at embedding generative graphics into document pipelines.
+
+### Security / Privacy
+
+* **[rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)** — An open-source, self-hosted remote desktop app positioned as a TeamViewer alternative, covering Windows, macOS, Linux, Android, and iOS with self-hosted relay servers.
+
+  > Angle: The opportunity isn't the client but managed service: a self-hosted remote desktop ops package for SMBs, including relay deployment, audit logs,
 
 ### Vertical Tools / Skills
 
-* **[harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)** — Give it a topic or keyword and it writes the script, matches footage, adds subtitles and music, and renders an HD short video, with WebUI and API.
+* **[scenario-labs/skills](https://github.com/scenario-labs/skills)** — A skill pack for AI coding agents that generates production-ready images, video, audio, textures, and 3D assets through Scenario MCP,
 
-  > Angle: The opening is not another generator but vertical packaging: local-business探店 clips or cross-border product shorts in multiple languages.
+  > Angle: Game and creative studios are the buyers: pitch consistency and budget control to indie art pipelines.
 
-* **[Usagi-org/ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor)** — A Playwright and AI powered monitor for Xianyu with natural-language task creation, multimodal listing analysis, region and price filters, multi-channel alerts, a web admin UI,
+* **[Thysrael/Horizon](https://github.com/Thysrael/Horizon)** — A self-hosted AI news radar that collects from feeds, forums, and timelines, deduplicates and ranks items, then produces bilingual daily briefings delivered via Feishu, email,
 
-  > Angle: Build a deal-hunting service for specific categories like cameras, GPUs, or instruments, charging for filter rules and alert speed.
+  > Angle: Turn it into a vertical intelligence briefing: swap general feeds for a niche like semiconductors or trade policy and charge a subscription.
 
-* **[handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)** — A Chinese patent skill pack covering idea mining, drafting disclosure documents for invention, utility model, and design patents, prior-art search, plain-language reading,
-
-  > Angle: Target small R&D teams and independent inventors at the step from technical idea to submittable disclosure.
-
-[This issue (Markdown)](daily/en/2026-11-05.md)
+[This issue (Markdown)](daily/en/2026-11-06.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 

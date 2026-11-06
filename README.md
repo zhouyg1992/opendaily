@@ -11,65 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.05 · 周四](daily/zh/2026-11-05.md)
+## [2026.11.06 · 周五](daily/zh/2026-11-06.md)
 
-> 今天的项目里，一个明显的信号是「把大能力塞进小场景」：无论是把万亿参数模型压进单机内存、把专利交底书变成可执行技能，还是把闲鱼监控、光盘刻盘这种极窄需求做成完整工具，都在证明通用大模型之上的价值正转向最后一公里的封装。另一个变化是 AI 编码工具开始从「补全代码」走向「组织流程」，用 Markdown 和斜杠命令模拟一支工程团队。
-
-### AI / Agent 工具
-
-* **[garrytan/gstack](https://github.com/garrytan/gstack)** — YC 总裁 Garry Tan 公开的 Claude Code 配置：23 个 Markdown 斜杠命令，分别扮演 CEO、设计、工程经理、QA、安全官和发布工程师。它把编码 agent 从「写代码」升级成「跑一支虚拟工程团队」。
-
-  > 灵感：适合独立开发者和小团队直接 fork 改造，切「一人公司如何组织 AI 流程」的场景。和零散 prompt 相比，它的价值在于把角色分工和交付节奏固化成可复用命令。
-
-* **[elie222/rakazo](https://github.com/elie222/rakazo)** — 开源自托管的常驻 AI 助手，可自带模型和沙箱，支持 Web、Electron 桌面和 iOS/Android，具备独立会话、记忆、例程和语音模式。它瞄准的是想摆脱闭源 Bot、自己掌控数据的人。
-
-  > 灵感：适合做面向隐私敏感用户的托管版或行业定制版，比如律所、诊所的内部助手。和 Grok Bot 类产品相比，差异是模型和算力都能自选、可完全本地跑。
-
-* **[ConardLi/garden-skills](https://github.com/ConardLi/garden-skills)** — 一套面向 Claude Code、Cursor、Codex 的生产级 Agent Skills 合集，涵盖网页设计、代码渲染短视频、演示文稿、图像生成和本地知识检索。它把「怎么让编码 agent 干好非编码活」沉淀成可安装的技能包。
-
-  > 灵感：适合做技能市场或垂直技能包，比如面向电商详情页、公众号排版的技能组合。和零散 prompt 库相比，它的差异是带安装机制和跨 agent 兼容。
+> 今天这批项目透露出一个清晰信号：AI 正从聊天窗口下沉到具体工作流——测试、内容生产、记忆管理、新闻筛选，都在被重新组织成可复用的技能或插件。与此同时，底层基础设施（远程桌面、代理面板、K8s 发行版）依然靠稳定和自托管赢得长期用户。创业者该关注的是那些把模型能力嵌进真实场景、而非再造一个通用入口的项目。
 
 ### AI 基础设施 / 模型
 
-* **[FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c)** — 用可移植 C99 在单 CPU、8GB 内存下跑 2.78 万亿参数的 Kimi K3，不依赖 BLAS、框架或 GPU，模型从磁盘流式加载。它解决的是「没有 GPU 也想本地跑大模型」的问题，也把推理引擎的复杂度压到 176KB。
+* **[microsoft/VibeVoice](https://github.com/microsoft/VibeVoice)** — 微软开源的语音 AI 系列，最新包含流式 ASR 模型，能边说边转写「谁说了什么」，支持热词和 10 种语言；另有面向边缘 CPU 的量化推理版本，模型体积从 4.6GB 压到 1.6GB。
 
-  > 灵感：适合做边缘设备或离线场景的推理底座，比如内网合规环境、教学演示、嵌入式 AI 盒子。和 llama.cpp 的差异在于它演示了超大规模模型靠磁盘流式加载也能跑，思路可复用到冷数据推理。
+  > 灵感：会议记录和客服质检是最直接的落地场景：流式说话人分离省掉后处理拼接。对做端侧语音产品的团队，BitNet 版本意味着可以在无 GPU 设备上跑实时转写。
 
-* **[NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology)** — NVIDIA 开源的 Python 框架，从企业元数据构建语义图谱层，统一跨系统指标定义，并通过 MCP、CLI、API 暴露给任意 agent。它解决的是 agent 查数据「查得快但算错」的可靠性问题。
+* **[google-research/timesfm](https://github.com/google-research/timesfm)** — Google Research 的预训练时间序列基础模型，3.0 版本支持零样本多变量预测，已进入 BigQuery ML 和 Google Sheets。适合不想为每个数据集单独训练预测模型的团队。
 
-  > 灵感：面向有多个数据源、指标口径混乱的中大型企业，切「agent 数据分析可信度」场景。和直接让 LLM 写 SQL 相比，它先把「数据在哪、什么意思、能不能用」固化成可查询的层。
+  > 灵感：零售补货、能耗预测、金融指标这类场景可以直接试零样本预测。创业角度不是重做模型，而是在垂直数据上做微调和评估服务，帮企业判断什么时候基础模型够用、什么时候不够。
 
 ### 开发工具 / CLI
 
-* **[JiaFeiMiao-K-Cat/DiscImageStudio](https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio)** — 把图片转换成符合 CD、DVD、单层蓝光物理层约束的数据，刻录后盘面呈现肉眼可见图案，支持 Windows 图形界面和跨平台 CLI。它服务的是光盘收藏、定制刻录和实体媒介创作的小众需求。
+* **[tester-army/e2e](https://github.com/tester-army/e2e)** — 面向 Web 和移动应用的端到端测试框架，用自然语言描述目标，agent 驱动应用完成操作，再用定位器和断言校验结果。首次运行记录动作，之后无模型调用回放，应用变更才重新触发 agent。
 
-  > 灵感：适合做定制光盘的实体产品生意，比如婚礼纪念盘、乐队专辑、品牌周边。和普通刻录软件相比，它的差异是把盘面当画布，卖的是实体仪式感。
+  > 灵感：适合做 QA 外包或内部测试提效：把「写测试脚本」变成「写验收目标」，卖给没有专职自动化测试的中小团队。差异在于按需调用模型，而不是每次跑测试都烧 token。
 
-* **[vercel-labs/scriptc](https://github.com/vercel-labs/scriptc)** — Vercel Labs 的实验性编译器，利用 TypeScript 类型检查结果把 TS/JS 编译成原生可执行文件和 WebAssembly，产物无需 Node.js 即可运行，无法编译的代码在构建期报错并给改写建议。它探索的是「TypeScript 全栈统一」的下一步。
+* **[The-PR-Agent/pr-agent](https://github.com/The-PR-Agent/pr-agent)** — 开源的 AI 代码审查 agent，支持 GitHub、GitLab、Bitbucket 等平台，可接 OpenAI、Anthropic 或本地 Ollama。项目由社区维护，定位是 Qodo 商业产品的开源前身，适合想自托管审查流程的团队。
 
-  > 灵感：更像趋势信号而非现成产品：值得关注它对 CLI 工具分发和边缘运行时的冲击。想借力的话，可以先在内部小工具上试编译覆盖率，评估替代 Node 打包的可行性。
+  > 灵感：适合做「代码审查合规」场景：金融、政企客户不愿把代码发给 SaaS，可基于它搭私有化审查服务。差异在于模型可换、可本地跑，数据不出内网。
+
+* **[csyangwen/dsh-memory-evolve](https://github.com/csyangwen/dsh-memory-evolve)** — 为 DeepSeek Harness 做的纯插件，给 AI 加上跨会话长期记忆、待办管理、技能自我进化和多会话协同，零核心修改、零运行时依赖，安装即用、卸载即净。
+
+  > 灵感：它说明 agent 的竞争点正从模型转向「记忆与状态管理」。如果做 agent 产品，可以把跨会话记忆做成独立层，卖给需要长期陪伴场景的工具，比如个人助理、学习教练。
+
+### 前端 / 设计
+
+* **[longbridge/gpui-kit](https://github.com/longbridge/gpui-kit)** — 基于 GPUI 的 Rust 桌面应用框架，提供 75 个以上有文档的组件和原语，支持 WebAssembly、无障碍访问和 UI 集成测试，还带可选的 JavaScript 扩展运行时。目标是让 Rust 写桌面 UI 不再从零造轮子。
+
+  > 灵感：适合做高性能桌面工具的团队，比如金融终端、编辑器、监控面板。和 Electron 方案比，内存占用和启动速度是差异点；可以围绕它做垂直行业的桌面客户端模板。
+
+* **[kevinraymond/florilegium](https://github.com/kevinraymond/florilegium)** — 一个 LuaLaTeX 宏包，在写页面的同时用代码生成代尔夫特蓝风格的花卉页边装饰，每页由种子决定植物形态，不依赖任何外部图片。源自 Reddit 上一个排版问题的回答。
+
+  > 灵感：这是排版工具而非创业项目，但它提示了一个方向：把生成式图形嵌进文档生产链。可以借鉴给品牌做「每份文档独一无二」的模板，比如请柬、证书、限量版印刷品。
+
+### 安全 / 隐私
+
+* **[rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)** — 开源自托管的远程桌面应用，定位 TeamViewer 替代品，支持 Windows、macOS、Linux、Android、iOS，可自建中继服务器。对数据不能出境或不愿按席位付费的团队有直接吸引力。
+
+  > 灵感：机会不在重做客户端，而在托管服务：面向中小企业的自托管远程桌面运维套餐，含中继部署、审计日志和权限管理。和 SaaS 远程桌面比，卖点是数据留在自己服务器。
 
 ### Skill / 垂直工具
 
-* **[harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)** — 输入主题或关键词，自动生成脚本、匹配素材、加字幕配乐并合成高清短视频，带 WebUI 和 API。它服务的是批量做短视频的内容团队，把原本需要剪辑师的多步流程压成一次调用。
+* **[scenario-labs/skills](https://github.com/scenario-labs/skills)** — 一套给 AI 编码 agent 用的技能包，通过 Scenario MCP 生成生产级图片、视频、音频、纹理和 3D 资产，并能在花钱前先估价、保持角色与品牌一致；另有一组技能直接驱动 Blender、Maya、Unreal 等 DCC 软件。
 
-  > 灵感：机会不在再造一个生成器，而在垂直行业封装：本地生活商家的探店视频、跨境电商的多语言商品短片。差异点是接入具体素材库和平台发布链路。
+  > 灵感：游戏和创意工作室是天然买家：把「资产一致性」和「预算可控」做成卖点，切独立游戏团队的美术管线。和通用文生图相比，它管的是跨资产、跨工具的一致性。
 
-* **[Usagi-org/ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor)** — 基于 Playwright 和 AI 的闲鱼多任务监控系统，支持自然语言建任务、多模态分析商品、区域价格筛选和多渠道通知，带完整 Web 管理后台和 Docker 部署。它解决二手交易里「好货秒没」的信息差。
+* **[Thysrael/Horizon](https://github.com/Thysrael/Horizon)** — 自托管的 AI 新闻雷达，从订阅源、论坛和时间线收集内容，去重、排序并生成中英双语每日简报，支持飞书、邮件、微信推送。解决信息分散、注意力有限的问题。
 
-  > 灵感：适合做垂直品类的二手捡漏服务，比如相机、显卡、乐器，靠筛选规则和通知速度收费。和通用爬虫相比，它的差异是 AI 理解商品描述和成色。
+  > 灵感：可以做成垂直行业的「情报简报」服务：把通用新闻源换成某个细分领域（如半导体、跨境政策），按订阅收费。差异在于它输出的是带上下文和社区讨论的摘要，不是链接列表。
 
-* **[handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)** — 一个中国专利技能包，覆盖专利点挖掘、发明/实用/外观交底书编写、查新检索、通俗解读和审查答复辅助，还能把解读沉淀进 Obsidian 知识库。它服务的是有技术但写不出交底书的研发人员。
-
-  > 灵感：面向中小研发团队和独立发明人，切「技术方案到可提交交底书」这一段。和通用写作助手相比，它内置了中国专利的格式、框图要求和审查语境。
-
-[本期 Markdown](daily/zh/2026-11-05.md)
+[本期 Markdown](daily/zh/2026-11-06.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 

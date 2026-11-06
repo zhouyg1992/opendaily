@@ -1,0 +1,321 @@
+{
+  "date": "2026-11-06",
+  "generated_at": "2026-11-06T03:18:56+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个清晰信号：AI 正从聊天窗口下沉到具体工作流——测试、内容生产、记忆管理、新闻筛选，都在被重新组织成可复用的技能或插件。与此同时，底层基础设施（远程桌面、代理面板、K8s 发行版）依然靠稳定和自托管赢得长期用户。创业者该关注的是那些把模型能力嵌进真实场景、而非再造一个通用入口的项目。",
+    "en": "Today's projects show AI moving out of the chat window and into concrete workflows: testing, content production, memory, news curation. Each is being repackaged as a reusable skill or plugin rather than another general-purpose assistant."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "microsoft/VibeVoice",
+      "url": "https://github.com/microsoft/VibeVoice",
+      "content": {
+        "zh": {
+          "summary": "微软开源的语音 AI 系列，最新包含流式 ASR 模型，能边说边转写「谁说了什么」，支持热词和 10 种语言；另有面向边缘 CPU 的量化推理版本，模型体积从 4.6GB 压到 1.6GB。",
+          "insight": "会议记录和客服质检是最直接的落地场景：流式说话人分离省掉后处理拼接。对做端侧语音产品的团队，BitNet 版本意味着可以在无 GPU 设备上跑实时转写。"
+        },
+        "en": {
+          "summary": "Microsoft's open voice AI family now includes a streaming ASR model that transcribes who said what as speech arrives, with hotwords and 10 languages.",
+          "insight": "Meeting notes and call-center QA are the obvious fits: streaming speaker separation removes post-hoc stitching."
+        }
+      },
+      "description": "Open-Source Frontier Voice AI",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 56062,
+      "stars_today": 223,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.07
+    },
+    {
+      "repo": "google-research/timesfm",
+      "url": "https://github.com/google-research/timesfm",
+      "content": {
+        "zh": {
+          "summary": "Google Research 的预训练时间序列基础模型，3.0 版本支持零样本多变量预测，已进入 BigQuery ML 和 Google Sheets。适合不想为每个数据集单独训练预测模型的团队。",
+          "insight": "零售补货、能耗预测、金融指标这类场景可以直接试零样本预测。创业角度不是重做模型，而是在垂直数据上做微调和评估服务，帮企业判断什么时候基础模型够用、什么时候不够。"
+        },
+        "en": {
+          "summary": "Google Research's pretrained time-series foundation model. Version 3.0 supports zero-shot multivariate forecasting and is already in BigQuery ML and Sheets.",
+          "insight": "Retail replenishment, energy forecasting, and financial metrics can try zero-shot directly. The startup angle isn't the model but fine-tuning and evaluation on…"
+        }
+      },
+      "description": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 35247,
+      "stars_today": 57,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.71
+    },
+    {
+      "repo": "tester-army/e2e",
+      "url": "https://github.com/tester-army/e2e",
+      "content": {
+        "zh": {
+          "summary": "面向 Web 和移动应用的端到端测试框架，用自然语言描述目标，agent 驱动应用完成操作，再用定位器和断言校验结果。首次运行记录动作，之后无模型调用回放，应用变更才重新触发 agent。",
+          "insight": "适合做 QA 外包或内部测试提效：把「写测试脚本」变成「写验收目标」，卖给没有专职自动化测试的中小团队。差异在于按需调用模型，而不是每次跑测试都烧 token。"
+        },
+        "en": {
+          "summary": "An end-to-end testing framework for web and mobile apps. You describe a goal in natural language, an agent drives the app, and locators plus assertions verify the result.",
+          "insight": "Sell it to small teams without dedicated QA automation: turn test scripting into writing acceptance goals."
+        }
+      },
+      "description": "Next generation e2e testing framework for web and mobile apps.",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 13337,
+      "stars_today": 193,
+      "topics": [
+        "e2e",
+        "e2e-testing",
+        "end-to-end-testing",
+        "mobile",
+        "mobile-testing",
+        "playwright",
+        "web"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.58
+    },
+    {
+      "repo": "The-PR-Agent/pr-agent",
+      "url": "https://github.com/The-PR-Agent/pr-agent",
+      "content": {
+        "zh": {
+          "summary": "开源的 AI 代码审查 agent，支持 GitHub、GitLab、Bitbucket 等平台，可接 OpenAI、Anthropic 或本地 Ollama。项目由社区维护，定位是 Qodo 商业产品的开源前身，适合想自托管审查流程的团队。",
+          "insight": "适合做「代码审查合规」场景：金融、政企客户不愿把代码发给 SaaS，可基于它搭私有化审查服务。差异在于模型可换、可本地跑，数据不出内网。"
+        },
+        "en": {
+          "summary": "An open-source AI code review agent for GitHub, GitLab, and Bitbucket, with support for OpenAI, Anthropic, or local Ollama.",
+          "insight": "Target code-review compliance: banks and government clients won't ship code to SaaS, so build a private review service on it."
+        }
+      },
+      "description": "🚀 PR Agent: The Original Open-Source PR Reviewer. This project is not the Qodo free tier.",
+      "category": "开发工具 / CLI",
+      "language": "Python",
+      "stars": 15115,
+      "stars_today": 442,
+      "topics": [
+        "ai",
+        "anthropic",
+        "code-review",
+        "coding-assistant",
+        "devtools",
+        "ollama",
+        "openai",
+        "pull-request",
+        "pull-requests"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.13
+    },
+    {
+      "repo": "csyangwen/dsh-memory-evolve",
+      "url": "https://github.com/csyangwen/dsh-memory-evolve",
+      "content": {
+        "zh": {
+          "summary": "为 DeepSeek Harness 做的纯插件，给 AI 加上跨会话长期记忆、待办管理、技能自我进化和多会话协同，零核心修改、零运行时依赖，安装即用、卸载即净。",
+          "insight": "它说明 agent 的竞争点正从模型转向「记忆与状态管理」。如果做 agent 产品，可以把跨会话记忆做成独立层，卖给需要长期陪伴场景的工具，比如个人助理、学习教练。"
+        },
+        "en": {
+          "summary": "A pure plugin for DeepSeek Harness that adds cross-session long-term memory, todo management, skill self-evolution, and multi-session coordination.",
+          "insight": "It shows agent competition shifting from models to memory and state. If you build agents, offer cross-session memory as a standalone layer for long-term…"
+        }
+      },
+      "description": "为 DeepSeek Harness 带来「跨会话长期记忆 + 后台自我进化」能力的纯插件实现：五轨记忆 · git 分支感知 · 回合内自我审查 · 技能自我进化与技能管理器 · 四轨待办 · COI 调度 · 会话广播 · 会话搜索 · 提示词管理器 · 临时信息便签——零核心修改、零运行时依赖，随装随用、卸载即净。",
+      "category": "开发工具 / CLI",
+      "language": "JavaScript",
+      "stars": 632,
+      "stars_today": 26,
+      "topics": [
+        "deepseek-harness",
+        "dsh",
+        "dsh-plugin"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 18.45
+    },
+    {
+      "repo": "longbridge/gpui-kit",
+      "url": "https://github.com/longbridge/gpui-kit",
+      "content": {
+        "zh": {
+          "summary": "基于 GPUI 的 Rust 桌面应用框架，提供 75 个以上有文档的组件和原语，支持 WebAssembly、无障碍访问和 UI 集成测试，还带可选的 JavaScript 扩展运行时。目标是让 Rust 写桌面 UI 不再从零造轮子。",
+          "insight": "适合做高性能桌面工具的团队，比如金融终端、编辑器、监控面板。和 Electron 方案比，内存占用和启动速度是差异点；可以围绕它做垂直行业的桌面客户端模板。"
+        },
+        "en": {
+          "summary": "A Rust desktop framework built on GPUI, shipping 75+ documented components and primitives, WebAssembly support, accessibility, UI integration testing,",
+          "insight": "Aim at teams building high-performance desktop tools like trading terminals, editors, or dashboards."
+        }
+      },
+      "description": "Rust GUI components for building fantastic cross-platform desktop application by using GPUI.",
+      "category": "前端 / 设计",
+      "language": "Rust",
+      "stars": 19433,
+      "stars_today": 285,
+      "topics": [
+        "desktop-application",
+        "gpui",
+        "rust",
+        "uikit"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.86
+    },
+    {
+      "repo": "kevinraymond/florilegium",
+      "url": "https://github.com/kevinraymond/florilegium",
+      "content": {
+        "zh": {
+          "summary": "一个 LuaLaTeX 宏包，在写页面的同时用代码生成代尔夫特蓝风格的花卉页边装饰，每页由种子决定植物形态，不依赖任何外部图片。源自 Reddit 上一个排版问题的回答。",
+          "insight": "这是排版工具而非创业项目，但它提示了一个方向：把生成式图形嵌进文档生产链。可以借鉴给品牌做「每份文档独一无二」的模板，比如请柬、证书、限量版印刷品。"
+        },
+        "en": {
+          "summary": "A LuaLaTeX package that computes Delft-blue floral page margins while the page is written, with each page's plants grown from a seed and no external images.",
+          "insight": "This is a typesetting tool, not a startup, but it points at embedding generative graphics into document pipelines."
+        }
+      },
+      "description": "Procedurally generated Delft-blue floral page margins for LuaLaTeX, with plants and visitors sampled from genomes and a TikZ library that also draws them under pdfLaTeX",
+      "category": "前端 / 设计",
+      "language": "TeX",
+      "stars": 1476,
+      "stars_today": 0,
+      "topics": [
+        "botanical-illustration",
+        "generative-art",
+        "latex",
+        "latex-package",
+        "lua",
+        "lualatex",
+        "pdflatex",
+        "postscript",
+        "procedural-generation",
+        "svg"
+      ],
+      "sources": [
+        "hn"
+      ],
+      "score": 32.01
+    },
+    {
+      "repo": "rustdesk/rustdesk",
+      "url": "https://github.com/rustdesk/rustdesk",
+      "content": {
+        "zh": {
+          "summary": "开源自托管的远程桌面应用，定位 TeamViewer 替代品，支持 Windows、macOS、Linux、Android、iOS，可自建中继服务器。对数据不能出境或不愿按席位付费的团队有直接吸引力。",
+          "insight": "机会不在重做客户端，而在托管服务：面向中小企业的自托管远程桌面运维套餐，含中继部署、审计日志和权限管理。和 SaaS 远程桌面比，卖点是数据留在自己服务器。"
+        },
+        "en": {
+          "summary": "An open-source, self-hosted remote desktop app positioned as a TeamViewer alternative, covering Windows, macOS, Linux, Android, and iOS with self-hosted relay servers.",
+          "insight": "The opportunity isn't the client but managed service: a self-hosted remote desktop ops package for SMBs, including relay deployment, audit logs,"
+        }
+      },
+      "description": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.",
+      "category": "安全 / 隐私",
+      "language": "Rust",
+      "stars": 128352,
+      "stars_today": 139,
+      "topics": [
+        "android",
+        "anydesk",
+        "dart",
+        "flatpak",
+        "flutter",
+        "flutter-apps",
+        "ios",
+        "linux",
+        "macos",
+        "p2p"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 33.48
+    },
+    {
+      "repo": "scenario-labs/skills",
+      "url": "https://github.com/scenario-labs/skills",
+      "content": {
+        "zh": {
+          "summary": "一套给 AI 编码 agent 用的技能包，通过 Scenario MCP 生成生产级图片、视频、音频、纹理和 3D 资产，并能在花钱前先估价、保持角色与品牌一致；另有一组技能直接驱动 Blender、Maya、Unreal 等 DCC 软件。",
+          "insight": "游戏和创意工作室是天然买家：把「资产一致性」和「预算可控」做成卖点，切独立游戏团队的美术管线。和通用文生图相比，它管的是跨资产、跨工具的一致性。"
+        },
+        "en": {
+          "summary": "A skill pack for AI coding agents that generates production-ready images, video, audio, textures, and 3D assets through Scenario MCP,",
+          "insight": "Game and creative studios are the buyers: pitch consistency and budget control to indie art pipelines."
+        }
+      },
+      "description": "Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 3134,
+      "stars_today": 667,
+      "topics": [
+        "3d-models",
+        "agent-skills",
+        "ai-agents",
+        "ai-art",
+        "blender",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "game-assets",
+        "game-development"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.98
+    },
+    {
+      "repo": "Thysrael/Horizon",
+      "url": "https://github.com/Thysrael/Horizon",
+      "content": {
+        "zh": {
+          "summary": "自托管的 AI 新闻雷达，从订阅源、论坛和时间线收集内容，去重、排序并生成中英双语每日简报，支持飞书、邮件、微信推送。解决信息分散、注意力有限的问题。",
+          "insight": "可以做成垂直行业的「情报简报」服务：把通用新闻源换成某个细分领域（如半导体、跨境政策），按订阅收费。差异在于它输出的是带上下文和社区讨论的摘要，不是链接列表。"
+        },
+        "en": {
+          "summary": "A self-hosted AI news radar that collects from feeds, forums, and timelines, deduplicates and ranks items, then produces bilingual daily briefings delivered via Feishu, email,",
+          "insight": "Turn it into a vertical intelligence briefing: swap general feeds for a niche like semiconductors or trade policy and charge a subscription."
+        }
+      },
+      "description": "📡 Your own AI-powered news radar. Generates daily briefings in English & Chinese. | 用 AI 构建你专属的新闻雷达",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 12902,
+      "stars_today": 485,
+      "topics": [
+        "aggregator",
+        "feishu-bot",
+        "llm",
+        "mcp",
+        "news",
+        "openclaw",
+        "python",
+        "webhook"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.79
+    }
+  ]
+}
