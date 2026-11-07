@@ -11,67 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.06 · 周五](daily/zh/2026-11-06.md)
+## [2026.11.07 · 周六](daily/zh/2026-11-07.md)
 
-> 今天这批项目透露出一个清晰信号：AI 正从聊天窗口下沉到具体工作流——测试、内容生产、记忆管理、新闻筛选，都在被重新组织成可复用的技能或插件。与此同时，底层基础设施（远程桌面、代理面板、K8s 发行版）依然靠稳定和自托管赢得长期用户。创业者该关注的是那些把模型能力嵌进真实场景、而非再造一个通用入口的项目。
+> 今天这批项目里，最明显的信号是「能力封装」正在成为主流：无论是浏览器操作、云服务技能，还是 UI 组件，都在被拆成可被 AI 调用的独立单元。同时，安全与隐私工具开始从专家走向普通用户，开源项目正用更低的门槛解决具体场景问题。
 
-### AI 基础设施 / 模型
+### AI / Agent 工具
 
-* **[microsoft/VibeVoice](https://github.com/microsoft/VibeVoice)** — 微软开源的语音 AI 系列，最新包含流式 ASR 模型，能边说边转写「谁说了什么」，支持热词和 10 种语言；另有面向边缘 CPU 的量化推理版本，模型体积从 4.6GB 压到 1.6GB。
+* **[vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)** — 一个用 Rust 写的浏览器自动化 CLI，专为 AI agent 设计。它把页面转成带引用的可访问性树，agent 通过短命令逐步操作并检查结果，浏览器在命令间保持打开，适合需要稳定、低延迟的自动化流程。
 
-  > 灵感：会议记录和客服质检是最直接的落地场景：流式说话人分离省掉后处理拼接。对做端侧语音产品的团队，BitNet 版本意味着可以在无 GPU 设备上跑实时转写。
+  > 灵感：如果你在做 agent 产品，可以借鉴它的「快照-操作-验证」循环，把复杂网页交互拆成可回滚的原子步骤，比直接调用 Playwright 更可控。
 
-* **[google-research/timesfm](https://github.com/google-research/timesfm)** — Google Research 的预训练时间序列基础模型，3.0 版本支持零样本多变量预测，已进入 BigQuery ML 和 Google Sheets。适合不想为每个数据集单独训练预测模型的团队。
+* **[google/skills](https://github.com/google/skills)** — Google 官方发布的 Agent Skills 集合，覆盖 Google Cloud 等产品。通过 npx 安装后，agent 可以直接调用这些预置技能，减少从头编写工具调用的成本，适合快速搭建与 Google 生态集成的 agent。
 
-  > 灵感：零售补货、能耗预测、金融指标这类场景可以直接试零样本预测。创业角度不是重做模型，而是在垂直数据上做微调和评估服务，帮企业判断什么时候基础模型够用、什么时候不够。
+  > 灵感：可以围绕「技能市场」做文章：为垂直行业（如电商、数据分析）整理并托管第三方技能包，解决 agent 开发者找工具、配环境的痛点。
 
-### 开发工具 / CLI
+* **[Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI)** — 一个自托管、无内容过滤的 AI 图像与视频生成工作室，聚合了 600 多个模型（Flux、Kling、Sora 等），提供 14 个创作工作室。它满足了对开放、可定制生成工具的需求，适合不想被平台束缚的创作者。
 
-* **[tester-army/e2e](https://github.com/tester-army/e2e)** — 面向 Web 和移动应用的端到端测试框架，用自然语言描述目标，agent 驱动应用完成操作，再用定位器和断言校验结果。首次运行记录动作，之后无模型调用回放，应用变更才重新触发 agent。
+  > 灵感：可以针对特定垂直领域（如游戏素材、广告创意）做预配置的工作流模板，降低用户选择模型和调参的门槛。
 
-  > 灵感：适合做 QA 外包或内部测试提效：把「写测试脚本」变成「写验收目标」，卖给没有专职自动化测试的中小团队。差异在于按需调用模型，而不是每次跑测试都烧 token。
+* **[openai/plugins](https://github.com/openai/plugins)** — OpenAI 的 Codex 插件示例集合，每个插件包含清单文件和可选的技能、命令、钩子等。它展示了如何为 Codex 扩展能力，适合想为 AI 编程助手构建生态的开发者参考。
 
-* **[The-PR-Agent/pr-agent](https://github.com/The-PR-Agent/pr-agent)** — 开源的 AI 代码审查 agent，支持 GitHub、GitLab、Bitbucket 等平台，可接 OpenAI、Anthropic 或本地 Ollama。项目由社区维护，定位是 Qodo 商业产品的开源前身，适合想自托管审查流程的团队。
-
-  > 灵感：适合做「代码审查合规」场景：金融、政企客户不愿把代码发给 SaaS，可基于它搭私有化审查服务。差异在于模型可换、可本地跑，数据不出内网。
-
-* **[csyangwen/dsh-memory-evolve](https://github.com/csyangwen/dsh-memory-evolve)** — 为 DeepSeek Harness 做的纯插件，给 AI 加上跨会话长期记忆、待办管理、技能自我进化和多会话协同，零核心修改、零运行时依赖，安装即用、卸载即净。
-
-  > 灵感：它说明 agent 的竞争点正从模型转向「记忆与状态管理」。如果做 agent 产品，可以把跨会话记忆做成独立层，卖给需要长期陪伴场景的工具，比如个人助理、学习教练。
+  > 灵感：可以模仿这种插件结构，为其他 AI 编程工具（如 Claude Code）做第三方插件市场，抢占生态位。
 
 ### 前端 / 设计
 
-* **[longbridge/gpui-kit](https://github.com/longbridge/gpui-kit)** — 基于 GPUI 的 Rust 桌面应用框架，提供 75 个以上有文档的组件和原语，支持 WebAssembly、无障碍访问和 UI 集成测试，还带可选的 JavaScript 扩展运行时。目标是让 Rust 写桌面 UI 不再从零造轮子。
+* **[ppmpreetham/BUI](https://github.com/ppmpreetham/BUI)** — 把 Blender 的 GPU 加速 UI 从原代码库中解耦出来，做成可被 Python、Rust、JS、React、C++ 等调用的库。它让开发者能复用经过数十年优化的界面组件，适合需要高性能原生 UI 的桌面应用。
 
-  > 灵感：适合做高性能桌面工具的团队，比如金融终端、编辑器、监控面板。和 Electron 方案比，内存占用和启动速度是差异点；可以围绕它做垂直行业的桌面客户端模板。
+  > 灵感：对做桌面端工具（如音视频编辑、3D 建模）的团队，可以用它快速搭建专业级界面，省去自研 UI 框架的成本。
 
-* **[kevinraymond/florilegium](https://github.com/kevinraymond/florilegium)** — 一个 LuaLaTeX 宏包，在写页面的同时用代码生成代尔夫特蓝风格的花卉页边装饰，每页由种子决定植物形态，不依赖任何外部图片。源自 Reddit 上一个排版问题的回答。
+### 数据 / 基础设施
 
-  > 灵感：这是排版工具而非创业项目，但它提示了一个方向：把生成式图形嵌进文档生产链。可以借鉴给品牌做「每份文档独一无二」的模板，比如请柬、证书、限量版印刷品。
+* **[pingcap/tidb](https://github.com/pingcap/tidb)** — 一个云原生分布式 SQL 数据库，支持 ACID 事务、分析和向量搜索，专为 agentic 工作负载设计。它解决了 AI 应用对数据一致性和弹性扩展的双重需求，适合需要统一数据层的 agent 系统。
+
+  > 灵感：作为基础设施，可以关注它为 agent 记忆和上下文提供的原生支持，在构建多 agent 协作产品时直接利用，避免自建状态存储。
 
 ### 安全 / 隐私
 
-* **[rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)** — 开源自托管的远程桌面应用，定位 TeamViewer 替代品，支持 Windows、macOS、Linux、Android、iOS，可自建中继服务器。对数据不能出境或不愿按席位付费的团队有直接吸引力。
+* **[sherlock-project/sherlock](https://github.com/sherlock-project/sherlock)** — 通过用户名在数百个社交网络上追踪账号的开源工具，是 OSINT 和数字取证领域的经典项目。它解决了跨平台身份关联的重复劳动，适合安全研究人员和隐私调查场景。
 
-  > 灵感：机会不在重做客户端，而在托管服务：面向中小企业的自托管远程桌面运维套餐，含中继部署、审计日志和权限管理。和 SaaS 远程桌面比，卖点是数据留在自己服务器。
+  > 灵感：面向企业安全团队，可以把它包装成员工账号暴露面监测服务，定期扫描并告警，比人工排查更高效。
+
+* **[PrivSec-dev/banking-apps-compat-report](https://github.com/PrivSec-dev/banking-apps-compat-report)** — 一个众包维护的 GrapheneOS 银行应用兼容性报告，记录哪些银行应用可以运行、需要什么变通方法。它解决了隐私系统用户在日常金融场景中的实际障碍，是社区驱动的实用数据集。
+
+  > 灵感：可以扩展成通用的「隐私系统兼容性数据库」，覆盖更多应用类别，为隐私手机厂商或社区提供订阅式数据服务。
+
+* **[aquasecurity/trivy](https://github.com/aquasecurity/trivy)** — 一个综合安全扫描器，能查容器、K8s、代码仓库、云环境中的漏洞、配置错误、密钥和 SBOM。它把多种扫描能力集成到一个工具里，适合 DevSecOps 流程中的自动化安全检查。
+
+  > 灵感：可以围绕它做轻量级的合规报告生成器，面向中小团队，把扫描结果转成可交付的审计文档，省去人工整理。
 
 ### Skill / 垂直工具
 
-* **[scenario-labs/skills](https://github.com/scenario-labs/skills)** — 一套给 AI 编码 agent 用的技能包，通过 Scenario MCP 生成生产级图片、视频、音频、纹理和 3D 资产，并能在花钱前先估价、保持角色与品牌一致；另有一组技能直接驱动 Blender、Maya、Unreal 等 DCC 软件。
+* **[valentderah/totk-pc-recomp](https://github.com/valentderah/totk-pc-recomp)** — 将《塞尔达传说：王国之泪》静态重编译为 Windows 和 Linux 原生应用的项目，使用 Vulkan 渲染。它展示了静态重编译技术在游戏移植上的可行性，适合对二进制翻译和游戏 preservation 感兴趣的人。
 
-  > 灵感：游戏和创意工作室是天然买家：把「资产一致性」和「预算可控」做成卖点，切独立游戏团队的美术管线。和通用文生图相比，它管的是跨资产、跨工具的一致性。
+  > 灵感：作为技术信号，可以关注静态重编译工具链在老旧商业软件现代化上的应用，比如把遗留 Windows 应用迁移到 Linux。
 
-* **[Thysrael/Horizon](https://github.com/Thysrael/Horizon)** — 自托管的 AI 新闻雷达，从订阅源、论坛和时间线收集内容，去重、排序并生成中英双语每日简报，支持飞书、邮件、微信推送。解决信息分散、注意力有限的问题。
-
-  > 灵感：可以做成垂直行业的「情报简报」服务：把通用新闻源换成某个细分领域（如半导体、跨境政策），按订阅收费。差异在于它输出的是带上下文和社区讨论的摘要，不是链接列表。
-
-[本期 Markdown](daily/zh/2026-11-06.md)
+[本期 Markdown](daily/zh/2026-11-07.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 

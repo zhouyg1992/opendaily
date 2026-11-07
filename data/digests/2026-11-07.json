@@ -1,0 +1,323 @@
+{
+  "date": "2026-11-07",
+  "generated_at": "2026-11-07T02:38:53+00:00",
+  "intro": {
+    "zh": "今天这批项目里，最明显的信号是「能力封装」正在成为主流：无论是浏览器操作、云服务技能，还是 UI 组件，都在被拆成可被 AI 调用的独立单元。同时，安全与隐私工具开始从专家走向普通用户，开源项目正用更低的门槛解决具体场景问题。",
+    "en": "The clearest signal today is the packaging of capabilities: browser actions, cloud skills, and even UI components are being decoupled into units that AI can call. Meanwhile, security and privacy tools are moving from specialists to everyday users,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "vercel-labs/agent-browser",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "content": {
+        "zh": {
+          "summary": "一个用 Rust 写的浏览器自动化 CLI，专为 AI agent 设计。它把页面转成带引用的可访问性树，agent 通过短命令逐步操作并检查结果，浏览器在命令间保持打开，适合需要稳定、低延迟的自动化流程。",
+          "insight": "如果你在做 agent 产品，可以借鉴它的「快照-操作-验证」循环，把复杂网页交互拆成可回滚的原子步骤，比直接调用 Playwright 更可控。"
+        },
+        "en": {
+          "summary": "A Rust-based browser automation CLI built for AI agents. It turns pages into a compact accessibility tree with element refs,",
+          "insight": "For agent builders, adopt its snapshot-act-verify loop to break complex web tasks into atomic, reversible steps,"
+        }
+      },
+      "description": "Browser automation CLI for AI agents",
+      "category": "AI / Agent 工具",
+      "language": "Rust",
+      "stars": 46323,
+      "stars_today": 622,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.99
+    },
+    {
+      "repo": "google/skills",
+      "url": "https://github.com/google/skills",
+      "content": {
+        "zh": {
+          "summary": "Google 官方发布的 Agent Skills 集合，覆盖 Google Cloud 等产品。通过 npx 安装后，agent 可以直接调用这些预置技能，减少从头编写工具调用的成本，适合快速搭建与 Google 生态集成的 agent。",
+          "insight": "可以围绕「技能市场」做文章：为垂直行业（如电商、数据分析）整理并托管第三方技能包，解决 agent 开发者找工具、配环境的痛点。"
+        },
+        "en": {
+          "summary": "Google's official collection of Agent Skills for its products, including Google Cloud. Installable via npx, it lets agents invoke prebuilt skills,",
+          "insight": "Opportunity lies in a curated skill marketplace: package and host third-party skills for verticals like e-commerce or analytics,"
+        }
+      },
+      "description": "Agent Skills for Google products and technologies",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 22868,
+      "stars_today": 534,
+      "topics": [
+        "google",
+        "googlecloud",
+        "skills"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.51
+    },
+    {
+      "repo": "Anil-matcha/Open-Generative-AI",
+      "url": "https://github.com/Anil-matcha/Open-Generative-AI",
+      "content": {
+        "zh": {
+          "summary": "一个自托管、无内容过滤的 AI 图像与视频生成工作室，聚合了 600 多个模型（Flux、Kling、Sora 等），提供 14 个创作工作室。它满足了对开放、可定制生成工具的需求，适合不想被平台束缚的创作者。",
+          "insight": "可以针对特定垂直领域（如游戏素材、广告创意）做预配置的工作流模板，降低用户选择模型和调参的门槛。"
+        },
+        "en": {
+          "summary": "A self-hosted, uncensored AI image and video generation studio aggregating 600+ models across 14 studios. It serves creators who want open,",
+          "insight": "Build preconfigured workflow templates for verticals like game assets or ad creative, reducing the burden of model selection and parameter tuning."
+        }
+      },
+      "description": "Unrestricted Open-source alternative to AI video platforms — Free AI image & video generation studio with 600+ models (Flux, Midjourney, Kling, Sora, Veo). No content filters. Self-hosted, MIT licensed.",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 32843,
+      "stars_today": 398,
+      "topics": [
+        "ai-art-generator",
+        "ai-image-generation",
+        "ai-video-generation",
+        "fal-ai-alternative",
+        "generative-ai",
+        "image-to-video",
+        "invideo-alternative",
+        "kling-ai",
+        "lipsync",
+        "litellm-alternative"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.05
+    },
+    {
+      "repo": "openai/plugins",
+      "url": "https://github.com/openai/plugins",
+      "content": {
+        "zh": {
+          "summary": "OpenAI 的 Codex 插件示例集合，每个插件包含清单文件和可选的技能、命令、钩子等。它展示了如何为 Codex 扩展能力，适合想为 AI 编程助手构建生态的开发者参考。",
+          "insight": "可以模仿这种插件结构，为其他 AI 编程工具（如 Claude Code）做第三方插件市场，抢占生态位。"
+        },
+        "en": {
+          "summary": "A collection of Codex plugin examples from OpenAI, each with a manifest and optional skills, commands, and hooks.",
+          "insight": "Mirror this plugin structure to create a third-party marketplace for other AI coding tools like Claude Code, capturing ecosystem value."
+        }
+      },
+      "description": "OpenAI Plugins",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 7790,
+      "stars_today": 13,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 24.67
+    },
+    {
+      "repo": "ppmpreetham/BUI",
+      "url": "https://github.com/ppmpreetham/BUI",
+      "content": {
+        "zh": {
+          "summary": "把 Blender 的 GPU 加速 UI 从原代码库中解耦出来，做成可被 Python、Rust、JS、React、C++ 等调用的库。它让开发者能复用经过数十年优化的界面组件，适合需要高性能原生 UI 的桌面应用。",
+          "insight": "对做桌面端工具（如音视频编辑、3D 建模）的团队，可以用它快速搭建专业级界面，省去自研 UI 框架的成本。"
+        },
+        "en": {
+          "summary": "Blender's GPU-accelerated UI decoupled into a library callable from Python, Rust, JS, React, C++, and more. It lets developers reuse decades-optimized interface components for…",
+          "insight": "For desktop tool teams in video editing or 3D modeling, use it to build professional-grade interfaces without developing a UI framework in-house."
+        }
+      },
+      "description": "Blender's GPU Accelerated UI, Decoupled from it's original codebase. Supports Rust, Python, JS, React, C & C++. Twice as good as GPUI",
+      "category": "前端 / 设计",
+      "language": "C++",
+      "stars": 1447,
+      "stars_today": 0,
+      "topics": [
+        "blender",
+        "blender-ui",
+        "bui",
+        "gpui",
+        "gpui-kit"
+      ],
+      "sources": [
+        "hn"
+      ],
+      "score": 26.96
+    },
+    {
+      "repo": "pingcap/tidb",
+      "url": "https://github.com/pingcap/tidb",
+      "content": {
+        "zh": {
+          "summary": "一个云原生分布式 SQL 数据库，支持 ACID 事务、分析和向量搜索，专为 agentic 工作负载设计。它解决了 AI 应用对数据一致性和弹性扩展的双重需求，适合需要统一数据层的 agent 系统。",
+          "insight": "作为基础设施，可以关注它为 agent 记忆和上下文提供的原生支持，在构建多 agent 协作产品时直接利用，避免自建状态存储。"
+        },
+        "en": {
+          "summary": "A cloud-native distributed SQL database with ACID transactions, analytics, and vector search, built for agentic workloads.",
+          "insight": "As infrastructure, leverage its native support for agent memory and context when building multi-agent products, avoiding custom state stores."
+        }
+      },
+      "description": "TiDB is built for agentic workloads that grow unpredictably, with ACID guarantees and native support for transactions, analytics, and vector search. No data silos. No noisy neighbors. No infrastructure ceiling.",
+      "category": "数据 / 基础设施",
+      "language": "Go",
+      "stars": 40715,
+      "stars_today": 2,
+      "topics": [
+        "agent",
+        "agent-context",
+        "agent-memory",
+        "agentic",
+        "ai",
+        "cloud-native",
+        "database",
+        "distributed-database",
+        "distributed-transactions",
+        "go"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.71
+    },
+    {
+      "repo": "sherlock-project/sherlock",
+      "url": "https://github.com/sherlock-project/sherlock",
+      "content": {
+        "zh": {
+          "summary": "通过用户名在数百个社交网络上追踪账号的开源工具，是 OSINT 和数字取证领域的经典项目。它解决了跨平台身份关联的重复劳动，适合安全研究人员和隐私调查场景。",
+          "insight": "面向企业安全团队，可以把它包装成员工账号暴露面监测服务，定期扫描并告警，比人工排查更高效。"
+        },
+        "en": {
+          "summary": "An open-source tool that hunts down social media accounts by username across hundreds of networks. A staple in OSINT and forensics,",
+          "insight": "For enterprise security teams, wrap it as an employee account exposure monitoring service with scheduled scans and alerts, replacing manual checks."
+        }
+      },
+      "description": "Hunt down social media accounts by username across social networks",
+      "category": "安全 / 隐私",
+      "language": "Python",
+      "stars": 98540,
+      "stars_today": 1761,
+      "topics": [
+        "cli",
+        "cti",
+        "cybersecurity",
+        "forensics",
+        "hacktoberfest",
+        "information-gathering",
+        "infosec",
+        "linux",
+        "osint",
+        "pentesting"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 44.96
+    },
+    {
+      "repo": "PrivSec-dev/banking-apps-compat-report",
+      "url": "https://github.com/PrivSec-dev/banking-apps-compat-report",
+      "content": {
+        "zh": {
+          "summary": "一个众包维护的 GrapheneOS 银行应用兼容性报告，记录哪些银行应用可以运行、需要什么变通方法。它解决了隐私系统用户在日常金融场景中的实际障碍，是社区驱动的实用数据集。",
+          "insight": "可以扩展成通用的「隐私系统兼容性数据库」，覆盖更多应用类别，为隐私手机厂商或社区提供订阅式数据服务。"
+        },
+        "en": {
+          "summary": "A crowd-sourced compatibility report for banking apps on GrapheneOS, detailing which work and what workarounds are needed.",
+          "insight": "Expand into a general privacy-OS compatibility database covering more app categories, offering subscription data to privacy phone makers or communities."
+        }
+      },
+      "description": "Report and track banking app compatibility with GrapheneOS, including which workarounds may be required.",
+      "category": "安全 / 隐私",
+      "language": "",
+      "stars": 367,
+      "stars_today": 0,
+      "topics": [
+        "android",
+        "attestation-compatibility",
+        "banking-app",
+        "compatibility-layer",
+        "exploit-protection-compatibility-mode",
+        "grapheneos",
+        "mobile-banking-app",
+        "native-code-debugging",
+        "privacy",
+        "remote-attestation"
+      ],
+      "sources": [
+        "hn"
+      ],
+      "score": 20.39
+    },
+    {
+      "repo": "aquasecurity/trivy",
+      "url": "https://github.com/aquasecurity/trivy",
+      "content": {
+        "zh": {
+          "summary": "一个综合安全扫描器，能查容器、K8s、代码仓库、云环境中的漏洞、配置错误、密钥和 SBOM。它把多种扫描能力集成到一个工具里，适合 DevSecOps 流程中的自动化安全检查。",
+          "insight": "可以围绕它做轻量级的合规报告生成器，面向中小团队，把扫描结果转成可交付的审计文档，省去人工整理。"
+        },
+        "en": {
+          "summary": "A comprehensive security scanner for vulnerabilities, misconfigurations, secrets, and SBOMs across containers, K8s, repos, and clouds.",
+          "insight": "Build a lightweight compliance report generator on top, targeting small teams by turning scan results into deliverable audit documents."
+        }
+      },
+      "description": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
+      "category": "安全 / 隐私",
+      "language": "Go",
+      "stars": 39079,
+      "stars_today": 48,
+      "topics": [
+        "containers",
+        "devsecops",
+        "docker",
+        "go",
+        "golang",
+        "hacktoberfest",
+        "iac",
+        "infrastructure-as-code",
+        "kubernetes",
+        "misconfiguration"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.75
+    },
+    {
+      "repo": "valentderah/totk-pc-recomp",
+      "url": "https://github.com/valentderah/totk-pc-recomp",
+      "content": {
+        "zh": {
+          "summary": "将《塞尔达传说：王国之泪》静态重编译为 Windows 和 Linux 原生应用的项目，使用 Vulkan 渲染。它展示了静态重编译技术在游戏移植上的可行性，适合对二进制翻译和游戏 preservation 感兴趣的人。",
+          "insight": "作为技术信号，可以关注静态重编译工具链在老旧商业软件现代化上的应用，比如把遗留 Windows 应用迁移到 Linux。"
+        },
+        "en": {
+          "summary": "A static recompilation of Tears of the Kingdom into native Windows and Linux apps with a Vulkan renderer. It demonstrates the feasibility of static recompilation for game porting…",
+          "insight": "As a signal, watch static recompilation toolchains for modernizing legacy commercial software, such as migrating old Windows apps to Linux."
+        }
+      },
+      "description": "Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan renderer. Game files not included.",
+      "category": "Skill / 垂直工具",
+      "language": "C",
+      "stars": 5429,
+      "stars_today": 0,
+      "topics": [
+        "game",
+        "linux",
+        "port",
+        "recompilation",
+        "windows"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 28.41
+    }
+  ]
+}

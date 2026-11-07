@@ -10,67 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 6, 2026 · Fri](daily/en/2026-11-06.md)
+## [Nov 7, 2026 · Sat](daily/en/2026-11-07.md)
 
-> Today's projects show AI moving out of the chat window and into concrete workflows: testing, content production, memory, news curation. Each is being repackaged as a reusable skill or plugin rather than another general-purpose assistant.
+> The clearest signal today is the packaging of capabilities: browser actions, cloud skills, and even UI components are being decoupled into units that AI can call. Meanwhile, security and privacy tools are moving from specialists to everyday users,
 
-### AI Infrastructure / Models
+### AI / Agents
 
-* **[microsoft/VibeVoice](https://github.com/microsoft/VibeVoice)** — Microsoft's open voice AI family now includes a streaming ASR model that transcribes who said what as speech arrives, with hotwords and 10 languages.
+* **[vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)** — A Rust-based browser automation CLI built for AI agents. It turns pages into a compact accessibility tree with element refs,
 
-  > Angle: Meeting notes and call-center QA are the obvious fits: streaming speaker separation removes post-hoc stitching.
+  > Angle: For agent builders, adopt its snapshot-act-verify loop to break complex web tasks into atomic, reversible steps,
 
-* **[google-research/timesfm](https://github.com/google-research/timesfm)** — Google Research's pretrained time-series foundation model. Version 3.0 supports zero-shot multivariate forecasting and is already in BigQuery ML and Sheets.
+* **[google/skills](https://github.com/google/skills)** — Google's official collection of Agent Skills for its products, including Google Cloud. Installable via npx, it lets agents invoke prebuilt skills,
 
-  > Angle: Retail replenishment, energy forecasting, and financial metrics can try zero-shot directly. The startup angle isn't the model but fine-tuning and evaluation on…
+  > Angle: Opportunity lies in a curated skill marketplace: package and host third-party skills for verticals like e-commerce or analytics,
 
-### Developer Tools / CLI
+* **[Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI)** — A self-hosted, uncensored AI image and video generation studio aggregating 600+ models across 14 studios. It serves creators who want open,
 
-* **[tester-army/e2e](https://github.com/tester-army/e2e)** — An end-to-end testing framework for web and mobile apps. You describe a goal in natural language, an agent drives the app, and locators plus assertions verify the result.
+  > Angle: Build preconfigured workflow templates for verticals like game assets or ad creative, reducing the burden of model selection and parameter tuning.
 
-  > Angle: Sell it to small teams without dedicated QA automation: turn test scripting into writing acceptance goals.
+* **[openai/plugins](https://github.com/openai/plugins)** — A collection of Codex plugin examples from OpenAI, each with a manifest and optional skills, commands, and hooks.
 
-* **[The-PR-Agent/pr-agent](https://github.com/The-PR-Agent/pr-agent)** — An open-source AI code review agent for GitHub, GitLab, and Bitbucket, with support for OpenAI, Anthropic, or local Ollama.
-
-  > Angle: Target code-review compliance: banks and government clients won't ship code to SaaS, so build a private review service on it.
-
-* **[csyangwen/dsh-memory-evolve](https://github.com/csyangwen/dsh-memory-evolve)** — A pure plugin for DeepSeek Harness that adds cross-session long-term memory, todo management, skill self-evolution, and multi-session coordination.
-
-  > Angle: It shows agent competition shifting from models to memory and state. If you build agents, offer cross-session memory as a standalone layer for long-term…
+  > Angle: Mirror this plugin structure to create a third-party marketplace for other AI coding tools like Claude Code, capturing ecosystem value.
 
 ### Frontend / Design
 
-* **[longbridge/gpui-kit](https://github.com/longbridge/gpui-kit)** — A Rust desktop framework built on GPUI, shipping 75+ documented components and primitives, WebAssembly support, accessibility, UI integration testing,
+* **[ppmpreetham/BUI](https://github.com/ppmpreetham/BUI)** — Blender's GPU-accelerated UI decoupled into a library callable from Python, Rust, JS, React, C++, and more. It lets developers reuse decades-optimized interface components for…
 
-  > Angle: Aim at teams building high-performance desktop tools like trading terminals, editors, or dashboards.
+  > Angle: For desktop tool teams in video editing or 3D modeling, use it to build professional-grade interfaces without developing a UI framework in-house.
 
-* **[kevinraymond/florilegium](https://github.com/kevinraymond/florilegium)** — A LuaLaTeX package that computes Delft-blue floral page margins while the page is written, with each page's plants grown from a seed and no external images.
+### Data / Infrastructure
 
-  > Angle: This is a typesetting tool, not a startup, but it points at embedding generative graphics into document pipelines.
+* **[pingcap/tidb](https://github.com/pingcap/tidb)** — A cloud-native distributed SQL database with ACID transactions, analytics, and vector search, built for agentic workloads.
+
+  > Angle: As infrastructure, leverage its native support for agent memory and context when building multi-agent products, avoiding custom state stores.
 
 ### Security / Privacy
 
-* **[rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)** — An open-source, self-hosted remote desktop app positioned as a TeamViewer alternative, covering Windows, macOS, Linux, Android, and iOS with self-hosted relay servers.
+* **[sherlock-project/sherlock](https://github.com/sherlock-project/sherlock)** — An open-source tool that hunts down social media accounts by username across hundreds of networks. A staple in OSINT and forensics,
 
-  > Angle: The opportunity isn't the client but managed service: a self-hosted remote desktop ops package for SMBs, including relay deployment, audit logs,
+  > Angle: For enterprise security teams, wrap it as an employee account exposure monitoring service with scheduled scans and alerts, replacing manual checks.
+
+* **[PrivSec-dev/banking-apps-compat-report](https://github.com/PrivSec-dev/banking-apps-compat-report)** — A crowd-sourced compatibility report for banking apps on GrapheneOS, detailing which work and what workarounds are needed.
+
+  > Angle: Expand into a general privacy-OS compatibility database covering more app categories, offering subscription data to privacy phone makers or communities.
+
+* **[aquasecurity/trivy](https://github.com/aquasecurity/trivy)** — A comprehensive security scanner for vulnerabilities, misconfigurations, secrets, and SBOMs across containers, K8s, repos, and clouds.
+
+  > Angle: Build a lightweight compliance report generator on top, targeting small teams by turning scan results into deliverable audit documents.
 
 ### Vertical Tools / Skills
 
-* **[scenario-labs/skills](https://github.com/scenario-labs/skills)** — A skill pack for AI coding agents that generates production-ready images, video, audio, textures, and 3D assets through Scenario MCP,
+* **[valentderah/totk-pc-recomp](https://github.com/valentderah/totk-pc-recomp)** — A static recompilation of Tears of the Kingdom into native Windows and Linux apps with a Vulkan renderer. It demonstrates the feasibility of static recompilation for game porting…
 
-  > Angle: Game and creative studios are the buyers: pitch consistency and budget control to indie art pipelines.
+  > Angle: As a signal, watch static recompilation toolchains for modernizing legacy commercial software, such as migrating old Windows apps to Linux.
 
-* **[Thysrael/Horizon](https://github.com/Thysrael/Horizon)** — A self-hosted AI news radar that collects from feeds, forums, and timelines, deduplicates and ranks items, then produces bilingual daily briefings delivered via Feishu, email,
-
-  > Angle: Turn it into a vertical intelligence briefing: swap general feeds for a niche like semiconductors or trade policy and charge a subscription.
-
-[This issue (Markdown)](daily/en/2026-11-06.md)
+[This issue (Markdown)](daily/en/2026-11-07.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
