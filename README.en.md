@@ -10,67 +10,65 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 7, 2026 · Sat](daily/en/2026-11-07.md)
+## [Nov 8, 2026 · Sun](daily/en/2026-11-08.md)
 
-> The clearest signal today is the packaging of capabilities: browser actions, cloud skills, and even UI components are being decoupled into units that AI can call. Meanwhile, security and privacy tools are moving from specialists to everyday users,
+> Today's list points to a clear shift: the tooling around coding agents is maturing faster than the models themselves. Reverse engineering, voice I/O, multi-model routing, and mobile control are all being built as separate products.
 
 ### AI / Agents
 
-* **[vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)** — A Rust-based browser automation CLI built for AI agents. It turns pages into a compact accessibility tree with element refs,
+* **[morluto/rea](https://github.com/morluto/rea)** — An MCP-based reverse engineering agent that works from app behavior down to native binaries. It targets teams that see a feature they like but cannot tell how it was built,
 
-  > Angle: For agent builders, adopt its snapshot-act-verify loop to break complex web tasks into atomic, reversible steps,
+  > Angle: A competitive teardown service is the obvious wedge: sell feature-level reports to teams shipping abroad or to security auditors,
 
-* **[google/skills](https://github.com/google/skills)** — Google's official collection of Agent Skills for its products, including Google Cloud. Installable via npx, it lets agents invoke prebuilt skills,
+* **[ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go)** — An Android client for DeepSeek Harness with a built-in root-free Linux environment, running agents on the phone or taking over a session on your desktop.
 
-  > Angle: Opportunity lies in a curated skill marketplace: package and host third-party skills for verticals like e-commerce or analytics,
+  > Angle: The opening is a mobile control plane for agents: notifications, mid-run interjections, and approvals for developers watching long jobs.
 
-* **[Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI)** — A self-hosted, uncensored AI image and video generation studio aggregating 600+ models across 14 studios. It serves creators who want open,
+* **[code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** — A multi-model agent orchestration layer that triggers graph-style task decomposition from a keyword, with a memory system and cross-IDE support.
 
-  > Angle: Build preconfigured workflow templates for verticals like game assets or ad creative, reducing the burden of model selection and parameter tuning.
+  > Angle: Take the orchestration and make it vertical: ship preset task graphs for data engineering or ops. The difference from general agent frameworks is refusing…
 
-* **[openai/plugins](https://github.com/openai/plugins)** — A collection of Codex plugin examples from OpenAI, each with a manifest and optional skills, commands, and hooks.
+### AI Infrastructure / Models
 
-  > Angle: Mirror this plugin structure to create a third-party marketplace for other AI coding tools like Claude Code, capturing ecosystem value.
+* **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — An open-source local voice studio bundling cloning, speech generation, and system-wide dictation, with the whole voice I/O stack running on-device.
 
-### Frontend / Design
+  > Angle: Target local dictation for regulated professions like lawyers and clinicians, selling compliance rather than audio quality.
 
-* **[ppmpreetham/BUI](https://github.com/ppmpreetham/BUI)** — Blender's GPU-accelerated UI decoupled into a library callable from Python, Rust, JS, React, C++, and more. It lets developers reuse decades-optimized interface components for…
+* **[yetone/magpie](https://github.com/yetone/magpie)** — A menu bar app plus local gateway that lets Claude Code, Codex, and Gemini CLI swap models and accounts freely, falling back when a quota runs dry.
 
-  > Angle: For desktop tool teams in video editing or 3D modeling, use it to build professional-grade interfaces without developing a UI framework in-house.
+  > Angle: Build a team-level quota router on top: route requests by cost across several model subscriptions.
 
-### Data / Infrastructure
+* **[facebookresearch/sam2](https://github.com/facebookresearch/sam2)** — Meta's second Segment Anything model extends promptable segmentation from images to video, with inference code and notebooks.
 
-* **[pingcap/tidb](https://github.com/pingcap/tidb)** — A cloud-native distributed SQL database with ACID transactions, analytics, and vector search, built for agentic workloads.
+  > Angle: Wrap it as infrastructure: batch background removal or product cutouts for short-video and e-commerce teams.
 
-  > Angle: As infrastructure, leverage its native support for agent memory and context when building multi-agent products, avoiding custom state stores.
+### Developer Tools / CLI
 
-### Security / Privacy
+* **[astral-sh/uv](https://github.com/astral-sh/uv)** — A Rust-written Python package and project manager replacing pip, poetry, pyenv, and more with one tool and a universal lockfile.
 
-* **[sherlock-project/sherlock](https://github.com/sherlock-project/sherlock)** — An open-source tool that hunts down social media accounts by username across hundreds of networks. A staple in OSINT and forensics,
+  > Angle: Treat this as infrastructure, not a startup. If you build nearby, target supply-chain auditing or CI caching around the lockfile,
 
-  > Angle: For enterprise security teams, wrap it as an employee account exposure monitoring service with scheduled scans and alerts, replacing manual checks.
+* **[astral-sh/ruff](https://github.com/astral-sh/ruff)** — A Rust-based Python linter and formatter running one to two orders of magnitude faster than Flake8 and Black, with 900+ built-in rules and plugin parity.
 
-* **[PrivSec-dev/banking-apps-compat-report](https://github.com/PrivSec-dev/banking-apps-compat-report)** — A crowd-sourced compatibility report for banking apps on GrapheneOS, detailing which work and what workarounds are needed.
+  > Angle: Also infrastructure. The exploitable surface is the rule ecosystem: author custom rule packs for regulated teams and run continuous compliance checks,
 
-  > Angle: Expand into a general privacy-OS compatibility database covering more app categories, offering subscription data to privacy phone makers or communities.
+* **[orhun/git-cliff](https://github.com/orhun/git-cliff)** — A highly customizable changelog generator that builds release notes from Git history using conventional commits and regex parsers, with monorepo support.
 
-* **[aquasecurity/trivy](https://github.com/aquasecurity/trivy)** — A comprehensive security scanner for vulnerabilities, misconfigurations, secrets, and SBOMs across containers, K8s, repos, and clouds.
-
-  > Angle: Build a lightweight compliance report generator on top, targeting small teams by turning scan results into deliverable audit documents.
+  > Angle: Push toward release compliance: link changelogs to tickets and audit trails for B2B teams that owe customers change notes.
 
 ### Vertical Tools / Skills
 
-* **[valentderah/totk-pc-recomp](https://github.com/valentderah/totk-pc-recomp)** — A static recompilation of Tears of the Kingdom into native Windows and Linux apps with a Vulkan renderer. It demonstrates the feasibility of static recompilation for game porting…
+* **[spotDL/spotify-downloader](https://github.com/spotDL/spotify-downloader)** — A CLI that matches Spotify playlists to YouTube sources and downloads tracks with cover art, lyrics, and metadata.
 
-  > Angle: As a signal, watch static recompilation toolchains for modernizing legacy commercial software, such as migrating old Windows apps to Linux.
+  > Angle: Commercializing it directly is risky given copyright. A safer angle is library migration and repair for people moving platforms or running a NAS,
 
-[This issue (Markdown)](daily/en/2026-11-07.md)
+[This issue (Markdown)](daily/en/2026-11-08.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 

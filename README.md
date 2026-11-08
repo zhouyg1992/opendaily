@@ -11,67 +11,65 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.07 · 周六](daily/zh/2026-11-07.md)
+## [2026.11.08 · 周日](daily/zh/2026-11-08.md)
 
-> 今天这批项目里，最明显的信号是「能力封装」正在成为主流：无论是浏览器操作、云服务技能，还是 UI 组件，都在被拆成可被 AI 调用的独立单元。同时，安全与隐私工具开始从专家走向普通用户，开源项目正用更低的门槛解决具体场景问题。
+> 今天这批项目透露出一个清晰信号：围绕 AI 编码代理的「外围工程」正在快速成形——有人做逆向分析、有人做语音输入输出、有人做多模型路由与移动端遥控，核心模型反而退居幕后。与此同时，Rust 重写的 Python 工具链持续占据榜单，说明开发者愿意为确定性的速度提升买单。
 
 ### AI / Agent 工具
 
-* **[vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)** — 一个用 Rust 写的浏览器自动化 CLI，专为 AI agent 设计。它把页面转成带引用的可访问性树，agent 通过短命令逐步操作并检查结果，浏览器在命令间保持打开，适合需要稳定、低延迟的自动化流程。
+* **[morluto/rea](https://github.com/morluto/rea)** — 一个基于 MCP 的逆向工程代理，能从应用行为一路分析到原生二进制。它解决的是「看到别人产品的好功能却不知道怎么做」的问题，把原本需要资深逆向工程师的活交给代理执行。
 
-  > 灵感：如果你在做 agent 产品，可以借鉴它的「快照-操作-验证」循环，把复杂网页交互拆成可回滚的原子步骤，比直接调用 Playwright 更可控。
+  > 灵感：适合做竞品技术拆解服务：面向出海团队或安全审计方，切入点是「功能级对标报告」，而不是通用逆向工具。差异在于把二进制分析包装成可读的产品决策文档。
 
-* **[google/skills](https://github.com/google/skills)** — Google 官方发布的 Agent Skills 集合，覆盖 Google Cloud 等产品。通过 npx 安装后，agent 可以直接调用这些预置技能，减少从头编写工具调用的成本，适合快速搭建与 Google 生态集成的 agent。
+* **[ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go)** — DeepSeek Harness 的 Android 客户端，内置免 Root 的 Linux 环境，既能手机本机跑代理，也能远程接管电脑上的会话。它解决的是编码代理被绑在桌面端、离开工位就断线的问题。
 
-  > 灵感：可以围绕「技能市场」做文章：为垂直行业（如电商、数据分析）整理并托管第三方技能包，解决 agent 开发者找工具、配环境的痛点。
+  > 灵感：机会在「移动端代理控制台」：面向需要随时查看长任务进度的开发者，做通知、插话、审批这类轻交互。和官方网页版的差别是把等待变成可随时介入。
 
-* **[Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI)** — 一个自托管、无内容过滤的 AI 图像与视频生成工作室，聚合了 600 多个模型（Flux、Kling、Sora 等），提供 14 个创作工作室。它满足了对开放、可定制生成工具的需求，适合不想被平台束缚的创作者。
+* **[code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** — 一个多模型代理编排层，用关键词触发图工程式的任务分解，附带记忆系统和跨 IDE 支持。它解决的是单模型代理在复杂任务上容易跑偏、且缺乏长期记忆的问题。
 
-  > 灵感：可以针对特定垂直领域（如游戏素材、广告创意）做预配置的工作流模板，降低用户选择模型和调参的门槛。
+  > 灵感：可借的角度是把编排能力做成垂直工作流：面向数据工程或运维场景，预置任务图模板。和通用代理框架的差别在于不追求通用，而是把某类任务的图固化下来。
 
-* **[openai/plugins](https://github.com/openai/plugins)** — OpenAI 的 Codex 插件示例集合，每个插件包含清单文件和可选的技能、命令、钩子等。它展示了如何为 Codex 扩展能力，适合想为 AI 编程助手构建生态的开发者参考。
+### AI 基础设施 / 模型
 
-  > 灵感：可以模仿这种插件结构，为其他 AI 编程工具（如 Claude Code）做第三方插件市场，抢占生态位。
+* **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — 开源的本地语音工作室，集声音克隆、语音生成和全局听写于一体，整套语音 I/O 跑在本机。它解决的是隐私敏感用户不想把声音数据交给云服务的问题，也适合给代理配上自有音色。
 
-### 前端 / 设计
+  > 灵感：可以切「本地语音输入法」这个细分场景：面向律师、医生等不能上云的职业，卖的是合规而不是音质。和云端 TTS 的差别在于数据不出设备。
 
-* **[ppmpreetham/BUI](https://github.com/ppmpreetham/BUI)** — 把 Blender 的 GPU 加速 UI 从原代码库中解耦出来，做成可被 Python、Rust、JS、React、C++ 等调用的库。它让开发者能复用经过数十年优化的界面组件，适合需要高性能原生 UI 的桌面应用。
+* **[yetone/magpie](https://github.com/yetone/magpie)** — 一个菜单栏应用加本地网关，让 Claude Code、Codex、Gemini CLI 等代理自由切换模型和账号，配额耗尽时自动换下一个。它解决的是各家代理配置格式互不相通、订阅被锁死在单一工具里的问题。
 
-  > 灵感：对做桌面端工具（如音视频编辑、3D 建模）的团队，可以用它快速搭建专业级界面，省去自研 UI 框架的成本。
+  > 灵感：适合做团队级的模型配额调度层：面向同时订阅多家模型的小团队，按成本自动路由请求。和单机工具的区别在于把「个人省钱」升级成「团队可审计」。
 
-### 数据 / 基础设施
+* **[facebookresearch/sam2](https://github.com/facebookresearch/sam2)** — Meta 的分割一切模型第二代，把图像分割扩展到视频，支持可提示的视觉分割，附推理代码和示例。它解决的是视频中逐帧抠像和跟踪成本极高的问题，是视觉管线里的基础能力。
 
-* **[pingcap/tidb](https://github.com/pingcap/tidb)** — 一个云原生分布式 SQL 数据库，支持 ACID 事务、分析和向量搜索，专为 agentic 工作负载设计。它解决了 AI 应用对数据一致性和弹性扩展的双重需求，适合需要统一数据层的 agent 系统。
+  > 灵感：适合作为基础设施被封装：面向短视频或电商内容团队，做「一键换背景/商品抠图」的批处理服务。价值不在模型本身，而在把视频分割接进现有剪辑流程。
 
-  > 灵感：作为基础设施，可以关注它为 agent 记忆和上下文提供的原生支持，在构建多 agent 协作产品时直接利用，避免自建状态存储。
+### 开发工具 / CLI
 
-### 安全 / 隐私
+* **[astral-sh/uv](https://github.com/astral-sh/uv)** — 用 Rust 写的 Python 包与项目管理器，一个工具替代 pip、poetry、pyenv 等多个组件，带通用锁文件。它解决的是 Python 依赖管理碎片化、CI 里装包慢的问题，现在已是很多团队默认选择。
 
-* **[sherlock-project/sherlock](https://github.com/sherlock-project/sherlock)** — 通过用户名在数百个社交网络上追踪账号的开源工具，是 OSINT 和数字取证领域的经典项目。它解决了跨平台身份关联的重复劳动，适合安全研究人员和隐私调查场景。
+  > 灵感：更适合作为基础设施而非创业方向。若要借力，可做围绕锁文件的供应链审计或 CI 缓存服务，切入点是「依赖变更的可解释性」。
 
-  > 灵感：面向企业安全团队，可以把它包装成员工账号暴露面监测服务，定期扫描并告警，比人工排查更高效。
+* **[astral-sh/ruff](https://github.com/astral-sh/ruff)** — Rust 实现的 Python linter 与格式化工具，速度比 Flake8、Black 快一到两个数量级，内置九百多条规则并兼容主流插件。它解决的是大型仓库里静态检查拖慢开发循环的问题。
 
-* **[PrivSec-dev/banking-apps-compat-report](https://github.com/PrivSec-dev/banking-apps-compat-report)** — 一个众包维护的 GrapheneOS 银行应用兼容性报告，记录哪些银行应用可以运行、需要什么变通方法。它解决了隐私系统用户在日常金融场景中的实际障碍，是社区驱动的实用数据集。
+  > 灵感：同样偏基础设施。可借的点是规则生态：为特定团队（如金融、嵌入式）编写自定义规则集并做持续合规检查，卖的是行业规范而非工具本身。
 
-  > 灵感：可以扩展成通用的「隐私系统兼容性数据库」，覆盖更多应用类别，为隐私手机厂商或社区提供订阅式数据服务。
+* **[orhun/git-cliff](https://github.com/orhun/git-cliff)** — 高度可定制的 changelog 生成器，基于 conventional commits 和正则解析从 Git 历史生成发布说明，支持 monorepo。它解决的是发布流程中人工整理变更记录既慢又容易漏的问题。
 
-* **[aquasecurity/trivy](https://github.com/aquasecurity/trivy)** — 一个综合安全扫描器，能查容器、K8s、代码仓库、云环境中的漏洞、配置错误、密钥和 SBOM。它把多种扫描能力集成到一个工具里，适合 DevSecOps 流程中的自动化安全检查。
-
-  > 灵感：可以围绕它做轻量级的合规报告生成器，面向中小团队，把扫描结果转成可交付的审计文档，省去人工整理。
+  > 灵感：可以往「发布合规」方向做：面向需要向客户交付变更说明的 B2B 软件团队，把 changelog 和工单、审计记录关联起来。和原工具的差别是从开发者自用走向对外交付。
 
 ### Skill / 垂直工具
 
-* **[valentderah/totk-pc-recomp](https://github.com/valentderah/totk-pc-recomp)** — 将《塞尔达传说：王国之泪》静态重编译为 Windows 和 Linux 原生应用的项目，使用 Vulkan 渲染。它展示了静态重编译技术在游戏移植上的可行性，适合对二进制翻译和游戏 preservation 感兴趣的人。
+* **[spotDL/spotify-downloader](https://github.com/spotDL/spotify-downloader)** — 命令行工具，从 Spotify 播放列表匹配 YouTube 音源并下载歌曲，附带封面、歌词和元数据。它满足的是离线收听和本地曲库整理的需求，长期保持活跃说明这类需求稳定存在。
 
-  > 灵感：作为技术信号，可以关注静态重编译工具链在老旧商业软件现代化上的应用，比如把遗留 Windows 应用迁移到 Linux。
+  > 灵感：直接做商业化风险高，版权是硬约束。可借的角度是本地音乐库的整理与迁移工具：面向换平台或自建 NAS 曲库的用户，做元数据修复而非下载。
 
-[本期 Markdown](daily/zh/2026-11-07.md)
+[本期 Markdown](daily/zh/2026-11-08.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
