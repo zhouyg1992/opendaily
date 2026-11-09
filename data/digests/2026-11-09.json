@@ -1,0 +1,314 @@
+{
+  "date": "2026-11-09",
+  "generated_at": "2026-11-09T02:30:29+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个清晰信号：AI 正在从「能跑」走向「可控」。无论是设计系统、生成式 UI 还是浏览器代理，重点都不再是让模型自由发挥，而是用预定义组件、schema 和知识图谱给它划出边界。对创业者来说，机会不在再做一个更聪明的模型，而在做那层把不确定性收拢成可交付结果的约束层。",
+    "en": "The through-line today is control, not capability. Design systems, generative UI, and browser agents are all shifting from letting models improvise toward constraining them with predefined components, schemas, and knowledge graphs."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "storytold/artcraft",
+      "url": "https://github.com/storytold/artcraft",
+      "content": {
+        "zh": {
+          "summary": "面向艺术家和影视创作者的 AI 图像视频创作 IDE，先在 2D 构图、3D 摆场景，再选模型生成，强调可重复的精确结果。它解决的是纯提示词无法控制角色一致性和镜头的问题。",
+          "insight": "适合切短视频和广告分镜这类需要角色一致性的垂直工作流，卖「可复现的镜头」而非「一次生成」；和通用文生图工具差在前期场景搭建。"
+        },
+        "en": {
+          "summary": "An AI image and video IDE for artists and filmmakers: compose in 2D, stage in 3D, then pick a model. It targets creators who need repeatable control over character identity and…",
+          "insight": "Target short-video and ad storyboard workflows where character consistency matters, selling reproducible shots rather than one-off generations."
+        }
+      },
+      "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
+      "category": "AI / Agent 工具",
+      "language": "Rust",
+      "stars": 39942,
+      "stars_today": 335,
+      "topics": [
+        "3d-graphics",
+        "ai",
+        "aivideo",
+        "filmmaking",
+        "imagegeneration"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.98
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "url": "https://github.com/browser-use/browser-use",
+      "content": {
+        "zh": {
+          "summary": "开源浏览器代理库，可用任意 LLM 本地运行，也提供带隐身浏览器的托管云和 API，能像人一样填表、过验证码、完成预约。它解决的是网页自动化里反爬和登录态难题。",
+          "insight": "适合做垂直行业的「代客操作」服务，比如签证预约、政务表单代填，按成功结果收费；与通用爬虫相比，它的价值在能处理交互和验证码。"
+        },
+        "en": {
+          "summary": "An open-source browser agent library that runs locally with any LLM, plus a hosted cloud with stealth browsers and an API.",
+          "insight": "Build vertical done-for-you services like visa bookings or government form filing, charging per successful outcome."
+        }
+      },
+      "description": "Open-source Python library for AI browser agents, plus Browser Use Cloud: stealth browsers and a hosted agent API.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 120358,
+      "stars_today": 0,
+      "topics": [
+        "ai-agents",
+        "ai-tools",
+        "browser-agent",
+        "browser-automation",
+        "browser-use",
+        "cdp",
+        "cloud-browser",
+        "computer-use",
+        "headless-browser",
+        "llm"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 32.0
+    },
+    {
+      "repo": "infiniflow/ragflow",
+      "url": "https://github.com/infiniflow/ragflow",
+      "content": {
+        "zh": {
+          "summary": "从 RAG 引擎演进成「agent 原生数据库」的上下文基础设施，融合检索与 agent 能力，适配各种规模企业。它解决的是 agent 需要可靠、可管理的长期上下文的问题。",
+          "insight": "适合做面向垂直行业的私有化知识底座，切法律、医疗等对数据合规敏感的客户；与通用向量库相比，它把检索流程和 agent 编排打包好了。"
+        },
+        "en": {
+          "summary": "A RAG engine that grew into an agent-native database and context layer, fusing retrieval with agent capabilities for enterprises of any size.",
+          "insight": "Offer a private knowledge base for regulated verticals like legal and healthcare. Versus a generic vector store,"
+        }
+      },
+      "description": "RAGFlow is an agent-native database: a Retrieval-Augmented Generation (RAG) engine that grew into context infrastructure.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Go",
+      "stars": 93786,
+      "stars_today": 0,
+      "topics": [
+        "agent-harness",
+        "agent-native-database",
+        "agentic-ai",
+        "agentic-retrieval",
+        "agentic-search",
+        "ai",
+        "ai-agents",
+        "context-engine",
+        "context-engineering",
+        "context-management"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 31.83
+    },
+    {
+      "repo": "googlecolab/google-colab-cli",
+      "url": "https://github.com/googlecolab/google-colab-cli",
+      "content": {
+        "zh": {
+          "summary": "Google Colab 的命令行工具，可在终端秒开 CPU、GPU、TPU 运行时，执行本地代码、管理远程文件、编排流水线，面向无头自动化和 agent 集成。它解决的是临时算力获取繁琐的问题。",
+          "insight": "适合做面向小团队的「按需 GPU 任务队列」，切模型微调和批量推理场景；与自建集群相比，它把临时算力变成一条命令，降低试用门槛。"
+        },
+        "en": {
+          "summary": "A CLI for Google Colab that spins up CPU, GPU, or TPU runtimes in seconds, runs local code, manages remote files,",
+          "insight": "Build an on-demand GPU job queue for small teams doing fine-tuning and batch inference. Versus standing up a cluster,"
+        }
+      },
+      "description": "A CLI for interacting with Google Colab runtimes",
+      "category": "开发工具 / CLI",
+      "language": "Python",
+      "stars": 2085,
+      "stars_today": 104,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 23.51
+    },
+    {
+      "repo": "HeyPuter/everything",
+      "url": "https://github.com/HeyPuter/everything",
+      "content": {
+        "zh": {
+          "summary": "一个野心极大的单体仓库，试图从零重写并开源全世界的软件，从 Office、Slack 到 Photoshop、AutoCAD 都列在路线图里。它反映的是对专有软件订阅制的集体反弹。",
+          "insight": "别把它当产品，当趋势信号看：开源替代专有软件的需求真实存在，机会在挑一个高频单点做深，而不是铺开做全家桶。"
+        },
+        "en": {
+          "summary": "An ambitious monorepo aiming to rebuild and open-source the world's software from scratch, with Office, Slack, Photoshop, and AutoCAD on the roadmap.",
+          "insight": "Treat it as a signal, not a product: demand for open alternatives to proprietary tools is real. The opening is going deep on one high-frequency tool,"
+        }
+      },
+      "description": "We're rebuilding and open-sourcing the world’s software from scratch.",
+      "category": "开发工具 / CLI",
+      "language": "JavaScript",
+      "stars": 7682,
+      "stars_today": 0,
+      "topics": [
+        "adobe",
+        "cad",
+        "microsoft",
+        "office",
+        "photoshop",
+        "saas",
+        "spreadsheet"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 29.31
+    },
+    {
+      "repo": "meta/astryx",
+      "url": "https://github.com/meta/astryx",
+      "content": {
+        "zh": {
+          "summary": "Meta 内部用了八年的设计系统开源，150+ 无障碍组件，基于 React 19 和 StyleX，主打「人和 agent 一起构建」并自带 CLI。它解决的是 AI 生成界面时组件不统一、品牌失控的问题。",
+          "insight": "可以围绕它做企业级主题定制与组件治理服务，切「让 agent 产出符合品牌规范」的场景；与裸用 Tailwind 相比，它自带约束和可访问性，省掉后期返工。"
+        },
+        "en": {
+          "summary": "Meta's eight-year internal design system, now open source: 150+ accessible components on React 19 and StyleX, with a CLI and agent-ready theming.",
+          "insight": "Sell theme customization and component governance on top, aimed at enterprises that want agent output to stay on-brand."
+        }
+      },
+      "description": "An open source design system that's fully customizable and agent ready",
+      "category": "前端 / 设计",
+      "language": "TypeScript",
+      "stars": 17045,
+      "stars_today": 875,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 41.39
+    },
+    {
+      "repo": "vercel-labs/json-render",
+      "url": "https://github.com/vercel-labs/json-render",
+      "content": {
+        "zh": {
+          "summary": "生成式 UI 框架，让 AI 从提示词生成界面，但只能使用你预先定义的组件目录，输出严格匹配 schema，支持流式渲染和 React、Vue、Svelte 等多端。它解决的是 AI 生成界面不可靠的问题。",
+          "insight": "可以基于它做面向 SaaS 的「自然语言配置后台」，切运营人员改仪表盘、表单的场景；与让模型直接吐 HTML 相比，护栏让结果可预测、可维护。"
+        },
+        "en": {
+          "summary": "A generative UI framework where AI builds interfaces from prompts but only from your predefined component catalog, with schema-validated output, streaming,",
+          "insight": "Build natural-language admin panels for SaaS, aimed at ops teams editing dashboards and forms. Versus having models spit out raw HTML,"
+        }
+      },
+      "description": "The Generative UI framework",
+      "category": "前端 / 设计",
+      "language": "TypeScript",
+      "stars": 19459,
+      "stars_today": 149,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.46
+    },
+    {
+      "repo": "henrygd/beszel",
+      "url": "https://github.com/henrygd/beszel",
+      "content": {
+        "zh": {
+          "summary": "轻量级服务器监控平台，带 Docker 统计、历史数据和告警，配置简单、开箱即用，支持多用户和 OAuth。它解决的是自建服务器和 homelab 用户不想上重型监控的问题。",
+          "insight": "可以做成面向小型托管商的托管监控增值服务，切「替客户盯服务器」的场景；与 Prometheus 相比，它更轻、部署更快，适合资源有限的小团队。"
+        },
+        "en": {
+          "summary": "A lightweight server monitoring platform with Docker stats, historical data, and alerts, easy to set up out of the box with multi-user and OAuth support.",
+          "insight": "Turn it into a managed monitoring add-on for small hosting providers watching servers on clients' behalf."
+        }
+      },
+      "description": "Lightweight server monitoring with historical data, docker stats, and alerts.",
+      "category": "数据 / 基础设施",
+      "language": "Go",
+      "stars": 27008,
+      "stars_today": 104,
+      "topics": [
+        "homelab",
+        "monitoring",
+        "self-hosted"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.19
+    },
+    {
+      "repo": "MHSanaei/3x-ui",
+      "url": "https://github.com/MHSanaei/3x-ui",
+      "content": {
+        "zh": {
+          "summary": "Xray-core 的网页控制面板，支持 Vmess、Vless、Trojan、WireGuard 等多种协议，提供多语言界面和单机到多节点的部署管理。它解决的是自建代理配置复杂、多用户计费难的问题。",
+          "insight": "适合做面向小团队的合规网络接入管理，切跨境办公和远程访问场景；与手写配置相比，面板把协议和流量计费可视化，降低运维门槛。"
+        },
+        "en": {
+          "summary": "A web control panel for Xray-core supporting Vmess, Vless, Trojan, WireGuard, and more, with a multilingual UI and management from a single VPS to multi-node setups.",
+          "insight": "Target small teams needing compliant network access management for cross-border work and remote access."
+        }
+      },
+      "description": "Supporting multi-protocol multi-user(Vmess, Vless, Trojan, ShadowSocks, Wireguard, Hysteria, Tunnel, Mixed, HTTP, Tun, MTProto، AmneziaWG)",
+      "category": "安全 / 隐私",
+      "language": "Go",
+      "stars": 49560,
+      "stars_today": 72,
+      "topics": [
+        "ech",
+        "fail2ban",
+        "http",
+        "hysteria2",
+        "mixed",
+        "mtproto",
+        "nodes",
+        "post-quantum",
+        "reality",
+        "shadowsocks"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.97
+    },
+    {
+      "repo": "xiaoyang111222/cn-math-taxonomy",
+      "url": "https://github.com/xiaoyang111222/cn-math-taxonomy",
+      "content": {
+        "zh": {
+          "summary": "覆盖中小学数学、英语、物理的知识图谱，含上千知识点、先修边和题库，对齐课标，附自适应前置诊断，答错能沿先修关系回溯到具体薄弱点。它解决的是个性化学习缺乏结构化底座的问题。",
+          "insight": "可以基于它做错题诊断和自适应练习产品，切家长愿意付费的提分场景；与题库类应用相比，先修图能定位到根因知识点，而不只是推同类题。"
+        },
+        "en": {
+          "summary": "A K-12 knowledge graph for math, English, and physics with thousands of concepts, prerequisite edges, and a question bank aligned to China's curriculum,",
+          "insight": "Build error-diagnosis and adaptive practice products for parents paying for score gains. Versus question-bank apps,"
+        }
+      },
+      "description": "数学（小学到高中）、英语（三年级到高中）、初中物理的知识图谱：1644 个知识点、2403 条先修边、6723 道题，对齐课标，附自适应前置诊断。",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 7124,
+      "stars_today": 0,
+      "topics": [
+        "chinese",
+        "curriculum",
+        "diagnostic",
+        "edtech",
+        "education",
+        "elementary-school",
+        "english",
+        "high-school",
+        "junior-high-school",
+        "k12"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 29.12
+    }
+  ]
+}

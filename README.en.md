@@ -10,65 +10,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 8, 2026 · Sun](daily/en/2026-11-08.md)
+## [Nov 9, 2026 · Mon](daily/en/2026-11-09.md)
 
-> Today's list points to a clear shift: the tooling around coding agents is maturing faster than the models themselves. Reverse engineering, voice I/O, multi-model routing, and mobile control are all being built as separate products.
+> The through-line today is control, not capability. Design systems, generative UI, and browser agents are all shifting from letting models improvise toward constraining them with predefined components, schemas, and knowledge graphs.
 
 ### AI / Agents
 
-* **[morluto/rea](https://github.com/morluto/rea)** — An MCP-based reverse engineering agent that works from app behavior down to native binaries. It targets teams that see a feature they like but cannot tell how it was built,
+* **[storytold/artcraft](https://github.com/storytold/artcraft)** — An AI image and video IDE for artists and filmmakers: compose in 2D, stage in 3D, then pick a model. It targets creators who need repeatable control over character identity and…
 
-  > Angle: A competitive teardown service is the obvious wedge: sell feature-level reports to teams shipping abroad or to security auditors,
+  > Angle: Target short-video and ad storyboard workflows where character consistency matters, selling reproducible shots rather than one-off generations.
 
-* **[ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go)** — An Android client for DeepSeek Harness with a built-in root-free Linux environment, running agents on the phone or taking over a session on your desktop.
+* **[browser-use/browser-use](https://github.com/browser-use/browser-use)** — An open-source browser agent library that runs locally with any LLM, plus a hosted cloud with stealth browsers and an API.
 
-  > Angle: The opening is a mobile control plane for agents: notifications, mid-run interjections, and approvals for developers watching long jobs.
-
-* **[code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** — A multi-model agent orchestration layer that triggers graph-style task decomposition from a keyword, with a memory system and cross-IDE support.
-
-  > Angle: Take the orchestration and make it vertical: ship preset task graphs for data engineering or ops. The difference from general agent frameworks is refusing…
+  > Angle: Build vertical done-for-you services like visa bookings or government form filing, charging per successful outcome.
 
 ### AI Infrastructure / Models
 
-* **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — An open-source local voice studio bundling cloning, speech generation, and system-wide dictation, with the whole voice I/O stack running on-device.
+* **[infiniflow/ragflow](https://github.com/infiniflow/ragflow)** — A RAG engine that grew into an agent-native database and context layer, fusing retrieval with agent capabilities for enterprises of any size.
 
-  > Angle: Target local dictation for regulated professions like lawyers and clinicians, selling compliance rather than audio quality.
-
-* **[yetone/magpie](https://github.com/yetone/magpie)** — A menu bar app plus local gateway that lets Claude Code, Codex, and Gemini CLI swap models and accounts freely, falling back when a quota runs dry.
-
-  > Angle: Build a team-level quota router on top: route requests by cost across several model subscriptions.
-
-* **[facebookresearch/sam2](https://github.com/facebookresearch/sam2)** — Meta's second Segment Anything model extends promptable segmentation from images to video, with inference code and notebooks.
-
-  > Angle: Wrap it as infrastructure: batch background removal or product cutouts for short-video and e-commerce teams.
+  > Angle: Offer a private knowledge base for regulated verticals like legal and healthcare. Versus a generic vector store,
 
 ### Developer Tools / CLI
 
-* **[astral-sh/uv](https://github.com/astral-sh/uv)** — A Rust-written Python package and project manager replacing pip, poetry, pyenv, and more with one tool and a universal lockfile.
+* **[googlecolab/google-colab-cli](https://github.com/googlecolab/google-colab-cli)** — A CLI for Google Colab that spins up CPU, GPU, or TPU runtimes in seconds, runs local code, manages remote files,
 
-  > Angle: Treat this as infrastructure, not a startup. If you build nearby, target supply-chain auditing or CI caching around the lockfile,
+  > Angle: Build an on-demand GPU job queue for small teams doing fine-tuning and batch inference. Versus standing up a cluster,
 
-* **[astral-sh/ruff](https://github.com/astral-sh/ruff)** — A Rust-based Python linter and formatter running one to two orders of magnitude faster than Flake8 and Black, with 900+ built-in rules and plugin parity.
+* **[HeyPuter/everything](https://github.com/HeyPuter/everything)** — An ambitious monorepo aiming to rebuild and open-source the world's software from scratch, with Office, Slack, Photoshop, and AutoCAD on the roadmap.
 
-  > Angle: Also infrastructure. The exploitable surface is the rule ecosystem: author custom rule packs for regulated teams and run continuous compliance checks,
+  > Angle: Treat it as a signal, not a product: demand for open alternatives to proprietary tools is real. The opening is going deep on one high-frequency tool,
 
-* **[orhun/git-cliff](https://github.com/orhun/git-cliff)** — A highly customizable changelog generator that builds release notes from Git history using conventional commits and regex parsers, with monorepo support.
+### Frontend / Design
 
-  > Angle: Push toward release compliance: link changelogs to tickets and audit trails for B2B teams that owe customers change notes.
+* **[meta/astryx](https://github.com/meta/astryx)** — Meta's eight-year internal design system, now open source: 150+ accessible components on React 19 and StyleX, with a CLI and agent-ready theming.
+
+  > Angle: Sell theme customization and component governance on top, aimed at enterprises that want agent output to stay on-brand.
+
+* **[vercel-labs/json-render](https://github.com/vercel-labs/json-render)** — A generative UI framework where AI builds interfaces from prompts but only from your predefined component catalog, with schema-validated output, streaming,
+
+  > Angle: Build natural-language admin panels for SaaS, aimed at ops teams editing dashboards and forms. Versus having models spit out raw HTML,
+
+### Data / Infrastructure
+
+* **[henrygd/beszel](https://github.com/henrygd/beszel)** — A lightweight server monitoring platform with Docker stats, historical data, and alerts, easy to set up out of the box with multi-user and OAuth support.
+
+  > Angle: Turn it into a managed monitoring add-on for small hosting providers watching servers on clients' behalf.
+
+### Security / Privacy
+
+* **[MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui)** — A web control panel for Xray-core supporting Vmess, Vless, Trojan, WireGuard, and more, with a multilingual UI and management from a single VPS to multi-node setups.
+
+  > Angle: Target small teams needing compliant network access management for cross-border work and remote access.
 
 ### Vertical Tools / Skills
 
-* **[spotDL/spotify-downloader](https://github.com/spotDL/spotify-downloader)** — A CLI that matches Spotify playlists to YouTube sources and downloads tracks with cover art, lyrics, and metadata.
+* **[xiaoyang111222/cn-math-taxonomy](https://github.com/xiaoyang111222/cn-math-taxonomy)** — A K-12 knowledge graph for math, English, and physics with thousands of concepts, prerequisite edges, and a question bank aligned to China's curriculum,
 
-  > Angle: Commercializing it directly is risky given copyright. A safer angle is library migration and repair for people moving platforms or running a NAS,
+  > Angle: Build error-diagnosis and adaptive practice products for parents paying for score gains. Versus question-bank apps,
 
-[This issue (Markdown)](daily/en/2026-11-08.md)
+[This issue (Markdown)](daily/en/2026-11-09.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
