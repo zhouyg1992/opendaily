@@ -1,0 +1,316 @@
+{
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T02:38:53+00:00",
+  "intro": {
+    "zh": "今天这批项目最明显的信号，是 AI 能力正在从通用对话下沉到具体场景：家庭自动化、学术写作、本地硬件选型、韩国的生活服务，都出现了把 agent 接到真实系统上的工具。同时沙箱、密钥扫描、独立浏览器这类底层项目也在补课，说明大家在为「让 AI 真正动手」准备安全边界。",
+    "en": "The clearest signal today is AI moving from general chat into concrete workflows: home automation, academic writing, local hardware selection, everyday Korean services. Each one wires an agent into a real system rather than another chat wrapper."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "homeassistant-ai/ha-mcp",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "content": {
+        "zh": {
+          "summary": "通过 MCP 让 Claude、ChatGPT 等助手直接配置和自动化 Home Assistant，推荐以 HACS 集成方式在进程内运行，覆盖 OS、Supervised、Container、Core 全部安装形态。",
+          "insight": "切入点不是再做一个智能家居 App，而是替已经折腾 Home Assistant 的极客用户做「自然语言配置层」，把写 YAML 自动化的门槛降到一句话，比通用聊天助手更懂设备实体。"
+        },
+        "en": {
+          "summary": "An MCP server that lets Claude and ChatGPT configure and automate Home Assistant, best installed as an in-process HACS integration across every HA install type.",
+          "insight": "Don't build another smart home app. Build the natural-language config layer for people already running Home Assistant,"
+        }
+      },
+      "description": "Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 6718,
+      "stars_today": 790,
+      "topics": [
+        "ai",
+        "claude",
+        "hacs",
+        "home-assistant",
+        "home-automation",
+        "llm",
+        "mcp",
+        "model-context-protocol"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.96
+    },
+    {
+      "repo": "opensandbox-group/OpenSandbox",
+      "url": "https://github.com/opensandbox-group/OpenSandbox",
+      "content": {
+        "zh": {
+          "summary": "为 AI agent 提供隔离执行环境的沙箱运行时，本地用 Docker 起步，可部署到 Kubernetes，支持代码执行、文件管理、浏览器和桌面操作，Firecracker 冷启动达毫秒级。",
+          "insight": "这是基础设施而非应用。机会在于给做 agent 产品的团队提供托管版沙箱服务，解决自建 Firecracker 集群和状态暂停恢复的运维负担。"
+        },
+        "en": {
+          "summary": "A sandbox runtime giving AI agents isolated environments to run code, manage files and drive browsers or desktops,",
+          "insight": "Infrastructure, not an app. The opening is a hosted sandbox service for agent teams that don't want to operate Firecracker clusters or handle pause and resume…"
+        }
+      },
+      "description": "Secure, Fast, and Extensible Sandbox runtime for AI agents.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 17159,
+      "stars_today": 323,
+      "topics": [
+        "aaif",
+        "ai",
+        "ai-agent",
+        "ai-infra",
+        "kubernetes",
+        "sandbox"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 36.48
+    },
+    {
+      "repo": "AlexsJones/llmfit",
+      "url": "https://github.com/AlexsJones/llmfit",
+      "content": {
+        "zh": {
+          "summary": "一条命令检测本机 CPU、内存、GPU 和显存，推荐能跑得动的开源模型及量化版本，还能下载、启动并实测 tok/s 后回传基准数据。",
+          "insight": "可围绕「本地模型选型」做硬件兼容性数据库或装机顾问，服务想私有化部署的中小团队，比论坛零散经验更可验证。"
+        },
+        "en": {
+          "summary": "One command inspects your CPU, RAM, GPU and VRAM, recommends open models and quantizations that fit, then downloads, serves and benchmarks real tokens per second.",
+          "insight": "Build a hardware compatibility database or build advisor around local model selection for small teams going private,"
+        }
+      },
+      "description": "Hundreds of models & providers. One command to find what runs on your hardware.",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 38898,
+      "stars_today": 47,
+      "topics": [
+        "gguf",
+        "llm",
+        "localai",
+        "mlx",
+        "skill",
+        "unsloth"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.71
+    },
+    {
+      "repo": "LadybirdBrowser/ladybird",
+      "url": "https://github.com/LadybirdBrowser/ladybird",
+      "content": {
+        "zh": {
+          "summary": "真正独立的浏览器项目，基于 Web 标准自研引擎，采用多进程架构并为每个站点隔离渲染进程，目前处于 pre-alpha，仅适合开发者。",
+          "insight": "短期不是创业标的，而是趋势信号：浏览器引擎独立化会催生对 Web 标准兼容测试、渲染差异调试工具的需求，可提前布局这类开发者服务。"
+        },
+        "en": {
+          "summary": "A truly independent browser built on a novel standards-based engine, using multi-process architecture with per-site sandboxed renderers. Pre-alpha and developer-only for now.",
+          "insight": "Not a startup target yet, but a signal: independent engines will create demand for web standards conformance testing and rendering-diff debugging tools."
+        }
+      },
+      "description": "Truly independent web browser",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 67043,
+      "stars_today": 74,
+      "topics": [
+        "browser",
+        "browser-engine"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.81
+    },
+    {
+      "repo": "DeanChensj/jiangshan-map",
+      "url": "https://github.com/DeanChensj/jiangshan-map",
+      "content": {
+        "zh": {
+          "summary": "中国历史交互地图时间轴，覆盖战国至今 18 个朝代、164 个疆域快照，并把古今地名沿革和诗词路线串起来，适合历史与人文教育场景。",
+          "insight": "可切中小学历史教学和文旅导览：把朝代疆域变化做成课堂可拖动的教具，或给博物馆做诗词地理路线，比静态课本地图更有参与感。"
+        },
+        "en": {
+          "summary": "An interactive historical atlas of China from 403 BCE to today, with 18 dynasties, 164 territory snapshots and ancient-to-modern place genealogy tied to classical poetry routes.",
+          "insight": "Target K-12 history classrooms and cultural tourism: a draggable dynasty map as teaching material, or poetry-geography trails for museums,"
+        }
+      },
+      "description": "江山时序 · 中国历史交互地图时间轴 (403 BCE – Present) | Interactive Historical Atlas of China across 18 dynasties, 164 territory snapshots, ancient-to-modern place genealogy & classical poetry routes",
+      "category": "前端 / 设计",
+      "language": "JavaScript",
+      "stars": 5284,
+      "stars_today": 245,
+      "topics": [
+        "ancient-china",
+        "cartography",
+        "china-map",
+        "chinese-history",
+        "classical-chinese-poetry",
+        "digital-humanities",
+        "gis",
+        "historical-atlas",
+        "historical-map",
+        "interactive-map"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.46
+    },
+    {
+      "repo": "we-promise/sure",
+      "url": "https://github.com/we-promise/sure",
+      "content": {
+        "zh": {
+          "summary": "接手已停摆的 Maybe Finance 的个人财务应用社区分支，保留账户聚合、预算和财富管理能力，以自托管方式让用户掌握自己的财务数据。",
+          "insight": "适合做面向隐私敏感用户的托管版或本地部署服务，卖点是数据不出户，与 Mint 类关停产品留下的用户迁移需求正好对接。"
+        },
+        "en": {
+          "summary": "A community fork of the abandoned Maybe Finance personal finance app, keeping account aggregation, budgeting and wealth tracking while letting users self-host their own data.",
+          "insight": "Offer a managed or local-first deployment for privacy-conscious users, selling data ownership to the audience orphaned by shutdowns like Mint."
+        }
+      },
+      "description": "The personal finance app for everyone (by everyone)",
+      "category": "数据 / 基础设施",
+      "language": "Ruby",
+      "stars": 12053,
+      "stars_today": 159,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.46
+    },
+    {
+      "repo": "chinese-poetry/chinese-poetry",
+      "url": "https://github.com/chinese-poetry/chinese-poetry",
+      "content": {
+        "zh": {
+          "summary": "最全中华古诗词 JSON 数据库，含 5.5 万首唐诗、26 万宋诗、2.1 万宋词及多部古典文集，长期作为诗词类应用的数据底座。",
+          "insight": "数据本身已成熟，机会在它之上做产品：诗词创作辅助、古文教学题库或 AI 吟诵配音，省去从零清洗语料的成本。"
+        },
+        "en": {
+          "summary": "The most comprehensive Chinese classical poetry database in JSON, with 55k Tang poems, 260k Song poems, 21k ci and more, long used as the data layer for poetry apps.",
+          "insight": "The data is mature; the opportunity sits on top. Build poetry writing aids, classical Chinese teaching banks or AI recitation voiceovers without paying the…"
+        }
+      },
+      "description": "The most comprehensive database of Chinese poetry 🧶最全中华古诗词数据库, 唐宋两朝近一万四千古诗人, 接近5.5万首唐诗加26万宋诗. 两宋时期1564位词人，21050首词。",
+      "category": "数据 / 基础设施",
+      "language": "JavaScript",
+      "stars": 54253,
+      "stars_today": 53,
+      "topics": [
+        "chinese",
+        "chinese-poetry",
+        "ci",
+        "json",
+        "poetry",
+        "tangshi"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.73
+    },
+    {
+      "repo": "trufflesecurity/trufflehog",
+      "url": "https://github.com/trufflesecurity/trufflehog",
+      "content": {
+        "zh": {
+          "summary": "老牌密钥泄露扫描工具，能发现、分类并验证 Git 等来源中的凭证是否真实有效，企业版覆盖 Jira、Slack、Confluence 等持续监控。",
+          "insight": "机会不在重做扫描器，而在把它嵌进 AI 编码流程：agent 自动提交代码前先跑一遍凭证校验，防止密钥随生成代码一起进仓库。"
+        },
+        "en": {
+          "summary": "A mature secrets scanner that finds, classifies and verifies leaked credentials, with an enterprise edition continuously monitoring Git, Jira, Slack and Confluence.",
+          "insight": "Don't rebuild the scanner. Embed it in AI coding workflows so agents verify credentials before committing,"
+        }
+      },
+      "description": "Find, verify, and analyze leaked credentials",
+      "category": "安全 / 隐私",
+      "language": "Go",
+      "stars": 29176,
+      "stars_today": 96,
+      "topics": [
+        "credentials",
+        "devsecops",
+        "dynamic-analysis",
+        "precommit",
+        "scanning",
+        "secret",
+        "secret-management",
+        "secrets",
+        "security",
+        "security-tools"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.19
+    },
+    {
+      "repo": "Imbad0202/academic-research-skills",
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "content": {
+        "zh": {
+          "summary": "一套面向 Claude Code 的学术技能包，覆盖选题、写作、审稿、修改到定稿的完整流程，用苏格拉底式对话帮研究者搭建论文结构。",
+          "insight": "适合切研究生和青年教师的「投稿前自查」场景：把审稿意见模拟、文献综述结构化做成可复用技能，比通用写作助手更贴近学术规范。"
+        },
+        "en": {
+          "summary": "A Claude Code skill suite covering the full academic pipeline from research and writing to peer review and revision, using Socratic dialogue to shape paper structure.",
+          "insight": "Target grad students and junior faculty before submission: simulate reviewer critiques and structure literature reviews as reusable skills,"
+        }
+      },
+      "description": "Academic Research Skills for Claude Code: research → write → review → revise → finalize",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 56368,
+      "stars_today": 225,
+      "topics": [
+        "academic-pipeline",
+        "academic-writing",
+        "ai-research",
+        "claude",
+        "claude-code",
+        "literature-review",
+        "peer-review",
+        "prompt-engineering"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.13
+    },
+    {
+      "repo": "NomaDamas/k-skill",
+      "url": "https://github.com/NomaDamas/k-skill",
+      "content": {
+        "zh": {
+          "summary": "面向韩国用户的 agent 技能合集，把 KTX 查票、KBO、乐透、胡萝卜市场、Coupang、政府 24 等琐事交给 Claude Code 等编码 agent 处理，无需额外 API 层。",
+          "insight": "这是「本地生活服务技能包」的样板：按国家或城市复制这套模式，把政务、票务、二手交易接口包成 agent 技能，先发优势在本地服务覆盖度。"
+        },
+        "en": {
+          "summary": "A Korean-focused skill collection letting coding agents handle KTX schedules, KBO, lotteries, Danggeun, Coupang and government services, with no extra API layer needed.",
+          "insight": "A template for local-life skill packs: replicate per country or city, wrapping government, ticketing and resale APIs as agent skills."
+        }
+      },
+      "description": "한국인을 위한 스킬 모음집 - 에이전트를 한국인으로",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 8384,
+      "stars_today": 23,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.12
+    }
+  ]
+}

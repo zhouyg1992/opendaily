@@ -11,71 +11,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.10 · 周二](daily/zh/2026-11-10.md)
+## [2026.11.11 · 周三](daily/zh/2026-11-11.md)
 
-> 今天这批项目反映出一个清晰信号：AI 正从通用聊天界面下沉到具体工作流——股票分析、CAD 绘图、视频剪辑、3D 重建，都在把模型能力封装成可交付的成品。同时，本地优先、隐私可控的工具重新受到青睐，开源项目开始直接对标商业软件的核心场景。
+> 今天这批项目最明显的信号，是 AI 能力正在从通用对话下沉到具体场景：家庭自动化、学术写作、本地硬件选型、韩国的生活服务，都出现了把 agent 接到真实系统上的工具。同时沙箱、密钥扫描、独立浏览器这类底层项目也在补课，说明大家在为「让 AI 真正动手」准备安全边界。
 
 ### AI / Agent 工具
 
-* **[garrytan/gbrain](https://github.com/garrytan/gbrain)** — 给已有 agent 增加可控记忆的开源项目，存储带来源的显式事实，支持更正和撤回，并让同一份记忆在多个 agent 间共享。它从无密钥的关键词检索起步，再按需叠加语义搜索和后台增强。
+* **[homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp)** — 通过 MCP 让 Claude、ChatGPT 等助手直接配置和自动化 Home Assistant，推荐以 HACS 集成方式在进程内运行，覆盖 OS、Supervised、Container、Core 全部安装形态。
 
-  > 灵感：记忆层的「可审计」是差异化点：每条事实都有出处、可更正。适合做面向团队的知识记忆服务，切合规敏感场景，比如客服或法务，和黑盒向量库相比更容易解释和追责。
+  > 灵感：切入点不是再做一个智能家居 App，而是替已经折腾 Home Assistant 的极客用户做「自然语言配置层」，把写 YAML 自动化的门槛降到一句话，比通用聊天助手更懂设备实体。
 
 ### AI 基础设施 / 模型
 
-* **[google-deepmind/mujoco](https://github.com/google-deepmind/mujoco)** — Google DeepMind 维护的通用物理引擎，专注多关节动力学与接触仿真，广泛用于机器人、生物力学和强化学习研究。它提供 C API 和桌面/浏览器可视化，是机器人学习领域的事实标准基础设施。
+* **[opensandbox-group/OpenSandbox](https://github.com/opensandbox-group/OpenSandbox)** — 为 AI agent 提供隔离执行环境的沙箱运行时，本地用 Docker 起步，可部署到 Kubernetes，支持代码执行、文件管理、浏览器和桌面操作，Firecracker 冷启动达毫秒级。
 
-  > 灵感：适合作为机器人仿真或具身智能产品的底层引擎，而不是直接做应用。如果想切入，可以在 MuJoCo 之上做特定场景的仿真环境封装，比如仓储抓取或四足运动，降低非专家的使用门槛。
-
-* **[ooolabdev/ooosplat](https://github.com/ooolabdev/ooosplat)** — 本地桌面应用，一键把普通视频或图片序列转成 3D Gaussian Splatting，内置 FFmpeg、COLMAP 和 Brush，全程使用本机 CPU/GPU，素材无需上传云端。它把原本需要命令行拼接的重建流程封装成了选素材、选质量档、等结果。
-
-  > 灵感：3D 重建的瓶颈正在从算法转向工作流。可以面向房产、文物、电商展示做「拍摄到可交互 3D 模型」的托管服务，用 OOOSplat 做本地预处理，云端只负责发布和嵌入，避开重计算成本。
-
-* **[pyannote/pyannote-audio](https://github.com/pyannote/pyannote-audio)** — 基于 PyTorch 的说话人日志开源工具包，提供语音活动检测、说话人变化检测、重叠语音检测和说话人嵌入等预训练模型，支持微调。它是会议转写、播客处理等场景中「谁在什么时候说话」环节的常用底座。
-
-  > 灵感：说话人日志是会议和客服录音分析的关键中间层。可以基于它做垂直的对话分析产品，比如销售通话的说话人分离加话术评估，重点在把 diarization 结果和业务指标对齐，而不是自己训模型。
+  > 灵感：这是基础设施而非应用。机会在于给做 agent 产品的团队提供托管版沙箱服务，解决自建 Firecracker 集群和状态暂停恢复的运维负担。
 
 ### 开发工具 / CLI
 
-* **[anthropics/claude-code](https://github.com/anthropics/claude-code)** — Anthropic 推出的终端内智能编码工具，理解代码库、执行常规任务、解释复杂代码并处理 git 工作流，全部通过自然语言完成。它把 AI 编程从 IDE 插件扩展到命令行和 CI 场景，是当前 agentic coding 的代表产品。
+* **[AlexsJones/llmfit](https://github.com/AlexsJones/llmfit)** — 一条命令检测本机 CPU、内存、GPU 和显存，推荐能跑得动的开源模型及量化版本，还能下载、启动并实测 tok/s 后回传基准数据。
 
-  > 灵感：对创业者来说，它更像一个信号：终端正在成为 AI 编程的主入口。机会不在复刻它，而在围绕它做配套——比如团队级的权限审计、成本看板、或针对特定技术栈的提示词与工作流模板。
+  > 灵感：可围绕「本地模型选型」做硬件兼容性数据库或装机顾问，服务想私有化部署的中小团队，比论坛零散经验更可验证。
 
-* **[HakanSeven12/OpenCADStudio](https://github.com/HakanSeven12/OpenCADStudio)** — 用 Rust 构建的开源 CAD 应用，支持 2D 绘图和 3D 建模，原生读写 DWG/DXF，桌面和浏览器共享同一编辑核心，并带 GPU 加速渲染。它试图打破 DWG 格式长期被商业软件锁定的局面。
+* **[LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird)** — 真正独立的浏览器项目，基于 Web 标准自研引擎，采用多进程架构并为每个站点隔离渲染进程，目前处于 pre-alpha，仅适合开发者。
 
-  > 灵感：DWG 原生读写是稀缺能力。机会不在做通用 CAD，而在垂直场景的轻量查看与批注，比如施工图纸会审或制造业来图报价，用浏览器端降低协作方安装门槛，按席位收费。
+  > 灵感：短期不是创业标的，而是趋势信号：浏览器引擎独立化会催生对 Web 标准兼容测试、渲染差异调试工具的需求，可提前布局这类开发者服务。
 
 ### 前端 / 设计
 
-* **[OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut)** — 开源的 CapCut 替代品，目标是用一套代码覆盖 Web、桌面和移动端的视频编辑。当前正在重写，规划包括插件架构、MCP 服务器、无头渲染和脚本标签页，方向是把视频编辑变成可编程的工作流。
+* **[DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map)** — 中国历史交互地图时间轴，覆盖战国至今 18 个朝代、164 个疆域快照，并把古今地名沿革和诗词路线串起来，适合历史与人文教育场景。
 
-  > 灵感：视频编辑的插件生态和自动化渲染是空白点。可以围绕 OpenCut 的插件 API 做垂直模板市场，比如电商商品视频或播客切片，让非剪辑师也能批量产出。注意它还在重写期，适合早期押注而非立即依赖。
+  > 灵感：可切中小学历史教学和文旅导览：把朝代疆域变化做成课堂可拖动的教具，或给博物馆做诗词地理路线，比静态课本地图更有参与感。
 
 ### 数据 / 基础设施
 
-* **[opengeos/GeoLibre](https://github.com/opengeos/GeoLibre)** — 轻量级云原生 GIS 平台，可在浏览器、桌面、移动端和 Jupyter 中运行，内置 1000 多个基于 WebAssembly 的地理处理工具，覆盖地形、水文、LiDAR 和遥感分析，数据不离开本机。
+* **[we-promise/sure](https://github.com/we-promise/sure)** — 接手已停摆的 Maybe Finance 的个人财务应用社区分支，保留账户聚合、预算和财富管理能力，以自托管方式让用户掌握自己的财务数据。
 
-  > 灵感：浏览器内完成专业 GIS 分析，意味着可以绕过传统桌面 GIS 的安装和授权。适合做面向规划、环保或农业的轻量分析工具，把特定工作流（如洪水淹没模拟）做成模板，按项目收费。
+  > 灵感：适合做面向隐私敏感用户的托管版或本地部署服务，卖点是数据不出户，与 Mint 类关停产品留下的用户迁移需求正好对接。
+
+* **[chinese-poetry/chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)** — 最全中华古诗词 JSON 数据库，含 5.5 万首唐诗、26 万宋诗、2.1 万宋词及多部古典文集，长期作为诗词类应用的数据底座。
+
+  > 灵感：数据本身已成熟，机会在它之上做产品：诗词创作辅助、古文教学题库或 AI 吟诵配音，省去从零清洗语料的成本。
 
 ### 安全 / 隐私
 
-* **[GyulyVGC/sniffnet](https://github.com/GyulyVGC/sniffnet)** — 跨平台的网络流量监控桌面应用，用 Rust 编写，界面直观，支持 IP 地理定位和多种协议过滤。它把 tcpdump 级别的能力做成了普通用户能看懂的 GUI，适合排查异常连接和隐私自查。
+* **[trufflesecurity/trufflehog](https://github.com/trufflesecurity/trufflehog)** — 老牌密钥泄露扫描工具，能发现、分类并验证 Git 等来源中的凭证是否真实有效，企业版覆盖 Jira、Slack、Confluence 等持续监控。
 
-  > 灵感：面向非安全专家的「网络体检」是个被低估的场景。可以在 Sniffnet 之上做家庭或小团队的异常流量告警，比如检测智能家居设备外联，用订阅制提供规则更新而非卖软件本身。
+  > 灵感：机会不在重做扫描器，而在把它嵌进 AI 编码流程：agent 自动提交代码前先跑一遍凭证校验，防止密钥随生成代码一起进仓库。
 
 ### Skill / 垂直工具
 
-* **[ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis)** — 一个 LLM 驱动的多市场股票分析系统，自动聚合行情、新闻和基本面数据，生成决策仪表盘并推送到企业微信、飞书、Telegram 等渠道，支持零成本定时运行。它解决的是散户和轻量投资者没有时间盯盘、又想要结构化结论的问题。
+* **[Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)** — 一套面向 Claude Code 的学术技能包，覆盖选题、写作、审稿、修改到定稿的完整流程，用苏格拉底式对话帮研究者搭建论文结构。
 
-  > 灵感：面向个人投资者做「每日决策简报」订阅，关键不在预测涨跌，而在把多源信息压缩成可执行的检查清单。和通用财经资讯 App 的差别是：它按你的自选股生成，而不是推送大众新闻。
+  > 灵感：适合切研究生和青年教师的「投稿前自查」场景：把审稿意见模拟、文献综述结构化做成可复用技能，比通用写作助手更贴近学术规范。
 
-[本期 Markdown](daily/zh/2026-11-10.md)
+* **[NomaDamas/k-skill](https://github.com/NomaDamas/k-skill)** — 面向韩国用户的 agent 技能合集，把 KTX 查票、KBO、乐透、胡萝卜市场、Coupang、政府 24 等琐事交给 Claude Code 等编码 agent 处理，无需额外 API 层。
+
+  > 灵感：这是「本地生活服务技能包」的样板：按国家或城市复制这套模式，把政务、票务、二手交易接口包成 agent 技能，先发优势在本地服务覆盖度。
+
+[本期 Markdown](daily/zh/2026-11-11.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
