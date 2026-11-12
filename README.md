@@ -11,71 +11,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.11 · 周三](daily/zh/2026-11-11.md)
+## [2026.11.12 · 周四](daily/zh/2026-11-12.md)
 
-> 今天这批项目最明显的信号，是 AI 能力正在从通用对话下沉到具体场景：家庭自动化、学术写作、本地硬件选型、韩国的生活服务，都出现了把 agent 接到真实系统上的工具。同时沙箱、密钥扫描、独立浏览器这类底层项目也在补课，说明大家在为「让 AI 真正动手」准备安全边界。
+> 今天这批项目透露出一个明显信号：围绕 AI 编程代理的配套工具正在快速细分，从免费接入多模型、到让代理像同事一样接任务、再到用强模型写计划给弱模型执行，大家不再只卷模型本身，而是卷怎么把代理用得更省、更顺、更可控。
 
 ### AI / Agent 工具
 
-* **[homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp)** — 通过 MCP 让 Claude、ChatGPT 等助手直接配置和自动化 Home Assistant，推荐以 HACS 集成方式在进程内运行，覆盖 OS、Supervised、Container、Core 全部安装形态。
+* **[Alishahryar1/free-claude-code](https://github.com/Alishahryar1/free-claude-code)** — 把 Claude Code、Codex 等 12 种代理客户端路由到 61 家模型提供商，包括免费和本地模型，保留原生流式与工具调用。解决的是开发者想用熟悉代理界面却受限于单一模型和额度的问题。
 
-  > 灵感：切入点不是再做一个智能家居 App，而是替已经折腾 Home Assistant 的极客用户做「自然语言配置层」，把写 YAML 自动化的门槛降到一句话，比通用聊天助手更懂设备实体。
+  > 灵感：适合做团队内部的模型网关：统一管理密钥、额度和路由策略，按项目切换免费或付费后端。和直接改代理源码相比，胜在不绑定具体客户端。
+
+* **[multica-ai/multica](https://github.com/multica-ai/multica)** — 一个可自托管的工作空间，把 issue 分配给 AI 编码代理，代理会领任务、报进度、提阻塞并交回评审。解决的是多个代理各占一个终端、上下文反复丢失、协作无记录的问题。
+
+  > 灵感：可以切「小团队代理项目看板」场景：把现有 CLI 代理接进看板，让非工程成员也能派活和验收。和纯聊天式代理相比，差在任务状态和交接是可追踪的。
 
 ### AI 基础设施 / 模型
 
-* **[opensandbox-group/OpenSandbox](https://github.com/opensandbox-group/OpenSandbox)** — 为 AI agent 提供隔离执行环境的沙箱运行时，本地用 Docker 起步，可部署到 Kubernetes，支持代码执行、文件管理、浏览器和桌面操作，Firecracker 冷启动达毫秒级。
+* **[sgl-project/sglang-omni](https://github.com/sgl-project/sglang-omni)** — 面向交互式多模态与语音的高性能服务运行时，支持 ASR、音频和音乐生成，提供 OpenAI 兼容 API。解决的是语音和多模态模型上线时缺乏统一推理底座的问题。
 
-  > 灵感：这是基础设施而非应用。机会在于给做 agent 产品的团队提供托管版沙箱服务，解决自建 Firecracker 集群和状态暂停恢复的运维负担。
+  > 灵感：更适合作为基础设施信号：做语音代理的团队可基于它自建推理层，按并发和延迟调优。和通用推理框架相比，差在对音频链路和流式交互的原生支持。
 
 ### 开发工具 / CLI
 
-* **[AlexsJones/llmfit](https://github.com/AlexsJones/llmfit)** — 一条命令检测本机 CPU、内存、GPU 和显存，推荐能跑得动的开源模型及量化版本，还能下载、启动并实测 tok/s 后回传基准数据。
+* **[unstablebuild/rune](https://github.com/unstablebuild/rune)** — GPU 加速的 IDE 兼终端复用器，内置语言智能，多实例组成端到端加密网络，可从任意设备连回工作站。解决的是代理自动编程和人工编程割裂、远程开发体验差的问题。
 
-  > 灵感：可围绕「本地模型选型」做硬件兼容性数据库或装机顾问，服务想私有化部署的中小团队，比论坛零散经验更可验证。
+  > 灵感：可面向「一人多机」的独立开发者做远程代理工作台：在笔记本上盯任务，重活跑在台式机。和 VS Code Remote 相比，差在把代理编排和终端复用做进同一层。
 
-* **[LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird)** — 真正独立的浏览器项目，基于 Web 标准自研引擎，采用多进程架构并为每个站点隔离渲染进程，目前处于 pre-alpha，仅适合开发者。
+* **[anefzaoui/misterdownloadmanager](https://github.com/anefzaoui/misterdownloadmanager)** — 纯 Rust 从零写的开源下载管理器，跨三平台，支持多线程加速、磁力链接和浏览器扩展，无广告无注册。解决的是 IDM 类工具收费、闭源且跨平台支持差的问题。
 
-  > 灵感：短期不是创业标的，而是趋势信号：浏览器引擎独立化会催生对 Web 标准兼容测试、渲染差异调试工具的需求，可提前布局这类开发者服务。
+  > 灵感：可切「团队批量素材下载」场景：把浏览器扩展和 CLI 结合，做可脚本化的下载队列与校验。和 IDM 相比，差在开源可审计、能嵌进自动化流程。
 
 ### 前端 / 设计
 
-* **[DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map)** — 中国历史交互地图时间轴，覆盖战国至今 18 个朝代、164 个疆域快照，并把古今地名沿革和诗词路线串起来，适合历史与人文教育场景。
+* **[kunchenguid/lavish-axi](https://github.com/kunchenguid/lavish-axi)** — 本地打开代理生成的 HTML 文件，可点选元素和文本、编辑 Mermaid 白板，并把反馈发回给代理。解决的是人机围绕 HTML 产物协作时只能靠截图和长段文字描述的问题。
 
-  > 灵感：可切中小学历史教学和文旅导览：把朝代疆域变化做成课堂可拖动的教具，或给博物馆做诗词地理路线，比静态课本地图更有参与感。
+  > 灵感：适合做「代理产物的可视化批注层」，面向用代理生成原型或报表的团队：把点选反馈变成结构化指令。和聊天里描述修改相比，差在保留 HTML 的交互性。
 
 ### 数据 / 基础设施
 
-* **[we-promise/sure](https://github.com/we-promise/sure)** — 接手已停摆的 Maybe Finance 的个人财务应用社区分支，保留账户聚合、预算和财富管理能力，以自托管方式让用户掌握自己的财务数据。
+* **[LibreSpark/LibreTV](https://github.com/LibreSpark/LibreTV)** — 基于 Next.js 的影视聚合搜索与播放站，支持多采集源并行搜索、HLS 播放、IPTV 和进度同步，可 Docker 一键部署。解决的是自建影视站门槛高、源管理混乱的问题。
 
-  > 灵感：适合做面向隐私敏感用户的托管版或本地部署服务，卖点是数据不出户，与 Mint 类关停产品留下的用户迁移需求正好对接。
-
-* **[chinese-poetry/chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)** — 最全中华古诗词 JSON 数据库，含 5.5 万首唐诗、26 万宋诗、2.1 万宋词及多部古典文集，长期作为诗词类应用的数据底座。
-
-  > 灵感：数据本身已成熟，机会在它之上做产品：诗词创作辅助、古文教学题库或 AI 吟诵配音，省去从零清洗语料的成本。
+  > 灵感：可切「家庭媒体中心或垂直片库」场景，重点做源健康度管理和合规内容接入，而非公开聚合。和现成 CMS 相比，差在跨源聚合与自动换源测速。
 
 ### 安全 / 隐私
 
-* **[trufflesecurity/trufflehog](https://github.com/trufflesecurity/trufflehog)** — 老牌密钥泄露扫描工具，能发现、分类并验证 Git 等来源中的凭证是否真实有效，企业版覆盖 Jira、Slack、Confluence 等持续监控。
+* **[soxoj/maigret](https://github.com/soxoj/maigret)** — 仅凭用户名在数千个网站收集账号线索并汇总成人物档案，无需 API key。解决的是调查、尽职调查和反欺诈中跨平台身份拼图耗时的问题。
 
-  > 灵感：机会不在重做扫描器，而在把它嵌进 AI 编码流程：agent 自动提交代码前先跑一遍凭证校验，防止密钥随生成代码一起进仓库。
+  > 灵感：可切「招聘背调或品牌侵权初筛」场景，把结果做成可导出报告，并加置信度和误报标注。和手工逐站搜索相比，差在批量与可复现。
+
+* **[openai/codex-security](https://github.com/openai/codex-security)** — OpenAI 的代码安全 CLI 与 TypeScript SDK，能扫描仓库、验证候选漏洞、生成补丁并校验修复，还能起草 SECURITY.md。解决的是 AI 生成代码增多后安全审查跟不上的问题。
+
+  > 灵感：适合接进 CI 做「变更级安全门禁」，只扫 Git diff 并自动开修复 PR，面向没有专职安全的小团队。和传统 SAST 相比，差在会验证和修补而非只报错。
 
 ### Skill / 垂直工具
 
-* **[Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)** — 一套面向 Claude Code 的学术技能包，覆盖选题、写作、审稿、修改到定稿的完整流程，用苏格拉底式对话帮研究者搭建论文结构。
+* **[shadcn/improve](https://github.com/shadcn/improve)** — 一个代理技能，用最强模型审计代码库并写出实施计划，再交给更便宜的模型执行，自身不写实现。解决的是高能力模型贵、低能力模型乱改的错配问题。
 
-  > 灵感：适合切研究生和青年教师的「投稿前自查」场景：把审稿意见模拟、文献综述结构化做成可复用技能，比通用写作助手更贴近学术规范。
+  > 灵感：适合包装成「代码库体检+分阶段改造计划」服务，面向维护老项目的团队：先出可评审的 markdown 计划，再按预算分批执行。和直接让代理改代码相比，风险前置。
 
-* **[NomaDamas/k-skill](https://github.com/NomaDamas/k-skill)** — 面向韩国用户的 agent 技能合集，把 KTX 查票、KBO、乐透、胡萝卜市场、Coupang、政府 24 等琐事交给 Claude Code 等编码 agent 处理，无需额外 API 层。
-
-  > 灵感：这是「本地生活服务技能包」的样板：按国家或城市复制这套模式，把政务、票务、二手交易接口包成 agent 技能，先发优势在本地服务覆盖度。
-
-[本期 Markdown](daily/zh/2026-11-11.md)
+[本期 Markdown](daily/zh/2026-11-12.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 

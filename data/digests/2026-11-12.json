@@ -1,0 +1,315 @@
+{
+  "date": "2026-11-12",
+  "generated_at": "2026-11-12T03:42:21+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个明显信号：围绕 AI 编程代理的配套工具正在快速细分，从免费接入多模型、到让代理像同事一样接任务、再到用强模型写计划给弱模型执行，大家不再只卷模型本身，而是卷怎么把代理用得更省、更顺、更可控。",
+    "en": "Today's projects point to a clear shift: the tooling around AI coding agents is fragmenting fast. Instead of competing on models, builders are racing to make agents cheaper to run, easier to coordinate, and more controllable,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "Alishahryar1/free-claude-code",
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "content": {
+        "zh": {
+          "summary": "把 Claude Code、Codex 等 12 种代理客户端路由到 61 家模型提供商，包括免费和本地模型，保留原生流式与工具调用。解决的是开发者想用熟悉代理界面却受限于单一模型和额度的问题。",
+          "insight": "适合做团队内部的模型网关：统一管理密钥、额度和路由策略，按项目切换免费或付费后端。和直接改代理源码相比，胜在不绑定具体客户端。"
+        },
+        "en": {
+          "summary": "Routes 12 agent harnesses, including Claude Code and Codex, to 61 model providers such as free and local ones, while preserving native streaming and tool use.",
+          "insight": "A natural fit for an internal model gateway: centralize keys, quotas, and routing, and switch backends per project."
+        }
+      },
+      "description": "Use Claude Code, Codex, Antigravity, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly)",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 68724,
+      "stars_today": 636,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 45.02
+    },
+    {
+      "repo": "multica-ai/multica",
+      "url": "https://github.com/multica-ai/multica",
+      "content": {
+        "zh": {
+          "summary": "一个可自托管的工作空间，把 issue 分配给 AI 编码代理，代理会领任务、报进度、提阻塞并交回评审。解决的是多个代理各占一个终端、上下文反复丢失、协作无记录的问题。",
+          "insight": "可以切「小团队代理项目看板」场景：把现有 CLI 代理接进看板，让非工程成员也能派活和验收。和纯聊天式代理相比，差在任务状态和交接是可追踪的。"
+        },
+        "en": {
+          "summary": "A self-hostable workspace where you assign issues to AI coding agents that pick them up, report progress, raise blockers, and hand back for review.",
+          "insight": "Target small teams that want an agent project board: plug existing CLI agents in so non-engineers can assign and review work."
+        }
+      },
+      "description": "Make humans and AI agents work as one team — open-source and self-hostable.",
+      "category": "AI / Agent 工具",
+      "language": "Go",
+      "stars": 55784,
+      "stars_today": 200,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.48
+    },
+    {
+      "repo": "sgl-project/sglang-omni",
+      "url": "https://github.com/sgl-project/sglang-omni",
+      "content": {
+        "zh": {
+          "summary": "面向交互式多模态与语音的高性能服务运行时，支持 ASR、音频和音乐生成，提供 OpenAI 兼容 API。解决的是语音和多模态模型上线时缺乏统一推理底座的问题。",
+          "insight": "更适合作为基础设施信号：做语音代理的团队可基于它自建推理层，按并发和延迟调优。和通用推理框架相比，差在对音频链路和流式交互的原生支持。"
+        },
+        "en": {
+          "summary": "A high-performance serving runtime for interactive multimodal and speech workloads, covering ASR, audio, and music generation behind an OpenAI-compatible API.",
+          "insight": "Best read as infrastructure: teams building voice agents can self-host this layer and tune for concurrency and latency."
+        }
+      },
+      "description": "High Performance Serving Runtime For Interactive Super Intelligence System",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 1764,
+      "stars_today": 15,
+      "topics": [
+        "asr",
+        "audio-generation",
+        "cuda",
+        "distributed-inference",
+        "inference",
+        "interactive",
+        "model-serving",
+        "multimodal",
+        "music-generation",
+        "openai-api"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 20.85
+    },
+    {
+      "repo": "unstablebuild/rune",
+      "url": "https://github.com/unstablebuild/rune",
+      "content": {
+        "zh": {
+          "summary": "GPU 加速的 IDE 兼终端复用器，内置语言智能，多实例组成端到端加密网络，可从任意设备连回工作站。解决的是代理自动编程和人工编程割裂、远程开发体验差的问题。",
+          "insight": "可面向「一人多机」的独立开发者做远程代理工作台：在笔记本上盯任务，重活跑在台式机。和 VS Code Remote 相比，差在把代理编排和终端复用做进同一层。"
+        },
+        "en": {
+          "summary": "A GPU-accelerated IDE and terminal multiplexer with built-in language intelligence, where instances form an end-to-end encrypted network so you can reach your workstation from any…",
+          "insight": "Target solo developers with multiple machines: a remote agent workbench where you monitor from a laptop while heavy work runs on a desktop."
+        }
+      },
+      "description": "a fast, GPU-accelerated, full-featured IDE and terminal multiplexer, suitable both for automatic and manual programming.",
+      "category": "开发工具 / CLI",
+      "language": "Go",
+      "stars": 1755,
+      "stars_today": 39,
+      "topics": [
+        "agent-orchestration",
+        "ai",
+        "cli",
+        "coding-agents",
+        "developer-tool",
+        "devtools",
+        "go",
+        "golang",
+        "ide",
+        "rune"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.44
+    },
+    {
+      "repo": "anefzaoui/misterdownloadmanager",
+      "url": "https://github.com/anefzaoui/misterdownloadmanager",
+      "content": {
+        "zh": {
+          "summary": "纯 Rust 从零写的开源下载管理器，跨三平台，支持多线程加速、磁力链接和浏览器扩展，无广告无注册。解决的是 IDM 类工具收费、闭源且跨平台支持差的问题。",
+          "insight": "可切「团队批量素材下载」场景：把浏览器扩展和 CLI 结合，做可脚本化的下载队列与校验。和 IDM 相比，差在开源可审计、能嵌进自动化流程。"
+        },
+        "en": {
+          "summary": "A clean-room Rust download manager for Windows, macOS, and Linux with multi-threaded acceleration, magnet links, and a browser extension, free of ads and sign-ups.",
+          "insight": "Target teams downloading media in bulk: combine the extension with a CLI for scriptable queues and checksums."
+        }
+      },
+      "description": "misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 6978,
+      "stars_today": 0,
+      "topics": [
+        "bittorrent-client",
+        "debrid",
+        "download-accelerator",
+        "download-manager",
+        "downloadmanager",
+        "egui",
+        "file-downloader",
+        "gallery-dl",
+        "idm",
+        "idm-alternative"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 29.06
+    },
+    {
+      "repo": "kunchenguid/lavish-axi",
+      "url": "https://github.com/kunchenguid/lavish-axi",
+      "content": {
+        "zh": {
+          "summary": "本地打开代理生成的 HTML 文件，可点选元素和文本、编辑 Mermaid 白板，并把反馈发回给代理。解决的是人机围绕 HTML 产物协作时只能靠截图和长段文字描述的问题。",
+          "insight": "适合做「代理产物的可视化批注层」，面向用代理生成原型或报表的团队：把点选反馈变成结构化指令。和聊天里描述修改相比，差在保留 HTML 的交互性。"
+        },
+        "en": {
+          "summary": "Opens agent-generated HTML locally so you can pinpoint elements and text, edit Mermaid whiteboards, and send feedback back to the agent.",
+          "insight": "Build a visual annotation layer for agent output, aimed at teams generating prototypes or reports: turn point-and-click feedback into structured instructions."
+        }
+      },
+      "description": "HTML is the new markdown. Lavish is the new editor for your HTML artifacts.",
+      "category": "前端 / 设计",
+      "language": "JavaScript",
+      "stars": 4541,
+      "stars_today": 41,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 23.97
+    },
+    {
+      "repo": "LibreSpark/LibreTV",
+      "url": "https://github.com/LibreSpark/LibreTV",
+      "content": {
+        "zh": {
+          "summary": "基于 Next.js 的影视聚合搜索与播放站，支持多采集源并行搜索、HLS 播放、IPTV 和进度同步，可 Docker 一键部署。解决的是自建影视站门槛高、源管理混乱的问题。",
+          "insight": "可切「家庭媒体中心或垂直片库」场景，重点做源健康度管理和合规内容接入，而非公开聚合。和现成 CMS 相比，差在跨源聚合与自动换源测速。"
+        },
+        "en": {
+          "summary": "A Next.js movie and TV aggregation site with parallel multi-source search, HLS playback, IPTV, and progress sync, deployable via Docker.",
+          "insight": "Aim at home media centers or niche catalogs, focusing on source health and licensed content rather than public aggregation."
+        }
+      },
+      "description": "一分钟搭建影视站，支持Docker等部署方式",
+      "category": "数据 / 基础设施",
+      "language": "TypeScript",
+      "stars": 24489,
+      "stars_today": 198,
+      "topics": [
+        "css",
+        "film",
+        "html",
+        "movie-web-app",
+        "movies-and-cinemas",
+        "nextjs",
+        "tv"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.28
+    },
+    {
+      "repo": "soxoj/maigret",
+      "url": "https://github.com/soxoj/maigret",
+      "content": {
+        "zh": {
+          "summary": "仅凭用户名在数千个网站收集账号线索并汇总成人物档案，无需 API key。解决的是调查、尽职调查和反欺诈中跨平台身份拼图耗时的问题。",
+          "insight": "可切「招聘背调或品牌侵权初筛」场景，把结果做成可导出报告，并加置信度和误报标注。和手工逐站搜索相比，差在批量与可复现。"
+        },
+        "en": {
+          "summary": "Collects a person's account trail across thousands of sites from a username alone, with no API keys. It saves the hours spent piecing together cross-platform identities for…",
+          "insight": "Aim at recruiting background checks or brand infringement triage: turn output into exportable reports with confidence scores and false-positive flags."
+        }
+      },
+      "description": "🕵️‍♂️ Collect a dossier on a person by username from 6K websites",
+      "category": "安全 / 隐私",
+      "language": "Python",
+      "stars": 40407,
+      "stars_today": 260,
+      "topics": [
+        "cli",
+        "cybersecurity",
+        "identification",
+        "information-gathering",
+        "infosec",
+        "investigation",
+        "open-source",
+        "osint",
+        "osint-framework",
+        "osint-python"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.14
+    },
+    {
+      "repo": "openai/codex-security",
+      "url": "https://github.com/openai/codex-security",
+      "content": {
+        "zh": {
+          "summary": "OpenAI 的代码安全 CLI 与 TypeScript SDK，能扫描仓库、验证候选漏洞、生成补丁并校验修复，还能起草 SECURITY.md。解决的是 AI 生成代码增多后安全审查跟不上的问题。",
+          "insight": "适合接进 CI 做「变更级安全门禁」，只扫 Git diff 并自动开修复 PR，面向没有专职安全的小团队。和传统 SAST 相比，差在会验证和修补而非只报错。"
+        },
+        "en": {
+          "summary": "OpenAI's security CLI and TypeScript SDK scan repos, validate candidate findings, generate patches, verify fixes, and draft SECURITY.md.",
+          "insight": "Wire it into CI as a change-level security gate that scans only the Git diff and opens fix PRs, for small teams without dedicated security."
+        }
+      },
+      "description": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security",
+      "category": "安全 / 隐私",
+      "language": "TypeScript",
+      "stars": 11839,
+      "stars_today": 52,
+      "topics": [
+        "ai-security",
+        "application-security",
+        "cli",
+        "code-scanning",
+        "codex",
+        "codex-security",
+        "cybersecurity",
+        "devsecops",
+        "nodejs",
+        "npm"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.74
+    },
+    {
+      "repo": "shadcn/improve",
+      "url": "https://github.com/shadcn/improve",
+      "content": {
+        "zh": {
+          "summary": "一个代理技能，用最强模型审计代码库并写出实施计划，再交给更便宜的模型执行，自身不写实现。解决的是高能力模型贵、低能力模型乱改的错配问题。",
+          "insight": "适合包装成「代码库体检+分阶段改造计划」服务，面向维护老项目的团队：先出可评审的 markdown 计划，再按预算分批执行。和直接让代理改代码相比，风险前置。"
+        },
+        "en": {
+          "summary": "An agent skill that uses your strongest model to audit a codebase and write implementation plans for cheaper models to execute, without implementing anything itself.",
+          "insight": "Package it as a codebase health check plus phased refactor plan for teams maintaining legacy projects: reviewable markdown first, budgeted execution later."
+        }
+      },
+      "description": "Use your most capable model to audit your codebase and write plans for cheaper models to execute.",
+      "category": "Skill / 垂直工具",
+      "language": "",
+      "stars": 11030,
+      "stars_today": 361,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.28
+    }
+  ]
+}

@@ -10,71 +10,71 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 11, 2026 · Wed](daily/en/2026-11-11.md)
+## [Nov 12, 2026 · Thu](daily/en/2026-11-12.md)
 
-> The clearest signal today is AI moving from general chat into concrete workflows: home automation, academic writing, local hardware selection, everyday Korean services. Each one wires an agent into a real system rather than another chat wrapper.
+> Today's projects point to a clear shift: the tooling around AI coding agents is fragmenting fast. Instead of competing on models, builders are racing to make agents cheaper to run, easier to coordinate, and more controllable,
 
 ### AI / Agents
 
-* **[homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp)** — An MCP server that lets Claude and ChatGPT configure and automate Home Assistant, best installed as an in-process HACS integration across every HA install type.
+* **[Alishahryar1/free-claude-code](https://github.com/Alishahryar1/free-claude-code)** — Routes 12 agent harnesses, including Claude Code and Codex, to 61 model providers such as free and local ones, while preserving native streaming and tool use.
 
-  > Angle: Don't build another smart home app. Build the natural-language config layer for people already running Home Assistant,
+  > Angle: A natural fit for an internal model gateway: centralize keys, quotas, and routing, and switch backends per project.
+
+* **[multica-ai/multica](https://github.com/multica-ai/multica)** — A self-hostable workspace where you assign issues to AI coding agents that pick them up, report progress, raise blockers, and hand back for review.
+
+  > Angle: Target small teams that want an agent project board: plug existing CLI agents in so non-engineers can assign and review work.
 
 ### AI Infrastructure / Models
 
-* **[opensandbox-group/OpenSandbox](https://github.com/opensandbox-group/OpenSandbox)** — A sandbox runtime giving AI agents isolated environments to run code, manage files and drive browsers or desktops,
+* **[sgl-project/sglang-omni](https://github.com/sgl-project/sglang-omni)** — A high-performance serving runtime for interactive multimodal and speech workloads, covering ASR, audio, and music generation behind an OpenAI-compatible API.
 
-  > Angle: Infrastructure, not an app. The opening is a hosted sandbox service for agent teams that don't want to operate Firecracker clusters or handle pause and resume…
+  > Angle: Best read as infrastructure: teams building voice agents can self-host this layer and tune for concurrency and latency.
 
 ### Developer Tools / CLI
 
-* **[AlexsJones/llmfit](https://github.com/AlexsJones/llmfit)** — One command inspects your CPU, RAM, GPU and VRAM, recommends open models and quantizations that fit, then downloads, serves and benchmarks real tokens per second.
+* **[unstablebuild/rune](https://github.com/unstablebuild/rune)** — A GPU-accelerated IDE and terminal multiplexer with built-in language intelligence, where instances form an end-to-end encrypted network so you can reach your workstation from any…
 
-  > Angle: Build a hardware compatibility database or build advisor around local model selection for small teams going private,
+  > Angle: Target solo developers with multiple machines: a remote agent workbench where you monitor from a laptop while heavy work runs on a desktop.
 
-* **[LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird)** — A truly independent browser built on a novel standards-based engine, using multi-process architecture with per-site sandboxed renderers. Pre-alpha and developer-only for now.
+* **[anefzaoui/misterdownloadmanager](https://github.com/anefzaoui/misterdownloadmanager)** — A clean-room Rust download manager for Windows, macOS, and Linux with multi-threaded acceleration, magnet links, and a browser extension, free of ads and sign-ups.
 
-  > Angle: Not a startup target yet, but a signal: independent engines will create demand for web standards conformance testing and rendering-diff debugging tools.
+  > Angle: Target teams downloading media in bulk: combine the extension with a CLI for scriptable queues and checksums.
 
 ### Frontend / Design
 
-* **[DeanChensj/jiangshan-map](https://github.com/DeanChensj/jiangshan-map)** — An interactive historical atlas of China from 403 BCE to today, with 18 dynasties, 164 territory snapshots and ancient-to-modern place genealogy tied to classical poetry routes.
+* **[kunchenguid/lavish-axi](https://github.com/kunchenguid/lavish-axi)** — Opens agent-generated HTML locally so you can pinpoint elements and text, edit Mermaid whiteboards, and send feedback back to the agent.
 
-  > Angle: Target K-12 history classrooms and cultural tourism: a draggable dynasty map as teaching material, or poetry-geography trails for museums,
+  > Angle: Build a visual annotation layer for agent output, aimed at teams generating prototypes or reports: turn point-and-click feedback into structured instructions.
 
 ### Data / Infrastructure
 
-* **[we-promise/sure](https://github.com/we-promise/sure)** — A community fork of the abandoned Maybe Finance personal finance app, keeping account aggregation, budgeting and wealth tracking while letting users self-host their own data.
+* **[LibreSpark/LibreTV](https://github.com/LibreSpark/LibreTV)** — A Next.js movie and TV aggregation site with parallel multi-source search, HLS playback, IPTV, and progress sync, deployable via Docker.
 
-  > Angle: Offer a managed or local-first deployment for privacy-conscious users, selling data ownership to the audience orphaned by shutdowns like Mint.
-
-* **[chinese-poetry/chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)** — The most comprehensive Chinese classical poetry database in JSON, with 55k Tang poems, 260k Song poems, 21k ci and more, long used as the data layer for poetry apps.
-
-  > Angle: The data is mature; the opportunity sits on top. Build poetry writing aids, classical Chinese teaching banks or AI recitation voiceovers without paying the…
+  > Angle: Aim at home media centers or niche catalogs, focusing on source health and licensed content rather than public aggregation.
 
 ### Security / Privacy
 
-* **[trufflesecurity/trufflehog](https://github.com/trufflesecurity/trufflehog)** — A mature secrets scanner that finds, classifies and verifies leaked credentials, with an enterprise edition continuously monitoring Git, Jira, Slack and Confluence.
+* **[soxoj/maigret](https://github.com/soxoj/maigret)** — Collects a person's account trail across thousands of sites from a username alone, with no API keys. It saves the hours spent piecing together cross-platform identities for…
 
-  > Angle: Don't rebuild the scanner. Embed it in AI coding workflows so agents verify credentials before committing,
+  > Angle: Aim at recruiting background checks or brand infringement triage: turn output into exportable reports with confidence scores and false-positive flags.
+
+* **[openai/codex-security](https://github.com/openai/codex-security)** — OpenAI's security CLI and TypeScript SDK scan repos, validate candidate findings, generate patches, verify fixes, and draft SECURITY.md.
+
+  > Angle: Wire it into CI as a change-level security gate that scans only the Git diff and opens fix PRs, for small teams without dedicated security.
 
 ### Vertical Tools / Skills
 
-* **[Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)** — A Claude Code skill suite covering the full academic pipeline from research and writing to peer review and revision, using Socratic dialogue to shape paper structure.
+* **[shadcn/improve](https://github.com/shadcn/improve)** — An agent skill that uses your strongest model to audit a codebase and write implementation plans for cheaper models to execute, without implementing anything itself.
 
-  > Angle: Target grad students and junior faculty before submission: simulate reviewer critiques and structure literature reviews as reusable skills,
+  > Angle: Package it as a codebase health check plus phased refactor plan for teams maintaining legacy projects: reviewable markdown first, budgeted execution later.
 
-* **[NomaDamas/k-skill](https://github.com/NomaDamas/k-skill)** — A Korean-focused skill collection letting coding agents handle KTX schedules, KBO, lotteries, Danggeun, Coupang and government services, with no extra API layer needed.
-
-  > Angle: A template for local-life skill packs: replicate per country or city, wrapping government, ticketing and resale APIs as agent skills.
-
-[This issue (Markdown)](daily/en/2026-11-11.md)
+[This issue (Markdown)](daily/en/2026-11-12.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
