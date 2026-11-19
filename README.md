@@ -11,71 +11,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.12 · 周四](daily/zh/2026-11-12.md)
+## [2026.11.19 · 周四](daily/zh/2026-11-19.md)
 
-> 今天这批项目透露出一个明显信号：围绕 AI 编程代理的配套工具正在快速细分，从免费接入多模型、到让代理像同事一样接任务、再到用强模型写计划给弱模型执行，大家不再只卷模型本身，而是卷怎么把代理用得更省、更顺、更可控。
+> 今天这批项目透露出一个明显信号：围绕编码 agent 的控制层和交互协议正在快速成型，同时轻量化本地基础设施（容器运行时、小模型训练、Docker 管理面板）重新受到关注。开发者不再满足于单个 agent 能力，而是想把它接入自己的工作流和设备，这为做中间层和垂直场景的人留出了空间。
 
 ### AI / Agent 工具
 
-* **[Alishahryar1/free-claude-code](https://github.com/Alishahryar1/free-claude-code)** — 把 Claude Code、Codex 等 12 种代理客户端路由到 61 家模型提供商，包括免费和本地模型，保留原生流式与工具调用。解决的是开发者想用熟悉代理界面却受限于单一模型和额度的问题。
+* **[pingdotgg/t3code](https://github.com/pingdotgg/t3code)** — T3 Code 是编码 agent 的开源控制平面，agent 跑在你自己的机器上，桌面、网页、手机都能接管同一个会话，支持 Claude Code、Codex 等多家 agent。它不转售 token，直接驱动你已订阅的账号。
 
-  > 灵感：适合做团队内部的模型网关：统一管理密钥、额度和路由策略，按项目切换免费或付费后端。和直接改代理源码相比，胜在不绑定具体客户端。
-
-* **[multica-ai/multica](https://github.com/multica-ai/multica)** — 一个可自托管的工作空间，把 issue 分配给 AI 编码代理，代理会领任务、报进度、提阻塞并交回评审。解决的是多个代理各占一个终端、上下文反复丢失、协作无记录的问题。
-
-  > 灵感：可以切「小团队代理项目看板」场景：把现有 CLI 代理接进看板，让非工程成员也能派活和验收。和纯聊天式代理相比，差在任务状态和交接是可追踪的。
+  > 灵感：机会在「多 agent 编排 + 移动端审批」这个缝隙：面向重度使用多个编码 agent 的个人开发者，先做会话交接和权限审批的体验，而不是再做一个 agent。
 
 ### AI 基础设施 / 模型
 
-* **[sgl-project/sglang-omni](https://github.com/sgl-project/sglang-omni)** — 面向交互式多模态与语音的高性能服务运行时，支持 ASR、音频和音乐生成，提供 OpenAI 兼容 API。解决的是语音和多模态模型上线时缺乏统一推理底座的问题。
+* **[ag-ui-protocol/ag-ui](https://github.com/ag-ui-protocol/ag-ui)** — AG-UI 是一个事件驱动的开放协议，把 agent 的流式输出、工具调用、状态更新、人工介入统一成一条双向事件流，让任意框架的 agent 都能接入任意前端。1.0 版本刚发布。
 
-  > 灵感：更适合作为基础设施信号：做语音代理的团队可基于它自建推理层，按并发和延迟调优。和通用推理框架相比，差在对音频链路和流式交互的原生支持。
+  > 灵感：适合作为基础设施押注：做 agent 前端组件库或调试工具，切「同一 agent 多端渲染」的场景，比各家自己写胶水代码省事得多。
+
+* **[jingyaogong/minimind](https://github.com/jingyaogong/minimind)** — MiniMind 用约 3 元成本和 2 小时在单张 3090 上从零训练一个 64M 小模型，并开源了预训练、SFT、LoRA、RLHF、Agentic RL 等全链路 PyTorch 原生代码，同时扩展到视觉和多模态。
+
+  > 灵感：它的价值是教学与实验底座：可以做面向高校或转行者的付费实验课，或基于它做特定领域的极小模型微调服务，卖的是可复现而不是算力。
+
+* **[vllm-project/vllm-ascend](https://github.com/vllm-project/vllm-ascend)** — vllm-ascend 是社区维护的 vLLM 华为昇腾硬件插件，让 vLLM 的推理服务能跑在昇腾 NPU 上，已发布多个正式版本并保持周会节奏。对受限于 GPU 供应的团队是现实选项。
+
+  > 灵感：这是基础设施信号而非创业点子：围绕昇腾做模型适配、性能调优和迁移咨询，服务那些拿不到英伟达卡但要做推理部署的企业。
 
 ### 开发工具 / CLI
 
-* **[unstablebuild/rune](https://github.com/unstablebuild/rune)** — GPU 加速的 IDE 兼终端复用器，内置语言智能，多实例组成端到端加密网络，可从任意设备连回工作站。解决的是代理自动编程和人工编程割裂、远程开发体验差的问题。
+* **[getarcaneapp/arcane](https://github.com/getarcaneapp/arcane)** — Arcane 是面向普通用户的现代 Docker 管理面板，用 Go 和 SvelteKit 写成，可自托管，覆盖容器和 Compose 的日常操作。v3 正在主分支开发，社区功能请求已迁到 Discussions。
 
-  > 灵感：可面向「一人多机」的独立开发者做远程代理工作台：在笔记本上盯任务，重活跑在台式机。和 VS Code Remote 相比，差在把代理编排和终端复用做进同一层。
+  > 灵感：自托管面板的差异点在「给非运维的人用」：面向家庭服务器或小团队，把备份、更新、告警做成向导式流程，而不是再堆一层仪表盘。
 
-* **[anefzaoui/misterdownloadmanager](https://github.com/anefzaoui/misterdownloadmanager)** — 纯 Rust 从零写的开源下载管理器，跨三平台，支持多线程加速、磁力链接和浏览器扩展，无广告无注册。解决的是 IDM 类工具收费、闭源且跨平台支持差的问题。
+* **[XiaoYouChR/Ghost-Downloader-3](https://github.com/XiaoYouChR/Ghost-Downloader-3)** — Ghost Downloader 3 是一个跨平台下载器，支持 HTTP3、BT、FTP，用异步架构和 Fluent Design 界面，主打把多种下载协议收进一个工具。适合需要批量或跨区域下载的个人用户。
 
-  > 灵感：可切「团队批量素材下载」场景：把浏览器扩展和 CLI 结合，做可脚本化的下载队列与校验。和 IDM 相比，差在开源可审计、能嵌进自动化流程。
+  > 灵感：下载器的机会在「带策略的批量抓取」：面向做数据采集或内容归档的小团队，把代理轮换、断点续传和任务编排做成可编程接口。
 
 ### 前端 / 设计
 
-* **[kunchenguid/lavish-axi](https://github.com/kunchenguid/lavish-axi)** — 本地打开代理生成的 HTML 文件，可点选元素和文本、编辑 Mermaid 白板，并把反馈发回给代理。解决的是人机围绕 HTML 产物协作时只能靠截图和长段文字描述的问题。
+* **[dream-num/univer](https://github.com/dream-num/univer)** — Univer 把表格、文档、幻灯片等办公编辑能力做成可嵌入的 SDK，开源核心可扩展，并提供了让应用和 agent 操作可编辑内容的 Facade 接口。适合想把办公套件塞进自己产品的团队。
 
-  > 灵感：适合做「代理产物的可视化批注层」，面向用代理生成原型或报表的团队：把点选反馈变成结构化指令。和聊天里描述修改相比，差在保留 HTML 的交互性。
+  > 灵感：切入点是把「AI 可编辑的表格」嵌进垂直 SaaS，比如财务或供应链工具，让 agent 直接改单元格而不是输出文本，差异化在可撤销的协作编辑。
 
 ### 数据 / 基础设施
 
-* **[LibreSpark/LibreTV](https://github.com/LibreSpark/LibreTV)** — 基于 Next.js 的影视聚合搜索与播放站，支持多采集源并行搜索、HLS 播放、IPTV 和进度同步，可 Docker 一键部署。解决的是自建影视站门槛高、源管理混乱的问题。
+* **[libracoder/kiri](https://github.com/libracoder/kiri)** — Kiri 是用 Rust 写的轻量容器运行时，兼容 Docker CLI、Compose 和 buildx，在 macOS、Windows、Linux 上跑单个小虚拟机，定位是 Docker Desktop 和 OrbStack 的替代品，还带一个免费的 Ngrok 替代。
 
-  > 灵感：可切「家庭媒体中心或垂直片库」场景，重点做源健康度管理和合规内容接入，而非公开聚合。和现成 CMS 相比，差在跨源聚合与自动换源测速。
-
-### 安全 / 隐私
-
-* **[soxoj/maigret](https://github.com/soxoj/maigret)** — 仅凭用户名在数千个网站收集账号线索并汇总成人物档案，无需 API key。解决的是调查、尽职调查和反欺诈中跨平台身份拼图耗时的问题。
-
-  > 灵感：可切「招聘背调或品牌侵权初筛」场景，把结果做成可导出报告，并加置信度和误报标注。和手工逐站搜索相比，差在批量与可复现。
-
-* **[openai/codex-security](https://github.com/openai/codex-security)** — OpenAI 的代码安全 CLI 与 TypeScript SDK，能扫描仓库、验证候选漏洞、生成补丁并校验修复，还能起草 SECURITY.md。解决的是 AI 生成代码增多后安全审查跟不上的问题。
-
-  > 灵感：适合接进 CI 做「变更级安全门禁」，只扫 Git diff 并自动开修复 PR，面向没有专职安全的小团队。和传统 SAST 相比，差在会验证和修补而非只报错。
+  > 灵感：适合做开发者本地环境的周边生意：围绕它做镜像缓存、团队共享配置或内网穿透的托管服务，切「不想为 Docker Desktop 付费」的中小团队。
 
 ### Skill / 垂直工具
 
-* **[shadcn/improve](https://github.com/shadcn/improve)** — 一个代理技能，用最强模型审计代码库并写出实施计划，再交给更便宜的模型执行，自身不写实现。解决的是高能力模型贵、低能力模型乱改的错配问题。
+* **[mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)** — 一个 agent skill，跨 Reddit、X、YouTube、HN、Polymarket 抓取某个话题近 30 天的讨论，再按点赞和真实资金排序合成摘要。零配置，可装进 Claude Code 等 50 多个 agent 宿主。
 
-  > 灵感：适合包装成「代码库体检+分阶段改造计划」服务，面向维护老项目的团队：先出可评审的 markdown 计划，再按预算分批执行。和直接让代理改代码相比，风险前置。
+  > 灵感：可以借它的「按真实信号排序」思路做垂直情报产品：面向投资或选品的人，把社区热度与预测市场赔率结合成可订阅的周报。
 
-[本期 Markdown](daily/zh/2026-11-12.md)
+* **[huami1314/GestaltX](https://github.com/huami1314/GestaltX)** — GestaltX 是一个 iOS 的 MobileGestalt 编辑器，可调整区域代码、灵动岛、常亮显示、充电限制等设备预设，并支持备份。面向喜欢折腾 iPhone 和 iPad 的高级用户。
+
+  > 灵感：这类工具本身难产品化，但反映了越狱后市场对「安全回滚」的需求：可以做配置备份、变更对比和恢复的一站式服务，降低折腾门槛。
+
+[本期 Markdown](daily/zh/2026-11-19.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
