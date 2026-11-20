@@ -11,69 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.19 · 周四](daily/zh/2026-11-19.md)
+## [2026.11.20 · 周五](daily/zh/2026-11-20.md)
 
-> 今天这批项目透露出一个明显信号：围绕编码 agent 的控制层和交互协议正在快速成型，同时轻量化本地基础设施（容器运行时、小模型训练、Docker 管理面板）重新受到关注。开发者不再满足于单个 agent 能力，而是想把它接入自己的工作流和设备，这为做中间层和垂直场景的人留出了空间。
+> 今天这批项目透露出一个共同信号：AI 正在从「聊天窗口」下沉到开发者的日常工具链里。无论是把软件改造成 agent 可直接调用的 CLI、压缩喂给模型的命令输出、用技能包替代重复的安全与绘图劳动，还是让 agent 自己跑通渲染和验证，重点都不再是模型多聪明，而是如何把 agent 塞进真实工作流并控制成本。对想创业的人来说，机会更多藏在「agent 与现有工具之间的适配层」和「垂直场景的成品化」上。
 
 ### AI / Agent 工具
 
-* **[pingdotgg/t3code](https://github.com/pingdotgg/t3code)** — T3 Code 是编码 agent 的开源控制平面，agent 跑在你自己的机器上，桌面、网页、手机都能接管同一个会话，支持 Claude Code、Codex 等多家 agent。它不转售 token，直接驱动你已订阅的账号。
+* **[HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything)** — 把各类桌面软件包装成 agent 可直接调用的命令行接口，并提供 CLI-Hub 做分发管理。它解决的是 agent 能读代码却操作不了真实软件的问题，让 CAD、3D、图表等工具进入自动化流程。
 
-  > 灵感：机会在「多 agent 编排 + 移动端审批」这个缝隙：面向重度使用多个编码 agent 的个人开发者，先做会话交接和权限审批的体验，而不是再做一个 agent。
+  > 灵感：可切入的是一批「agent 无法触达」的专业软件，比如设计、音视频、财务系统。做垂直行业的 CLI 适配层，比通用框架更容易收费。
 
-### AI 基础设施 / 模型
+* **[google-research/paper-orchestra](https://github.com/google-research/paper-orchestra)** — Google 研究团队的多 agent 框架，把零散想法和实验日志转成可投稿的 LaTeX 论文，包含文献综述和图表生成。它瞄准的是科研写作中重复且耗时的组装环节。
 
-* **[ag-ui-protocol/ag-ui](https://github.com/ag-ui-protocol/ag-ui)** — AG-UI 是一个事件驱动的开放协议，把 agent 的流式输出、工具调用、状态更新、人工介入统一成一条双向事件流，让任意框架的 agent 都能接入任意前端。1.0 版本刚发布。
+  > 灵感：不要直接做论文代写，可切「实验室内部投稿流水线」：统一格式、复现实验记录、生成审稿回复，卖给高校课题组。
 
-  > 灵感：适合作为基础设施押注：做 agent 前端组件库或调试工具，切「同一 agent 多端渲染」的场景，比各家自己写胶水代码省事得多。
+* **[earendil-works/pi](https://github.com/earendil-works/pi)** — 一个极简可扩展的 agent 运行时，提供统一 LLM 接口、agent 循环、TUI 和编码 CLI，支持用扩展和技能包定制，也可通过 SDK 嵌入应用。它刻意砍掉子 agent 等复杂功能。
 
-* **[jingyaogong/minimind](https://github.com/jingyaogong/minimind)** — MiniMind 用约 3 元成本和 2 小时在单张 3090 上从零训练一个 64M 小模型，并开源了预训练、SFT、LoRA、RLHF、Agentic RL 等全链路 PyTorch 原生代码，同时扩展到视觉和多模态。
-
-  > 灵感：它的价值是教学与实验底座：可以做面向高校或转行者的付费实验课，或基于它做特定领域的极小模型微调服务，卖的是可复现而不是算力。
-
-* **[vllm-project/vllm-ascend](https://github.com/vllm-project/vllm-ascend)** — vllm-ascend 是社区维护的 vLLM 华为昇腾硬件插件，让 vLLM 的推理服务能跑在昇腾 NPU 上，已发布多个正式版本并保持周会节奏。对受限于 GPU 供应的团队是现实选项。
-
-  > 灵感：这是基础设施信号而非创业点子：围绕昇腾做模型适配、性能调优和迁移咨询，服务那些拿不到英伟达卡但要做推理部署的企业。
+  > 灵感：它的价值在于「可被改造」，适合做面向特定团队的定制 agent 发行版：预置合规策略、内部工具和审批流，按席位收费。
 
 ### 开发工具 / CLI
 
-* **[getarcaneapp/arcane](https://github.com/getarcaneapp/arcane)** — Arcane 是面向普通用户的现代 Docker 管理面板，用 Go 和 SvelteKit 写成，可自托管，覆盖容器和 Compose 的日常操作。v3 正在主分支开发，社区功能请求已迁到 Discussions。
+* **[rtk-ai/rtk](https://github.com/rtk-ai/rtk)** — 一个 Rust 单文件的 CLI 代理，在命令输出进入模型前做压缩，覆盖测试日志、diff、构建结果等上百条命令，宣称可省六到九成 token。它直接回应 agent 编码的成本痛点。
 
-  > 灵感：自托管面板的差异点在「给非运维的人用」：面向家庭服务器或小团队，把备份、更新、告警做成向导式流程，而不是再堆一层仪表盘。
-
-* **[XiaoYouChR/Ghost-Downloader-3](https://github.com/XiaoYouChR/Ghost-Downloader-3)** — Ghost Downloader 3 是一个跨平台下载器，支持 HTTP3、BT、FTP，用异步架构和 Fluent Design 界面，主打把多种下载协议收进一个工具。适合需要批量或跨区域下载的个人用户。
-
-  > 灵感：下载器的机会在「带策略的批量抓取」：面向做数据采集或内容归档的小团队，把代理轮换、断点续传和任务编排做成可编程接口。
+  > 灵感：适合做团队级成本治理面板：统计每个仓库、每个 agent 的 token 消耗并给出优化建议，卖给已经大规模用 Claude Code 的工程组织。
 
 ### 前端 / 设计
 
-* **[dream-num/univer](https://github.com/dream-num/univer)** — Univer 把表格、文档、幻灯片等办公编辑能力做成可嵌入的 SDK，开源核心可扩展，并提供了让应用和 agent 操作可编辑内容的 Facade 接口。适合想把办公套件塞进自己产品的团队。
+* **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — 一个 agent 技能，用自然语言生成自包含 HTML 加 SVG 的编辑级图表，支持数十种图型并能抓取站点配色。它解决的是 Mermaid 默认样式粗糙、难以直接用于对外材料的问题。
 
-  > 灵感：切入点是把「AI 可编辑的表格」嵌进垂直 SaaS，比如财务或供应链工具，让 agent 直接改单元格而不是输出文本，差异化在可撤销的协作编辑。
+  > 灵感：可以做成品牌化图表服务：接入企业设计系统，让 agent 产出的架构图、流程图自动符合品牌规范，卖给咨询和售前团队。
+
+* **[anomalyco/rune](https://github.com/anomalyco/rune)** — 一个用 Rust 写的原生 GPU 渲染 UI 框架，覆盖桌面与 Web，自带渲染、文本、布局和动画。关键设计是每个应用都能无头运行，让 agent 渲染截图并检查元素树来自我验证。
+
+  > 灵感：这是给 agent 写 UI 的基础设施信号。可以做一个「agent 可验证前端」的脚手架，把无头渲染加断言做成 CI 环节，服务自动化前端团队。
 
 ### 数据 / 基础设施
 
-* **[libracoder/kiri](https://github.com/libracoder/kiri)** — Kiri 是用 Rust 写的轻量容器运行时，兼容 Docker CLI、Compose 和 buildx，在 macOS、Windows、Linux 上跑单个小虚拟机，定位是 Docker Desktop 和 OrbStack 的替代品，还带一个免费的 Ngrok 替代。
+* **[appwrite/appwrite](https://github.com/appwrite/appwrite)** — 开源后端平台，补齐认证、数据库、存储、函数、消息和托管，并内置 MCP，让编码 agent 能直接操作线上项目。它把「agent 优先」做进了后端基础设施本身。
 
-  > 灵感：适合做开发者本地环境的周边生意：围绕它做镜像缓存、团队共享配置或内网穿透的托管服务，切「不想为 Docker Desktop 付费」的中小团队。
+  > 灵感：可围绕它做托管与合规增值：面向不想自建运维的团队提供私有部署、审计和备份，尤其适合有数据落地要求的行业客户。
+
+* **[datazip-inc/olake-go](https://github.com/datazip-inc/olake-go)** — 高性能开源数据摄取引擎，把 Postgres、MySQL、MongoDB、Kafka、S3 等源实时同步进 Apache Iceberg 或 Parquet，提供 Web UI 和 CLI，避免厂商锁定。
+
+  > 灵感：适合做面向中小数据团队的托管同步服务：按连接数和数据量计费，主打无需维护 Iceberg 表维护和 schema 演进。
+
+* **[perspective-dev/perspective](https://github.com/perspective-dev/perspective)** — 面向大规模和流式数据集的开源数据网格、透视表与图表组件，查询引擎可在浏览器 WebAssembly 或服务端运行。它让嵌入式分析应用不必自建可视化层。
+
+  > 灵感：可切入实时运营看板场景，比如交易监控、物流追踪：以组件形式嵌入客户系统，按并发流数据量定价，而不是卖整套 BI。
 
 ### Skill / 垂直工具
 
-* **[mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)** — 一个 agent skill，跨 Reddit、X、YouTube、HN、Polymarket 抓取某个话题近 30 天的讨论，再按点赞和真实资金排序合成摘要。零配置，可装进 Claude Code 等 50 多个 agent 宿主。
+* **[elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter)** — 面向漏洞挖掘与外网红队的 Claude Code 技能包，内置大量已披露报告模式和攻击矩阵，并集成 Burp。它把安全专家的经验沉淀成 agent 可复用的操作手册。
 
-  > 灵感：可以借它的「按真实信号排序」思路做垂直情报产品：面向投资或选品的人，把社区热度与预测市场赔率结合成可订阅的周报。
+  > 灵感：适合做安全团队的内部知识库产品：把渗透方法论、历史报告和合规流程打包成私有技能集，卖给需要审计留痕的企业。
 
-* **[huami1314/GestaltX](https://github.com/huami1314/GestaltX)** — GestaltX 是一个 iOS 的 MobileGestalt 编辑器，可调整区域代码、灵动岛、常亮显示、充电限制等设备预设，并支持备份。面向喜欢折腾 iPhone 和 iPad 的高级用户。
-
-  > 灵感：这类工具本身难产品化，但反映了越狱后市场对「安全回滚」的需求：可以做配置备份、变更对比和恢复的一站式服务，降低折腾门槛。
-
-[本期 Markdown](daily/zh/2026-11-19.md)
+[本期 Markdown](daily/zh/2026-11-20.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[20](daily/zh/2026-11-20.md) · [19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 

@@ -1,0 +1,319 @@
+{
+  "date": "2026-11-20",
+  "generated_at": "2026-11-20T03:55:08+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个共同信号：AI 正在从「聊天窗口」下沉到开发者的日常工具链里。无论是把软件改造成 agent 可直接调用的 CLI、压缩喂给模型的命令输出、用技能包替代重复的安全与绘图劳动，还是让 agent 自己跑通渲染和验证，重点都不再是模型多聪明，而是如何把 agent 塞进真实工作流并控制成本。对想创业的人来说，机会更多藏在「agent 与现有工具之间的适配层」和「垂直场景的成品化」上。",
+    "en": "A clear pattern runs through today's batch: AI is moving out of the chat box and into the developer's daily toolchain. The interesting work is no longer about smarter models but about adapters, cost control, and packaging agent capability into concrete workflows."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "HKUDS/CLI-Anything",
+      "url": "https://github.com/HKUDS/CLI-Anything",
+      "content": {
+        "zh": {
+          "summary": "把各类桌面软件包装成 agent 可直接调用的命令行接口，并提供 CLI-Hub 做分发管理。它解决的是 agent 能读代码却操作不了真实软件的问题，让 CAD、3D、图表等工具进入自动化流程。",
+          "insight": "可切入的是一批「agent 无法触达」的专业软件，比如设计、音视频、财务系统。做垂直行业的 CLI 适配层，比通用框架更容易收费。"
+        },
+        "en": {
+          "summary": "Wraps desktop software in command-line interfaces that agents can call directly, with a hub for distribution. It targets the gap between agents that can read code and software…",
+          "insight": "The opening is professional software agents currently cannot touch, such as design, media and finance systems."
+        }
+      },
+      "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 60673,
+      "stars_today": 898,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 44.7
+    },
+    {
+      "repo": "google-research/paper-orchestra",
+      "url": "https://github.com/google-research/paper-orchestra",
+      "content": {
+        "zh": {
+          "summary": "Google 研究团队的多 agent 框架，把零散想法和实验日志转成可投稿的 LaTeX 论文，包含文献综述和图表生成。它瞄准的是科研写作中重复且耗时的组装环节。",
+          "insight": "不要直接做论文代写，可切「实验室内部投稿流水线」：统一格式、复现实验记录、生成审稿回复，卖给高校课题组。"
+        },
+        "en": {
+          "summary": "A multi-agent framework from Google researchers that turns rough ideas and experiment logs into submission-ready LaTeX manuscripts,",
+          "insight": "Skip ghostwriting and build a lab-internal submission pipeline instead: enforce formatting, track experiment records, draft reviewer responses,"
+        }
+      },
+      "description": "PaperOrchestra is a multi-agent framework for automated AI research paper writing.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 5108,
+      "stars_today": 1196,
+      "topics": [
+        "ai-research-assistant",
+        "multi-agent-systems"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.25
+    },
+    {
+      "repo": "earendil-works/pi",
+      "url": "https://github.com/earendil-works/pi",
+      "content": {
+        "zh": {
+          "summary": "一个极简可扩展的 agent 运行时，提供统一 LLM 接口、agent 循环、TUI 和编码 CLI，支持用扩展和技能包定制，也可通过 SDK 嵌入应用。它刻意砍掉子 agent 等复杂功能。",
+          "insight": "它的价值在于「可被改造」，适合做面向特定团队的定制 agent 发行版：预置合规策略、内部工具和审批流，按席位收费。"
+        },
+        "en": {
+          "summary": "A minimal, extensible agent harness with a unified LLM API, agent loop, TUI and coding CLI. It is customized through extensions, skills and packages,",
+          "insight": "Its value is being hackable, which suits a customized agent distribution for specific teams: preload compliance rules, internal tools and approval flows,"
+        }
+      },
+      "description": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 122949,
+      "stars_today": 194,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.85
+    },
+    {
+      "repo": "rtk-ai/rtk",
+      "url": "https://github.com/rtk-ai/rtk",
+      "content": {
+        "zh": {
+          "summary": "一个 Rust 单文件的 CLI 代理，在命令输出进入模型前做压缩，覆盖测试日志、diff、构建结果等上百条命令，宣称可省六到九成 token。它直接回应 agent 编码的成本痛点。",
+          "insight": "适合做团队级成本治理面板：统计每个仓库、每个 agent 的 token 消耗并给出优化建议，卖给已经大规模用 Claude Code 的工程组织。"
+        },
+        "en": {
+          "summary": "A single-binary Rust CLI proxy that compresses command output before the model reads it, covering test logs, diffs and builds across a hundred-plus commands.",
+          "insight": "A team-level cost governance dashboard is the natural product: track token spend per repo and per agent, suggest optimizations,"
+        }
+      },
+      "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 87214,
+      "stars_today": 146,
+      "topics": [
+        "agentic-coding",
+        "ai-coding",
+        "anthropic",
+        "claude-code",
+        "cli",
+        "command-line-tool",
+        "cost-reduction",
+        "developer-tools",
+        "llm",
+        "open-source"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 36.29
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "content": {
+        "zh": {
+          "summary": "一个 agent 技能，用自然语言生成自包含 HTML 加 SVG 的编辑级图表，支持数十种图型并能抓取站点配色。它解决的是 Mermaid 默认样式粗糙、难以直接用于对外材料的问题。",
+          "insight": "可以做成品牌化图表服务：接入企业设计系统，让 agent 产出的架构图、流程图自动符合品牌规范，卖给咨询和售前团队。"
+        },
+        "en": {
+          "summary": "An agent skill that generates editorial-grade diagrams as self-contained HTML and SVG from plain language, covering dozens of chart types and pulling colors from your site.",
+          "insight": "Turn it into a branded diagram service: hook into a company design system so agent-produced architecture and flow diagrams match brand guidelines,"
+        }
+      },
+      "description": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 45 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+      "category": "前端 / 设计",
+      "language": "HTML",
+      "stars": 68746,
+      "stars_today": 271,
+      "topics": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "data-visualization",
+        "diagrams",
+        "drawio",
+        "mermaid",
+        "svg"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 36.8
+    },
+    {
+      "repo": "anomalyco/rune",
+      "url": "https://github.com/anomalyco/rune",
+      "content": {
+        "zh": {
+          "summary": "一个用 Rust 写的原生 GPU 渲染 UI 框架，覆盖桌面与 Web，自带渲染、文本、布局和动画。关键设计是每个应用都能无头运行，让 agent 渲染截图并检查元素树来自我验证。",
+          "insight": "这是给 agent 写 UI 的基础设施信号。可以做一个「agent 可验证前端」的脚手架，把无头渲染加断言做成 CI 环节，服务自动化前端团队。"
+        },
+        "en": {
+          "summary": "A native GPU-rendered Rust UI framework for desktop and web with its own renderer, text, layout and springs. Every app can run headless,",
+          "insight": "This is infrastructure for agents that write UI. A scaffold pairing headless rendering with assertions as a CI step could serve teams automating frontend work."
+        }
+      },
+      "description": "Rune: Native UI framework",
+      "category": "前端 / 设计",
+      "language": "Rust",
+      "stars": 7617,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 29.29
+    },
+    {
+      "repo": "appwrite/appwrite",
+      "url": "https://github.com/appwrite/appwrite",
+      "content": {
+        "zh": {
+          "summary": "开源后端平台，补齐认证、数据库、存储、函数、消息和托管，并内置 MCP，让编码 agent 能直接操作线上项目。它把「agent 优先」做进了后端基础设施本身。",
+          "insight": "可围绕它做托管与合规增值：面向不想自建运维的团队提供私有部署、审计和备份，尤其适合有数据落地要求的行业客户。"
+        },
+        "en": {
+          "summary": "An open-source backend covering auth, databases, storage, functions, messaging and hosting, with MCP built in so coding agents can operate a live project.",
+          "insight": "Build managed and compliance add-ons around it: private deployment, auditing and backups for teams that will not run their own ops,"
+        }
+      },
+      "description": "The open-source cloud for agents & devs. Including Auth, Databases, Storage, Functions, Messaging, Hosting, Realtime, WAF and more",
+      "category": "数据 / 基础设施",
+      "language": "TypeScript",
+      "stars": 58413,
+      "stars_today": 325,
+      "topics": [
+        "android",
+        "appwrite",
+        "backend",
+        "backend-as-a-service",
+        "docker",
+        "firebase",
+        "firewall",
+        "flutter",
+        "hosting",
+        "ios"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 36.72
+    },
+    {
+      "repo": "datazip-inc/olake-go",
+      "url": "https://github.com/datazip-inc/olake-go",
+      "content": {
+        "zh": {
+          "summary": "高性能开源数据摄取引擎，把 Postgres、MySQL、MongoDB、Kafka、S3 等源实时同步进 Apache Iceberg 或 Parquet，提供 Web UI 和 CLI，避免厂商锁定。",
+          "insight": "适合做面向中小数据团队的托管同步服务：按连接数和数据量计费，主打无需维护 Iceberg 表维护和 schema 演进。"
+        },
+        "en": {
+          "summary": "A high-performance open-source ingestion engine that replicates Postgres, MySQL, MongoDB, Kafka and S3 into Apache Iceberg or Parquet, with a web UI and CLI and no vendor lock-in.",
+          "insight": "A managed sync service for smaller data teams fits well: charge by connectors and volume, and handle Iceberg table maintenance and schema evolution so…"
+        }
+      },
+      "description": "OLake Go: open-source replication from databases, Kafka and S3 to Apache Iceberg and Parquet. Sources: Postgres, MySQL, MongoDB, Oracle, MSSQL, DB2, Kafka, S3. Formerly datazip-inc/olake. Table maintenance lives in datazip-inc/olake-fusion.",
+      "category": "数据 / 基础设施",
+      "language": "Go",
+      "stars": 2037,
+      "stars_today": 84,
+      "topics": [
+        "apache-iceberg",
+        "cdc",
+        "change-data-capture",
+        "data-ingestion",
+        "data-pipeline",
+        "database",
+        "elt",
+        "etl",
+        "golang",
+        "hacktoberfest"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 21.95
+    },
+    {
+      "repo": "perspective-dev/perspective",
+      "url": "https://github.com/perspective-dev/perspective",
+      "content": {
+        "zh": {
+          "summary": "面向大规模和流式数据集的开源数据网格、透视表与图表组件，查询引擎可在浏览器 WebAssembly 或服务端运行。它让嵌入式分析应用不必自建可视化层。",
+          "insight": "可切入实时运营看板场景，比如交易监控、物流追踪：以组件形式嵌入客户系统，按并发流数据量定价，而不是卖整套 BI。"
+        },
+        "en": {
+          "summary": "An open-source data grid, pivot table and charting component for large and streaming datasets, with a query engine running in-browser via WebAssembly or server-side.",
+          "insight": "Target real-time operations dashboards such as trading monitors or logistics tracking: embed as a component,"
+        }
+      },
+      "description": "A data visualization and analytics component, especially well-suited for large and/or streaming datasets.",
+      "category": "数据 / 基础设施",
+      "language": "Rust",
+      "stars": 11607,
+      "stars_today": 36,
+      "topics": [
+        "analytics",
+        "apache-arrow",
+        "bi",
+        "business-intelligence",
+        "charts",
+        "dashboard",
+        "data-visualization",
+        "datagrid",
+        "duckdb",
+        "javascript"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.29
+    },
+    {
+      "repo": "elementalsouls/Claude-BugHunter",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "content": {
+        "zh": {
+          "summary": "面向漏洞挖掘与外网红队的 Claude Code 技能包，内置大量已披露报告模式和攻击矩阵，并集成 Burp。它把安全专家的经验沉淀成 agent 可复用的操作手册。",
+          "insight": "适合做安全团队的内部知识库产品：把渗透方法论、历史报告和合规流程打包成私有技能集，卖给需要审计留痕的企业。"
+        },
+        "en": {
+          "summary": "A Claude Code skill bundle for bug hunting and external red-team work, packed with disclosed-report patterns, attack matrices and Burp integration.",
+          "insight": "A strong fit for internal security knowledge products: package pentest methodology, past reports and compliance steps into a private skill set sold to…"
+        }
+      },
+      "description": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 12740,
+      "stars_today": 1349,
+      "topics": [
+        "ai-security",
+        "anthropic",
+        "application-security",
+        "bug-bounty",
+        "bugbounty",
+        "bugcrowd",
+        "claude",
+        "claude-code",
+        "claude-skills",
+        "ethical-hacking"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 42.63
+    }
+  ]
+}
