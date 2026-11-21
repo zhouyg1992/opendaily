@@ -1,0 +1,331 @@
+{
+  "date": "2026-11-21",
+  "generated_at": "2026-11-21T03:51:39+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个明确信号：AI 工具正从「能演示」转向「能交付」。编码代理要有审批和 SOP，视频剪辑要有成片和发布文案，CI 故障要直接给出修复，连合规检查都被做成可执行的 guard。机会不在再造一个模型，而在把模型嵌进真实工作流的卡点里，把一次性能力变成可复用、可审计的流程。",
+    "en": "Today's batch shows AI tooling moving from demo to delivery. Coding agents need approval gates and SOPs, video tools need finished cuts and captions, CI agents must push a fix, and compliance is shipped as an executable guard."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "Tencent/LoopForge",
+      "url": "https://github.com/Tencent/LoopForge",
+      "content": {
+        "zh": {
+          "summary": "腾讯开源的编码代理自托管编排工作台：在聊天里描述需求，主 Bot 开 Docker 沙箱、拉仓库、分派角色并提 PR，跑通的流程可固化为带人工审批的 SOP。解决的是团队用多个编码代理时流程不可复现的问题。",
+          "insight": "面向已有 5 人以上研发团队、想统一代理交付规范的场景。切「代理产出没人敢合并」这一痛点，与只做单机代理的 Cursor 类工具差在审批门和可复用 SOP。"
+        },
+        "en": {
+          "summary": "Tencent's self-hosted workspace for orchestrating coding agents: describe a task in chat, and a main bot spins up a Docker sandbox, checks out repos,",
+          "insight": "Aim at teams of five or more devs standardizing agent delivery. The wedge is 'nobody dares merge agent output';"
+        }
+      },
+      "description": "Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants.",
+      "category": "AI / Agent 工具",
+      "language": "Go",
+      "stars": 5308,
+      "stars_today": 1216,
+      "topics": [
+        "agent-orchestration",
+        "agentic-workflow",
+        "ai-agents",
+        "ai-coding",
+        "claude-code",
+        "code-review",
+        "codebuddy",
+        "codex",
+        "coding-agents",
+        "cursor"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 40.35
+    },
+    {
+      "repo": "Tracer-Cloud/opensre",
+      "url": "https://github.com/Tracer-Cloud/opensre",
+      "content": {
+        "zh": {
+          "summary": "面向 CI/CD 可靠性的开源 CLI 代理：读取失败的流水线运行，追到根因并把修复推到待审状态，可自托管、用自己的模型。CI 只告诉你挂了，它补上「为什么」和「怎么修」。",
+          "insight": "适合已有 Datadog、Grafana 告警体系但排障靠人的团队。切「告警到修复」的最后一公里，与纯观测平台差在直接产出可审的补丁而非又一块仪表盘。"
+        },
+        "en": {
+          "summary": "An open-source CLI agent for CI/CD reliability: it reads a failed run, traces the root cause and pushes a fix for review.",
+          "insight": "Target teams with Datadog or Grafana alerts but manual triage. Own the last mile from alert to fix;"
+        }
+      },
+      "description": "The open-source agent for CI/CD reliability.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 13673,
+      "stars_today": 466,
+      "topics": [
+        "alerting",
+        "ci-cd",
+        "cli",
+        "datadog",
+        "devops",
+        "gitlab-ci",
+        "grafana",
+        "incident-management",
+        "llm",
+        "observability"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.47
+    },
+    {
+      "repo": "microsoft/markitdown",
+      "url": "https://github.com/microsoft/markitdown",
+      "content": {
+        "zh": {
+          "summary": "微软的轻量 Python 工具，把 Office 文档、PDF 等各类文件转成 Markdown，供 LLM 和文本分析流水线使用。属于文档进模型前的标准预处理层，稳定且被大量框架引用。",
+          "insight": "更适合作为基础设施而非独立产品。可借的是「文档到 token」这一环的可靠性，在 RAG 或代理管道里做格式归一化，注意不可信输入下的权限与消毒问题。"
+        },
+        "en": {
+          "summary": "Microsoft's lightweight Python utility converting Office files, PDFs and more into Markdown for LLM and text-analysis pipelines.",
+          "insight": "Better treated as infrastructure than a standalone product. Borrow the reliability of the document-to-token step for format normalization in RAG or agent…"
+        }
+      },
+      "description": "Python tool for converting files and office documents to Markdown.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 197274,
+      "stars_today": 281,
+      "topics": [
+        "autogen",
+        "autogen-extension",
+        "langchain",
+        "markdown",
+        "microsoft-office",
+        "openai",
+        "pdf"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 37.02
+    },
+    {
+      "repo": "janhq/jan",
+      "url": "https://github.com/janhq/jan",
+      "content": {
+        "zh": {
+          "summary": "开源的 ChatGPT 替代品，完全离线在本地电脑运行大模型，基于 Tauri 构建，跨平台下载即用。解决的是对数据外流敏感、又想要开箱即用体验的用户需求。",
+          "insight": "面向律师、医疗、企业内部等不能把数据发出去的场景。与 Ollama 加前端拼装相比差在产品化程度，机会在垂直行业的本地模型分发与策略管理。"
+        },
+        "en": {
+          "summary": "An open-source ChatGPT alternative that runs models fully offline on your machine, built on Tauri and downloadable across platforms.",
+          "insight": "For legal, medical and internal enterprise settings where data cannot leave. Versus stitching Ollama with a frontend, the edge is productization;"
+        }
+      },
+      "description": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 45970,
+      "stars_today": 101,
+      "topics": [
+        "chatgpt",
+        "gpt",
+        "llamacpp",
+        "llm",
+        "localai",
+        "open-source",
+        "self-hosted",
+        "tauri"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 32.5
+    },
+    {
+      "repo": "erkamyaman/rust-anything",
+      "url": "https://github.com/erkamyaman/rust-anything",
+      "content": {
+        "zh": {
+          "summary": "把现有应用逐块重写成 Rust，每一步都用原程序录制的行为做对照验证，支持 TypeScript、Python、C、Go、Ruby、Java 写的 CLI、HTTP 服务和库。它不翻译代码，而是证明重写后行为一致。",
+          "insight": "面向维护老旧服务、想迁 Rust 又怕回归的团队。切「不敢动」的心理门槛，与逐行翻译工具差在以行为录制作为验收标准，可接进代理工作流。"
+        },
+        "en": {
+          "summary": "Rewrites an existing app into Rust piece by piece, validating each step against recorded behavior of the original.",
+          "insight": "For teams maintaining legacy services who fear regressions. The wedge is the 'afraid to touch it' threshold;"
+        }
+      },
+      "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 6752,
+      "stars_today": 0,
+      "topics": [
+        "agent-skills",
+        "claude-code",
+        "cli",
+        "code-migration",
+        "codex",
+        "ffi",
+        "golang",
+        "java",
+        "javascript",
+        "mcp"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 32.98
+    },
+    {
+      "repo": "colbymchenry/codegraph",
+      "url": "https://github.com/colbymchenry/codegraph",
+      "content": {
+        "zh": {
+          "summary": "预索引的代码知识图谱，代码变更时自动同步，供 Claude Code、Codex、Cursor、Copilot 等编码代理使用，减少 token 和工具调用，完全本地运行，内核用 Rust。",
+          "insight": "适合重度使用编码代理、被上下文窗口和调用成本卡住的团队。切「代理找代码靠猜」的问题，与向量检索式代码搜索差在结构化图谱和增量同步。"
+        },
+        "en": {
+          "summary": "A pre-indexed code knowledge graph that auto-syncs on changes and feeds coding agents like Claude Code, Codex, Cursor and Copilot, cutting tokens and tool calls.",
+          "insight": "For heavy agent users bottlenecked by context windows and call costs. The wedge is agents guessing where code lives;"
+        }
+      },
+      "description": "Pre-indexed code knowledge graph, auto syncs on code changes, for Claude Code, Codex, Gemini, Cursor, OpenCode, AntiGravity, Kiro, CoPilot, and Hermes Agent — fewer tokens, fewer tool calls, 100% local",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 78264,
+      "stars_today": 151,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 34.14
+    },
+    {
+      "repo": "google-labs-code/stitch-skills",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "content": {
+        "zh": {
+          "summary": "Google Stitch 的代理技能与插件库，遵循 Agent Skills 开放标准，可装进 Codex、Gemini CLI、Claude Code、Cursor 等编码代理，让代理按设计规范生成界面。",
+          "insight": "面向想把设计到代码环节标准化的前端团队。切「代理生成的 UI 风格漂移」问题，与通用提示词差在技能包可版本化、可跨代理复用。"
+        },
+        "en": {
+          "summary": "A library of agent skills and plugins for Google Stitch, following the Agent Skills open standard and installable into Codex, Gemini CLI,",
+          "insight": "For frontend teams standardizing design-to-code. The wedge is style drift in agent-generated UI; unlike ad-hoc prompts,"
+        }
+      },
+      "description": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
+      "category": "前端 / 设计",
+      "language": "TypeScript",
+      "stars": 11091,
+      "stars_today": 315,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 33.14
+    },
+    {
+      "repo": "zhouxiaoka/autoclip",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "content": {
+        "zh": {
+          "summary": "开源 AI 视频剪辑桌面工具，贴一个链接就能把播客、访谈、课程剪成适配抖音、小红书、TikTok 的竖版短视频，同时生成字幕、封面和发布文案。本地渲染，云端模型按量计费。",
+          "insight": "面向做内容分发的个人和小团队，切「长内容转多平台短内容」的重复劳动。与剪映等通用剪辑器差在从链接到成片的端到端，而非手工时间线。"
+        },
+        "en": {
+          "summary": "An open-source desktop AI clipper: paste a link and it turns podcasts, interviews or courses into vertical shorts for Douyin, Xiaohongshu, TikTok and Reels, with subtitles,",
+          "insight": "For solo creators and small teams doing content repurposing. The wedge is the repetitive long-to-short pipeline;"
+        }
+      },
+      "description": "AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing.",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 12282,
+      "stars_today": 979,
+      "topics": [
+        "ai-agent",
+        "ai-video-editor",
+        "content-repurposing",
+        "desktop-app",
+        "douyin",
+        "instagram-reels",
+        "mcp",
+        "open-source",
+        "podcast",
+        "subtitles"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 41.54
+    },
+    {
+      "repo": "mjmirza/app-store-compliance",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "content": {
+        "zh": {
+          "summary": "把 App Store 和 Google Play 的拒审原因整理成开放手册和提交前守卫：117 条已记录的拒审模式与修法、隐私清单和 Data safety 检查、95 个监管截止日期，还附带给编码代理用的 skill。",
+          "insight": "面向独立开发者和外包团队，切「上架前夜被拒」的焦虑。与通用清单博客差在可自动执行，能直接挂进 CI 或代理工作流做提交前拦截。"
+        },
+        "en": {
+          "summary": "Turns App Store and Google Play rejections into an open playbook and pre-submission guard: 117 documented rejection patterns with fixes, privacy manifest and Data safety checks,",
+          "insight": "For indie devs and agencies facing rejection the night before launch. Unlike static checklists, it is executable and can gate submissions inside CI or an agent…"
+        }
+      },
+      "description": "Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 117 documented rejection patterns and fixes, privacy manifest and Data safety checks, 95 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents.",
+      "category": "Skill / 垂直工具",
+      "language": "Shell",
+      "stars": 2824,
+      "stars_today": 869,
+      "topics": [
+        "accessibility",
+        "ai-agents",
+        "android",
+        "app-review-guidelines",
+        "app-store",
+        "app-store-connect",
+        "app-store-rejection",
+        "app-store-review",
+        "claude-code",
+        "coppa"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 38.71
+    },
+    {
+      "repo": "putyy/res-downloader",
+      "url": "https://github.com/putyy/res-downloader",
+      "content": {
+        "zh": {
+          "summary": "基于 Go 和 Wails 的跨平台资源下载器，支持视频号、小程序、抖音、快手、小红书、直播流、m3u8 等资源嗅探与下载，支持代理抓包。作者已说明维护时间有限。",
+          "insight": "面向做素材收集和竞品研究的内容团队。切「多平台资源分散」的整理需求，但要注意平台条款与版权边界，更适合做内部工具而非公开产品。"
+        },
+        "en": {
+          "summary": "A cross-platform resource downloader built with Go and Wails, sniffing and saving content from WeChat Channels, mini programs, Douyin, Kuaishou, Xiaohongshu,",
+          "insight": "For content teams doing asset collection and competitor research. It addresses scattered multi-platform assets, but mind platform terms and copyright;"
+        }
+      },
+      "description": "视频号、小程序、抖音、快手、小红书、直播流、m3u8、酷狗、QQ音乐等常见网络资源下载!",
+      "category": "Skill / 垂直工具",
+      "language": "Go",
+      "stars": 21405,
+      "stars_today": 23,
+      "topics": [
+        "douyin",
+        "kuaishou",
+        "res-downloader",
+        "wechat",
+        "wechat-video",
+        "xiaohongshu"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.56
+    }
+  ]
+}

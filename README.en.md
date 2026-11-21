@@ -10,67 +10,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 20, 2026 · Fri](daily/en/2026-11-20.md)
+## [Nov 21, 2026 · Sat](daily/en/2026-11-21.md)
 
-> A clear pattern runs through today's batch: AI is moving out of the chat box and into the developer's daily toolchain. The interesting work is no longer about smarter models but about adapters, cost control, and packaging agent capability into concrete workflows.
+> Today's batch shows AI tooling moving from demo to delivery. Coding agents need approval gates and SOPs, video tools need finished cuts and captions, CI agents must push a fix, and compliance is shipped as an executable guard.
 
 ### AI / Agents
 
-* **[HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything)** — Wraps desktop software in command-line interfaces that agents can call directly, with a hub for distribution. It targets the gap between agents that can read code and software…
+* **[Tencent/LoopForge](https://github.com/Tencent/LoopForge)** — Tencent's self-hosted workspace for orchestrating coding agents: describe a task in chat, and a main bot spins up a Docker sandbox, checks out repos,
 
-  > Angle: The opening is professional software agents currently cannot touch, such as design, media and finance systems.
+  > Angle: Aim at teams of five or more devs standardizing agent delivery. The wedge is 'nobody dares merge agent output';
 
-* **[google-research/paper-orchestra](https://github.com/google-research/paper-orchestra)** — A multi-agent framework from Google researchers that turns rough ideas and experiment logs into submission-ready LaTeX manuscripts,
+### AI Infrastructure / Models
 
-  > Angle: Skip ghostwriting and build a lab-internal submission pipeline instead: enforce formatting, track experiment records, draft reviewer responses,
+* **[Tracer-Cloud/opensre](https://github.com/Tracer-Cloud/opensre)** — An open-source CLI agent for CI/CD reliability: it reads a failed run, traces the root cause and pushes a fix for review.
 
-* **[earendil-works/pi](https://github.com/earendil-works/pi)** — A minimal, extensible agent harness with a unified LLM API, agent loop, TUI and coding CLI. It is customized through extensions, skills and packages,
+  > Angle: Target teams with Datadog or Grafana alerts but manual triage. Own the last mile from alert to fix;
 
-  > Angle: Its value is being hackable, which suits a customized agent distribution for specific teams: preload compliance rules, internal tools and approval flows,
+* **[microsoft/markitdown](https://github.com/microsoft/markitdown)** — Microsoft's lightweight Python utility converting Office files, PDFs and more into Markdown for LLM and text-analysis pipelines.
+
+  > Angle: Better treated as infrastructure than a standalone product. Borrow the reliability of the document-to-token step for format normalization in RAG or agent…
+
+* **[janhq/jan](https://github.com/janhq/jan)** — An open-source ChatGPT alternative that runs models fully offline on your machine, built on Tauri and downloadable across platforms.
+
+  > Angle: For legal, medical and internal enterprise settings where data cannot leave. Versus stitching Ollama with a frontend, the edge is productization;
 
 ### Developer Tools / CLI
 
-* **[rtk-ai/rtk](https://github.com/rtk-ai/rtk)** — A single-binary Rust CLI proxy that compresses command output before the model reads it, covering test logs, diffs and builds across a hundred-plus commands.
+* **[erkamyaman/rust-anything](https://github.com/erkamyaman/rust-anything)** — Rewrites an existing app into Rust piece by piece, validating each step against recorded behavior of the original.
 
-  > Angle: A team-level cost governance dashboard is the natural product: track token spend per repo and per agent, suggest optimizations,
+  > Angle: For teams maintaining legacy services who fear regressions. The wedge is the 'afraid to touch it' threshold;
+
+* **[colbymchenry/codegraph](https://github.com/colbymchenry/codegraph)** — A pre-indexed code knowledge graph that auto-syncs on changes and feeds coding agents like Claude Code, Codex, Cursor and Copilot, cutting tokens and tool calls.
+
+  > Angle: For heavy agent users bottlenecked by context windows and call costs. The wedge is agents guessing where code lives;
 
 ### Frontend / Design
 
-* **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — An agent skill that generates editorial-grade diagrams as self-contained HTML and SVG from plain language, covering dozens of chart types and pulling colors from your site.
+* **[google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills)** — A library of agent skills and plugins for Google Stitch, following the Agent Skills open standard and installable into Codex, Gemini CLI,
 
-  > Angle: Turn it into a branded diagram service: hook into a company design system so agent-produced architecture and flow diagrams match brand guidelines,
-
-* **[anomalyco/rune](https://github.com/anomalyco/rune)** — A native GPU-rendered Rust UI framework for desktop and web with its own renderer, text, layout and springs. Every app can run headless,
-
-  > Angle: This is infrastructure for agents that write UI. A scaffold pairing headless rendering with assertions as a CI step could serve teams automating frontend work.
-
-### Data / Infrastructure
-
-* **[appwrite/appwrite](https://github.com/appwrite/appwrite)** — An open-source backend covering auth, databases, storage, functions, messaging and hosting, with MCP built in so coding agents can operate a live project.
-
-  > Angle: Build managed and compliance add-ons around it: private deployment, auditing and backups for teams that will not run their own ops,
-
-* **[datazip-inc/olake-go](https://github.com/datazip-inc/olake-go)** — A high-performance open-source ingestion engine that replicates Postgres, MySQL, MongoDB, Kafka and S3 into Apache Iceberg or Parquet, with a web UI and CLI and no vendor lock-in.
-
-  > Angle: A managed sync service for smaller data teams fits well: charge by connectors and volume, and handle Iceberg table maintenance and schema evolution so…
-
-* **[perspective-dev/perspective](https://github.com/perspective-dev/perspective)** — An open-source data grid, pivot table and charting component for large and streaming datasets, with a query engine running in-browser via WebAssembly or server-side.
-
-  > Angle: Target real-time operations dashboards such as trading monitors or logistics tracking: embed as a component,
+  > Angle: For frontend teams standardizing design-to-code. The wedge is style drift in agent-generated UI; unlike ad-hoc prompts,
 
 ### Vertical Tools / Skills
 
-* **[elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter)** — A Claude Code skill bundle for bug hunting and external red-team work, packed with disclosed-report patterns, attack matrices and Burp integration.
+* **[zhouxiaoka/autoclip](https://github.com/zhouxiaoka/autoclip)** — An open-source desktop AI clipper: paste a link and it turns podcasts, interviews or courses into vertical shorts for Douyin, Xiaohongshu, TikTok and Reels, with subtitles,
 
-  > Angle: A strong fit for internal security knowledge products: package pentest methodology, past reports and compliance steps into a private skill set sold to…
+  > Angle: For solo creators and small teams doing content repurposing. The wedge is the repetitive long-to-short pipeline;
 
-[This issue (Markdown)](daily/en/2026-11-20.md)
+* **[mjmirza/app-store-compliance](https://github.com/mjmirza/app-store-compliance)** — Turns App Store and Google Play rejections into an open playbook and pre-submission guard: 117 documented rejection patterns with fixes, privacy manifest and Data safety checks,
+
+  > Angle: For indie devs and agencies facing rejection the night before launch. Unlike static checklists, it is executable and can gate submissions inside CI or an agent…
+
+* **[putyy/res-downloader](https://github.com/putyy/res-downloader)** — A cross-platform resource downloader built with Go and Wails, sniffing and saving content from WeChat Channels, mini programs, Douyin, Kuaishou, Xiaohongshu,
+
+  > Angle: For content teams doing asset collection and competitor research. It addresses scattered multi-platform assets, but mind platform terms and copyright;
+
+[This issue (Markdown)](daily/en/2026-11-21.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[20](daily/en/2026-11-20.md) · [19](daily/en/2026-11-19.md) · [12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[21](daily/en/2026-11-21.md) · [20](daily/en/2026-11-20.md) · [19](daily/en/2026-11-19.md) · [12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
