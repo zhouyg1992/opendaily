@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-22",
+  "generated_at": "2026-11-22T02:55:27+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个清晰信号：AI 正在从「能跑起来」转向「跑得省、跑得稳、跑得像人做的」。一边是本地推理和量化压缩把大模型塞进普通显卡，一边是账号调度、界面去 AI 味、爬虫与数据引擎这类「让 AI 产品真正可用」的脏活累活开始被认真对待。创业机会不在再做一个 agent 框架，而在这些缝隙里。",
+    "en": "Today's batch points to a shift: AI is moving from 'it runs' to 'it runs cheap, stable, and looks human-made.' Local inference and quantization squeeze models onto ordinary GPUs, while account routing, de-slopping UI,"
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "odysseus-dev/odysseus",
+      "url": "https://github.com/odysseus-dev/odysseus",
+      "content": {
+        "zh": {
+          "summary": "自托管的 AI 工作台，把聊天、agent、研究、文档、邮件、笔记、日历和本地模型串在一个容器化部署里。面向在意数据不出内网、又不想自己拼装一堆开源组件的团队。",
+          "insight": "适合做「私有化 AI 办公套件」的交付层：帮中小企业一键部署、接内部知识库和邮件，收费在部署与运维，而不是重写底层。"
+        },
+        "en": {
+          "summary": "A self-hosted AI workspace bundling chat, agents, research, documents, email, notes, calendar and local model workflows into one containerized deployment.",
+          "insight": "Position it as the delivery layer for private AI office suites: one-click deploy for SMBs, wired to internal knowledge and mail,"
+        }
+      },
+      "description": "Self-hosted AI workspace.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 95897,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 30.89
+    },
+    {
+      "repo": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "content": {
+        "zh": {
+          "summary": "一个长周期超级 agent 框架，用沙箱、记忆、工具、技能和子 agent 编排需要几分钟到几小时的任务，2.0 是彻底重写。它代表的是「agent 跑长任务」这一形态正在工程化。",
+          "insight": "作为基础设施看更合适：与其再做一个通用 agent，不如基于它的沙箱与子 agent 机制，切一个长流程垂直任务，比如竞品调研报告或合规材料整理。"
+        },
+        "en": {
+          "summary": "A long-horizon super-agent harness orchestrating sandboxes, memory, tools, skills and sub-agents for tasks lasting minutes to hours; 2.0 is a ground-up rewrite.",
+          "insight": "Treat it as infrastructure: rather than another general agent, build on its sandbox and sub-agent model to own one long vertical workflow,"
+        }
+      },
+      "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 85586,
+      "stars_today": 0,
+      "topics": [
+        "agent",
+        "agentic",
+        "agentic-framework",
+        "agentic-workflow",
+        "ai",
+        "ai-agents",
+        "deep-research",
+        "harness",
+        "langchain",
+        "langgraph"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 31.59
+    },
+    {
+      "repo": "FlashML-org/FreeVideo",
+      "url": "https://github.com/FlashML-org/FreeVideo",
+      "content": {
+        "zh": {
+          "summary": "把 MiniMax H3 视频生成模型压到 8GB 显存、16GB 内存就能在本机跑，并按硬件自动选择加速路径。对没有云 GPU 预算、又想做视频生成的个人和小团队来说，这是把门槛从租卡降到用自己电脑。",
+          "insight": "切入点不是做另一个视频工具，而是围绕「低配本地视频生成」做工作流封装：批量出片、素材替换、固定风格模板，卖给电商短视频和小型内容工作室。"
+        },
+        "en": {
+          "summary": "Runs the MiniMax H3 video model on 8GB VRAM and 16GB RAM, adapting its acceleration path to your hardware. For individuals and small teams without cloud GPU budgets,",
+          "insight": "Don't build another video tool. Wrap low-spec local generation into a workflow: batch output, asset swaps, fixed style templates,"
+        }
+      },
+      "description": "Make videos on the computer you already own. FreeVideo runs MiniMax H3 in as little as 8 GB of VRAM and 16 GB of RAM, and adapts its acceleration path to your hardware.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 4161,
+      "stars_today": 428,
+      "topics": [
+        "diffusion-models",
+        "inference",
+        "minimax-h3",
+        "video-generation"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 35.42
+    },
+    {
+      "repo": "ShinMegamiBoson/lookatmyquant",
+      "url": "https://github.com/ShinMegamiBoson/lookatmyquant",
+      "content": {
+        "zh": {
+          "summary": "一个量化编译器，按每块权重对输出质量的实际损害来分配编码，在同等文件大小下显著降低 KL 散度。对想在消费级硬件上跑更大模型、又不想明显掉点的人来说，这是压缩策略层面的改进。",
+          "insight": "更适合当作技术信号而非产品：关注它能否接入 GGUF 生态和主流推理框架，若能，围绕「同等体积更高质量」做模型分发或端侧部署服务。"
+        },
+        "en": {
+          "summary": "A quantization compiler that assigns codes based on how much each weight actually damages output, cutting KL divergence at the same file size.",
+          "insight": "Read it as a signal more than a product: watch whether it plugs into the GGUF ecosystem and mainstream runtimes."
+        }
+      },
+      "description": "A quantization compiler that delivers 12× lower KL than Q4_K_M at the same file size",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 305,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "hn"
+      ],
+      "score": 25.91
+    },
+    {
+      "repo": "lbjlaq/Antigravity-Manager",
+      "url": "https://github.com/lbjlaq/Antigravity-Manager",
+      "content": {
+        "zh": {
+          "summary": "用 Tauri 和 React 写的桌面工具，做 Antigravity 账号多开切换、协议转换和请求调度，本质是一个本地 AI 中转站。反映出多账号、多额度、多模型并存在重度用户里已是常态。",
+          "insight": "可借的是「额度与账号编排」这一层：给团队做统一的 AI 服务网关，按成员分配额度、记录用量、自动切换备用账号，而不是让每个人各自折腾。"
+        },
+        "en": {
+          "summary": "A Tauri and React desktop app for multi-account switching, protocol conversion and request scheduling around Antigravity, essentially a local AI relay.",
+          "insight": "Borrow the quota-and-account orchestration layer: a team-wide AI gateway that allocates credits per member, tracks usage and fails over between accounts,"
+        }
+      },
+      "description": "Professional Antigravity Account Manager & Switcher. One-click seamless account switching for Antigravity Tools. Built with Tauri v2 + React (Rust).专业的 Antigravity 账号管理与切换工具。为 Antigravity 提供一键无缝账号切换功能。",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 33563,
+      "stars_today": 86,
+      "topics": [
+        "account-manager",
+        "antigravity"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.31
+    },
+    {
+      "repo": "thedaviddias/Front-End-Checklist",
+      "url": "https://github.com/thedaviddias/Front-End-Checklist",
+      "content": {
+        "zh": {
+          "summary": "把前端最佳实践整理成可执行的检查清单，现在同时面向人和 AI agent，提供网页版、MCP 服务器和 README 三种用法。它回应的是 AI 生成代码越来越多、但质量把关缺标准流程的问题。",
+          "insight": "可借的是「把规范变成 agent 可调用的检查器」这一模式：为后端、移动端或无障碍做同类 MCP 检查服务，嵌入代码评审环节收费。"
+        },
+        "en": {
+          "summary": "Turns front-end best practices into an executable checklist for both humans and AI agents, offered as a website, an MCP server and a README.",
+          "insight": "Borrow the pattern of packaging standards as agent-callable checkers: build equivalent MCP review services for backend, mobile or accessibility,"
+        }
+      },
+      "description": "🗂 The essential checklist for modern web development, for humans and AI agents",
+      "category": "开发工具 / CLI",
+      "language": "MDX",
+      "stars": 74789,
+      "stars_today": 0,
+      "topics": [
+        "ai-agent",
+        "ai-agents",
+        "checklist",
+        "css",
+        "front-end-developer-tool",
+        "front-end-development",
+        "frontend",
+        "guidelines",
+        "html",
+        "javascript"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 31.24
+    },
+    {
+      "repo": "toeverything/AFFiNE",
+      "url": "https://github.com/toeverything/AFFiNE",
+      "content": {
+        "zh": {
+          "summary": "把文档、白板和表格融合在一个本地优先的知识库里，定位是 Notion 与 Miro 的开源替代，强调隐私和可定制。对不信任云端笔记、又需要团队协作的团队有实际吸引力。",
+          "insight": "别做另一个笔记应用。可借的是它的本地优先与 CRDT 架构，去做垂直场景的协作工作台，比如设计评审、教学备课，把同步和离线能力直接复用。"
+        },
+        "en": {
+          "summary": "Merges docs, whiteboards and tables into a local-first knowledge base positioned as an open-source Notion and Miro alternative, with privacy and customization front and center.",
+          "insight": "Don't build another notes app. Reuse its local-first CRDT core to build vertical collaborative workspaces, such as design review or lesson planning,"
+        }
+      },
+      "description": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.",
+      "category": "前端 / 设计",
+      "language": "TypeScript",
+      "stars": 76342,
+      "stars_today": 574,
+      "topics": [
+        "app",
+        "crdt",
+        "editor",
+        "electron",
+        "knowledge-base",
+        "markdown",
+        "miro",
+        "notes",
+        "notion",
+        "notion-alternative"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 43.65
+    },
+    {
+      "repo": "unclecode/crawl4ai",
+      "url": "https://github.com/unclecode/crawl4ai",
+      "content": {
+        "zh": {
+          "summary": "面向 AI agent 的网页抓取与结构化提取引擎，把页面转成干净 Markdown 供 RAG 使用，也能直接输出 JSON 或做实时搜索。开源爬虫可自托管，同时提供带免费额度的托管 API，省掉浏览器和代理运维。",
+          "insight": "机会在垂直数据管道：针对招聘、房产、电商比价等特定站点做预置抽取模板和增量更新，卖「干净的领域数据集」而不是通用爬虫。"
+        },
+        "en": {
+          "summary": "A scraping and extraction engine for AI agents that turns pages into clean Markdown for RAG, outputs structured JSON, or searches the live web.",
+          "insight": "The opening is vertical data pipelines: prebuilt extractors and incremental updates for job boards, real estate, or price comparison,"
+        }
+      },
+      "description": "Official Crawl4AI Cloud: a hosted web scraping, extraction, and search API for AI agents. Free API key, 1,000 credits a month, no card. Fully open source: this repo is the Apache-2.0 crawler that powers it, and you can self-host it.",
+      "category": "数据 / 基础设施",
+      "language": "Python",
+      "stars": 87643,
+      "stars_today": 0,
+      "topics": [
+        "ai",
+        "ai-agents",
+        "crawl4ai-cloud",
+        "crawler",
+        "data-extraction",
+        "llm",
+        "markdown",
+        "mcp",
+        "open-source",
+        "playwright"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 31.66
+    },
+    {
+      "repo": "pola-rs/polars",
+      "url": "https://github.com/pola-rs/polars",
+      "content": {
+        "zh": {
+          "summary": "Rust 写的分析型查询引擎，DataFrame API 与 SQL 走同一优化器和执行引擎，支持多线程和 out-of-core。当数据量超过 pandas 舒适区、又不想上分布式集群时，它是务实的中间选择。",
+          "insight": "机会不在引擎本身，而在其上的托管分析层：面向中小团队做「免运维的列式分析服务」，让业务人员用 SQL 直接查对象存储里的数据。"
+        },
+        "en": {
+          "summary": "A Rust analytical query engine where the DataFrame API and SQL share one optimizer and execution engine, with multithreading and out-of-core support.",
+          "insight": "The opening isn't the engine but the managed layer above it: a zero-ops columnar analytics service for small teams,"
+        }
+      },
+      "description": "Extremely fast Query Engine for DataFrames, written in Rust",
+      "category": "数据 / 基础设施",
+      "language": "Rust",
+      "stars": 40424,
+      "stars_today": 23,
+      "topics": [
+        "arrow",
+        "dataframe",
+        "dataframe-library",
+        "dataframes",
+        "out-of-core",
+        "polars",
+        "python",
+        "rust"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.21
+    },
+    {
+      "repo": "heydamir/unslop",
+      "url": "https://github.com/heydamir/unslop",
+      "content": {
+        "zh": {
+          "summary": "一个 Claude Code / Codex 技能，专门识别并修掉「AI 味」界面：紫色渐变、发光、emoji 标签、喊话式文案、间距不齐，然后按产品调性逐轮改写。解决的是 vibe coding 产出千篇一律、没法直接上线的问题。",
+          "insight": "可以做「设计审查即服务」：把这类规则沉淀成可配置的品牌设计约束，接入 CI 或 PR 流程，卖给用 AI 生成前端但缺设计师的团队。"
+        },
+        "en": {
+          "summary": "A Claude Code and Codex skill that spots and removes AI-looking UI: purple gradients, glows, emoji labels, shouty copy, uneven spacing,",
+          "insight": "Turn it into design review as a service: encode these rules as configurable brand constraints, wire them into CI or PR checks,"
+        }
+      },
+      "description": "A Claude skill that turns vibecoded, AI-looking UI into a designed interface",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 19809,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 31.78
+    }
+  ]
+}
