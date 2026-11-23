@@ -10,69 +10,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 22, 2026 · Sun](daily/en/2026-11-22.md)
+## [Nov 23, 2026 · Mon](daily/en/2026-11-23.md)
 
-> Today's batch points to a shift: AI is moving from 'it runs' to 'it runs cheap, stable, and looks human-made.' Local inference and quantization squeeze models onto ordinary GPUs, while account routing, de-slopping UI,
+> Today's projects point to a maturing layer around agents rather than new models: behavior libraries built for agents to drive UIs, background schedulers that let CLI agents pick up work unattended, defenses against AI-driven reverse engineering, and tutorials teaching people to use these tools.
 
 ### AI / Agents
 
-* **[odysseus-dev/odysseus](https://github.com/odysseus-dev/odysseus)** — A self-hosted AI workspace bundling chat, agents, research, documents, email, notes, calendar and local model workflows into one containerized deployment.
+* **[KKKKhazix/agent-autoloop](https://github.com/KKKKhazix/agent-autoloop)** — A lightweight local automation hub that lets CLI agents like Claude Code and Codex pick up and follow through on tasks in the background, pinging a human via Feishu,
 
-  > Angle: Position it as the delivery layer for private AI office suites: one-click deploy for SMBs, wired to internal knowledge and mail,
+  > Angle: Aimed at unattended agent operations for solo developers and small teams: the value is the loop between task queue and human approval cards.
 
-* **[bytedance/deer-flow](https://github.com/bytedance/deer-flow)** — A long-horizon super-agent harness orchestrating sandboxes, memory, tools, skills and sub-agents for tasks lasting minutes to hours; 2.0 is a ground-up rewrite.
+* **[mdiri-ai/SoduWork](https://github.com/mdiri-ai/SoduWork)** — An AI-native engine for teams and their agents, supporting multiple harnesses and multi-agent work, self-hosted.
 
-  > Angle: Treat it as infrastructure: rather than another general agent, build on its sandbox and sub-agent model to own one long vertical workflow,
+  > Angle: It targets the pain of unvetted agent output inside teams by making approval and sign-off part of the workflow.
+
+* **[Lordog/dive-into-llms](https://github.com/Lordog/dive-into-llms)** — A hands-on LLM programming course grown from a Shanghai Jiao Tong University class, covering fine-tuning and deployment, math reasoning, GUI agents and alignment, entirely free,
+
+  > Angle: The tutorial is not the business, but coaching around it is: target course projects and career changers, use its lab manuals as the skeleton,
 
 ### AI Infrastructure / Models
 
-* **[FlashML-org/FreeVideo](https://github.com/FlashML-org/FreeVideo)** — Runs the MiniMax H3 video model on 8GB VRAM and 16GB RAM, adapting its acceleration path to your hardware. For individuals and small teams without cloud GPU budgets,
+* **[lyogavin/airllm](https://github.com/lyogavin/airllm)** — Streams weights layer by layer so a 70B model runs inference on a single 4GB GPU without quantization, distillation or pruning;
 
-  > Angle: Don't build another video tool. Wrap low-spec local generation into a workflow: batch output, asset swaps, fixed style templates,
-
-* **[ShinMegamiBoson/lookatmyquant](https://github.com/ShinMegamiBoson/lookatmyquant)** — A quantization compiler that assigns codes based on how much each weight actually damages output, cutting KL divergence at the same file size.
-
-  > Angle: Read it as a signal more than a product: watch whether it plugs into the GGUF ecosystem and mainstream runtimes.
+  > Angle: Better treated as infrastructure than a standalone product: embed it in on-prem delivery, edge inference and teaching labs.
 
 ### Developer Tools / CLI
 
-* **[lbjlaq/Antigravity-Manager](https://github.com/lbjlaq/Antigravity-Manager)** — A Tauri and React desktop app for multi-account switching, protocol conversion and request scheduling around Antigravity, essentially a local AI relay.
+* **[RoutineMiku/apkstart](https://github.com/RoutineMiku/apkstart)** — An Android app runner for Windows: double-click an APK to install, each app gets its own desktop icon and window,
 
-  > Angle: Borrow the quota-and-account orchestration layer: a team-wide AI gateway that allocates credits per member, tracks usage and fails over between accounts,
-
-* **[thedaviddias/Front-End-Checklist](https://github.com/thedaviddias/Front-End-Checklist)** — Turns front-end best practices into an executable checklist for both humans and AI agents, offered as a website, an MCP server and a README.
-
-  > Angle: Borrow the pattern of packaging standards as agent-callable checkers: build equivalent MCP review services for backend, mobile or accessibility,
+  > Angle: Real demand, rough execution, which is exactly the product gap: serve users who need Android apps on PC for work or game alts,
 
 ### Frontend / Design
 
-* **[toeverything/AFFiNE](https://github.com/toeverything/AFFiNE)** — Merges docs, whiteboards and tables into a local-first knowledge base positioned as an open-source Notion and Miro alternative, with privacy and customization front and center.
+* **[vercel-labs/ui](https://github.com/vercel-labs/ui)** — Vercel Labs' UI SDK extracts keyboard navigation, focus, selection, popups, drag and drop and ARIA into a headless core, with adapters for React, Vue, Svelte,
 
-  > Angle: Don't build another notes app. Reuse its local-first CRDT core to build vertical collaborative workspaces, such as design review or lesson planning,
+  > Angle: The opening is not another component library but a design-system substrate for agents: freeze accessibility and interaction logic into primitives models can…
 
-### Data / Infrastructure
+* **[jquery/jquery](https://github.com/jquery/jquery)** — jQuery 4.0.0 is out, with 3.x moving to critical fixes only and 1.x/2.x unsupported. The library that ruled the previous web era still runs on a huge installed base,
 
-* **[unclecode/crawl4ai](https://github.com/unclecode/crawl4ai)** — A scraping and extraction engine for AI agents that turns pages into clean Markdown for RAG, outputs structured JSON, or searches the live web.
+  > Angle: The opening is migration services, not a new jQuery: assess and upgrade enterprise sites still on 1.x/2.x,
 
-  > Angle: The opening is vertical data pipelines: prebuilt extractors and incremental updates for job boards, real estate, or price comparison,
+### Security / Privacy
 
-* **[pola-rs/polars](https://github.com/pola-rs/polars)** — A Rust analytical query engine where the DataFrame API and SQL share one optimizer and execution engine, with multithreading and out-of-core support.
+* **[qybaihe/bla](https://github.com/qybaihe/bla)** — An open-source blue-team MCP server and CLI built to counter AI reverse-engineering agents, covering JS/TS, Electron ASAR, WASM, Python, native binaries, SQLite,
 
-  > Angle: The opening isn't the engine but the managed layer above it: a zero-ops columnar analytics service for small teams,
+  > Angle: Software shippers are the clear customer: indie developers and small vendors worried their clients get dismantled by AI tooling.
 
 ### Vertical Tools / Skills
 
-* **[heydamir/unslop](https://github.com/heydamir/unslop)** — A Claude Code and Codex skill that spots and removes AI-looking UI: purple gradients, glows, emoji labels, shouty copy, uneven spacing,
+* **[JuneYaooo/rea-video](https://github.com/JuneYaooo/rea-video)** — Reverse-engineers any video shot by shot, judging whether each was filmed, AI-generated or coded, then explains how to remake it.
 
-  > Angle: Turn it into design review as a service: encode these rules as configurable brand constraints, wire them into CI or PR checks,
+  > Angle: A competitive teardown tool for ad and content teams: feed in a rival's short video, get back shot structure, generation method and a reproducible script.
 
-[This issue (Markdown)](daily/en/2026-11-22.md)
+* **[Minireel/HGhub](https://github.com/Minireel/HGhub)** — A plugin-based media player in Rust that bundles browsing, search, playback and a personal library in one app, connecting to content sources via imported JavaScript plugins.
+
+  > Angle: The value is the plugin protocol, not the player: reuse the source-plugin plus unified-playback architecture for internal video libraries,
+
+[This issue (Markdown)](daily/en/2026-11-23.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[22](daily/en/2026-11-22.md) · [21](daily/en/2026-11-21.md) · [20](daily/en/2026-11-20.md) · [19](daily/en/2026-11-19.md) · [12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[23](daily/en/2026-11-23.md) · [22](daily/en/2026-11-22.md) · [21](daily/en/2026-11-21.md) · [20](daily/en/2026-11-20.md) · [19](daily/en/2026-11-19.md) · [12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
