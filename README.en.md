@@ -10,69 +10,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [Nov 24, 2026 · Tue](daily/en/2026-11-24.md)
+## [Nov 25, 2026 · Wed](daily/en/2026-11-25.md)
 
-> The clearest signal today is that builders are done being impressed by generic agents and are now working on the plumbing around them: sandboxes, provenance cleanup, reusable skill packs, and narrow vertical tools that plug an agent into one concrete production step.
+> Today's projects point to a clear shift: AI is moving from demo to delivery. Tools now embed agents directly into concrete workflows, from database clients with built-in MCP to ultrafast browser agents and autonomous pentesting.
 
-### AI Infrastructure / Models
+### AI / Agents
 
-* **[tristanbuckmaster/navier-stokes](https://github.com/tristanbuckmaster/navier-stokes)** — A paper on finite-time blow-up for the Navier-Stokes equations, shipped with a complete Lean 4 formalization. It brings machine-checkable mathematics into frontier fluid dynamics…
+* **[browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast)** — An experiment from Browser Use where the agent acts on numbered page elements rather than screenshots, trading vision for an indexed action space.
 
-  > Angle: Not a startup, but a signal: formal proofs are moving from toys to real papers. The opening is tooling for formalization collaboration and review in math and…
+  > Angle: Treat this as a signal: web agent competition has shifted from capability to cost per task. If you build vertical automation like form filling,
+
+* **[agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope)** — A production-oriented multi-agent framework built around observability and trust, leaning on model reasoning and tool use instead of rigid prompts.
+
+  > Angle: The gap is debugging and replay: teams don't need another framework, they need to see why an agent took each step.
 
 ### Developer Tools / CLI
 
-* **[haydenschmitty/floorplan](https://github.com/haydenschmitty/floorplan)** — Has Claude or Codex read an entire codebase and draw an interactive map where every file and request gets a plain-English name.
+* **[t8y2/dbx](https://github.com/t8y2/dbx)** — A 25 MB cross-platform database client covering 100+ engines, shipping as desktop, Docker and CLI, with a built-in AI assistant and MCP server.
 
-  > Angle: Sell to teams onboarding onto opaque repos. The edge is a living, queryable map tied to comprehension rather than a one-off diagram export,
-
-* **[zortos293/Lichii](https://github.com/zortos293/Lichii)** — A very experimental open-source Switch and Switch 2 emulator forked from yuzu, Sudachi and Eden, continuing compatibility and renderer work.
-
-  > Angle: Legally fraught, so not a direct product. The safer adjacent opportunity is the compatibility database and per-game config sharing that emulator communities…
+  > Angle: The MCP server is the real wedge: let coding agents query databases directly instead of humans clicking a GUI.
 
 ### Frontend / Design
 
-* **[patch-gg/pixelfx](https://github.com/patch-gg/pixelfx)** — 244 pixel-art effects and animations, each a small readable piece of code, with live preview, recoloring, sprite-sheet export,
+* **[zed-industries/gpui](https://github.com/zed-industries/gpui)** — Zed's open-source GPU-accelerated Rust UI framework blending immediate and retained modes, aiming at desktop, mobile and web.
 
-  > Angle: Aimed at solo browser-game developers. The combination of asset library plus generation skill lets someone describe an attack animation in words and get a…
+  > Angle: Too early as a product foundation, but worth tracking for stack decisions. The nearer opportunity is tooling around it: debugging,
 
 ### Data / Infrastructure
 
-* **[AFK-surf/xnulinux](https://github.com/AFK-surf/xnulinux)** — Loads Apple's open-source XNU kernel as a module inside a stock arm64 Linux kernel, so macOS userspace binaries run natively alongside Linux processes with no hypervisor.
+* **[juspay/hyperswitch](https://github.com/juspay/hyperswitch)** — Open-source composable payments infrastructure, PCI compliant, available as SaaS or self-hosted, connecting multiple payment, payout,
 
-  > Angle: Not a product yet, but a strong signal that kernel-level compatibility is bypassing virtualization.
-
-* **[odoo/odoo](https://github.com/odoo/odoo)** — An open-source suite of web business apps covering CRM, ecommerce, inventory, projects, accounting, POS and HR.
-
-  > Angle: Not worth rebuilding, but a strong base for vertical customization: preconfigured modules plus implementation for one niche beats writing a business system…
+  > Angle: For cross-border merchants, a thin service on top that routes by success rate and fee, charged per transaction, is viable.
 
 ### Security / Privacy
 
-* **[Lee-xeo/Claude-Cage](https://github.com/Lee-xeo/Claude-Cage)** — A lightweight local VM purpose-built for Claude Code and similar harnesses. The agent stays sandboxed and reaches host capabilities only through permissioned MCP plugins with…
+* **[vxcontrol/pentagi](https://github.com/vxcontrol/pentagi)** — A multi-agent system that autonomously runs penetration testing, supporting a dozen LLM providers with knowledge graph and observability hooks.
 
-  > Angle: Targets security leads who want agents but cannot grant filesystem access. Unlike reverse-proxy setups, the boundary sits at a local isolation layer,
-
-* **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — A privacy-first tool that strips multi-vendor AI provenance marks from content you own: invisible Unicode, statistical text watermarks,
-
-  > Angle: Aimed at creators publishing AI-assisted work as their own asset. The wedge is a pre-publish cleanup step,
+  > Angle: Skip the generic pentest agent. Target compliance-driven self-checks before SOC2 or ISO audits, with reports you can hand to an auditor.
 
 ### Vertical Tools / Skills
 
-* **[hypit-ai/hypit](https://github.com/hypit-ai/hypit)** — Gives coding agents a language for describing video: drop in a viral clip and the agent decomposes shots, captions, B-roll and effects, then generates variants in bulk.
+* **[Eglantine-Community/Eglantine](https://github.com/Eglantine-Community/Eglantine)** — A Switch 2 emulator derived from Eden, Yuzu and Sudachi, written in C++ for Windows, Linux and macOS, already running some titles at full speed.
 
-  > Angle: Sell to performance-marketing teams and MCNs churning out ad variants. Anchoring edits to words instead of a timeline means changing copy reflows the whole cut.
+  > Angle: Legal risk makes this a poor product bet. What transfers is its community-maintained compatibility database as a retention engine,
 
-* **[janestreet/agent_skills](https://github.com/janestreet/agent_skills)** — Jane Street's open collection of agent skills, each a directory with a SKILL.md. The first turns a model into a strict Socratic tutor with diagnostics, a level 0-5 skill map,
+* **[glushchenko/fsnotes](https://github.com/glushchenko/fsnotes)** — A native Markdown notes app for macOS and iOS that stores everything as plain files, stays fast past 10,000 notes, and supports iCloud, Dropbox and Git backups.
 
-  > Angle: More signal than product: a finance firm packaging internal methodology as portable agent skills. The play is encoding one vertical's teaching or review…
+  > Angle: This is an anti-SaaS positioning worth studying: the pitch is that your notes remain files forever.
 
-[This issue (Markdown)](daily/en/2026-11-24.md)
+* **[anhao/ai-pose-gallery-zh](https://github.com/anhao/ai-pose-gallery-zh)** — A Chinese-language reference library for AI art, bundling tens of thousands of pose, depth, costume and portrait images with a dependency-free static gallery and ComfyUI nodes…
+
+  > Angle: It shows that structured reference assets plus workflow plugins attract users. The opening is turning such libraries into searchable,
+
+* **[xcl-dev/xcl](https://github.com/xcl-dev/xcl)** — An Xbox Series compatibility layer for Windows in the Wine/Proton spirit: no CPU emulation, native x64 game code, independently written console system libraries,
+
+  > Angle: More a technical signal than a product: the console-PC boundary is eroding. The reusable pieces are shader recompilation and system library reimplementation,
+
+[This issue (Markdown)](daily/en/2026-11-25.md)
 
 ### Archive
 
 #### 2026
 
-**Nov**：[24](daily/en/2026-11-24.md) · [23](daily/en/2026-11-23.md) · [22](daily/en/2026-11-22.md) · [21](daily/en/2026-11-21.md) · [20](daily/en/2026-11-20.md) · [19](daily/en/2026-11-19.md) · [12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
+**Nov**：[25](daily/en/2026-11-25.md) · [24](daily/en/2026-11-24.md) · [23](daily/en/2026-11-23.md) · [22](daily/en/2026-11-22.md) · [21](daily/en/2026-11-21.md) · [20](daily/en/2026-11-20.md) · [19](daily/en/2026-11-19.md) · [12](daily/en/2026-11-12.md) · [11](daily/en/2026-11-11.md) · [10](daily/en/2026-11-10.md) · [9](daily/en/2026-11-09.md) · [8](daily/en/2026-11-08.md) · [7](daily/en/2026-11-07.md) · [6](daily/en/2026-11-06.md) · [5](daily/en/2026-11-05.md) · [4](daily/en/2026-11-04.md) · [3](daily/en/2026-11-03.md) · [2](daily/en/2026-11-02.md) · [1](daily/en/2026-11-01.md)
 
 **Oct**：[31](daily/en/2026-10-31.md) · [30](daily/en/2026-10-30.md) · [29](daily/en/2026-10-29.md) · [28](daily/en/2026-10-28.md) · [27](daily/en/2026-10-27.md) · [26](daily/en/2026-10-26.md) · [25](daily/en/2026-10-25.md) · [24](daily/en/2026-10-24.md) · [23](daily/en/2026-10-23.md) · [22](daily/en/2026-10-22.md) · [21](daily/en/2026-10-21.md) · [20](daily/en/2026-10-20.md)
 
