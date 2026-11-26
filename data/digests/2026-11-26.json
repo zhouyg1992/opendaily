@@ -1,0 +1,329 @@
+{
+  "date": "2026-11-26",
+  "generated_at": "2026-11-26T04:48:09+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个清晰信号：AI 编码代理正在从「能对话」走向「能长期干活」，围绕它的记忆层、浏览器、技能包和成本优化工具开始成体系出现；与此同时，一批老牌基础设施项目重新回到榜单，说明大家在给代理找可靠的底座。真正稀缺的不是又一个框架，而是把代理接进真实工作流的中间件。",
+    "en": "Today's batch points to a shift: coding agents are moving from chat toys to long-running workers, and a support layer is forming around them, memory stores, headless browsers, skill packs, cost auditing."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "gastownhall/beads",
+      "url": "https://github.com/gastownhall/beads",
+      "content": {
+        "zh": {
+          "summary": "给编码代理做持久记忆的分布式图 issue tracker，用 Dolt 存储，把散乱的 markdown 计划换成带依赖关系的任务图，让代理在长周期任务里不丢上下文。安装后自动写入 AGENTS.md 并接入 Claude Code、Codex、Cursor。",
+          "insight": "切「代理跑长任务时上下文断裂」这个痛点，做团队级的任务图托管服务，卖的是可见性和回滚，而不是再写一个 agent 循环。"
+        },
+        "en": {
+          "summary": "A persistent memory layer for coding agents: a distributed graph issue tracker built on Dolt that swaps messy markdown plans for dependency-aware task graphs,",
+          "insight": "Attack the context-loss problem in long agent runs by hosting the graph for teams. Sell visibility and rollback, not another agent loop."
+        }
+      },
+      "description": "Beads - A memory upgrade for your coding agent",
+      "category": "AI / Agent 工具",
+      "language": "Go",
+      "stars": 29087,
+      "stars_today": 56,
+      "topics": [
+        "agents",
+        "claude-code",
+        "coding"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.18
+    },
+    {
+      "repo": "wshobson/agents",
+      "url": "https://github.com/wshobson/agents",
+      "content": {
+        "zh": {
+          "summary": "用 Markdown 写一次、再由生成器适配到 Claude Code、Codex CLI、Cursor、Copilot 等多个编码工具的插件与技能集合，附带校验和评测。它解决的是代理配置在不同工具间无法复用的碎片化问题。",
+          "insight": "跨工具兼容层本身就是生意：做企业内部的技能注册中心，管版本、权限和评测，按席位收费，比单个技能更有黏性。"
+        },
+        "en": {
+          "summary": "Write a plugin or skill once in Markdown, then let generators adapt it for Claude Code, Codex CLI, Cursor, Copilot and others, with validation and evals attached.",
+          "insight": "The compatibility layer is the business: an internal skill registry with versioning, permissions and evals, priced per seat. Stickier than any single skill."
+        }
+      },
+      "description": "Plugins, agents, skills, and commands for Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot, and Pi, written once in Markdown and adapted to each tool by generators with validation and evals.",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 42903,
+      "stars_today": 26,
+      "topics": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agents",
+        "anthropic",
+        "antigravity",
+        "claude",
+        "claude-code",
+        "claude-code-marketplace",
+        "claude-code-plugin",
+        "claude-skills"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.44
+    },
+    {
+      "repo": "anthropics/claude-cookbooks",
+      "url": "https://github.com/anthropics/claude-cookbooks",
+      "content": {
+        "zh": {
+          "summary": "Anthropic 官方维护的 Claude 用法笔记本合集，提供可直接复制的代码片段和指南，覆盖 API 调用的常见模式。对刚上手 Claude 的开发者来说，它是最省时间的起点。",
+          "insight": "官方文档越全，第三方教程的生存空间越小。机会不在写教程，而在把 cookbook 里的模式封装成可直接部署的模板或内部脚手架。"
+        },
+        "en": {
+          "summary": "Anthropic's maintained notebook collection showing practical ways to use Claude, with copy-ready snippets and guides for common API patterns.",
+          "insight": "The fuller the official docs, the less room for third-party tutorials. The opening is packaging these patterns into deployable templates or internal…"
+        }
+      },
+      "description": "A collection of notebooks/recipes showcasing some fun and effective ways of using Claude.",
+      "category": "AI / Agent 工具",
+      "language": "Jupyter Notebook",
+      "stars": 55247,
+      "stars_today": 69,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 30.18
+    },
+    {
+      "repo": "lexmount/moli",
+      "url": "https://github.com/lexmount/moli",
+      "content": {
+        "zh": {
+          "summary": "用 Rust 写的面向 AI 代理的无头浏览器，主打按需布局渲染，在保留完整浏览器运行时的同时压低资源占用，支持 CLI、CDP 和 WebDriver 协议，跨三大平台。适合需要批量抓取和自动操作网页的代理场景。",
+          "insight": "面向跑大量并发抓取的团队，卖「每会话成本」而不是功能。和 Playwright 的差别在资源占用，可以按任务时长计费做托管浏览器池。"
+        },
+        "en": {
+          "summary": "A Rust headless browser built for AI agents, using on-demand layout and rendering to keep a full browser runtime at a light footprint.",
+          "insight": "Sell per-session economics to teams running heavy concurrent scraping. The wedge against Playwright is footprint,"
+        }
+      },
+      "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 24496,
+      "stars_today": 0,
+      "topics": [
+        "ai-agents",
+        "ai-tools",
+        "browser",
+        "browser-automation",
+        "cloud-browser",
+        "headless",
+        "headless-browser",
+        "kitesurf",
+        "playwright",
+        "puppeteer"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 29.33
+    },
+    {
+      "repo": "openvinotoolkit/openvino",
+      "url": "https://github.com/openvinotoolkit/openvino",
+      "content": {
+        "zh": {
+          "summary": "Intel 主导的开源推理优化与部署工具包，支持 PyTorch、TensorFlow、ONNX 等训练框架产出的模型，覆盖视觉、语音、生成式模型和大小语言模型，重点是在自家硬件上把推理跑快。",
+          "insight": "这是基础设施，不适合直接做产品。真正的机会在它周边：帮企业把模型从云端迁到本地 Intel 设备，做迁移评估和调优服务。"
+        },
+        "en": {
+          "summary": "Intel's open toolkit for optimizing and deploying inference, accepting models from PyTorch, TensorFlow, ONNX and others across vision, speech, generative and language workloads.",
+          "insight": "This is infrastructure, not a product. The opening sits around it: helping enterprises move models from cloud to on-prem Intel boxes,"
+        }
+      },
+      "description": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
+      "category": "AI 基础设施 / 模型",
+      "language": "C++",
+      "stars": 12687,
+      "stars_today": 191,
+      "topics": [
+        "ai",
+        "computer-vision",
+        "deep-learning",
+        "deploy-ai",
+        "diffusion-models",
+        "generative-ai",
+        "good-first-issue",
+        "inference",
+        "llm-inference",
+        "natural-language-processing"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.4
+    },
+    {
+      "repo": "ersinkoc/phonebox",
+      "url": "https://github.com/ersinkoc/phonebox",
+      "content": {
+        "zh": {
+          "summary": "把闲置安卓手机变成桌面控制面板和触控台，内置上百个小组件和模板，可显示系统状态、AI 编码会话进度和媒体控制，走 USB 或配对 Wi-Fi，不依赖云服务，也不需要 root。",
+          "insight": "这是典型的「旧硬件再利用」需求。可以往团队场景做：把多台机器的构建和代理状态汇总到一块墙上屏幕，卖的是状态聚合而不是面板本身。"
+        },
+        "en": {
+          "summary": "Turns a spare Android phone into a desk panel and touch deck for Windows, Linux and macOS, with over a hundred widgets covering system stats, AI coding sessions and media control.",
+          "insight": "Classic reuse-old-hardware demand. Push it toward teams: aggregate build and agent status from many machines onto one wall display, and sell the aggregation,"
+        }
+      },
+      "description": "Turn an old Android phone into a customizable desk panel and touch control deck for Windows, Linux and macOS. 124 widgets and 30 templates for system stats, AI coding, media and automation, in 13 languages. USB or paired Wi-Fi. No cloud required.",
+      "category": "开发工具 / CLI",
+      "language": "JavaScript",
+      "stars": 6594,
+      "stars_today": 0,
+      "topics": [
+        "android",
+        "claude-code",
+        "codex",
+        "dashboard",
+        "desk-panel",
+        "dotnet",
+        "home-assistant",
+        "linux",
+        "macos",
+        "old-phone"
+      ],
+      "sources": [
+        "search"
+      ],
+      "score": 28.91
+    },
+    {
+      "repo": "ruffle-rs/ruffle",
+      "url": "https://github.com/ruffle-rs/ruffle",
+      "content": {
+        "zh": {
+          "summary": "用 Rust 写的 Flash Player 模拟器，同时面向桌面和 WebAssembly，对 ActionScript 1/2/3 支持已经相当完整。大量老游戏和教学课件仍以 SWF 形式存在，它是这些内容继续可用的现实方案。",
+          "insight": "机会在内容侧而非播放器侧：做老 SWF 资产的批量转换和托管归档服务，面向学校、博物馆和游戏发行商。"
+        },
+        "en": {
+          "summary": "A Flash Player emulator in Rust targeting both desktop and the web via WebAssembly, with solid ActionScript 1, 2 and 3 support.",
+          "insight": "The opening is content, not the player: bulk conversion and hosted archiving for legacy SWF assets, aimed at schools, museums and game publishers."
+        }
+      },
+      "description": "A Flash Player emulator written in Rust",
+      "category": "前端 / 设计",
+      "language": "Rust",
+      "stars": 18955,
+      "stars_today": 13,
+      "topics": [
+        "emulator",
+        "flash",
+        "hacktoberfest",
+        "reimplementation",
+        "rust",
+        "swf"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.99
+    },
+    {
+      "repo": "nginx/nginx",
+      "url": "https://github.com/nginx/nginx",
+      "content": {
+        "zh": {
+          "summary": "NGINX 官方开源仓库，涵盖 Web 服务器、反向代理、负载均衡、API 网关和内容缓存。它重新出现在榜单上，反映的是大家在给 AI 服务找稳定入口和流量治理层。",
+          "insight": "不要和 NGINX 竞争，围绕它做配置治理：把散落的 nginx.conf 变成可审计、可回滚的策略层，卖给运维团队。"
+        },
+        "en": {
+          "summary": "The official NGINX source repo covering web serving, reverse proxying, load balancing, API gateway and caching.",
+          "insight": "Do not compete with NGINX. Build config governance around it: turn scattered nginx.conf files into an auditable, rollback-friendly policy layer for ops teams."
+        }
+      },
+      "description": "The official NGINX Open Source repository.",
+      "category": "数据 / 基础设施",
+      "language": "C",
+      "stars": 33403,
+      "stars_today": 176,
+      "topics": [
+        "content-cache",
+        "http",
+        "http2",
+        "http3",
+        "https",
+        "load-balancer",
+        "mail-proxy-server",
+        "nginx",
+        "quic",
+        "reverse-proxy"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 31.54
+    },
+    {
+      "repo": "nats-io/nats-server",
+      "url": "https://github.com/nats-io/nats-server",
+      "content": {
+        "zh": {
+          "summary": "CNCF 旗下的高性能消息系统服务端，可跑在云、本地、边缘甚至树莓派上，有四十多种客户端实现。随着代理和边缘推理变多，轻量消息层重新变得关键。",
+          "insight": "趋势信号多于产品机会。若要借势，做面向边缘设备的消息可观测性，帮运维看清哪些代理和传感器在断连重连。"
+        },
+        "en": {
+          "summary": "The CNCF high-performance messaging server that runs on cloud, on-prem, at the edge and even a Raspberry Pi, with over forty client implementations.",
+          "insight": "More a trend signal than a product opening. To ride it, build messaging observability for edge fleets so ops can see which agents and sensors keep dropping and…"
+        }
+      },
+      "description": "High-Performance server for NATS.io, the cloud and edge native messaging system.",
+      "category": "数据 / 基础设施",
+      "language": "Go",
+      "stars": 21152,
+      "stars_today": 14,
+      "topics": [
+        "cloud",
+        "cloud-computing",
+        "cloud-native",
+        "connected-vehicle",
+        "distributed-systems",
+        "edge",
+        "edge-ai",
+        "edge-computing",
+        "go",
+        "golang"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.3
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "content": {
+        "zh": {
+          "summary": "Vercel 官方的代理技能合集，把指令和脚本打包成可复用技能，比如审计 Vercel 项目的成本、性能和缓存问题。它示范了「技能」这种分发形态怎么落地，而不只是一个工具集合。",
+          "insight": "技能包正在变成新的应用商店入口。可以按云厂商或 SaaS 做垂直技能包，靠诊断报告引流到付费优化服务。"
+        },
+        "en": {
+          "summary": "Vercel's official skill pack for coding agents, bundling instructions and scripts into reusable capabilities, such as auditing a deployed project for cost,",
+          "insight": "Skill packs are becoming a new app-store surface. Build vertical packs per cloud or SaaS, and use the diagnostic report as a funnel into paid optimization work."
+        }
+      },
+      "description": "Vercel's official collection of agent skills",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 34930,
+      "stars_today": 56,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.66
+    }
+  ]
+}

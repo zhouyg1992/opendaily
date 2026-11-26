@@ -11,69 +11,69 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.25 · 周三](daily/zh/2026-11-25.md)
+## [2026.11.26 · 周四](daily/zh/2026-11-26.md)
 
-> 今天这批项目透露出一个清晰信号：AI 正在从「能跑」进入「能交付」阶段，工具开始围绕具体工作流做深度整合——数据库客户端内嵌 AI 与 MCP、浏览器 agent 追求极致速度、渗透测试走向全自动。同时，一批老牌基础设施项目重新被讨论，说明创业者的注意力正从模型能力转向工程可靠性。
+> 今天这批项目透露出一个清晰信号：AI 编码代理正在从「能对话」走向「能长期干活」，围绕它的记忆层、浏览器、技能包和成本优化工具开始成体系出现；与此同时，一批老牌基础设施项目重新回到榜单，说明大家在给代理找可靠的底座。真正稀缺的不是又一个框架，而是把代理接进真实工作流的中间件。
 
 ### AI / Agent 工具
 
-* **[browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast)** — Browser Use 的极速网页 agent 实验，核心思路是给页面元素编号，让模型基于索引动作空间操作，而不是靠截图理解。它解决的是网页 agent 慢和贵的问题，现在已并入 Browser Use 主产品。
+* **[gastownhall/beads](https://github.com/gastownhall/beads)** — 给编码代理做持久记忆的分布式图 issue tracker，用 Dolt 存储，把散乱的 markdown 计划换成带依赖关系的任务图，让代理在长周期任务里不丢上下文。安装后自动写入 AGENTS.md 并接入 Claude Code、Codex、Cursor。
 
-  > 灵感：这个仓库更适合当趋势信号：网页 agent 的竞争点已从「能不能做」变成「多快多便宜」。做垂直场景（表单填报、后台批量操作）时，索引动作空间是可直接借鉴的工程范式。
+  > 灵感：切「代理跑长任务时上下文断裂」这个痛点，做团队级的任务图托管服务，卖的是可见性和回滚，而不是再写一个 agent 循环。
 
-* **[agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope)** — 面向生产的多 agent 框架，强调可观测、可理解、可信任，不靠严格 prompt 约束模型，而是顺着模型的推理和工具调用能力设计。近期加入了语音克隆和实时语音能力。
+* **[wshobson/agents](https://github.com/wshobson/agents)** — 用 Markdown 写一次、再由生成器适配到 Claude Code、Codex CLI、Cursor、Copilot 等多个编码工具的插件与技能集合，附带校验和评测。它解决的是代理配置在不同工具间无法复用的碎片化问题。
 
-  > 灵感：适合做 agent 的「调试与回放」层：团队真正缺的不是再一个框架，而是能看清 agent 每一步为什么这么走。可以从 trace 可视化切入，做成框架无关的观测产品。
+  > 灵感：跨工具兼容层本身就是生意：做企业内部的技能注册中心，管版本、权限和评测，按席位收费，比单个技能更有黏性。
+
+* **[anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks)** — Anthropic 官方维护的 Claude 用法笔记本合集，提供可直接复制的代码片段和指南，覆盖 API 调用的常见模式。对刚上手 Claude 的开发者来说，它是最省时间的起点。
+
+  > 灵感：官方文档越全，第三方教程的生存空间越小。机会不在写教程，而在把 cookbook 里的模式封装成可直接部署的模板或内部脚手架。
+
+### AI 基础设施 / 模型
+
+* **[lexmount/moli](https://github.com/lexmount/moli)** — 用 Rust 写的面向 AI 代理的无头浏览器，主打按需布局渲染，在保留完整浏览器运行时的同时压低资源占用，支持 CLI、CDP 和 WebDriver 协议，跨三大平台。适合需要批量抓取和自动操作网页的代理场景。
+
+  > 灵感：面向跑大量并发抓取的团队，卖「每会话成本」而不是功能。和 Playwright 的差别在资源占用，可以按任务时长计费做托管浏览器池。
+
+* **[openvinotoolkit/openvino](https://github.com/openvinotoolkit/openvino)** — Intel 主导的开源推理优化与部署工具包，支持 PyTorch、TensorFlow、ONNX 等训练框架产出的模型，覆盖视觉、语音、生成式模型和大小语言模型，重点是在自家硬件上把推理跑快。
+
+  > 灵感：这是基础设施，不适合直接做产品。真正的机会在它周边：帮企业把模型从云端迁到本地 Intel 设备，做迁移评估和调优服务。
 
 ### 开发工具 / CLI
 
-* **[t8y2/dbx](https://github.com/t8y2/dbx)** — 25 MB 的跨平台数据库客户端，支持 100 多种数据库，桌面、Docker、CLI 三种形态，内置 AI 助手和 MCP Server。它解决的是 DBeaver、Navicat 这类工具体积大、启动慢、AI 能力缺失的问题。
+* **[ersinkoc/phonebox](https://github.com/ersinkoc/phonebox)** — 把闲置安卓手机变成桌面控制面板和触控台，内置上百个小组件和模板，可显示系统状态、AI 编码会话进度和媒体控制，走 USB 或配对 Wi-Fi，不依赖云服务，也不需要 root。
 
-  > 灵感：机会在于把 MCP Server 当成入口：让 AI 编程助手直接操作数据库，而不是人来点 GUI。可以围绕「AI 代管数据库运维」做垂直场景，比如只读查询审计、慢 SQL 解释。
+  > 灵感：这是典型的「旧硬件再利用」需求。可以往团队场景做：把多台机器的构建和代理状态汇总到一块墙上屏幕，卖的是状态聚合而不是面板本身。
 
 ### 前端 / 设计
 
-* **[zed-industries/gpui](https://github.com/zed-industries/gpui)** — Zed 团队开源的 Rust GPU 加速 UI 框架，融合即时模式和保留模式，目标覆盖桌面、移动和 Web。它解决的是 Rust 生态缺少高性能、跨平台原生 UI 层的问题，目前仍在早期。
+* **[ruffle-rs/ruffle](https://github.com/ruffle-rs/ruffle)** — 用 Rust 写的 Flash Player 模拟器，同时面向桌面和 WebAssembly，对 ActionScript 1/2/3 支持已经相当完整。大量老游戏和教学课件仍以 SWF 形式存在，它是这些内容继续可用的现实方案。
 
-  > 灵感：短期不适合做产品底座，但值得作为技术选型观察点。真正机会在配套工具：Rust 桌面应用的调试、热重载和设计稿转代码，这些周边比框架本身更早成熟。
+  > 灵感：机会在内容侧而非播放器侧：做老 SWF 资产的批量转换和托管归档服务，面向学校、博物馆和游戏发行商。
 
 ### 数据 / 基础设施
 
-* **[juspay/hyperswitch](https://github.com/juspay/hyperswitch)** — 开源可组合支付基础设施，PCI 合规，支持 SaaS 和自托管，可对接多家支付、分账、风控和令牌化服务商，提供智能路由和成本可观测性。它解决的是支付渠道被单一供应商锁死的问题。
+* **[nginx/nginx](https://github.com/nginx/nginx)** — NGINX 官方开源仓库，涵盖 Web 服务器、反向代理、负载均衡、API 网关和内容缓存。它重新出现在榜单上，反映的是大家在给 AI 服务找稳定入口和流量治理层。
 
-  > 灵感：对出海或跨境业务，可基于它做「支付路由优化」的轻服务：按成功率和费率动态选通道，按笔收费。差异化在于本地化通道接入和结算对账，而不是再造一个支付网关。
+  > 灵感：不要和 NGINX 竞争，围绕它做配置治理：把散落的 nginx.conf 变成可审计、可回滚的策略层，卖给运维团队。
 
-### 安全 / 隐私
+* **[nats-io/nats-server](https://github.com/nats-io/nats-server)** — CNCF 旗下的高性能消息系统服务端，可跑在云、本地、边缘甚至树莓派上，有四十多种客户端实现。随着代理和边缘推理变多，轻量消息层重新变得关键。
 
-* **[vxcontrol/pentagi](https://github.com/vxcontrol/pentagi)** — 用多 agent 系统自动执行渗透测试任务，支持十余家 LLM 供应商，带知识图谱和可观测性集成。它面向安全团队，把原本需要资深工程师手工编排的侦察、利用、报告流程自动化。
-
-  > 灵感：不要做通用渗透 agent，而是切合规驱动的场景：等保、SOC2 审计前的自动化自查，输出可直接交付的报告。差异点在于审计留痕，而不是攻击能力。
+  > 灵感：趋势信号多于产品机会。若要借势，做面向边缘设备的消息可观测性，帮运维看清哪些代理和传感器在断连重连。
 
 ### Skill / 垂直工具
 
-* **[Eglantine-Community/Eglantine](https://github.com/Eglantine-Community/Eglantine)** — 从 Eden、Yuzu、Sudachi 衍生出的 Switch 2 模拟器，C++ 编写，覆盖 Windows、Linux、macOS，已能全速运行部分游戏。它反映的是新主机上市后模拟社区快速跟进的需求。
+* **[vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)** — Vercel 官方的代理技能合集，把指令和脚本打包成可复用技能，比如审计 Vercel 项目的成本、性能和缓存问题。它示范了「技能」这种分发形态怎么落地，而不只是一个工具集合。
 
-  > 灵感：这类项目法律风险高，不适合直接产品化。可借鉴的是它的分发与兼容性列表运营方式：用社区维护的兼容性数据库驱动用户留存，这个模式可迁移到其他兼容层项目。
+  > 灵感：技能包正在变成新的应用商店入口。可以按云厂商或 SaaS 做垂直技能包，靠诊断报告引流到付费优化服务。
 
-* **[glushchenko/fsnotes](https://github.com/glushchenko/fsnotes)** — macOS 和 iOS 上的原生 Markdown 笔记应用，笔记以纯文本文件存储，不锁定格式，万级笔记下搜索依然流畅，支持 iCloud、Dropbox 和 Git 备份。它面向在意数据所有权和长期可读性的用户。
-
-  > 灵感：这是一个反 SaaS 的定位样本：卖点是「你的笔记永远是文件」。做知识管理产品时可以借鉴这种「文件优先、应用可替换」的叙事，尤其对专业用户和受监管行业。
-
-* **[anhao/ai-pose-gallery-zh](https://github.com/anhao/ai-pose-gallery-zh)** — 中文版 AI 姿势与服装参考图库，整合素体白模、深度图、服装和人像共上万张本地图片，提供零依赖静态画廊和 ComfyUI 自定义节点，直连主流图像生成协议。
-
-  > 灵感：它证明「结构化参考素材 + 工作流插件」是能聚人的形态。机会在于把素材库做成可检索、可授权的资产市场，解决版权溯源问题，而不是继续堆图片数量。
-
-* **[xcl-dev/xcl](https://github.com/xcl-dev/xcl)** — Windows 上的 Xbox Series 兼容层，思路类似 Wine/Proton：不做 CPU 模拟，游戏 x64 代码原生运行，由项目自行实现主机系统库，并把 RDNA2 着色器重编译为 DXIL。仅支持用户自有的已解包游戏文件。
-
-  > 灵感：这是一个技术信号而非产品机会：主机与 PC 的边界正在被兼容层抹平。可关注的是着色器重编译和系统库重实现这类能力，在云游戏和跨平台移植工具链里有复用价值。
-
-[本期 Markdown](daily/zh/2026-11-25.md)
+[本期 Markdown](daily/zh/2026-11-26.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[25](daily/zh/2026-11-25.md) · [24](daily/zh/2026-11-24.md) · [23](daily/zh/2026-11-23.md) · [22](daily/zh/2026-11-22.md) · [21](daily/zh/2026-11-21.md) · [20](daily/zh/2026-11-20.md) · [19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[26](daily/zh/2026-11-26.md) · [25](daily/zh/2026-11-25.md) · [24](daily/zh/2026-11-24.md) · [23](daily/zh/2026-11-23.md) · [22](daily/zh/2026-11-22.md) · [21](daily/zh/2026-11-21.md) · [20](daily/zh/2026-11-20.md) · [19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
