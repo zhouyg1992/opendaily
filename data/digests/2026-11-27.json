@@ -1,0 +1,291 @@
+{
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T04:53:07+00:00",
+  "intro": {
+    "zh": "今天这批项目共同指向一个变化：agent 正在从「框架竞赛」转向「接线与落地」。一边是工具目录、沙箱、手机操控、代码审查插件这类让 agent 真正能干活的基础设施，另一边是语言、字体、桌面框架这些老派工程问题被重新翻出来。对创业者来说，机会不在再造一个 agent，而在补上 agent 与真实世界之间那些粗糙的接口。",
+    "en": "Today's projects point to a shift: agents are moving from framework races to plumbing and deployment. Tool catalogs, sandboxes, phone control and review plugins make agents actually useful, while older engineering concerns like languages, fonts and desktop frameworks resurface."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "phone-harness/phone-harness",
+      "url": "https://github.com/phone-harness/phone-harness",
+      "content": {
+        "zh": {
+          "summary": "让 Claude Code、Codex 等 agent 直接操作真实手机：iPhone 走 Mac 的镜像窗口，Android 走 adb，手机端无需越狱或安装任何东西。agent 可以滚动、点击、输入并读取屏幕内容。",
+          "insight": "最直接的切口是移动端自动化测试和 App 上架前的回归验证，这块目前靠人工点。也可以做「个人手机任务代理」的托管版，但要注意账号风控和隐私边界。"
+        },
+        "en": {
+          "summary": "Lets agents like Claude Code or Codex drive a real phone: iPhone through the Mac mirroring window, Android over adb, with nothing installed or jailbroken on the device.",
+          "insight": "The clearest wedge is mobile automated testing and pre-release regression checks, still largely manual today."
+        }
+      },
+      "description": "let your agent control your phone",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 6001,
+      "stars_today": 100,
+      "topics": [
+        "agent",
+        "ai",
+        "automation",
+        "developer-tools",
+        "mobile-ai",
+        "mobile-development"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.17
+    },
+    {
+      "repo": "SWE-agent/mini-swe-agent",
+      "url": "https://github.com/SWE-agent/mini-swe-agent",
+      "content": {
+        "zh": {
+          "summary": "一百行代码的软件工程 agent，没有庞大配置和 monorepo，在 SWE-bench verified 上仍拿到 74% 以上，被 Meta、NVIDIA 等采用。它的价值在于证明简单架构加好模型已经够用。",
+          "insight": "适合作为教学和内部工具的起点：想给团队做定制化修 issue 流程，从这一百行改起比接框架快得多。也可以围绕它做评测和可观测性，而不是再造 agent。"
+        },
+        "en": {
+          "summary": "A hundred-line software engineering agent with no heavy config or monorepo that still scores above 74% on SWE-bench verified, used by Meta, NVIDIA and others.",
+          "insight": "A good starting point for teaching and internal tooling: customizing an issue-fixing workflow from these hundred lines beats adopting a framework."
+        }
+      },
+      "description": "The 100 line AI agent that solves GitHub issues or helps you in your command line. Radically simple, no huge configs, no giant monorepo—but scores >74% on SWE-bench verified!",
+      "category": "AI / Agent 工具",
+      "language": "Python",
+      "stars": 10126,
+      "stars_today": 43,
+      "topics": [
+        "agent",
+        "agentic-ai",
+        "agentic-ai-cli",
+        "ai",
+        "ai-agent",
+        "textual"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.11
+    },
+    {
+      "repo": "lsernau/grh-lean",
+      "url": "https://github.com/lsernau/grh-lean",
+      "content": {
+        "zh": {
+          "summary": "一份用 Lean 4 写成的黎曼猜想与 Dirichlet L 函数广义黎曼猜想的证明，基于 Mathlib，只用了三条标准公理，作者注明是与 Anthropic 同事及 Claude 协作产出的精简版。",
+          "insight": "重点不在数学结论是否被接受，而在于「AI 参与形式化证明」这条工作流已经能产出可机器检查的成果。做科研工具的人可以关注 Lean 项目管理和证明审查这一层。"
+        },
+        "en": {
+          "summary": "A Lean 4 proof of the Riemann Hypothesis and its generalization for Dirichlet L-functions, built on Mathlib with only three standard axioms,",
+          "insight": "The story is not whether mathematicians accept it, but that AI-assisted formalization now yields machine-checkable output."
+        }
+      },
+      "description": "A short Lean 4 proof of the Generalized Riemann Hypothesis",
+      "category": "AI / Agent 工具",
+      "language": "Lean",
+      "stars": 923,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "hn"
+      ],
+      "score": 30.79
+    },
+    {
+      "repo": "superdesigndev/treg",
+      "url": "https://github.com/superdesigndev/treg",
+      "content": {
+        "zh": {
+          "summary": "把「模型路由」的思路搬到工具上：一个 base URL、一个 token，agent 就能调用数千个按次计价的第三方 API，覆盖 SEO、社交趋势、抓取、图像视频生成，无需逐个注册厂商。团队成员自己的密钥和 CLI 也能挂上去共享。",
+          "insight": "真正的卖点在凭据托管和按次计费，而不是目录本身。可以切「小团队 agent 共用一套付费工具」的场景，做用量分账和权限审计，这是目前各家 agent 平台都没认真做的部分。"
+        },
+        "en": {
+          "summary": "A routing layer for agent tools rather than models: one base URL and token gives an agent access to thousands of pay-per-call APIs across SEO, social trends,",
+          "insight": "The real value is credential custody and metered billing, not the catalog. Target small teams sharing paid tools across agents and build usage splitting plus…"
+        }
+      },
+      "description": "OpenRouter for agent tools. Join community here: https://discord.gg/6mQYYfFMAn",
+      "category": "AI 基础设施 / 模型",
+      "language": "Python",
+      "stars": 9627,
+      "stars_today": 501,
+      "topics": [
+        "agents",
+        "api-keys",
+        "cli",
+        "credentials",
+        "developer-tools",
+        "dsh-plugin",
+        "mcp",
+        "proxy",
+        "python",
+        "registry"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 39.43
+    },
+    {
+      "repo": "TencentCloud/CubeSandbox",
+      "url": "https://github.com/TencentCloud/CubeSandbox",
+      "content": {
+        "zh": {
+          "summary": "腾讯云开源的 agent 沙箱服务，基于 RustVMM 和 KVM 做硬件隔离，兼容 E2B SDK，单次创建低于 60ms、内存开销不到 5MB，支持单机到多机集群。解决的是 agent 执行任意代码时的隔离与并发问题。",
+          "insight": "适合做「agent 代码执行」这一层的替代方案，尤其是对延迟和密度敏感的批量任务。与 E2B 兼容意味着迁移成本低，可以从成本敏感的中小团队切入做托管服务。"
+        },
+        "en": {
+          "summary": "Tencent Cloud's open-source sandbox for agents, built on RustVMM and KVM with hardware isolation and E2B SDK compatibility.",
+          "insight": "A drop-in alternative for the code-execution layer, especially for latency- and density-sensitive batch work."
+        }
+      },
+      "description": "Instant, Concurrent, Secure & Lightweight Sandbox for AI Agents.",
+      "category": "AI 基础设施 / 模型",
+      "language": "Go",
+      "stars": 13474,
+      "stars_today": 18,
+      "topics": [
+        "agents",
+        "container",
+        "sandbox"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 28.23
+    },
+    {
+      "repo": "openai/codex-plugin-cc",
+      "url": "https://github.com/openai/codex-plugin-cc",
+      "content": {
+        "zh": {
+          "summary": "OpenAI 官方出的 Claude Code 插件，让用户在 Claude Code 里调用 Codex 做代码审查或把任务转交出去，包含只读审查、对抗式审查和后台任务管理命令。本质是把两个竞争产品接在一起。",
+          "insight": "信号意义大于工具本身：模型厂商开始接受「用户不会只用一个 agent」。可以借这个思路做跨 agent 的会话交接和结果汇总层，面向已经在混用多个编码助手的团队。"
+        },
+        "en": {
+          "summary": "An official OpenAI plugin that lets Claude Code users call Codex for code review or hand off tasks, with read-only review, adversarial review and background job commands.",
+          "insight": "More signal than tool: vendors now accept that users won't stick to one agent. The opening is a cross-agent handoff and result-aggregation layer for teams…"
+        }
+      },
+      "description": "Use Codex from Claude Code to review code or delegate tasks.",
+      "category": "开发工具 / CLI",
+      "language": "JavaScript",
+      "stars": 35484,
+      "stars_today": 30,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.05
+    },
+    {
+      "repo": "bendlang/bend",
+      "url": "https://github.com/bendlang/bend",
+      "content": {
+        "zh": {
+          "summary": "Bend 2 把自己定位成「给 AI 写代码用的语言」：用 dependent types 和证明让意图无歧义，并能机械验证 AI 是否按 prompt 实现，同时编译器目标是对标 C 和 CUDA 的性能。",
+          "insight": "短期内更像趋势信号而非可落地产品。真正可切的是「AI 生成代码的形式化校验」这一环，面向对正确性敏感的金融、嵌入式团队，而不是让人类换语言。"
+        },
+        "en": {
+          "summary": "Bend 2 pitches itself as a language for communicating intent to AI: dependent types and proofs remove ambiguity,",
+          "insight": "Near term this is a signal, not a product. The tractable slice is formal verification of AI-generated code for correctness-sensitive finance and embedded…"
+        }
+      },
+      "description": "Bend 2: a fast language that blocks AI mistakes via proof. Install: curl -fsSL https://bend-lang.com/install.sh | sh",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 25942,
+      "stars_today": 40,
+      "topics": [
+        "bend",
+        "cuda",
+        "dependent-types",
+        "gpu",
+        "metal",
+        "parallel",
+        "programming-language",
+        "proof",
+        "theorem-proving"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.48
+    },
+    {
+      "repo": "Marvisak/VIctory",
+      "url": "https://github.com/Marvisak/VIctory",
+      "content": {
+        "zh": {
+          "summary": "尝试在 Windows 上原生运行 GTA VI 的 Xbox 版本：游戏 x86-64 代码原样跑在自有进程里，项目补上平台层并转换资源。目前能启动、过菜单、加载世界，但帧率只有约 1 帧。",
+          "insight": "技术上属于平台重实现，短期没有商业路径。但配套的进度追踪站说明「等待某款独占游戏上 PC」本身有流量，做垂直等待页和社区工具是更现实的小生意。"
+        },
+        "en": {
+          "summary": "An attempt to run GTA VI's Xbox build natively on Windows: the game's x86-64 code runs unchanged inside the project's process while it supplies the platform layer and converts…",
+          "insight": "Technically a platform reimplementation with no near-term business path. The companion tracker site shows demand for waiting on console exclusives,"
+        }
+      },
+      "description": "An attempt at running GTA VI on PC",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 13466,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 32.78
+    },
+    {
+      "repo": "egoist/mygo",
+      "url": "https://github.com/egoist/mygo",
+      "content": {
+        "zh": {
+          "summary": "用 Go 写桌面应用，每个窗口可以是系统自带 webview 里的网页，也可以是用 Go 直接写、由框架在 GPU 上绘制的原生 UI，最终产物是几 MB 的单二进制，主打低内存和低 CPU。",
+          "insight": "切的是「内部工具和常驻小工具」这块被 Electron 吃掉太久的市场。面向需要长期挂在后台、对内存敏感的场景，比如运维面板、本地 agent 的桌面壳。"
+        },
+        "en": {
+          "summary": "Desktop apps in Go where each window is either a page in the OS webview or a native UI drawn by the framework on the GPU,",
+          "insight": "It targets internal tools and always-on utilities, a niche Electron has over-served. The fit is background-resident,"
+        }
+      },
+      "description": "Develop desktop apps with native UI or web frontend in Go",
+      "category": "前端 / 设计",
+      "language": "Go",
+      "stars": 6971,
+      "stars_today": 54,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.41
+    },
+    {
+      "repo": "intel/intel-one-mono",
+      "url": "https://github.com/intel/intel-one-mono",
+      "content": {
+        "zh": {
+          "summary": "Intel 开源的等宽字体，与 Frere-Jones Type 合作设计，专门针对低视力和法定盲开发者做可读性优化，覆盖 200 多种拉丁字母语言，目标是减少编码疲劳和错误。",
+          "insight": "不是创业项目，但提示了一个被忽视的用户群：无障碍不是合规清单，而是编辑器、终端、IDE 主题的差异化卖点。做开发者工具的人可以直接换默认字体。"
+        },
+        "en": {
+          "summary": "An open-source monospace family from Intel designed with Frere-Jones Type for low-vision and legally blind developers, covering over 200 Latin-script languages,",
+          "insight": "Not a startup, but it flags an underserved audience: accessibility as a differentiator for editors, terminals and IDE themes rather than a compliance checkbox."
+        }
+      },
+      "description": "Intel One Mono font repository",
+      "category": "前端 / 设计",
+      "language": "",
+      "stars": 10844,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "hn"
+      ],
+      "score": 29.21
+    }
+  ]
+}
