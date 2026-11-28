@@ -1,0 +1,316 @@
+{
+  "date": "2026-11-28",
+  "generated_at": "2026-11-28T04:38:07+00:00",
+  "intro": {
+    "zh": "今天这批项目透露出一个共同信号：AI 正在从「能聊」转向「能动手」——控制终端、操作剪辑软件、生成真实地理世界、在沙箱里大规模跑任务。与此同时，一批小而具体的工具在解决被大厂忽视的实际痛点，比如自建电子签名、光猫密码找回。机会不在再造一个通用框架，而在把 AI 的执行能力接到具体行业的具体动作上。",
+    "en": "Today's projects share one signal: AI is moving from conversation to execution. Agents now drive terminals, edit video software, generate real-world geography, and run at scale inside sandboxes."
+  },
+  "generated_by": "llm",
+  "model": "deepseek-flash",
+  "items": [
+    {
+      "repo": "mastra-ai/mastra",
+      "url": "https://github.com/mastra-ai/mastra",
+      "content": {
+        "zh": {
+          "summary": "面向 TypeScript 技术栈的 AI 应用与 Agent 框架，覆盖模型路由、工作流、评估和部署，能接入 React、Next.js、Node，也可作为独立服务器运行。解决的是 JS 团队从原型到生产缺少统一脚手架的问题。",
+          "insight": "前端团队想做 AI 功能时，往往卡在后端编排。可借角度是基于它做「Next.js 项目一键加 AI 能力」的模板市场或托管服务，卖的是开箱即用的行业工作流，而非框架本身。"
+        },
+        "en": {
+          "summary": "A TypeScript framework for AI apps and agents, covering model routing, workflows, evals and deployment, plugging into React, Next.js or Node, or running standalone.",
+          "insight": "Frontend teams often stall on backend orchestration. The angle is a template marketplace or hosted service that adds AI features to a Next.js project in one…"
+        }
+      },
+      "description": "Mastra is the modern TypeScript framework for AI-powered applications and agents.",
+      "category": "AI / Agent 工具",
+      "language": "TypeScript",
+      "stars": 29864,
+      "stars_today": 26,
+      "topics": [
+        "agents",
+        "ai",
+        "chatbots",
+        "evals",
+        "javascript",
+        "llm",
+        "mcp",
+        "nextjs",
+        "nodejs",
+        "reactjs"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.5
+    },
+    {
+      "repo": "wonderwhy-er/DesktopCommanderMCP",
+      "url": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+      "content": {
+        "zh": {
+          "summary": "给 Claude 等客户端提供终端控制、文件系统搜索和差分编辑能力的 MCP 服务器，让 AI 能直接跑命令、改文件、自动化任务，并复用宿主客户端的订阅而非额外 API 费用。解决的是 AI 编辑器能力受限的问题。",
+          "insight": "适合重度使用 AI 编码但受限于编辑器沙箱的开发者。可借角度是做「终端操作的安全护栏与回滚层」，记录每条命令、支持一键撤销，卖给担心 AI 误删文件的企业团队。"
+        },
+        "en": {
+          "summary": "An MCP server giving Claude and similar clients terminal control, filesystem search and diff-based editing, so AI can run commands,",
+          "insight": "For heavy AI-coding users boxed in by editor sandboxes. The angle is a safety and rollback layer for terminal actions that logs every command and supports…"
+        }
+      },
+      "description": "This is MCP server for Claude that gives it terminal control, file system search and diff file editing capabilities",
+      "category": "AI / Agent 工具",
+      "language": "JavaScript",
+      "stars": 10444,
+      "stars_today": 15,
+      "topics": [
+        "agent",
+        "ai",
+        "code-analysis",
+        "code-generation",
+        "gemini-cli-extension",
+        "mcp",
+        "terminal-ai",
+        "terminal-automation",
+        "vibe-coding"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.49
+    },
+    {
+      "repo": "agent-substrate/substrate",
+      "url": "https://github.com/agent-substrate/substrate",
+      "content": {
+        "zh": {
+          "summary": "面向 Kubernetes 的零信任 Agent 沙箱运行时，号称密度是普通容器的十倍，冷启动恢复低于 500 毫秒，每秒可激活 500 个以上 Agent，并为每个 Agent 隔离计算、身份、网络和存储，把敏感凭据挡在不可信代码之外。",
+          "insight": "这是基础设施层，不适合直接做产品。可借的角度是：为需要跑大量不可信 Agent 的企业提供托管沙箱服务，或在其上做「Agent 执行审计」中间件，卖合规而非算力。"
+        },
+        "en": {
+          "summary": "A zero-trust sandbox runtime for agents on Kubernetes, claiming ten times container density, sub-500ms resume, and over 500 activations per second, with isolated compute,",
+          "insight": "This is infrastructure, not a product. The angle: host managed sandboxes for firms running untrusted agents at scale,"
+        }
+      },
+      "description": "Agent Substrate: the core system",
+      "category": "AI 基础设施 / 模型",
+      "language": "Go",
+      "stars": 8536,
+      "stars_today": 119,
+      "topics": [
+        "agents",
+        "cncf",
+        "sandboxing"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 29.56
+    },
+    {
+      "repo": "gepa-ai/gepa",
+      "url": "https://github.com/gepa-ai/gepa",
+      "content": {
+        "zh": {
+          "summary": "用 LLM 反思加帕累托进化搜索来优化任何文本参数，包括提示词、代码、Agent 架构和配置。与强化学习不同，它让模型读完整执行轨迹，从报错和日志里诊断失败原因再提改进，而不是压缩成单一奖励。",
+          "insight": "适合已经在跑 Agent 但效果卡住的团队。可借角度是做「提示词与 Agent 配置的持续调优服务」，按评估指标收费，切的是那些有评测集但缺调优人力的公司。"
+        },
+        "en": {
+          "summary": "Optimizes any text parameter, including prompts, code, agent architectures and configs, using LLM reflection plus Pareto-efficient evolutionary search.",
+          "insight": "For teams already running agents but stuck on quality. The angle is a continuous tuning service for prompts and agent configs,"
+        }
+      },
+      "description": "Optimize prompts, code, and more with AI-powered Reflective Optimization",
+      "category": "AI 基础设施 / 模型",
+      "language": "Jupyter Notebook",
+      "stars": 7620,
+      "stars_today": 17,
+      "topics": [
+        "agent-skills",
+        "coding-agent",
+        "discovery",
+        "distributed-evolutionary-algorithms",
+        "evolutionary-algorithms",
+        "genetic-algorithm",
+        "harness",
+        "harness-ai",
+        "harness-engineering",
+        "iterative-methods"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 23.72
+    },
+    {
+      "repo": "0xPlaygrounds/rig",
+      "url": "https://github.com/0xPlaygrounds/rig",
+      "content": {
+        "zh": {
+          "summary": "用 Rust 构建模块化 LLM 应用的库，同时附带一个基于该库、可用 Bevy 插件扩展的终端编码 Agent。面向对性能、内存和类型安全有要求的团队，把 LLM 应用从脚本语言拉回系统级语言。",
+          "insight": "适合要把 LLM 能力嵌进高频交易、边缘设备或本地服务端的场景。可借角度不是做框架，而是做「Rust 生态的模型接入与工具调用适配层」，填补 Python 生态之外的空白。"
+        },
+        "en": {
+          "summary": "A Rust library for building modular LLM applications, shipping with a terminal coding agent built on it and extendable via Bevy plugins.",
+          "insight": "Fits embedding LLM capability into trading systems, edge devices or local servers. The angle is not another framework but a Rust-side adapter layer for model…"
+        }
+      },
+      "description": "⚙️🦀 Build modular and scalable LLM Applications in Rust",
+      "category": "AI 基础设施 / 模型",
+      "language": "Rust",
+      "stars": 9293,
+      "stars_today": 15,
+      "topics": [
+        "agent",
+        "ai",
+        "artificial-intelligence",
+        "automation",
+        "generative-ai",
+        "large-language-model",
+        "llm",
+        "llmops",
+        "rust",
+        "scalable-ai"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.18
+    },
+    {
+      "repo": "NYLLON-SOFTWARE/SignuDoc",
+      "url": "https://github.com/NYLLON-SOFTWARE/SignuDoc",
+      "content": {
+        "zh": {
+          "summary": "开源自托管电子签名平台，上传 PDF、放置签名字段、发送签署链接，并保留带审计证书的密封副本。部署在自己的 Vercel 账号上，免费额度约每月 250 份文档，按人头收费的模式被直接绕开。",
+          "insight": "适合被 DocuSign 按席位收费压得难受的中小团队。可借角度是做垂直合规版本，比如面向律所或房产中介的签署流程，加上本地化存证和行业模板，而不是拼通用功能。"
+        },
+        "en": {
+          "summary": "A self-hosted e-signature platform: upload a PDF, place fields, send signing links, and keep a sealed copy with an audit certificate.",
+          "insight": "Aimed at small teams squeezed by per-seat e-signature fees. The opening is a vertical compliance edition for law firms or real estate,"
+        }
+      },
+      "description": "Open-source document signature platform. Not affiliated with DocuSign.",
+      "category": "开发工具 / CLI",
+      "language": "TypeScript",
+      "stars": 3566,
+      "stars_today": 197,
+      "topics": [],
+      "sources": [
+        "trending"
+      ],
+      "score": 27.24
+    },
+    {
+      "repo": "louis-e/arnis",
+      "url": "https://github.com/louis-e/arnis",
+      "content": {
+        "zh": {
+          "summary": "用 OpenStreetMap 和海拔数据把现实世界的任意地点高精度生成到 Minecraft 中，支持 Java 版、基岩版、Luanti 和 Hytale，能处理大规模地理数据，生成家乡、城市或自然景观。",
+          "insight": "面向教育、城市规划和游戏内容创作者。可借角度是做「真实城市数字孪生的轻量展示层」，把 OSM 数据转成可漫游场景用于规划汇报或文旅宣传，比专业 GIS 更容易被非技术决策者接受。"
+        },
+        "en": {
+          "summary": "Generates any real-world location into Minecraft at high detail using OpenStreetMap and elevation data, supporting Java, Bedrock, Luanti and Hytale,",
+          "insight": "For education, urban planning and content creators. The angle is a lightweight digital-twin viewer that turns OSM data into walkable scenes for planning…"
+        }
+      },
+      "description": "Generate any location from the real world in Minecraft with a high level of detail.",
+      "category": "开发工具 / CLI",
+      "language": "Rust",
+      "stars": 18872,
+      "stars_today": 15,
+      "topics": [
+        "minecraft",
+        "minecraft-world-generator",
+        "openstreetmap",
+        "osm",
+        "overpass-turbo",
+        "procedural-generation",
+        "rust",
+        "tauri"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 26.03
+    },
+    {
+      "repo": "Hut-hzf/ung220z-tool",
+      "url": "https://github.com/Hut-hzf/ung220z-tool",
+      "content": {
+        "zh": {
+          "summary": "光猫凭据自查工具箱，针对 UNG220Z 一键提取，另含中兴、烽火、华为、九联多厂商适配和固件指纹识别。走 Telnet 通道直接读配置库，拿到当下有效的凭据，解决 Web 密码被 TR-069 定期轮换导致失效的问题。",
+          "insight": "面向装维人员和折腾家庭网络的用户。可借角度是做「家庭网络设备体检」工具，把凭据找回、固件版本、端口暴露风险打包成一次扫描报告，但必须严守仅限自有设备的边界。"
+        },
+        "en": {
+          "summary": "A credential self-check toolbox for fiber modems, with one-click extraction on UNG220Z and adapters for ZTE, FiberHome, Huawei and Unionman, plus firmware fingerprinting.",
+          "insight": "For installers and home-network tinkerers. The angle is a home network health check that bundles credential recovery,"
+        }
+      },
+      "description": "ung220z-tool 是一个针对 UNG220Z，另含中兴/烽火/华为/九联多厂商适配、固件指纹识别与分家族排障建议的一键凭据提取工具，仅限在你自己的设备上用于找回忘记的管理密码、迁移宽带配置或安全自查。",
+      "category": "安全 / 隐私",
+      "language": "Python",
+      "stars": 5915,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 28.63
+    },
+    {
+      "repo": "samuelgursky/davinci-resolve-mcp",
+      "url": "https://github.com/samuelgursky/davinci-resolve-mcp",
+      "content": {
+        "zh": {
+          "summary": "通过官方脚本 API 让 AI 助手控制达芬奇剪辑软件，覆盖剪辑、素材整理、渲染设置、调色、Fusion 和 Fairlight，并附带本地浏览器控制面板查看工程状态。解决的是视频后期重复操作耗时的问题。",
+          "insight": "面向小型后期工作室和自媒体团队，切「批量套用剪辑模板」或「素材自动归类打标」这类高频脏活。和通用 Agent 的差别在于它真的能改时间线，而不是只给建议。"
+        },
+        "en": {
+          "summary": "An MCP server that lets AI assistants drive DaVinci Resolve through the official scripting API, covering editing, media pool, render setup, grading, Fusion and Fairlight,",
+          "insight": "Target small post-production shops and solo creators with high-frequency chores like batch-applying edit templates or auto-tagging footage."
+        }
+      },
+      "description": "MCP server integration for DaVinci Resolve Studio",
+      "category": "Skill / 垂直工具",
+      "language": "Python",
+      "stars": 4464,
+      "stars_today": 57,
+      "topics": [
+        "blackmagic",
+        "blackmagic-design",
+        "blackmagicdesign",
+        "davinci-resolve",
+        "davinciresolve",
+        "mcp",
+        "mcp-server"
+      ],
+      "sources": [
+        "trending"
+      ],
+      "score": 25.32
+    },
+    {
+      "repo": "4lwayz/portwatch-vi",
+      "url": "https://github.com/4lwayz/portwatch-vi",
+      "content": {
+        "zh": {
+          "summary": "一个静态站点，追踪社区把 GTA VI 移植到 PC 的所有尝试，用统一进度条和排行榜展示每个项目的里程碑、可用部分和阻塞点，每三小时刷新一次数据。本质是把分散的极客热情做成可读的进度仪表盘。",
+          "insight": "这个模式可复制：为任何长期悬而未决的社区项目做「进度追踪站」，靠广告或周边变现。真正可借的是它的信息聚合结构，而不是 GTA 这个题材本身。"
+        },
+        "en": {
+          "summary": "A static site tracking every community effort to bring GTA VI to PC, scoring each on one ladder with progress bars, milestones and blockers, refreshed every three hours.",
+          "insight": "The pattern is copyable: build progress trackers for any long-running community project and monetize with ads or merch."
+        }
+      },
+      "description": "Does GTA VI run on PC yet? A live tracker of community recompilation and emulation efforts, updated daily.",
+      "category": "Skill / 垂直工具",
+      "language": "JavaScript",
+      "stars": 6835,
+      "stars_today": 0,
+      "topics": [],
+      "sources": [
+        "search"
+      ],
+      "score": 31.01
+    }
+  ]
+}

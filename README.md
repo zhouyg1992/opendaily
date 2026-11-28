@@ -11,65 +11,67 @@
 ---
 
 <!-- DIGEST:START -->
-## [2026.11.27 · 周五](daily/zh/2026-11-27.md)
+## [2026.11.28 · 周六](daily/zh/2026-11-28.md)
 
-> 今天这批项目共同指向一个变化：agent 正在从「框架竞赛」转向「接线与落地」。一边是工具目录、沙箱、手机操控、代码审查插件这类让 agent 真正能干活的基础设施，另一边是语言、字体、桌面框架这些老派工程问题被重新翻出来。对创业者来说，机会不在再造一个 agent，而在补上 agent 与真实世界之间那些粗糙的接口。
+> 今天这批项目透露出一个共同信号：AI 正在从「能聊」转向「能动手」——控制终端、操作剪辑软件、生成真实地理世界、在沙箱里大规模跑任务。与此同时，一批小而具体的工具在解决被大厂忽视的实际痛点，比如自建电子签名、光猫密码找回。机会不在再造一个通用框架，而在把 AI 的执行能力接到具体行业的具体动作上。
 
 ### AI / Agent 工具
 
-* **[phone-harness/phone-harness](https://github.com/phone-harness/phone-harness)** — 让 Claude Code、Codex 等 agent 直接操作真实手机：iPhone 走 Mac 的镜像窗口，Android 走 adb，手机端无需越狱或安装任何东西。agent 可以滚动、点击、输入并读取屏幕内容。
+* **[mastra-ai/mastra](https://github.com/mastra-ai/mastra)** — 面向 TypeScript 技术栈的 AI 应用与 Agent 框架，覆盖模型路由、工作流、评估和部署，能接入 React、Next.js、Node，也可作为独立服务器运行。解决的是 JS 团队从原型到生产缺少统一脚手架的问题。
 
-  > 灵感：最直接的切口是移动端自动化测试和 App 上架前的回归验证，这块目前靠人工点。也可以做「个人手机任务代理」的托管版，但要注意账号风控和隐私边界。
+  > 灵感：前端团队想做 AI 功能时，往往卡在后端编排。可借角度是基于它做「Next.js 项目一键加 AI 能力」的模板市场或托管服务，卖的是开箱即用的行业工作流，而非框架本身。
 
-* **[SWE-agent/mini-swe-agent](https://github.com/SWE-agent/mini-swe-agent)** — 一百行代码的软件工程 agent，没有庞大配置和 monorepo，在 SWE-bench verified 上仍拿到 74% 以上，被 Meta、NVIDIA 等采用。它的价值在于证明简单架构加好模型已经够用。
+* **[wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP)** — 给 Claude 等客户端提供终端控制、文件系统搜索和差分编辑能力的 MCP 服务器，让 AI 能直接跑命令、改文件、自动化任务，并复用宿主客户端的订阅而非额外 API 费用。解决的是 AI 编辑器能力受限的问题。
 
-  > 灵感：适合作为教学和内部工具的起点：想给团队做定制化修 issue 流程，从这一百行改起比接框架快得多。也可以围绕它做评测和可观测性，而不是再造 agent。
-
-* **[lsernau/grh-lean](https://github.com/lsernau/grh-lean)** — 一份用 Lean 4 写成的黎曼猜想与 Dirichlet L 函数广义黎曼猜想的证明，基于 Mathlib，只用了三条标准公理，作者注明是与 Anthropic 同事及 Claude 协作产出的精简版。
-
-  > 灵感：重点不在数学结论是否被接受，而在于「AI 参与形式化证明」这条工作流已经能产出可机器检查的成果。做科研工具的人可以关注 Lean 项目管理和证明审查这一层。
+  > 灵感：适合重度使用 AI 编码但受限于编辑器沙箱的开发者。可借角度是做「终端操作的安全护栏与回滚层」，记录每条命令、支持一键撤销，卖给担心 AI 误删文件的企业团队。
 
 ### AI 基础设施 / 模型
 
-* **[superdesigndev/treg](https://github.com/superdesigndev/treg)** — 把「模型路由」的思路搬到工具上：一个 base URL、一个 token，agent 就能调用数千个按次计价的第三方 API，覆盖 SEO、社交趋势、抓取、图像视频生成，无需逐个注册厂商。团队成员自己的密钥和 CLI 也能挂上去共享。
+* **[agent-substrate/substrate](https://github.com/agent-substrate/substrate)** — 面向 Kubernetes 的零信任 Agent 沙箱运行时，号称密度是普通容器的十倍，冷启动恢复低于 500 毫秒，每秒可激活 500 个以上 Agent，并为每个 Agent 隔离计算、身份、网络和存储，把敏感凭据挡在不可信代码之外。
 
-  > 灵感：真正的卖点在凭据托管和按次计费，而不是目录本身。可以切「小团队 agent 共用一套付费工具」的场景，做用量分账和权限审计，这是目前各家 agent 平台都没认真做的部分。
+  > 灵感：这是基础设施层，不适合直接做产品。可借的角度是：为需要跑大量不可信 Agent 的企业提供托管沙箱服务，或在其上做「Agent 执行审计」中间件，卖合规而非算力。
 
-* **[TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox)** — 腾讯云开源的 agent 沙箱服务，基于 RustVMM 和 KVM 做硬件隔离，兼容 E2B SDK，单次创建低于 60ms、内存开销不到 5MB，支持单机到多机集群。解决的是 agent 执行任意代码时的隔离与并发问题。
+* **[gepa-ai/gepa](https://github.com/gepa-ai/gepa)** — 用 LLM 反思加帕累托进化搜索来优化任何文本参数，包括提示词、代码、Agent 架构和配置。与强化学习不同，它让模型读完整执行轨迹，从报错和日志里诊断失败原因再提改进，而不是压缩成单一奖励。
 
-  > 灵感：适合做「agent 代码执行」这一层的替代方案，尤其是对延迟和密度敏感的批量任务。与 E2B 兼容意味着迁移成本低，可以从成本敏感的中小团队切入做托管服务。
+  > 灵感：适合已经在跑 Agent 但效果卡住的团队。可借角度是做「提示词与 Agent 配置的持续调优服务」，按评估指标收费，切的是那些有评测集但缺调优人力的公司。
+
+* **[0xPlaygrounds/rig](https://github.com/0xPlaygrounds/rig)** — 用 Rust 构建模块化 LLM 应用的库，同时附带一个基于该库、可用 Bevy 插件扩展的终端编码 Agent。面向对性能、内存和类型安全有要求的团队，把 LLM 应用从脚本语言拉回系统级语言。
+
+  > 灵感：适合要把 LLM 能力嵌进高频交易、边缘设备或本地服务端的场景。可借角度不是做框架，而是做「Rust 生态的模型接入与工具调用适配层」，填补 Python 生态之外的空白。
 
 ### 开发工具 / CLI
 
-* **[openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc)** — OpenAI 官方出的 Claude Code 插件，让用户在 Claude Code 里调用 Codex 做代码审查或把任务转交出去，包含只读审查、对抗式审查和后台任务管理命令。本质是把两个竞争产品接在一起。
+* **[NYLLON-SOFTWARE/SignuDoc](https://github.com/NYLLON-SOFTWARE/SignuDoc)** — 开源自托管电子签名平台，上传 PDF、放置签名字段、发送签署链接，并保留带审计证书的密封副本。部署在自己的 Vercel 账号上，免费额度约每月 250 份文档，按人头收费的模式被直接绕开。
 
-  > 灵感：信号意义大于工具本身：模型厂商开始接受「用户不会只用一个 agent」。可以借这个思路做跨 agent 的会话交接和结果汇总层，面向已经在混用多个编码助手的团队。
+  > 灵感：适合被 DocuSign 按席位收费压得难受的中小团队。可借角度是做垂直合规版本，比如面向律所或房产中介的签署流程，加上本地化存证和行业模板，而不是拼通用功能。
 
-* **[bendlang/bend](https://github.com/bendlang/bend)** — Bend 2 把自己定位成「给 AI 写代码用的语言」：用 dependent types 和证明让意图无歧义，并能机械验证 AI 是否按 prompt 实现，同时编译器目标是对标 C 和 CUDA 的性能。
+* **[louis-e/arnis](https://github.com/louis-e/arnis)** — 用 OpenStreetMap 和海拔数据把现实世界的任意地点高精度生成到 Minecraft 中，支持 Java 版、基岩版、Luanti 和 Hytale，能处理大规模地理数据，生成家乡、城市或自然景观。
 
-  > 灵感：短期内更像趋势信号而非可落地产品。真正可切的是「AI 生成代码的形式化校验」这一环，面向对正确性敏感的金融、嵌入式团队，而不是让人类换语言。
+  > 灵感：面向教育、城市规划和游戏内容创作者。可借角度是做「真实城市数字孪生的轻量展示层」，把 OSM 数据转成可漫游场景用于规划汇报或文旅宣传，比专业 GIS 更容易被非技术决策者接受。
 
-* **[Marvisak/VIctory](https://github.com/Marvisak/VIctory)** — 尝试在 Windows 上原生运行 GTA VI 的 Xbox 版本：游戏 x86-64 代码原样跑在自有进程里，项目补上平台层并转换资源。目前能启动、过菜单、加载世界，但帧率只有约 1 帧。
+### 安全 / 隐私
 
-  > 灵感：技术上属于平台重实现，短期没有商业路径。但配套的进度追踪站说明「等待某款独占游戏上 PC」本身有流量，做垂直等待页和社区工具是更现实的小生意。
+* **[Hut-hzf/ung220z-tool](https://github.com/Hut-hzf/ung220z-tool)** — 光猫凭据自查工具箱，针对 UNG220Z 一键提取，另含中兴、烽火、华为、九联多厂商适配和固件指纹识别。走 Telnet 通道直接读配置库，拿到当下有效的凭据，解决 Web 密码被 TR-069 定期轮换导致失效的问题。
 
-### 前端 / 设计
+  > 灵感：面向装维人员和折腾家庭网络的用户。可借角度是做「家庭网络设备体检」工具，把凭据找回、固件版本、端口暴露风险打包成一次扫描报告，但必须严守仅限自有设备的边界。
 
-* **[egoist/mygo](https://github.com/egoist/mygo)** — 用 Go 写桌面应用，每个窗口可以是系统自带 webview 里的网页，也可以是用 Go 直接写、由框架在 GPU 上绘制的原生 UI，最终产物是几 MB 的单二进制，主打低内存和低 CPU。
+### Skill / 垂直工具
 
-  > 灵感：切的是「内部工具和常驻小工具」这块被 Electron 吃掉太久的市场。面向需要长期挂在后台、对内存敏感的场景，比如运维面板、本地 agent 的桌面壳。
+* **[samuelgursky/davinci-resolve-mcp](https://github.com/samuelgursky/davinci-resolve-mcp)** — 通过官方脚本 API 让 AI 助手控制达芬奇剪辑软件，覆盖剪辑、素材整理、渲染设置、调色、Fusion 和 Fairlight，并附带本地浏览器控制面板查看工程状态。解决的是视频后期重复操作耗时的问题。
 
-* **[intel/intel-one-mono](https://github.com/intel/intel-one-mono)** — Intel 开源的等宽字体，与 Frere-Jones Type 合作设计，专门针对低视力和法定盲开发者做可读性优化，覆盖 200 多种拉丁字母语言，目标是减少编码疲劳和错误。
+  > 灵感：面向小型后期工作室和自媒体团队，切「批量套用剪辑模板」或「素材自动归类打标」这类高频脏活。和通用 Agent 的差别在于它真的能改时间线，而不是只给建议。
 
-  > 灵感：不是创业项目，但提示了一个被忽视的用户群：无障碍不是合规清单，而是编辑器、终端、IDE 主题的差异化卖点。做开发者工具的人可以直接换默认字体。
+* **[4lwayz/portwatch-vi](https://github.com/4lwayz/portwatch-vi)** — 一个静态站点，追踪社区把 GTA VI 移植到 PC 的所有尝试，用统一进度条和排行榜展示每个项目的里程碑、可用部分和阻塞点，每三小时刷新一次数据。本质是把分散的极客热情做成可读的进度仪表盘。
 
-[本期 Markdown](daily/zh/2026-11-27.md)
+  > 灵感：这个模式可复制：为任何长期悬而未决的社区项目做「进度追踪站」，靠广告或周边变现。真正可借的是它的信息聚合结构，而不是 GTA 这个题材本身。
+
+[本期 Markdown](daily/zh/2026-11-28.md)
 
 ### 往期
 
 #### 2026 年
 
-**11 月**：[27](daily/zh/2026-11-27.md) · [26](daily/zh/2026-11-26.md) · [25](daily/zh/2026-11-25.md) · [24](daily/zh/2026-11-24.md) · [23](daily/zh/2026-11-23.md) · [22](daily/zh/2026-11-22.md) · [21](daily/zh/2026-11-21.md) · [20](daily/zh/2026-11-20.md) · [19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
+**11 月**：[28](daily/zh/2026-11-28.md) · [27](daily/zh/2026-11-27.md) · [26](daily/zh/2026-11-26.md) · [25](daily/zh/2026-11-25.md) · [24](daily/zh/2026-11-24.md) · [23](daily/zh/2026-11-23.md) · [22](daily/zh/2026-11-22.md) · [21](daily/zh/2026-11-21.md) · [20](daily/zh/2026-11-20.md) · [19](daily/zh/2026-11-19.md) · [12](daily/zh/2026-11-12.md) · [11](daily/zh/2026-11-11.md) · [10](daily/zh/2026-11-10.md) · [9](daily/zh/2026-11-09.md) · [8](daily/zh/2026-11-08.md) · [7](daily/zh/2026-11-07.md) · [6](daily/zh/2026-11-06.md) · [5](daily/zh/2026-11-05.md) · [4](daily/zh/2026-11-04.md) · [3](daily/zh/2026-11-03.md) · [2](daily/zh/2026-11-02.md) · [1](daily/zh/2026-11-01.md)
 
 **10 月**：[31](daily/zh/2026-10-31.md) · [30](daily/zh/2026-10-30.md) · [29](daily/zh/2026-10-29.md) · [28](daily/zh/2026-10-28.md) · [27](daily/zh/2026-10-27.md) · [26](daily/zh/2026-10-26.md) · [25](daily/zh/2026-10-25.md) · [24](daily/zh/2026-10-24.md) · [23](daily/zh/2026-10-23.md) · [22](daily/zh/2026-10-22.md) · [21](daily/zh/2026-10-21.md) · [20](daily/zh/2026-10-20.md)
 
